@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 41 屆 信託業務人員專業測驗 - 信託法規（題目與解析）</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --success: #16a34a;
+      --success-light: #f0fdf4;
+      --success-border: #86efac;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --border: #e2e8f0;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --text-main: #f1f5f9;
+      --text-sub: #94a3b8;
+      --border: #334155;
+      --primary-light: #1e3a8a33;
+      --primary-border: #1e3a8a;
+      --success-light: #064e3b33;
+      --success-border: #065f46;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding: 0 0 60px 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Top Sticky Header */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    [data-theme="dark"] .top-bar {
+      background: rgba(30, 41, 59, 0.92);
+    }
+
+    .title-group h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-sub {
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .controls-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-active:hover {
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* Info Banner */
+    .info-banner {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .info-stats {
+      display: flex;
+      gap: 20px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+    .stat-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Question Navigation Grid */
+    .nav-drawer {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .nav-drawer-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-sub);
+    }
+    .q-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: 6px;
+    }
+    .q-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .q-nav-item:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Question Cards */
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      scroll-margin-top: 80px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .question-card:hover {
+      border-color: var(--primary-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .q-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .q-number-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .q-score {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+    .q-answer-badge {
+      background: var(--success-light);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+    body.hide-answers .q-answer-badge {
+      display: none;
+    }
+
+    .q-topic-tag {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    /* Options */
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      transition: all 0.15s;
+    }
+    .opt-prefix {
+      font-weight: 600;
+      color: var(--text-sub);
+      margin-right: 10px;
+      min-width: 28px;
+    }
+    .opt-content {
+      flex: 1;
+    }
+    .opt-badge {
+      display: none;
+      background: var(--success);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      margin-left: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Correct option styling */
+    .option-item.is-correct {
+      border-color: var(--success-border);
+      background: var(--success-light);
+    }
+    .option-item.is-correct .opt-prefix {
+      color: var(--success);
+    }
+    .option-item.is-correct .opt-badge {
+      display: inline-block;
+    }
+
+    /* When answers are hidden */
+    body.hide-answers .option-item.is-correct {
+      border-color: var(--border);
+      background: var(--bg);
+    }
+    body.hide-answers .option-item.is-correct .opt-prefix {
+      color: var(--text-sub);
+    }
+    body.hide-answers .option-item.is-correct .opt-badge {
+      display: none;
+    }
+
+    /* Note & Explanation */
+    .q-note {
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    [data-theme="dark"] .q-note {
+      background: #78350f33;
+      border-color: #78350f;
+      color: #fde68a;
+    }
+
+    .q-explanation {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+    body.hide-answers .q-explanation {
+      display: none;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--primary);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 90;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .controls-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .question-card {
+        padding: 16px;
+      }
+    }
+  </style>
+<style id="integrated-catalog-style">
+.integrated-catalog-nav{box-sizing:border-box;display:flex;align-items:center;gap:.75rem;min-height:3.25rem;padding:.5rem clamp(1rem,3vw,2rem);background:#f8fafc;color:#172b43;border-bottom:1px solid #d9e2ec;font:500 .92rem/1.4 system-ui,-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif}
+.integrated-catalog-brand{display:flex;align-items:center;gap:.6rem;color:#173c61!important;font-weight:750;text-decoration:none!important;white-space:nowrap}
+.integrated-catalog-mark{display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:.35rem;background:#175ca8;color:#fff;font-weight:800}
+.integrated-catalog-subject{color:#566679;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.integrated-catalog-return{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;min-height:2.25rem;padding:.35rem .75rem;border:1px solid #a9bfd3;border-radius:.4rem;background:#fff;color:#174f82!important;font-weight:700;text-decoration:none!important;white-space:nowrap}
+.integrated-catalog-return:hover{background:#eaf2fb;border-color:#175ca8}
+.integrated-catalog-nav a:focus-visible,.question-bank-browser :focus-visible{outline:3px solid #f0a524;outline-offset:2px}
+@media(max-width:520px){.integrated-catalog-nav{gap:.5rem;padding-inline:.75rem;font-size:.82rem}.integrated-catalog-subject{display:none}.integrated-catalog-return{padding-inline:.55rem}}
+</style>
+</head>
+<body>
+<nav id="integrated-catalog-nav" class="integrated-catalog-nav" aria-label="五科整合目錄">
+  <a class="integrated-catalog-brand" href="../../../index.html"><span class="integrated-catalog-mark" aria-hidden="true">學</span><span>五科教材與題庫</span></a>
+  <span class="integrated-catalog-subject">信託業務人員</span>
+  <a class="integrated-catalog-return" href="../../../index.html">← 返回五科目錄</a>
+</nav>
+
+
+  <header class="top-bar">
+    <div class="title-group">
+      <h1>
+        第 41 屆 信託業務人員測驗
+        <span class="badge-sub">信託法規</span>
+      </h1>
+    </div>
+    <div class="controls-group">
+      <button class="btn btn-active" id="toggleAnsBtn" onclick="toggleAnswers()">
+        <span id="ansBtnIcon">👁️</span> <span id="ansBtnText">隱藏解答 (刷題模式)</span>
+      </button>
+      <button class="btn" onclick="toggleTheme()">🌓 模式</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="info-banner">
+      <div class="info-stats">
+        <div class="stat-item">
+          <span class="stat-label">科目名稱</span>
+          <span class="stat-value">信託法規</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">總題數</span>
+          <span class="stat-value">50 題</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">單題配分</span>
+          <span class="stat-value">2.0 分</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">及格門檻</span>
+          <span class="stat-value">70 分</span>
+        </div>
+      </div>
+      <div>
+        <span style="font-size:0.85rem; color:var(--text-sub);">💡 題目旁邊已直接標註正確解答，亦可一鍵切換刷題模式</span>
+      </div>
+    </section>
+
+    <!-- 題號快速導覽 -->
+    <details class="nav-drawer" open>
+      <summary class="nav-drawer-title" style="cursor:pointer; outline:none;">
+        📑 快速跳轉目錄（點選題號直達題目）
+      </summary>
+      <div class="q-nav-grid" style="margin-top:10px;">
+        <a href="#q-1" class="q-nav-item" title="第 1 題">1</a><a href="#q-2" class="q-nav-item" title="第 2 題">2</a><a href="#q-3" class="q-nav-item" title="第 3 題">3</a><a href="#q-4" class="q-nav-item" title="第 4 題">4</a><a href="#q-5" class="q-nav-item" title="第 5 題">5</a><a href="#q-6" class="q-nav-item" title="第 6 題">6</a><a href="#q-7" class="q-nav-item" title="第 7 題">7</a><a href="#q-8" class="q-nav-item" title="第 8 題">8</a><a href="#q-9" class="q-nav-item" title="第 9 題">9</a><a href="#q-10" class="q-nav-item" title="第 10 題">10</a><a href="#q-11" class="q-nav-item" title="第 11 題">11</a><a href="#q-12" class="q-nav-item" title="第 12 題">12</a><a href="#q-13" class="q-nav-item" title="第 13 題">13</a><a href="#q-14" class="q-nav-item" title="第 14 題">14</a><a href="#q-15" class="q-nav-item" title="第 15 題">15</a><a href="#q-16" class="q-nav-item" title="第 16 題">16</a><a href="#q-17" class="q-nav-item" title="第 17 題">17</a><a href="#q-18" class="q-nav-item" title="第 18 題">18</a><a href="#q-19" class="q-nav-item" title="第 19 題">19</a><a href="#q-20" class="q-nav-item" title="第 20 題">20</a><a href="#q-21" class="q-nav-item" title="第 21 題">21</a><a href="#q-22" class="q-nav-item" title="第 22 題">22</a><a href="#q-23" class="q-nav-item" title="第 23 題">23</a><a href="#q-24" class="q-nav-item" title="第 24 題">24</a><a href="#q-25" class="q-nav-item" title="第 25 題">25</a><a href="#q-26" class="q-nav-item" title="第 26 題">26</a><a href="#q-27" class="q-nav-item" title="第 27 題">27</a><a href="#q-28" class="q-nav-item" title="第 28 題">28</a><a href="#q-29" class="q-nav-item" title="第 29 題">29</a><a href="#q-30" class="q-nav-item" title="第 30 題">30</a><a href="#q-31" class="q-nav-item" title="第 31 題">31</a><a href="#q-32" class="q-nav-item" title="第 32 題">32</a><a href="#q-33" class="q-nav-item" title="第 33 題">33</a><a href="#q-34" class="q-nav-item" title="第 34 題">34</a><a href="#q-35" class="q-nav-item" title="第 35 題">35</a><a href="#q-36" class="q-nav-item" title="第 36 題">36</a><a href="#q-37" class="q-nav-item" title="第 37 題">37</a><a href="#q-38" class="q-nav-item" title="第 38 題">38</a><a href="#q-39" class="q-nav-item" title="第 39 題">39</a><a href="#q-40" class="q-nav-item" title="第 40 題">40</a><a href="#q-41" class="q-nav-item" title="第 41 題">41</a><a href="#q-42" class="q-nav-item" title="第 42 題">42</a><a href="#q-43" class="q-nav-item" title="第 43 題">43</a><a href="#q-44" class="q-nav-item" title="第 44 題">44</a><a href="#q-45" class="q-nav-item" title="第 45 題">45</a><a href="#q-46" class="q-nav-item" title="第 46 題">46</a><a href="#q-47" class="q-nav-item" title="第 47 題">47</a><a href="#q-48" class="q-nav-item" title="第 48 題">48</a><a href="#q-49" class="q-nav-item" title="第 49 題">49</a><a href="#q-50" class="q-nav-item" title="第 50 題">50</a>
+      </div>
+    </details>
+
+    <!-- 題目清單 -->
+    <section class="questions-list">
+      
+      <article class="question-card" id="q-1" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 1 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">登記公示與對抗效力</span>
+        </div>
+        
+        <div class="q-text">有關信託登記之規定，下列何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">以股票為信託者，通知發行公司即可對抗第三人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">以應註冊之財產權為信託者，非經信託登記不得對抗第三人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業接受以應登記之財產權為信託時，應依有關規定為信託登記，否則不能對抗第三人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託業接受以有價證券為信託者，應依目的事業主管機關規定，於證券上或其他表彰權利之文件上載明為信託財產</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-2" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 2 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">下列何者非基於信託當事人之法律行為而成立？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">契約信託</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">遺囑信託</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">宣言信託</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">法定信託</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-3" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 3 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">依信託之分類，下列何者非屬「設立信託」？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">契約信託</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">遺囑信託</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">法定信託</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">宣言信託</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-4" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 4 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">除信託行為另有訂定外，有關受託人因信託財產毀損所取得之保險金或補償金，下列敘述何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">屬於信託財產</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">屬於受託人自有財產</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">屬於受益人自有財產</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">回復為委託人自有財產</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-5" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 5 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">財產獨立性與強制執行</span>
+        </div>
+        
+        <div class="q-text">受託人因處理信託事務負擔債務者，其債權人於取得執行名義後，得否對信託財產強制執行？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">得對信託財產強制執行</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">不得對信託財產強制執行</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">以經受益人同意者為限，得對信託財產強制執行</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">以當事人間有特別訂定者為限，得對信託財產強制執行</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-6" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 6 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">有關私益信託之信託三大確定性，就受益人須確定之原則，下列敘述何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">信託成立時受益人須存在但得不確定</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">信託成立時受益人得尚未存在並得不確定</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託成立時受益人得尚未存在但須可得確定</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託成立時受益人須特定否則不符合受益人須確定之原則</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-7" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 7 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">受益人權利與撤銷救濟</span>
+        </div>
+        
+        <div class="q-text">依信託法規定，受託人違反信託本旨處分信託財產時，下列何者不屬於委託人之權利？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">請求減免報酬</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">請求回復原狀</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">聲請法院撤銷其處分</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">請求以金錢賠償信託財產所受損害</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-8" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 8 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">受託人義務報酬與責任</span>
+        </div>
+        
+        <div class="q-text">對受託人就信託財產或處理信託事務所支出之稅捐、費用或負擔之債務，下列敘述何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受託人得以信託財產充之</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">該項權利之行使不符信託目的時，不得為之</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">該項費用，受託人有優先於擔保債權人受償之權</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">受託人於其權利未獲滿足前，得拒絕將信託財產交付受益人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-9" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 9 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">財產獨立性與強制執行</span>
+        </div>
+        
+        <div class="q-text">依信託法規定，受託人經下列何者之書面同意，並依市價取得者，得將信託財產轉為自有財產？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">委託人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">其他受託人</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">受益人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託監察人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-10" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 10 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">受益人權利與撤銷救濟</span>
+        </div>
+        
+        <div class="q-text">受託人違反信託本旨處分信託財產時，受益人得聲請法院撤銷其處分，下列敘述何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受益人有數人者，得由其中一人為之</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">撤銷權自處分時起，逾十年不行使而消滅</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">撤銷權自受益人知有撤銷原因時起，一年間不行使而消滅</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託財產為應登記之財產時，如未為信託登記仍得聲請撤銷</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-11" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 11 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">受託人義務報酬與責任</span>
+        </div>
+        
+        <div class="q-text">受託人於處理信託事務時，不得圖謀自身或第三人之利益，屬於受託人何種義務？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">忠實義務</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">直接管理義務</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">分別管理義務</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">善良管理人注意義務</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-12" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 12 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">受益人權利與撤銷救濟</span>
+        </div>
+        
+        <div class="q-text">受託人僅於下列何種情形時，得例外享有信託利益？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受託人與委託人為同一人時</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">受託人與他人為共同受託人時</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">受託人與他人為共同受益人時</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">受託人與他人為共同委託人時</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-13" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 13 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">終止變更與剩餘財產歸屬</span>
+        </div>
+        
+        <div class="q-text">下列何者為信託關係當然消滅之原因？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受託人終止</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">受益人死亡</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">委託人破產或喪失行為能力</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託行為所定事由發生</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-14" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 14 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">公益信託與監督機關</span>
+        </div>
+        
+        <div class="q-text">公益信託成立後發生信託行為當時不能預見之情事時，下列何者得參酌信託本旨，變更信託條款？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受益人大會</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">金管會</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">目的事業主管機關</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託監察人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-15" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 15 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">設立能力與監督管轄</span>
+        </div>
+        
+        <div class="q-text">下列何種信託由法院監督？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">公益信託</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">私益信託中之非營業信託</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">營業信託</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">特殊目的信託</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-16" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 16 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">信託關係消滅時，除信託行為另有訂定外，有關信託財產之歸屬，下列何者為第一順序？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">國庫</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">受託人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">目的事業主管機關</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">享有全部信託利益之受益人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-17" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 17 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">信託監察人</span>
+        </div>
+        
+        <div class="q-text">未成年人可否擔任信託監察人？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">不得擔任信託監察人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">經法院許可者可擔任信託監察人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">經其法定代理人同意者可擔任信託監察人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">經受益人及委託人同意者可擔任信託監察人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-18" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 18 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">公益信託與監督機關</span>
+        </div>
+        
+        <div class="q-text">委託人甲捐助設立教育公益信託，並選任乙擔任受託人及丙為信託監察人，如乙有正當理由時，得經下列何種方式辭任？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">經甲同意</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">經丙同意</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">經教育部同意</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">經法務部同意</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-19" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 19 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">成立方式與信託分類</span>
+        </div>
+        
+        <div class="q-text">有關遺囑信託成立與生效之敘述，下列何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">遺囑信託成立之時點為立遺囑人死亡時</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">遺囑信託之成立時點為信託財產移轉給受託人時</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">遺囑信託之生效時點，為信託財產移轉給受託人，而其效力溯及於遺囑人死亡時生效</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">雖遺囑信託指定之受益人於遺囑人死亡前已死亡，該遺囑信託仍可生效</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-20" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 20 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">公益信託與監督機關</span>
+        </div>
+        
+        <div class="q-text">在公益信託之情形，遺囑指定之受託人拒絕或不能接受信託時，除信託行為另有訂定外，有關受託人之選任，下列敘述何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">委託人之繼承人得指定受託人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">檢察官得申請目的事業主管機關選任受託人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">利害關係人得申請目的事業主管機關選任受託人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">目的事業主管機關得依職權選任受託人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-21" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 21 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">設立標準與分支機構</span>
+        </div>
+        
+        <div class="q-text">依信託業設立標準規定，信託公司之發起人及股東，除金融控股公司或符合特定資格條件之銀行或保險機構或基金管理機構及不動產管理機構外，同一人或同一關係人持有同一信託公司之股份，分別不得超過該公司已發行股份總數之多少比例？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">百分之五十</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">百分之四十</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">百分之三十</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">百分之二十五</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-22" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 22 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">設立標準與分支機構</span>
+        </div>
+        
+        <div class="q-text">信託業之設立，採取下列何種制度？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">設立制</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">申報制</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">許可制</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">公證制</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-23" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 23 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">業務範圍與禁止保本保息</span>
+        </div>
+        
+        <div class="q-text">有關銀行經營信託業務之敘述，下列何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">指撥營運資金得充當信託業法規定之賠償準備金</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">關於客戶之往來、交易資料，除其他法律或主管機關另有規定外，應保守秘密</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">除其他法律另有規定外，準用金融控股公司法第六章有關信託投資公司之規定辦理</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">營業及會計必須獨立</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-24" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 24 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">業務範圍與禁止保本保息</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，信託業不得以信託財產借入款項，但下列何種情況可不受限制？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">以開發為目的之土地信託，依信託契約約定者</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">以公益為目的之土地信託，經信託監察人同意者</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">以開發為目的之土地信託，經委託人會議決議者</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">以投資為目的之有價證券信託，依信託契約約定並經全體受益人同意者</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-25" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 25 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">基本義務與契約記載事項</span>
+        </div>
+        
+        <div class="q-text">有關信託業應遵守之基本義務，下列何者係屬誠實義務？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">信託財產非經委託人同意不得辦理放款</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">以開發為目的之土地信託非經全體受益人同意，不得以信託財產借入款項</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">對信託財產具運用決定權者不得兼任其他業務之經營</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託業不得對委託人或受益人有虛偽、詐欺或足致他人誤信之行為</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-26" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 26 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">業務範圍與禁止保本保息</span>
+        </div>
+        
+        <div class="q-text">信託業得經營之附屬業務項目中，不包括下列何者？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">辦理保證業務</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">代理有價證券紅利之發放事項</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">擔任公司重整監督人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">辦理與信託業務有關不動產買賣及租賃之居間</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-27" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 27 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">單獨及集合管理分類與權限</span>
+        </div>
+        
+        <div class="q-text">甲以現金新臺幣一千萬元與乙銀行訂定指定單獨管理運用之金錢信託契約，並約定丙為受益人；若上市公司丁為乙銀行之利害關係人，請問乙銀行得否以信託財產購買丁公司之股票？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">不得購買</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">事先取得甲之書面同意即可購買</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">事先取得丙之書面同意即可購買</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">不須事先取得甲或丙之書面同意即可購買</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-28" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 28 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">基本義務與契約記載事項</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，關於信託業經營及處理信託事務，下列敘述何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">應以善良管理人之注意處理信託事務</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">在微利時代，得辦理保本保息之信託</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">不得對委託人有虛偽之行為</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">處理信託事務，應負忠實義務</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-29" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 29 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">利害關係人與利益衝突</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，信託業之利害關係人，指持有信託業或兼營信託業務之銀行已發行股份總數或資本總額多少比例以上者？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">百分之三</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">百分之四</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">百分之五</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">百分之七</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-30" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 30 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">信託業商業同業公會業務管理規則，由下列何者訂定？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">中華民國信託業商業同業公會</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">中華民國銀行商業同業公會全國聯合會</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業法之主管機關</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">中華民國全國商業總會</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-31" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 31 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">信託業違反法令時，主管機關得為之處置，下列何者正確？ A.糾正、命其限期改善 B.停止負責人職務 C.停止一部或全部業務 D.廢止營業許可</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">僅A</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">僅A、B、C</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">僅A、C、D</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">A、B、C、D</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-32" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 32 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">評審委員會與內部職責</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，信託業之董事長或總經理如發生變動，至遲應於事實發生之翌日起幾個營業日內，向主管機關申報？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">一個</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">二個</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">三個</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">五個</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-33" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 33 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">下列何者係為擔保信託業因違反受託人義務，而對委託人或受益人所負損害賠償、利益返還或其他責任之用？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">存款準備金</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">賠償準備金</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">流動準備金</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">營業保證金</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-34" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 34 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">賠償準備金與盈餘分配</span>
+        </div>
+        
+        <div class="q-text">有關信託業之盈餘分配，下列敘述何者錯誤？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">信託業於完納一切稅捐後，應先提存百分之三十為法定盈餘公積</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">法定盈餘公積未達資本總額前，其最高現金盈餘分配，不得超過資本總額之百分之十五</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">法定盈餘公積已達其資本總額時，其最高現金盈餘分配，不得超過資本總額之百分之三十</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">除法定盈餘公積外，信託業得依章程規定或經股東會決議，提列特別盈餘公積</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-35" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 35 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">信託業商業同業公會之理事有違反法令怠於實施該會章程、規則、濫用職權或違背誠實信用原則之行為時，主管機關得為下列何種處分？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">予以糾正或逕行解任該理事</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">予以糾正或命令監事解任該理事</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">予以糾正或命令該理事辭任</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">予以糾正或命令信託業商業同業公會解任該理事</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-36" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 36 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">經營組織與兼營獨立</span>
+        </div>
+        
+        <div class="q-text">有關信託業公司章程變更之敘述，下列何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">應經主管機關許可</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">不須經主管機關許可，惟應經經濟部許可</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">不須經主管機關許可，惟應經股東會決議通過</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">不須經主管機關許可，惟應經董事會多數決通過</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-37" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 37 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">銀行經主管機關派員接管者，其經營權及財產之管理處分權均由下列何者行使之？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">監管人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">清理人</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">接管人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">重整人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-38" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 38 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">財產評審報告與會計公告</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，信託財產評審委員會應將信託財產每幾個月評審一次，報告董事會？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">一個月</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">三個月</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">六個月</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">九個月</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-39" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 39 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">經營組織與兼營獨立</span>
+        </div>
+        
+        <div class="q-text">除兼營信託業務之銀行外，信託業自用不動產之購買總額不得超過下列何者？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">信託業之淨值</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">信託業實收資本總額</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業之自有財產總額</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託業所經理之信託財產總額</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-40" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 40 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">經營組織與兼營獨立</span>
+        </div>
+        
+        <div class="q-text">銀行申請分支機構兼營信託業務，下列何種情形，主管機關應不予許可？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">未符金融政策要求者</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">最近一年內營收狀況不佳者</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業務規模未達新臺幣五千萬元者</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">辦理信託業務經主管機關糾正其缺失，但已切實改善者</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-41" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 41 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">內控稽核與風險管理</span>
+        </div>
+        
+        <div class="q-text">有關信託公司稽核單位對營業單位、資訊單位及財物保管單位應辦理查核之規定，下列敘述何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">每年僅辦理一次一般查核即可</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">每年僅辦理一次專案查核即可</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">每年應至少辦理一次一般查核及一次專案查核</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">每年應至少辦理一次一般查核或一次專案查核</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-42" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 42 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">財產評審報告與會計公告</span>
+        </div>
+        
+        <div class="q-text">信託業之會計處理原則係由下列何者報請主管機關核定？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">會計師同業公會</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">銀行商業同業公會</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業本身</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">信託業商業同業公會</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-43" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 43 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">業務範圍與禁止保本保息</span>
+        </div>
+        
+        <div class="q-text">依信託業法規定，下列何者為信託業得辦理之業務？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">存款業務</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">證券承銷業務</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">授信業務</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">著作權之信託業務</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-44" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 44 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">監理處分罰則與損害賠償</span>
+        </div>
+        
+        <div class="q-text">信託業執行信託業務，如違反信託法或信託業法，致委託人或受益人受有損害，信託業應負損害賠償責任，下列何者正確？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">受託人須負舉證責任</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">委託人及受益人應向信託公會申請賠償</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">委託人及受益人須對該損害負舉證責任</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">除信託契約另有約定外，信託業收到委託人及受益人通知應立即賠償</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-45" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 45 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">利害關係人與利益衝突</span>
+        </div>
+        
+        <div class="q-text">下列何者屬於信託業之利害關係人？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">信託部會計科科長</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">有半數以上董事與信託業相同之公司</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託業持股比率超過百分之三之企業</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">持有信託業已發行股份總數百分之三者</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-46" data-ans="1">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 46 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(1)】</span>
+          </div>
+          <span class="q-topic-tag">信託課稅原則與形式移轉</span>
+        </div>
+        
+        <div class="q-text">信託課稅所稱之「實質課稅原則」，係指對下列何者課稅之原則？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">實質所得人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">實質支出人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">實質管理人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">所得發生時之所有權人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(1)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-47" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 47 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">所得稅與扣繳</span>
+        </div>
+        
+        <div class="q-text">個人成立、捐贈或加入符合所得稅法規定之公益信託之財產，得列綜合所得稅列舉扣除額申報捐贈之扣除比例上限為何？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">全數列入</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">所得總額百分之四十</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">所得總額百分之三十</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">所得總額百分之二十</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-48" data-ans="4">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 48 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(4)】</span>
+          </div>
+          <span class="q-topic-tag">遺產及贈與稅</span>
+        </div>
+        
+        <div class="q-text">委託人（自然人）以新臺幣一千萬元成立他益信託，逾期未申報繳納贈與稅，且在中華民國境內亦無財產可供執行者，應以下列何者為納稅義務人課徵贈與稅？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">委託人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">受益人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">信託監察人</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">受託人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(4)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-49" data-ans="2">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 49 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(2)】</span>
+          </div>
+          <span class="q-topic-tag">土地稅與土地增值稅</span>
+        </div>
+        
+        <div class="q-text">依土地稅法規定，受託人就受託土地，於信託關係存續中，依照信託本旨將土地出售，其應納土地增值稅之納稅義務人為下列何者？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">委託人</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">受託人</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">受益人</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">買受人</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(2)</strong>。
+        </div>
+      </article>
+    
+      <article class="question-card" id="q-50" data-ans="3">
+        <div class="q-header">
+          <div class="q-title-row">
+            <span class="q-number-badge">第 50 題</span>
+            <span class="q-score">(2.0 分)</span>
+            <span class="q-answer-badge">【正確答案：(3)】</span>
+          </div>
+          <span class="q-topic-tag">受託人義務報酬與責任</span>
+        </div>
+        
+        <div class="q-text">信託受託人短漏報信託收入者，應按其短計之所得額處以多少百分比之罰鍰，且不得少於新臺幣一萬五千元？</div>
+        
+        <div class="q-options">
+          
+        <div class="option-item ">
+          <span class="opt-prefix">(1)</span>
+          <span class="opt-content">百分之一</span>
+          
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(2)</span>
+          <span class="opt-content">百分之三</span>
+          
+        </div>
+      
+        <div class="option-item is-correct">
+          <span class="opt-prefix">(3)</span>
+          <span class="opt-content">百分之五</span>
+          <span class="opt-badge">✓ 正確答案</span>
+        </div>
+      
+        <div class="option-item ">
+          <span class="opt-prefix">(4)</span>
+          <span class="opt-content">百分之十</span>
+          
+        </div>
+      
+        </div>
+
+        
+
+        <div class="q-explanation">
+          <strong>【解答說明】</strong> 本題官方公告正確答案為 <strong>(3)</strong>。
+        </div>
+      </article>
+    
+    </section>
+  </main>
+
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="回頂端">↑</button>
+
+  <script>
+    let showAnswers = true;
+    function toggleAnswers() {
+      showAnswers = !showAnswers;
+      const btn = document.getElementById('toggleAnsBtn');
+      const text = document.getElementById('ansBtnText');
+      const icon = document.getElementById('ansBtnIcon');
+      
+      if (showAnswers) {
+        document.body.classList.remove('hide-answers');
+        btn.classList.add('btn-active');
+        text.innerText = '隱藏解答 (刷題模式)';
+        icon.innerText = '👁️';
+      } else {
+        document.body.classList.add('hide-answers');
+        btn.classList.remove('btn-active');
+        text.innerText = '顯示解答';
+        icon.innerText = '🎯';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('trust_exam_theme', next);
+    }
+
+    // Restore theme
+    const savedTheme = localStorage.getItem('trust_exam_theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Scroll to top button visibility
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>

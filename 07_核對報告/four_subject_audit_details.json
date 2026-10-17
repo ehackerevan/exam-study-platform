@@ -1,0 +1,125 @@
+{
+  "raw_official_pdf_questions": 7781,
+  "cleaned_official_pdf_questions": 7484,
+  "removed_by_existing_clean_rule": 297,
+  "raw_by_category": {
+    "金融科技力": 840,
+    "消費金融": 3255,
+    "永續發展": 1280,
+    "防制洗錢": 2406
+  },
+  "cleaned_by_category": {
+    "金融科技力": 839,
+    "消費金融": 2989,
+    "永續發展": 1268,
+    "防制洗錢": 2388
+  },
+  "removed_reasons": {
+    "單選題非標準答案格式 (＊)": 1,
+    "官方答案未公佈或未匹配到答案": 244,
+    "題幹為空": 23,
+    "官方送分/爭議/全體給分題 (標記: 一律給分)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: A.B.C\n.D)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 2或3)": 2,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 1或2)": 2,
+    "單選題非標準答案格式 (更正為4)": 1,
+    "官方送分/爭議/全體給分題 (標記: 凡作答一律給分)": 3,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: B.D)": 2,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 1234)": 2,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: C.D)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: A.B.\nC.D.)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 3 或4)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 1 或2 或3)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: A、B、C)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 1,2,3,12,13,23,123)": 1,
+    "答案索引 (4) 超出選項數量 (2)": 3,
+    "答案索引 (4) 超出選項數量 (3)": 1,
+    "複選題答案索引超出選項數量 (123)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 1,4,14)": 1,
+    "答案索引 (3) 超出選項數量 (2)": 1,
+    "單選題卻有兩個答案等有疑慮題目 (答案標記: 2,4,24)": 1,
+    "官方送分/爭議/全體給分題 (標記: 2或4均給分)": 1
+  },
+  "question_pack_counts": {
+    "永續發展基礎能力重點教材": 1267,
+    "消費金融內部控制與稽核重點教材": 2989,
+    "金融科技力重點教材": 839,
+    "防制洗錢與打擊資恐重點教材": 2388
+  },
+  "question_pack_total": 7483,
+  "mapped_question_pack_rows": 7483,
+  "question_pack_mapping_errors": [],
+  "cleaned_duplicate_extra_rows_by_category": {
+    "永續發展": 80,
+    "防制洗錢": 164
+  },
+  "pdf_html_comparison": {
+    "source": "official PDF extraction vs merged HTML",
+    "expected_records": 7484,
+    "actual_records": 7484,
+    "expected_unique": 7240,
+    "actual_unique": 7240,
+    "missing_keys": [],
+    "extra_keys": [],
+    "expected_duplicate_groups": 241,
+    "expected_duplicate_extra_rows": 244,
+    "actual_duplicate_groups": 241,
+    "actual_duplicate_extra_rows": 244,
+    "answer_difference_keys": [],
+    "content_difference_keys": [],
+    "occurrence_count_difference_keys": []
+  },
+  "pdf_pack_comparison": {
+    "source": "source questions.json packs vs official PDF extraction",
+    "expected_records": 7484,
+    "actual_records": 7483,
+    "expected_unique": 7240,
+    "actual_unique": 7240,
+    "missing_keys": [],
+    "extra_keys": [],
+    "expected_duplicate_groups": 241,
+    "expected_duplicate_extra_rows": 244,
+    "actual_duplicate_groups": 240,
+    "actual_duplicate_extra_rows": 243,
+    "answer_difference_keys": [
+      {
+        "key": [
+          "永續發展",
+          "114-4",
+          "永續發展",
+          44
+        ],
+        "expected": {
+          "1": 2
+        },
+        "actual": {
+          "1": 1
+        }
+      }
+    ],
+    "content_difference_keys": [
+      {
+        "key": [
+          "永續發展",
+          "114-4",
+          "永續發展",
+          44
+        ],
+        "expected_count": 2,
+        "actual_count": 1
+      }
+    ],
+    "occurrence_count_difference_keys": [
+      {
+        "key": [
+          "永續發展",
+          "114-4",
+          "永續發展",
+          44
+        ],
+        "expected": 2,
+        "actual": 1
+      }
+    ]
+  }
+}

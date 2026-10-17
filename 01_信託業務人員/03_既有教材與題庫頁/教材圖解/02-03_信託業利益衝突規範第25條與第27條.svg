@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 390" width="100%" height="390" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 信託業利益衝突規範：第 25 條與第 27 條</text>
+
+  <g transform="translate(40, 70)" filter="url(#shadow)">
+    <rect width="400" height="280" rx="10" fill="#3b0f0f" stroke="#ef4444" stroke-width="2"/>
+    <rect width="400" height="44" rx="10" fill="url(#gradRose)"/>
+    <text x="200" y="28" fill="#fff" font-size="16" font-weight="700" text-anchor="middle"> 第 25 條：原則禁止列舉利害關係交易</text>
+    
+    <text x="25" y="80" fill="#fca5a5" font-size="15" font-weight="700">【注意】第 2、3 項另有法定例外</text>
+    <text x="25" y="110" fill="#cbd5e1" font-size="13">1. 購買自己或利害關係人發行之有價證券</text>
+    <text x="25" y="135" fill="#cbd5e1" font-size="13">2. 購買自己或利害關係人承銷之有價證券</text>
+    <text x="25" y="160" fill="#cbd5e1" font-size="13">3. 購買自己或利害關係人之財產</text>
+    <text x="25" y="185" fill="#cbd5e1" font-size="13">4. 賤賣信託財產予自己或利害關係人</text>
+
+    <text x="25" y="225" fill="#f87171" font-size="14" font-weight="700">⚠ 判斷時先看：</text>
+    <text x="25" y="248" fill="#fca5a5" font-size="13">• 信託業是否具有運用決定權</text>
+    <text x="25" y="268" fill="#fca5a5" font-size="13">• 是否屬政府債券等法定例外</text>
+  </g>
+
+  <g transform="translate(480, 70)" filter="url(#shadow)">
+    <rect width="400" height="280" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <rect width="400" height="44" rx="10" fill="url(#gradEmerald)"/>
+    <text x="200" y="28" fill="#fff" font-size="16" font-weight="700" text-anchor="middle"> 第 27 條：其他利害關係交易限制</text>
+    
+    <text x="25" y="80" fill="#a7f3d0" font-size="15" font-weight="700">【契約約定或事前告知＋書面同意可辦理】</text>
+    <text x="25" y="110" fill="#cbd5e1" font-size="13">涵蓋銀行部門經紀、存款、外匯等交易，</text>
+    <text x="25" y="135" fill="#cbd5e1" font-size="13">另有不具運用決定權之法定例外：</text>
+    
+    <text x="25" y="170" fill="#fbbf24" font-size="14" font-weight="700">1. 依信託契約約定，或</text>
+    <text x="25" y="195" fill="#fbbf24" font-size="14" font-weight="700">2. 事先告知受益人並取得【書面同意】</text>
+    <text x="25" y="220" fill="#fbbf24" font-size="14" font-weight="700"> 不具運用決定權者不受第 1 項限制</text>
+    <text x="45" y="245" fill="#cbd5e1" font-size="13">但仍須充分告知相關交易情形</text>
+    <text x="25" y="270" fill="#34d399" font-size="13"> 外匯交易另須遵守外匯法令與風險揭露</text>
+  </g>
+
+</svg>

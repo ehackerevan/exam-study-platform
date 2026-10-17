@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="100%" height="560" style="background-color: #0d131f; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="460" y="36" fill="#f3f4f6" font-size="19" font-weight="700" text-anchor="middle"> 信託三大核心法定分類架構 (考點全景圖)</text>
+  
+  <!-- 頂部根節點 -->
+  <g transform="translate(310, 60)" filter="url(#shadow)">
+    <rect width="300" height="50" rx="8" fill="url(#gradPrimary)"/>
+    <text x="150" y="32" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">信託核心分類維度總覽</text>
+  </g>
+
+  <!-- 三大分支主柱 -->
+  <!-- 柱 1: 受益人 -->
+  <g transform="translate(40, 150)" filter="url(#shadow)">
+    <rect width="260" height="50" rx="8" fill="url(#gradBlue)"/>
+    <text x="130" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 維度一：依【受益人】區分</text>
+  </g>
+  <g transform="translate(40, 215)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#60a5fa" font-size="15" font-weight="700">自益信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 委託人 ＝ 受益人</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 例: 退休安養、財產自管保全</text>
+  </g>
+  <g transform="translate(40, 325)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#60a5fa" font-size="15" font-weight="700">他益信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 委託人 ≠ 受益人</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 例: 父母出資為子女設立信託</text>
+  </g>
+  <g transform="translate(40, 435)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#60a5fa" font-size="15" font-weight="700">部分自益部分他益</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 本金自益、孳息他益</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 例: 房產本金留自己/租金給子女</text>
+  </g>
+
+  <!-- 柱 2: 成立方式 -->
+  <g transform="translate(330, 150)" filter="url(#shadow)">
+    <rect width="260" height="50" rx="8" fill="url(#gradOrange)"/>
+    <text x="130" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 維度二：依【成立方式】區分</text>
+  </g>
+  <g transform="translate(330, 215)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#fbbf24" font-size="15" font-weight="700">契約信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 雙方合意簽署契約</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 最常見型態，生前簽訂生效</text>
+  </g>
+  <g transform="translate(330, 325)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#fbbf24" font-size="15" font-weight="700">遺囑信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 單方遺囑法律行為</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 生前預立，遺囑人死亡時生效</text>
+  </g>
+  <g transform="translate(330, 435)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#fbbf24" font-size="15" font-weight="700">宣言信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 向公眾宣言而設立</text>
+    <text x="15" y="78" fill="#fca5a5" font-size="12"> 限法人設公益信託 (自然人不可)</text>
+  </g>
+
+  <!-- 柱 3: 信託目的 -->
+  <g transform="translate(620, 150)" filter="url(#shadow)">
+    <rect width="260" height="50" rx="8" fill="url(#gradPurple)"/>
+    <text x="130" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 維度三：依【信託目的】區分</text>
+  </g>
+  <g transform="translate(620, 215)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#c084fc" font-size="15" font-weight="700">私益信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 為特定個人或家族親屬利益</text>
+    <text x="15" y="78" fill="#94a3b8" font-size="12">• 自由意願簽訂，無須主管許可</text>
+  </g>
+  <g transform="translate(620, 325)" filter="url(#shadow)">
+    <rect width="260" height="95" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="15" y="30" fill="#c084fc" font-size="15" font-weight="700">公益信託</text>
+    <text x="15" y="55" fill="#cbd5e1" font-size="13">• 為不特定公眾公共利益設立</text>
+    <text x="15" y="78" fill="#fca5a5" font-size="12"> 須經目的事業主管機關許可</text>
+  </g>
+
+  <!-- 連線 -->
+  <path d="M 460 110 L 460 130 L 170 130 L 170 150" stroke="#60a5fa" stroke-width="2" fill="none"/>
+  <path d="M 460 110 L 460 150" stroke="#f59e0b" stroke-width="2" fill="none"/>
+  <path d="M 460 110 L 460 130 L 750 130 L 750 150" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+
+</svg>

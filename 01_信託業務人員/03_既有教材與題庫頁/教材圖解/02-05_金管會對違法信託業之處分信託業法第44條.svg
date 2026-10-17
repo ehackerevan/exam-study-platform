@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="100%" height="360" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 金管會對違法信託業之處分（信託業法第 44 條）</text>
+
+  <g transform="translate(60, 65)" filter="url(#shadow)">
+    <rect width="800" height="50" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="180" height="50" rx="8" fill="url(#gradBlue)"/>
+    <text x="90" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">基本處置：糾正、命限期改善</text>
+    <text x="200" y="32" fill="#cbd5e1" font-size="14">主管機關得先予糾正並命限期改善</text>
+  </g>
+
+  <g transform="translate(60, 125)" filter="url(#shadow)">
+    <rect width="800" height="50" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="180" height="50" rx="8" fill="url(#gradAmber)"/>
+    <text x="90" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">處分一：停止一部或全部業務</text>
+    <text x="200" y="32" fill="#cbd5e1" font-size="14">依違規情節停止一部或全部業務</text>
+  </g>
+
+  <g transform="translate(60, 185)" filter="url(#shadow)">
+    <rect width="800" height="50" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect width="180" height="50" rx="8" fill="url(#gradPurple)"/>
+    <text x="90" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">處分二：解除或停止負責人職務</text>
+    <text x="200" y="32" fill="#cbd5e1" font-size="14">主管機關得命信託業解除或停止負責人職務</text>
+  </g>
+
+  <g transform="translate(60, 245)" filter="url(#shadow)">
+    <rect width="800" height="50" rx="8" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <rect width="180" height="50" rx="8" fill="url(#gradRose)"/>
+    <text x="90" y="32" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">處分三：廢止營業許可／其他必要處置</text>
+    <text x="200" y="32" fill="#fca5a5" font-size="14" font-weight="700">第 44 條另授權主管機關採取其他必要處置</text>
+  </g>
+
+</svg>

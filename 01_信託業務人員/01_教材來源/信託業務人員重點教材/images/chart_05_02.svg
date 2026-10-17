@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" width="100%" height="320" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 記名股票信託背書與股東名簿對抗要件流程 (信託法第 4 條)</text>
+
+  <g transform="translate(40, 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="35" fill="#60a5fa" font-size="16" font-weight="700" text-anchor="middle">1. 委託人</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 簽署信託契約</text>
+    <text x="15" y="105" fill="#cbd5e1" font-size="13">• 交付股票實體</text>
+    <text x="15" y="130" fill="#38bdf8" font-size="13"> 交付受託人</text>
+  </g>
+
+  <g transform="translate(260, 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="90" y="35" fill="#fbbf24" font-size="16" font-weight="700" text-anchor="middle">2. 背書蓋印</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 股票背面背書</text>
+    <text x="15" y="105" fill="#cbd5e1" font-size="13">• 加註信託財產</text>
+    <text x="15" y="130" fill="#fbbf24" font-size="13"> 成立要件</text>
+  </g>
+
+  <g transform="translate(480, 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="90" y="35" fill="#c084fc" font-size="16" font-weight="700" text-anchor="middle">3. 股務代理過戶</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 檢附契約文件</text>
+    <text x="15" y="105" fill="#cbd5e1" font-size="13">• 股東名簿載明</text>
+    <text x="15" y="130" fill="#c084fc" font-size="13"> 對抗要件完成！</text>
+  </g>
+
+  <g transform="translate(700, 75)" filter="url(#shadow)">
+    <rect width="180" height="150" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="90" y="35" fill="#34d399" font-size="16" font-weight="700" text-anchor="middle">4. 對抗第三人</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 未載於名簿者</text>
+    <text x="15" y="100" fill="#f87171" font-size="12">  不得對抗發行公司</text>
+    <text x="15" y="125" fill="#cbd5e1" font-size="13">• 完成後具備</text>
+    <text x="15" y="145" fill="#34d399" font-size="13">  完整防禦防火牆</text>
+  </g>
+
+  <path d="M 220 150 L 260 150" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M 440 150 L 480 150" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <path d="M 660 150 L 700 150" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+</svg>

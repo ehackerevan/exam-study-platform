@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 340" width="100%" height="340" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 高齡安養信託專款專用與信託監察人防護罩機制</text>
+
+  <g transform="translate(40, 75)" filter="url(#shadow)">
+    <rect width="250" height="210" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="125" y="35" fill="#60a5fa" font-size="16" font-weight="700" text-anchor="middle"> 高齡委託人兼受益人</text>
+    <text x="20" y="75" fill="#cbd5e1" font-size="13">• 將畢生積蓄交付信託</text>
+    <text x="20" y="105" fill="#cbd5e1" font-size="13">• 自益信託架構無贈與稅</text>
+    <text x="20" y="135" fill="#cbd5e1" font-size="13">• 約定日常每月生活金</text>
+    <text x="20" y="170" fill="#34d399" font-size="13"> 確保老有所養！</text>
+  </g>
+
+  <g transform="translate(340, 65)" filter="url(#shadow)">
+    <rect width="240" height="230" rx="12" fill="#082f49" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="35" fill="#34d399" font-size="17" font-weight="800" text-anchor="middle"> 專款專用直接支付</text>
+    <text x="20" y="75" fill="#a7f3d0" font-size="13">• 醫療院所：看護費用</text>
+    <text x="20" y="105" fill="#a7f3d0" font-size="13">• 安養長照機構：月費直撥</text>
+    <text x="20" y="135" fill="#a7f3d0" font-size="13">• 輔具採購：檢據實報實銷</text>
+    <text x="20" y="175" fill="#fbbf24" font-size="13"> 錢不經旁人之手防詐騙！</text>
+  </g>
+
+  <g transform="translate(630, 75)" filter="url(#shadow)">
+    <rect width="250" height="210" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <text x="125" y="35" fill="#f472b6" font-size="16" font-weight="700" text-anchor="middle"> 信託監察人把關</text>
+    <text x="20" y="75" fill="#cbd5e1" font-size="13">• 由社福團體/律師擔任</text>
+    <text x="20" y="105" fill="#cbd5e1" font-size="13">• 契約明訂：提前解約終止</text>
+    <text x="20" y="130" fill="#fca5a5" font-size="13">   必須經監察人書面同意！</text>
+    <text x="20" y="170" fill="#38bdf8" font-size="13">防範不肖子女強奪財產</text>
+  </g>
+
+  <path d="M 290 160 L 340 160" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 580 160 L 630 160" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+</svg>

@@ -1,0 +1,52 @@
+[
+  {
+    "subject": "02_金融科技力",
+    "file": "金融科技力重點教材.html",
+    "source_questions": 839,
+    "html_questions": 839,
+    "missing_ids": [],
+    "extra_ids": [],
+    "answer_differences": [],
+    "question_or_option_differences": []
+  },
+  {
+    "subject": "03_消費金融內控稽核",
+    "file": "消費金融內部控制與稽核重點教材.html",
+    "source_questions": 2989,
+    "html_questions": 2989,
+    "missing_ids": [],
+    "extra_ids": [],
+    "answer_differences": [],
+    "question_or_option_differences": []
+  },
+  {
+    "subject": "04_永續發展基礎能力",
+    "file": "永續發展基礎能力重點教材.html",
+    "source_questions": 1267,
+    "html_questions": 1267,
+    "missing_ids": [],
+    "extra_ids": [],
+    "answer_differences": [],
+    "question_or_option_differences": []
+  },
+  {
+    "subject": "05_防制洗錢與打擊資恐",
+    "file": "防制洗錢與打擊資恐重點教材.html",
+    "source_questions": 2388,
+    "html_questions": 2388,
+    "missing_ids": [],
+    "extra_ids": [],
+    "answer_differences": [],
+    "question_or_option_differences": []
+  },
+  {
+    "subject": "05_防制洗錢與打擊資恐",
+    "file": "防制洗錢與打擊資恐人員重點教材_既有輸出.html",
+    "source_questions": 2388,
+    "html_questions": 2388,
+    "missing_ids": [],
+    "extra_ids": [],
+    "answer_differences": [],
+    "question_or_option_differences": []
+  }
+]

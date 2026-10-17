@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="100%" height="360" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 金融資產證券化特殊目的信託 (SPT) 與破產隔離架構</text>
+
+  <g transform="translate(40, 75)" filter="url(#shadow)">
+    <rect width="240" height="230" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="35" fill="#60a5fa" font-size="16" font-weight="700" text-anchor="middle">1. 創始機構 (Originator)</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 金融機構 / 商業銀行</text>
+    <text x="15" y="105" fill="#cbd5e1" font-size="13">• 擁有大量長期房貸/車貸</text>
+    <text x="15" y="135" fill="#fbbf24" font-size="13"> 資產移轉須符合證券化法定要件</text>
+    <text x="15" y="160" fill="#cbd5e1" font-size="12">會計除列與法律效果應分開判斷，</text>
+    <text x="15" y="180" fill="#cbd5e1" font-size="12">不得用「絕對無風險」概括</text>
+  </g>
+
+  <g transform="translate(340, 65)" filter="url(#shadow)">
+    <rect width="240" height="250" rx="12" fill="#082f49" stroke="#10b981" stroke-width="2"/>
+    <text x="120" y="38" fill="#34d399" font-size="17" font-weight="800" text-anchor="middle">2. 特殊目的信託 (SPT)</text>
+    <text x="120" y="65" fill="#93c5fd" font-size="13" text-anchor="middle">受託機構發行受益證券</text>
+    <text x="15" y="105" fill="#a7f3d0" font-size="13">• 信託財產具法定獨立性</text>
+    <text x="15" y="135" fill="#a7f3d0" font-size="13">• 將債權包裝為可分割證券</text>
+    <text x="15" y="165" fill="#a7f3d0" font-size="13">• 進行信用增強與評等</text>
+    <text x="15" y="195" fill="#fbbf24" font-size="13"> 發行方式依證券化計畫及法規</text>
+  </g>
+
+  <g transform="translate(640, 75)" filter="url(#shadow)">
+    <rect width="240" height="230" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="120" y="35" fill="#c084fc" font-size="16" font-weight="700" text-anchor="middle">3. 資本市場投資人</text>
+    <text x="15" y="75" fill="#cbd5e1" font-size="13">• 壽險公司、退休基金</text>
+    <text x="15" y="105" fill="#cbd5e1" font-size="13">• 投入現金認購受益證券</text>
+    <text x="15" y="135" fill="#cbd5e1" font-size="13">• 按期收取固定利息本金</text>
+    <text x="15" y="170" fill="#34d399" font-size="13"> 現金流依證券化計畫分配</text>
+  </g>
+
+  <path d="M 280 170 L 340 170" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M 580 170 L 640 170" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+</svg>

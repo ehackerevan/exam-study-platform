@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f8f7">
+<title>五科教材與題庫｜離線學習平台</title>
+<style>
+:root{color-scheme:light;--ink:#183331;--muted:#536967;--line:#dce7e5;--paper:#f5f8f7;--card:#fff;--teal:#0f766e;--teal-dark:#0b5e57;--teal-pale:#e8f4f2;--focus:#0f766e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif}
+a{color:var(--teal-dark);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.topbar{min-height:56px;display:flex;align-items:center;gap:12px;padding:8px clamp(16px,4vw,48px);background:#fff;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:750;text-decoration:none}
+.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--teal);color:#fff;font-size:.94rem}
+.topbar-meta{color:var(--muted);font-size:.9rem}
+.topbar-link{margin-left:auto;font-weight:700;text-decoration:none}
+main{max-width:1280px;margin:auto;padding:clamp(24px,5vw,56px) clamp(16px,4vw,48px) 52px}
+.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
+.eyebrow{margin:0 0 8px;color:var(--teal-dark);font-size:.82rem;font-weight:750;letter-spacing:.05em}
+h1{font-size:clamp(1.8rem,3vw,2.35rem);line-height:1.25;margin:0 0 8px;letter-spacing:-.02em}
+.intro-copy{max-width:660px;margin:0;color:var(--muted)}
+.count-summary{flex:none;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--muted);font-size:.9rem}
+.count-summary strong{color:var(--ink);font-size:1.15rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{min-width:0;display:flex;flex-direction:column;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--card);transition:border-color .15s ease,background-color .15s ease}
+.card:hover{border-color:#9acbc4;background:#fcfefe}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.course-mark{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:9px;background:var(--teal-pale);color:var(--teal-dark);font-size:.82rem;font-weight:800}
+.card h2{font-size:1.08rem;line-height:1.4;margin:0;overflow-wrap:anywhere}
+.card p{margin:4px 0;color:var(--muted)}
+.count{font-size:.91rem}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px}
+.count strong{color:var(--ink)}
+.card a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 12px;border:1px solid #b5d8d3;border-radius:8px;background:#f8fcfb;color:var(--teal-dark);font-weight:700;text-decoration:none}
+.card a:hover{background:var(--teal-pale);border-color:#79b9b0}
+.note{margin-top:22px;padding:14px 16px;border:1px solid #c8e1dc;border-left:3px solid var(--teal);border-radius:8px;background:var(--teal-pale);color:#284845}
+.supporting-links{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+.supporting-links summary{cursor:pointer;color:var(--muted);font-weight:700}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;padding:14px 0 4px}
+footer{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.9rem}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.topbar{min-height:52px}.topbar-meta{display:none}main{padding-top:28px}.intro{align-items:flex-start;flex-direction:column;gap:14px}.grid{grid-template-columns:1fr;gap:12px}.card{padding:17px}.count-summary{padding:8px 12px}.card-footer{padding-top:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="平台導覽">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true">學</span><span>金融證照自修平台</span></a>
+  <span class="topbar-meta">教材與題庫整合｜支援離線學習</span>
+  <a class="topbar-link" href="#subjects">科目目錄</a>
+</nav>
+<main>
+  <header class="intro">
+    <div>
+      <p class="eyebrow">五科共用的離線學習平台</p>
+      <h1>選擇考試科目</h1>
+      <p class="intro-copy">教材、歷屆題庫與學習功能集中在各科頁面；每科皆可從頁面頂端返回本目錄。</p>
+    </div>
+    <div class="count-summary"><strong>5</strong> 個考試科目</div>
+  </header>
+  <section class="grid" id="subjects" aria-label="學科教材與題庫">
+    <article class="card">
+      <div class="card-head"><span class="course-mark" aria-hidden="true">01</span><h2>信託業務人員</h2></div>
+      <p>信託法規・信託實務</p><p class="count">核對後 <strong>2,852</strong> 題，含第 47 屆</p>
+      <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="01_信託業務人員/06_答案核對版/信託業務人員教材與題庫_核對版.html">開啟學習 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><span class="course-mark" aria-hidden="true">02</span><h2>金融科技力</h2></div>
+      <p>金融科技發展、應用與監理重點</p><p class="count"><strong>839</strong> 題</p>
+      <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="02_金融科技力/02_離線教材題庫包/金融科技力重點教材.html">開啟學習 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><span class="course-mark" aria-hidden="true">03</span><h2>消費金融內部控制與稽核</h2></div>
+      <p>內控、授信、信用卡與消費者保護</p><p class="count"><strong>2,989</strong> 題</p>
+      <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="03_消費金融內控稽核/02_離線教材題庫包/消費金融內部控制與稽核重點教材.html">開啟學習 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><span class="course-mark" aria-hidden="true">04</span><h2>永續發展基礎能力</h2></div>
+      <p>永續揭露、氣候與綠色金融</p><p class="count"><strong>1,267</strong> 題</p>
+      <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="04_永續發展基礎能力/02_離線教材題庫包/永續發展基礎能力重點教材.html">開啟學習 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><span class="course-mark" aria-hidden="true">05</span><h2>防制洗錢與打擊資恐</h2></div>
+      <p>客戶審查、可疑交易與制裁重點</p><p class="count"><strong>2,388</strong> 題</p>
+      <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="05_防制洗錢與打擊資恐/02_離線教材題庫包/防制洗錢與打擊資恐重點教材.html">開啟學習 <span aria-hidden="true">→</span></a></div>
+    </article>
+  </section>
+  <aside class="note"><strong>題庫核對說明：</strong>信託收錄題答案均與官方答案一致；2 題官方多答案、1 題送分及其他 5 個缺少題目均未收錄。四科彙整頁有 7,484 筆紀錄，單科包合計 7,483 題；重複列差異詳見核對報告。</aside>
+  <details class="supporting-links">
+    <summary>來源、索引與核對資料</summary>
+    <nav class="links" aria-label="其他整合資料">
+      <a href="06_四科彙整題庫/歷屆考古題_完整題庫大全.html">開啟四科彙整題庫</a>
+      <a href="README_分類索引.md">查看分類索引</a>
+      <a href="07_核對報告/題目答案核對摘要.md">查看題目與答案核對報告</a>
+    </nav>
+  </details>
+  <footer>教材與題庫均為本機檔案；題目旁的 Google 查題按鈕需要網路。官方答案表缺少的 8 個信託題目鍵未納入。</footer>
+</main>
+</body>
+</html>

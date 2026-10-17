@@ -1,0 +1,9 @@
+﻿source,issue,key,official_answer,bank_answer,question_count
+official answer map vs JSON plus cohort47,official_question_not_in_bank,"[50, ""信託法規"", 28]",1,,1
+official answer map vs JSON plus cohort47,official_question_not_in_bank,"[50, ""信託法規"", 34]",2,,1
+official answer map vs JSON plus cohort47,official_question_not_in_bank,"[51, ""信託實務"", 37]",2,,1
+official answer map vs JSON plus cohort47,official_ambiguous_answer_not_in_bank,"[52, ""信託法規"", 44]",1或4,,1
+official answer map vs JSON plus cohort47,official_ambiguous_answer_not_in_bank,"[54, ""信託實務"", 31]",1或3,,1
+official answer map vs JSON plus cohort47,official_sendoff_not_in_bank,"[54, ""信託實務"", 46]",送分,,1
+official answer map vs JSON plus cohort47,official_question_not_in_bank,"[57, ""信託法規"", 4]",3,,1
+official answer map vs JSON plus cohort47,official_question_not_in_bank,"[60, ""信託法規"", 33]",2,,1

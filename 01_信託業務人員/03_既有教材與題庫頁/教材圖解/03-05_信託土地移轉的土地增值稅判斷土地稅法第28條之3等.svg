@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="100%" height="380" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 信託土地移轉的土地增值稅判斷（土地稅法第 28 條之 3 等）</text>
+
+  <g transform="translate(40, 70)" filter="url(#shadow)">
+    <rect width="400" height="270" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <rect width="400" height="42" rx="10" fill="url(#gradEmerald)"/>
+    <text x="200" y="27" fill="#fff" font-size="16" font-weight="700" text-anchor="middle"> 不課徵土地增值稅（五類法定移轉）</text>
+    
+    <text x="25" y="70" fill="#a7f3d0" font-size="13" font-weight="700">1. 信託成立：委託人與受託人間移轉</text>
+    <text x="25" y="105" fill="#a7f3d0" font-size="13" font-weight="700">2. 變更受託人：原受託人與新受託人間移轉</text>
+    <text x="25" y="140" fill="#a7f3d0" font-size="13" font-weight="700">3. 自益信託消滅：受託人與受益人間移轉</text>
+    <text x="25" y="175" fill="#a7f3d0" font-size="13" font-weight="700">4. 遺囑信託消滅：受託人與受益人間移轉</text>
+    <text x="25" y="210" fill="#a7f3d0" font-size="13" font-weight="700">5. 信託不成立、無效、解除或撤銷</text>
+    <text x="25" y="245" fill="#6ee7b7" font-size="13">上述為第 28 條之 3 明定的移轉類型</text>
+  </g>
+
+  <g transform="translate(480, 70)" filter="url(#shadow)">
+    <rect width="400" height="270" rx="10" fill="#3b0f0f" stroke="#ef4444" stroke-width="2"/>
+    <rect width="400" height="42" rx="10" fill="url(#gradRose)"/>
+    <text x="200" y="27" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">⚠ 其他實質移轉應依土地稅法判斷</text>
+    
+    <text x="25" y="80" fill="#fca5a5" font-size="15" font-weight="700">1. 受託人處分信託土地出售給第三人買方</text>
+    <text x="45" y="105" fill="#cbd5e1" font-size="13">• 納稅義務人：受託人 (以信託財產繳納)</text>
+
+    <text x="25" y="150" fill="#fca5a5" font-size="15" font-weight="700">2. 信託土地歸屬於委託人以外之歸屬權利人</text>
+    <text x="45" y="175" fill="#cbd5e1" font-size="13">• 屬信託關係人間的終局所有權移轉</text>
+    <text x="45" y="200" fill="#fca5a5" font-size="13">• 納稅義務人：歸屬權利人</text>
+
+    <text x="25" y="240" fill="#fbbf24" font-size="13"> 出售第三人不屬第 28 條之 3 的信託不課徵類型</text>
+  </g>
+
+</svg>

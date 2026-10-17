@@ -1,0 +1,1306 @@
+{
+  "json_plus_cohort47": {
+    "source": "trust JSON plus cohort 47",
+    "records": 2852,
+    "unique_keys": 2852,
+    "official_keys": 2860,
+    "matched_keys": 2852,
+    "missing": [
+      {
+        "key": [
+          50,
+          "信託法規",
+          28
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          50,
+          "信託法規",
+          34
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          51,
+          "信託實務",
+          37
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          52,
+          "信託法規",
+          44
+        ],
+        "official": "1或4"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          31
+        ],
+        "official": "1或3"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          46
+        ],
+        "official": "送分"
+      },
+      {
+        "key": [
+          57,
+          "信託法規",
+          4
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          60,
+          "信託法規",
+          33
+        ],
+        "official": "2"
+      }
+    ],
+    "extra": [],
+    "answer_checked": 2852,
+    "unscorable_official": [],
+    "answer_mismatches": [],
+    "duplicate_keys": []
+  },
+  "historical_html": {
+    "source": "historical trust HTML",
+    "records": 2722,
+    "unique_keys": 2722,
+    "official_keys": 2860,
+    "matched_keys": 2722,
+    "missing": [
+      {
+        "key": [
+          47,
+          "信託法規",
+          1
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          2
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          3
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          4
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          5
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          6
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          7
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          8
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          9
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          10
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          11
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          12
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          13
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          14
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          15
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          16
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          17
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          18
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          19
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          20
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          21
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          22
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          23
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          24
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          25
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          26
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          27
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          28
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          29
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          30
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          31
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          32
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          33
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          34
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          35
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          36
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          37
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          38
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          39
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          40
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          41
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          42
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          43
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          44
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          45
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          46
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          47
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          48
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          49
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託法規",
+          50
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          1
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          2
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          3
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          4
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          5
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          6
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          7
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          8
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          9
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          10
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          11
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          12
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          13
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          14
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          15
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          16
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          17
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          18
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          19
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          20
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          21
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          22
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          23
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          24
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          25
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          26
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          27
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          28
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          29
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          30
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          31
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          32
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          33
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          34
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          35
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          36
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          37
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          38
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          39
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          40
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          41
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          42
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          43
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          44
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          45
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          46
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          47
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          48
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          49
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          50
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          51
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          52
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          53
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          54
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          55
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          56
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          57
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          58
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          59
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          60
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          61
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          62
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          63
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          64
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          65
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          66
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          67
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          68
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          69
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          70
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          71
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          72
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          73
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          74
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          75
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          76
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          77
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          78
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          79
+        ],
+        "official": "4"
+      },
+      {
+        "key": [
+          47,
+          "信託實務",
+          80
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          50,
+          "信託法規",
+          28
+        ],
+        "official": "1"
+      },
+      {
+        "key": [
+          50,
+          "信託法規",
+          34
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          51,
+          "信託實務",
+          37
+        ],
+        "official": "2"
+      },
+      {
+        "key": [
+          52,
+          "信託法規",
+          44
+        ],
+        "official": "1或4"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          31
+        ],
+        "official": "1或3"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          46
+        ],
+        "official": "送分"
+      },
+      {
+        "key": [
+          57,
+          "信託法規",
+          4
+        ],
+        "official": "3"
+      },
+      {
+        "key": [
+          60,
+          "信託法規",
+          33
+        ],
+        "official": "2"
+      }
+    ],
+    "extra": [],
+    "answer_checked": 2722,
+    "unscorable_official": [],
+    "answer_mismatches": [],
+    "duplicate_keys": []
+  },
+  "html_subject_codes": {
+    "1": [
+      "信託法規"
+    ],
+    "2": [
+      "信託實務"
+    ]
+  },
+  "html_unresolved_rows": [],
+  "json_html_content_differences": [],
+  "curated_question_bank": {
+    "rule": "Only include questions with one clear official answer, a gradable complete question, and a matching bank answer; exclude ambiguous official answers and sendoff questions.",
+    "candidate_records": 2852,
+    "included_records": 2852,
+    "excluded_records": 0,
+    "excluded_by_reason": {},
+    "official_answer_keys": 2860,
+    "source_missing_official_question_keys": [
+      {
+        "key": [
+          50,
+          "信託法規",
+          28
+        ],
+        "official": "1",
+        "classification": "single"
+      },
+      {
+        "key": [
+          50,
+          "信託法規",
+          34
+        ],
+        "official": "2",
+        "classification": "single"
+      },
+      {
+        "key": [
+          51,
+          "信託實務",
+          37
+        ],
+        "official": "2",
+        "classification": "single"
+      },
+      {
+        "key": [
+          52,
+          "信託法規",
+          44
+        ],
+        "official": "1或4",
+        "classification": "ambiguous_or_invalid"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          31
+        ],
+        "official": "1或3",
+        "classification": "ambiguous_or_invalid"
+      },
+      {
+        "key": [
+          54,
+          "信託實務",
+          46
+        ],
+        "official": "送分",
+        "classification": "sendoff"
+      },
+      {
+        "key": [
+          57,
+          "信託法規",
+          4
+        ],
+        "official": "3",
+        "classification": "single"
+      },
+      {
+        "key": [
+          60,
+          "信託法規",
+          33
+        ],
+        "official": "2",
+        "classification": "single"
+      }
+    ],
+    "answer_mismatches": [],
+    "included_by_subject": {
+      "信託法規": 1095,
+      "信託實務": 1757
+    },
+    "included_by_period_47": 130,
+    "quality_note_summary": {
+      "": 2722,
+      "由官方PDF OCR高精度萃取": 130
+    },
+    "delivered_file": "01_信託業務人員\\06_答案核對版\\信託業務人員教材與題庫_核對版.html",
+    "delivered_file_sha256": "72feeeffce759aaecfb0c4eeada20962950cffe685166ab15ecb3b0eade5eadb",
+    "embedded_output_recheck": {
+      "records": 2852,
+      "matches_audited_payload": true
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="100%" height="360" style="background-color: #0d131f; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="38" fill="#f3f4f6" font-size="19" font-weight="700" text-anchor="middle"> 信託基本三面關係與法定架構</text>
+  
+  <!-- 委託人 -->
+  <g transform="translate(60, 80)" filter="url(#shadow)">
+    <rect width="210" height="110" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="105" y="38" fill="#60a5fa" font-size="17" font-weight="700" text-anchor="middle"> 委託人 Settlor</text>
+    <text x="105" y="68" fill="#94a3b8" font-size="13" text-anchor="middle">• 財產的原始擁有人</text>
+    <text x="105" y="90" fill="#94a3b8" font-size="13" text-anchor="middle">• 提供財產並設定目的</text>
+  </g>
+
+  <!-- 箭頭 1 -->
+  <path d="M 270 135 L 340 135" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="305" y="125" fill="#38bdf8" font-size="12" text-anchor="middle">移轉財產權</text>
+
+  <!-- 受託人 -->
+  <g transform="translate(345, 80)" filter="url(#shadow)">
+    <rect width="210" height="110" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="105" y="38" fill="#fbbf24" font-size="17" font-weight="700" text-anchor="middle"> 受託人 Trustee</text>
+    <text x="105" y="68" fill="#94a3b8" font-size="13" text-anchor="middle">• 名義上所有權人 (信託業)</text>
+    <text x="105" y="90" fill="#94a3b8" font-size="13" text-anchor="middle">• 負善良管理人忠實義務</text>
+  </g>
+
+  <!-- 箭頭 2 -->
+  <path d="M 555 135 L 625 135" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="590" y="125" fill="#38bdf8" font-size="12" text-anchor="middle">管理處分</text>
+
+  <!-- 受益人 -->
+  <g transform="translate(630, 80)" filter="url(#shadow)">
+    <rect width="210" height="110" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="105" y="38" fill="#34d399" font-size="17" font-weight="700" text-anchor="middle"> 受益人 Beneficiary</text>
+    <text x="105" y="68" fill="#94a3b8" font-size="13" text-anchor="middle">• 實質享有經濟利益者</text>
+    <text x="105" y="90" fill="#94a3b8" font-size="13" text-anchor="middle">• 享有本金或孳息果實</text>
+  </g>
+
+  <!-- 底部：獨立性信託財產防護罩 -->
+  <g transform="translate(180, 230)" filter="url(#shadow)">
+    <rect width="540" height="90" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="270" y="36" fill="#6ee7b7" font-size="16" font-weight="700" text-anchor="middle"> 信託財產 Trust Property（依法與自有財產分開管理）</text>
+    <text x="270" y="64" fill="#a7f3d0" font-size="13" text-anchor="middle">名義雖在受託人名下，但獨立於委託人與受託人之自有財產，原則上不得強制執行！</text>
+  </g>
+  
+  <path d="M 450 190 L 450 230" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrowGreen)"/>
+
+</svg>
