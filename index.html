@@ -45,6 +45,234 @@ footer{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;color:v
 @media(max-width:640px){.topbar{min-height:52px}.topbar-meta{display:none}main{padding-top:28px}.intro{align-items:flex-start;flex-direction:column;gap:14px}.grid{grid-template-columns:1fr;gap:12px}.card{padding:17px}.count-summary{padding:8px 12px}.card-footer{padding-top:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
 </style>
+<style id="study-platform-consistency">/* Shared design layer embedded in all standalone study pages. */
+:root,
+[data-theme="light"],
+[data-theme="system"] {
+  color-scheme: light;
+  --site-page: #f4f8f7;
+  --site-surface: #ffffff;
+  --site-surface-alt: #eaf3f1;
+  --site-surface-hover: #e1eeeb;
+  --site-ink: #183331;
+  --site-muted: #536967;
+  --site-line: #d8e5e2;
+  --site-primary: #0f766e;
+  --site-primary-hover: #0b5e57;
+  --site-primary-soft: #e7f4f1;
+  --site-focus: #0f766e;
+  --site-font: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --ink: var(--site-ink);
+  --muted: var(--site-muted);
+  --line: var(--site-line);
+  --paper: var(--site-page);
+  --card: var(--site-surface);
+  --teal: var(--site-primary);
+  --teal-dark: var(--site-primary-hover);
+  --teal-pale: var(--site-primary-soft);
+  --primary: var(--site-primary);
+  --primary-hover: var(--site-primary-hover);
+  --primary-light: var(--site-primary-soft);
+  --primary-subtle: var(--site-primary-soft);
+  --primary-border: var(--site-line);
+  --bg: var(--site-page);
+  --bg-app: var(--site-page);
+  --bg-surface: var(--site-surface);
+  --bg-surface-alt: var(--site-surface-alt);
+  --bg-surface-hover: var(--site-surface-hover);
+  --card-bg: var(--site-surface);
+  --shell-bg: var(--site-page);
+  --text-main: var(--site-ink);
+  --text-sub: var(--site-muted);
+  --text-muted: var(--site-muted);
+  --border: var(--site-line);
+  --border-subtle: var(--site-line);
+  --border-strong: #b8cfca;
+  --font-family: var(--site-font);
+  --font-sans: var(--site-font);
+  --font-main: var(--site-font);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --bar: var(--site-surface);
+  --bar-text: var(--site-ink);
+  --active: var(--site-primary);
+  --accent: var(--site-primary);
+  --accent-light: var(--site-primary-soft);
+  --bg-primary: var(--site-page);
+  --bg-secondary: var(--site-surface-alt);
+  --bg-tertiary: var(--site-surface-hover);
+  --bg-card: var(--site-surface);
+  --bg-card-hover: var(--site-surface-hover);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --site-page: #101a19;
+  --site-surface: #172523;
+  --site-surface-alt: #1d302d;
+  --site-surface-hover: #29413d;
+  --site-ink: #e6f1ef;
+  --site-muted: #adc1be;
+  --site-line: #2d4541;
+  --site-primary: #62c4b8;
+  --site-primary-hover: #91ddd4;
+  --site-primary-soft: #173b36;
+  --site-focus: #91ddd4;
+  --border-strong: #42615b;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  color: var(--site-ink) !important;
+  background-color: var(--site-page) !important;
+  font-family: var(--site-font) !important;
+  line-height: 1.65;
+}
+
+a:not(.integrated-catalog-brand):not(.integrated-catalog-return) {
+  color: var(--site-primary) !important;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--site-primary-hover) !important; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--site-focus) !important;
+  outline-offset: 3px;
+}
+
+button,
+input,
+select,
+textarea { font-family: var(--site-font); }
+button { border-radius: 8px; }
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  border-color: var(--site-line);
+  border-radius: 8px;
+}
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-active,
+.btn-danger,
+.tab,
+.tab-btn,
+.view-nav-btn,
+.subject-tab-btn,
+.integrated-catalog-return {
+  border-radius: 8px !important;
+}
+.btn-primary,
+.btn-active,
+.tab.active,
+.tab[aria-selected="true"],
+.tab-btn.active,
+.subject-tab-btn.active,
+.view-nav-btn.active {
+  color: #ffffff !important;
+  background-color: var(--site-primary) !important;
+  border-color: var(--site-primary) !important;
+}
+
+.integrated-catalog-nav,
+#integrated-catalog-nav {
+  color: var(--site-ink) !important;
+  background: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+  font-family: var(--site-font) !important;
+}
+.integrated-catalog-brand { color: var(--site-ink) !important; }
+.integrated-catalog-mark { background: var(--site-primary) !important; }
+.integrated-catalog-subject { color: var(--site-muted) !important; }
+.integrated-catalog-return {
+  color: var(--site-primary) !important;
+  background: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+}
+.integrated-catalog-return:hover {
+  color: var(--site-primary-hover) !important;
+  background: var(--site-primary-soft) !important;
+  border-color: var(--site-primary) !important;
+}
+
+.top-bar,
+.top-header,
+.app-header,
+.app-bar {
+  background-color: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+  box-shadow: none;
+}
+.question-card,
+.q-card,
+.card,
+.stat-card,
+.shortcut-card,
+.quiz-card,
+.quiz-config-card,
+.question-bank-card,
+.reader-content,
+.content-panel,
+.view-panel {
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-color: var(--site-line);
+}
+th,
+td {
+  border-color: var(--site-line);
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+th {
+  color: var(--site-ink);
+  background-color: var(--site-primary-soft) !important;
+}
+.table-responsive,
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.summary-table th,
+.summary-table td { padding: .6rem .75rem; border-bottom: 1px solid var(--site-line); }
+.aggregate-bank-link { margin: 1rem 0 0; text-align: center; }
+.aggregate-bank-link a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem 1rem;
+  border: 1px solid var(--site-primary);
+  border-radius: 8px;
+  background: var(--site-surface);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 520px) {
+  .integrated-catalog-nav,
+  #integrated-catalog-nav { gap: .5rem; padding-inline: .75rem; }
+  .integrated-catalog-subject { display: none; }
+  .integrated-catalog-return { padding-inline: .6rem; }
+}
+
+@media (max-width: 600px) {
+  .app-header > .nav-tabs {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+</style>
 </head>
 <body>
 <nav class="topbar" aria-label="平台導覽">
@@ -88,15 +316,20 @@ footer{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;color:v
       <div class="card-footer"><span class="count">教材・歷屆題庫</span><a href="05_防制洗錢與打擊資恐/02_離線教材題庫包/防制洗錢與打擊資恐重點教材.html">開啟學習 <span aria-hidden="true">→</span></a></div>
     </article>
   </section>
-  <aside class="note"><strong>題庫核對說明：</strong>信託收錄題答案均與官方答案一致；2 題官方多答案、1 題送分及其他 5 個缺少題目均未收錄。四科彙整頁有 7,484 筆紀錄，單科包合計 7,483 題；重複列差異詳見核對報告。</aside>
-  <details class="supporting-links">
-    <summary>來源、索引與核對資料</summary>
-    <nav class="links" aria-label="其他整合資料">
-      <a href="06_四科彙整題庫/歷屆考古題_完整題庫大全.html">開啟四科彙整題庫</a>
-      <a href="README_分類索引.md">查看分類索引</a>
-      <a href="07_核對報告/題目答案核對摘要.md">查看題目與答案核對報告</a>
-    </nav>
-  </details>
+  <aside class="note" aria-labelledby="bank-audit-title">
+    <strong id="bank-audit-title">題庫核對說明</strong>
+    <div class="table-responsive">
+      <table class="summary-table">
+        <thead><tr><th scope="col">範圍</th><th scope="col">核對結果</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">信託題庫</th><td>收錄 2,852 題，答案均與官方答案一致；2 題官方多答案、1 題送分及 5 題題目缺漏均未納入。</td></tr>
+          <tr><th scope="row">四科彙整題庫</th><td>7,484 筆紀錄；四科單科包合計 7,483 題。</td></tr>
+          <tr><th scope="row">筆數差異</th><td>永續發展 114-4 第 44 題在單科包少一筆重複列，題目與答案相同。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </aside>
+  <p class="aggregate-bank-link"><a href="06_四科彙整題庫/歷屆考古題_完整題庫大全.html">進入四科彙整題庫 <span aria-hidden="true">→</span></a></p>
   <footer>教材與題庫均為本機檔案；題目旁的 Google 查題按鈕需要網路。官方答案表缺少的 8 個信託題目鍵未納入。</footer>
 </main>
 </body>

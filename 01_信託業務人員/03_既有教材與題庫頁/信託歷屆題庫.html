@@ -578,6 +578,234 @@
 .integrated-catalog-nav a:focus-visible,.question-bank-browser :focus-visible{outline:3px solid #f0a524;outline-offset:2px}
 @media(max-width:520px){.integrated-catalog-nav{gap:.5rem;padding-inline:.75rem;font-size:.82rem}.integrated-catalog-subject{display:none}.integrated-catalog-return{padding-inline:.55rem}}
 </style>
+<style id="study-platform-consistency">/* Shared design layer embedded in all standalone study pages. */
+:root,
+[data-theme="light"],
+[data-theme="system"] {
+  color-scheme: light;
+  --site-page: #f4f8f7;
+  --site-surface: #ffffff;
+  --site-surface-alt: #eaf3f1;
+  --site-surface-hover: #e1eeeb;
+  --site-ink: #183331;
+  --site-muted: #536967;
+  --site-line: #d8e5e2;
+  --site-primary: #0f766e;
+  --site-primary-hover: #0b5e57;
+  --site-primary-soft: #e7f4f1;
+  --site-focus: #0f766e;
+  --site-font: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --ink: var(--site-ink);
+  --muted: var(--site-muted);
+  --line: var(--site-line);
+  --paper: var(--site-page);
+  --card: var(--site-surface);
+  --teal: var(--site-primary);
+  --teal-dark: var(--site-primary-hover);
+  --teal-pale: var(--site-primary-soft);
+  --primary: var(--site-primary);
+  --primary-hover: var(--site-primary-hover);
+  --primary-light: var(--site-primary-soft);
+  --primary-subtle: var(--site-primary-soft);
+  --primary-border: var(--site-line);
+  --bg: var(--site-page);
+  --bg-app: var(--site-page);
+  --bg-surface: var(--site-surface);
+  --bg-surface-alt: var(--site-surface-alt);
+  --bg-surface-hover: var(--site-surface-hover);
+  --card-bg: var(--site-surface);
+  --shell-bg: var(--site-page);
+  --text-main: var(--site-ink);
+  --text-sub: var(--site-muted);
+  --text-muted: var(--site-muted);
+  --border: var(--site-line);
+  --border-subtle: var(--site-line);
+  --border-strong: #b8cfca;
+  --font-family: var(--site-font);
+  --font-sans: var(--site-font);
+  --font-main: var(--site-font);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --bar: var(--site-surface);
+  --bar-text: var(--site-ink);
+  --active: var(--site-primary);
+  --accent: var(--site-primary);
+  --accent-light: var(--site-primary-soft);
+  --bg-primary: var(--site-page);
+  --bg-secondary: var(--site-surface-alt);
+  --bg-tertiary: var(--site-surface-hover);
+  --bg-card: var(--site-surface);
+  --bg-card-hover: var(--site-surface-hover);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --site-page: #101a19;
+  --site-surface: #172523;
+  --site-surface-alt: #1d302d;
+  --site-surface-hover: #29413d;
+  --site-ink: #e6f1ef;
+  --site-muted: #adc1be;
+  --site-line: #2d4541;
+  --site-primary: #62c4b8;
+  --site-primary-hover: #91ddd4;
+  --site-primary-soft: #173b36;
+  --site-focus: #91ddd4;
+  --border-strong: #42615b;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  color: var(--site-ink) !important;
+  background-color: var(--site-page) !important;
+  font-family: var(--site-font) !important;
+  line-height: 1.65;
+}
+
+a:not(.integrated-catalog-brand):not(.integrated-catalog-return) {
+  color: var(--site-primary) !important;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--site-primary-hover) !important; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--site-focus) !important;
+  outline-offset: 3px;
+}
+
+button,
+input,
+select,
+textarea { font-family: var(--site-font); }
+button { border-radius: 8px; }
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  border-color: var(--site-line);
+  border-radius: 8px;
+}
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-active,
+.btn-danger,
+.tab,
+.tab-btn,
+.view-nav-btn,
+.subject-tab-btn,
+.integrated-catalog-return {
+  border-radius: 8px !important;
+}
+.btn-primary,
+.btn-active,
+.tab.active,
+.tab[aria-selected="true"],
+.tab-btn.active,
+.subject-tab-btn.active,
+.view-nav-btn.active {
+  color: #ffffff !important;
+  background-color: var(--site-primary) !important;
+  border-color: var(--site-primary) !important;
+}
+
+.integrated-catalog-nav,
+#integrated-catalog-nav {
+  color: var(--site-ink) !important;
+  background: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+  font-family: var(--site-font) !important;
+}
+.integrated-catalog-brand { color: var(--site-ink) !important; }
+.integrated-catalog-mark { background: var(--site-primary) !important; }
+.integrated-catalog-subject { color: var(--site-muted) !important; }
+.integrated-catalog-return {
+  color: var(--site-primary) !important;
+  background: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+}
+.integrated-catalog-return:hover {
+  color: var(--site-primary-hover) !important;
+  background: var(--site-primary-soft) !important;
+  border-color: var(--site-primary) !important;
+}
+
+.top-bar,
+.top-header,
+.app-header,
+.app-bar {
+  background-color: var(--site-surface) !important;
+  border-color: var(--site-line) !important;
+  box-shadow: none;
+}
+.question-card,
+.q-card,
+.card,
+.stat-card,
+.shortcut-card,
+.quiz-card,
+.quiz-config-card,
+.question-bank-card,
+.reader-content,
+.content-panel,
+.view-panel {
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-color: var(--site-line);
+}
+th,
+td {
+  border-color: var(--site-line);
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+th {
+  color: var(--site-ink);
+  background-color: var(--site-primary-soft) !important;
+}
+.table-responsive,
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.summary-table th,
+.summary-table td { padding: .6rem .75rem; border-bottom: 1px solid var(--site-line); }
+.aggregate-bank-link { margin: 1rem 0 0; text-align: center; }
+.aggregate-bank-link a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem 1rem;
+  border: 1px solid var(--site-primary);
+  border-radius: 8px;
+  background: var(--site-surface);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 520px) {
+  .integrated-catalog-nav,
+  #integrated-catalog-nav { gap: .5rem; padding-inline: .75rem; }
+  .integrated-catalog-subject { display: none; }
+  .integrated-catalog-return { padding-inline: .6rem; }
+}
+
+@media (max-width: 600px) {
+  .app-header > .nav-tabs {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+</style>
 </head>
 <body>
 <nav id="integrated-catalog-nav" class="integrated-catalog-nav" aria-label="五科整合目錄">
@@ -613,7 +841,7 @@
     <div class="filter-inner">
       <div class="filter-group">
         <label class="filter-label" for="periodSelect">期別</label>
-        <select id="periodSelect" onchange="applyFilters()">
+        <select id="periodSelect" onchange="applyFilters()" aria-label="篩選考試屆數或場次">
           <option value="62" selected>第 62 屆 (最新)</option>
           <option value="all">全部歷屆瀏覽 (41~62 屆，不含47屆)</option>
           <option value="61">第 61 屆</option>

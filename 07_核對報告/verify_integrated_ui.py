@@ -293,13 +293,13 @@ process.stdin.on('end', () => {
   const tabs = [new Element('studyTab','study'),new Element('questionsTab','questions')];
   const frames = [study,questions];
   const listeners = {};
-  const location = {hash:''};
+  const location = {hash:'',href:'https://example.test/01_信託業務人員/06_答案核對版/信託業務人員教材與題庫_核對版.html'};
   const history = {replaceState(_state,_title,hash){location.hash = hash;}};
   const document = {
     getElementById(id){ return ({studyFrame:study,questionsFrame:questions,loadError:error})[id]; },
     querySelectorAll(selector){ return selector === '.tab' ? tabs : (selector === '.page-frame' ? frames : []); },
   };
-  const context = {document,window:{addEventListener:(name,fn)=>listeners[name]=fn},location,history,TextDecoder,atob:value=>Buffer.from(value,'base64').toString('binary'),console:{error(){}}};
+  const context = {document,window:{addEventListener:(name,fn)=>listeners[name]=fn},location,history,TextDecoder,URL,atob:value=>Buffer.from(value,'base64').toString('binary'),console:{error(){}}};
   vm.runInNewContext(script, context);
   assert.ok(study.srcdoc.toLowerCase().includes('<title>'), 'study embedded page loaded');
   assert.equal(study.hidden,false,'study frame visible at start');
@@ -319,8 +319,28 @@ process.stdin.on('end', () => {
 
 
 def main() -> None:
-    html_files = sorted(ROOT.rglob("*.html"))
+    html_files = sorted(
+        path for path in ROOT.rglob("*.html")
+        if not any(part in {".git", "node_modules", "qa-output"} for part in path.relative_to(ROOT).parts)
+    )
     non_catalog_pages = [path for path in html_files if path != ROOT / "index.html"]
+    common_css = (ROOT / "07_核對報告" / "ui-consistency.css").read_text(encoding="utf-8")
+    style_mismatches: list[str] = []
+    markdown_links_in_html: list[str] = []
+    embedded_markdown_link = re.compile(r"\]\([^\s)\r\n]{1,240}\.md(?:[?#][^)]*)?\)", re.I)
+    for path in html_files:
+        source = path.read_text(encoding="utf-8-sig")
+        style = re.search(r'<style id="study-platform-consistency">([\s\S]*?)</style>', source)
+        if not style or style.group(1).strip() != common_css.strip():
+            style_mismatches.append(path.relative_to(ROOT).as_posix())
+        if (
+            re.search(r"""(?:href|src)\s*=\s*["'][^"']+\.md(?:[?#][^"']*)?["']""", source, flags=re.I)
+            or embedded_markdown_link.search(source)
+        ):
+            markdown_links_in_html.append(path.relative_to(ROOT).as_posix())
+    if style_mismatches or markdown_links_in_html:
+        raise AssertionError({"shared_style_mismatches": style_mismatches, "markdown_links_in_html": markdown_links_in_html})
+
     missing_nav: list[str] = []
     unresolved_links: list[str] = []
     for path in non_catalog_pages:
@@ -353,6 +373,25 @@ def main() -> None:
         if actual_hash != expected_hash:
             raise AssertionError(f"HTML hash does not match UI report: {relative}")
 
+    material_roots = [
+        ROOT / "01_信託業務人員" / "01_教材來源",
+        ROOT / "02_金融科技力" / "01_教材與題庫來源",
+        ROOT / "03_消費金融內控稽核" / "01_教材與題庫來源",
+        ROOT / "04_永續發展基礎能力" / "01_教材與題庫來源",
+        ROOT / "05_防制洗錢與打擊資恐" / "01_教材與題庫來源",
+    ]
+    material_markdown = [path for source_root in material_roots for path in source_root.rglob("*.md")]
+    markdown_link_pattern = re.compile(r"\[[^\]]+\]\([^)]+\.md(?:[#?][^)]*)?\)", re.I)
+    linked_markdown = [path.relative_to(ROOT).as_posix() for path in material_markdown if markdown_link_pattern.search(path.read_text(encoding="utf-8-sig"))]
+    if linked_markdown:
+        raise AssertionError({"markdown_links_in_study_material": linked_markdown})
+    overviews = [path for path in material_markdown if path.name.startswith("00_")]
+    if len(overviews) != 5 or any("| 章次 | 學習主題 |" not in path.read_text(encoding="utf-8-sig") for path in overviews):
+        raise AssertionError("All five subject overview chapter maps must use tables")
+    aml_chapter = next(path for path in material_markdown if path.name.startswith("04_資恐防制法要件"))
+    if aml_chapter.read_text(encoding="utf-8-sig").count("| --- | --- |") < 4:
+        raise AssertionError("AML TFS chapter tables are missing")
+
     pack_results = {}
     with tempfile.TemporaryDirectory(prefix="study-pack-js-check-") as temp_dir:
         temp_root = Path(temp_dir)
@@ -381,8 +420,10 @@ def main() -> None:
         if 'https://www.google.com/search?q=${encodeURIComponent(q.text)}' not in aggregate_source or 'rel="noopener noreferrer"' not in aggregate_source:
             raise AssertionError("Aggregate question cards must contain a safe Google search link")
         catalog_source = (ROOT / "index.html").read_text(encoding="utf-8-sig")
-        if '<details class="supporting-links">' not in catalog_source:
-            raise AssertionError("Catalog supporting links must be collapsible")
+        if 'class="summary-table"' not in catalog_source or 'class="aggregate-bank-link"' not in catalog_source:
+            raise AssertionError("Catalog must show the answer reconciliation table and aggregate bank entry")
+        if re.search(r"""href=["'][^"']+\.md(?:[?#][^"']*)?["']""", catalog_source, flags=re.I):
+            raise AssertionError("Catalog must not link to Markdown documents")
         for index, path in enumerate(PACKS):
             source = path.read_text(encoding="utf-8-sig")
             main_nav = re.search(r'<nav class="nav-tabs" aria-label="主要內容">(.*?)</nav>', source, flags=re.S)
@@ -449,6 +490,8 @@ def main() -> None:
         "pages_with_catalog_return_navigation": len(non_catalog_pages),
         "catalog_return_links_resolved": True,
         "html_sha256_manifest_matches": True,
+        "shared_design_layer": {"pages": len(html_files), "identical_embedded_stylesheet": True},
+        "markdown_links": {"html_pages": 0, "study_material_markdown": 0, "overview_chapter_rows_rendered_as_tables": sum(1 for p in overviews for line in p.read_text(encoding="utf-8-sig").splitlines() if line.startswith("| 第 "))},
         "study_pack_inline_scripts_syntax": "passed",
         "trust_shell": {
             "grid_rows_allocate_catalog_app_bar_and_content": True,
@@ -457,10 +500,11 @@ def main() -> None:
             "embedded_study_and_question_screens": json.loads(trust_interaction.stdout.strip()),
         },
         "google_question_search": "present in Trust, all four subject packs, and the four-subject aggregate",
-        "catalog_secondary_links_collapsible": True,
+        "catalog_reconciliation_table": True,
         "packs": pack_results,
         "additional_offline_packs": {legacy_path.name: {"rendered_mermaid_diagrams_from_current_markdown": legacy_diagrams, "question_payload_matches_compiler_output": True, "embedded_images_valid": True}},
-        "browser_visual_validation": "not run: local file URL was blocked by browser security policy; no workaround attempted",
+        "browser_visual_validation": report.get("verification", {}).get("browser_visual_validation", "not run"),
+        "pages_build_validation": report.get("verification", {}).get("pages_build_validation", "not run"),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

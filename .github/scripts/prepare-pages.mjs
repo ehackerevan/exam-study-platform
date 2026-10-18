@@ -63,23 +63,23 @@ for (const page of publicPages) copyFile(page);
 
 const indexPath = path.join(output, 'index.html');
 let index = readFileSync(indexPath, 'utf8');
-for (const anchor of [
-  '<a href="README_分類索引.md">查看分類索引</a>',
-  '<a href="07_核對報告/題目答案核對摘要.md">查看題目與答案核對報告</a>',
-]) {
-  if (index.split(anchor).length !== 2) throw new Error(`Expected one non-site link in catalog: ${anchor}`);
-  index = index.replace(anchor, '');
+if (/\bhref=["'][^"']+\.md(?:[#?][^"']*)?["']/i.test(index)) {
+  throw new Error('Markdown document link remains in the public catalog');
 }
-if (/README_分類索引|07_核對報告/.test(index)) throw new Error('Internal documentation link remains in public catalog');
 writeFileSync(indexPath, index);
 
 const trustPage = path.join(output, publicPages[0]);
-let trustHtml = readFileSync(trustPage, 'utf8');
-const oldThemeLine = "return html.replace('</head>', '<style id=\"stitch-trust-page-theme\">' + theme + '</style></head>');";
-const newThemeLine = "const base = pane === 'study' ? '<base href=\"' + new URL('../../01_信託業務人員/01_教材來源/信託業務人員重點教材/', location.href).href + '\">' : ''; const basedHtml = base ? html.replace(/<head([^>]*)>/i, '<head$1>' + base) : html; return basedHtml.replace('</head>', '<style id=\"stitch-trust-page-theme\">' + theme + '</style></head>');";
-if (trustHtml.split(oldThemeLine).length !== 2) throw new Error('Trust iframe base URL insertion point changed');
-trustHtml = trustHtml.replace(oldThemeLine, newThemeLine);
-writeFileSync(trustPage, trustHtml);
+const trustHtml = readFileSync(trustPage, 'utf8');
+if (!trustHtml.includes("new URL('../01_教材來源/信託業務人員重點教材/', location.href).href")) {
+  throw new Error('Trust iframe must resolve study assets relative to the embedded course source');
+}
+
+for (const page of [indexPath, ...publicPages.map((relativePath) => path.join(output, relativePath))]) {
+  const html = readFileSync(page, 'utf8');
+  if (/<a\b[^>]*\bhref=["'][^"']+\.md(?:[#?][^"']*)?["']/i.test(html)) {
+    throw new Error(`Markdown document link remains in published page: ${path.relative(output, page)}`);
+  }
+}
 
 const sourceRoots = [
   '01_信託業務人員/01_教材來源/信託業務人員重點教材',
