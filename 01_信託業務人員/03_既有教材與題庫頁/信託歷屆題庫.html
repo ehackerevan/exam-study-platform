@@ -790,6 +790,22 @@ th {
   text-decoration: none;
 }
 
+/* Older Trust readers use full-height grid/flex shells; the catalog link must
+   occupy its own row instead of becoming a side column or consuming the app row. */
+body.catalog-app-grid {
+  grid-template-rows: auto auto minmax(0, 1fr) !important;
+}
+body.catalog-reader-flex > #integrated-catalog-nav {
+  position: fixed !important;
+  inset: 0 0 auto !important;
+  z-index: 70 !important;
+}
+body.catalog-reader-flex > #sidebar,
+body.catalog-reader-flex > #main-content {
+  height: calc(100vh - 3.25rem) !important;
+  margin-top: 3.25rem;
+}
+
 @media (max-width: 520px) {
   .integrated-catalog-nav,
   #integrated-catalog-nav { gap: .5rem; padding-inline: .75rem; }
@@ -803,6 +819,33 @@ th {
     width: 100% !important;
     min-width: 0 !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .brand-title,
+  #app-brand-title,
+  .topbar-title {
+    max-width: min(52vw, 240px) !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 768px) {
+  body.catalog-reader-flex > #sidebar {
+    top: 3.25rem !important;
+    bottom: 0 !important;
+    height: auto !important;
+    margin-top: 0;
+  }
+
+  body.catalog-reader-flex > #main-content {
+    height: calc(100vh - 3.25rem) !important;
+    margin-top: 3.25rem;
   }
 }
 </style>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="dark">
+<html lang="zh-TW" data-theme="light">
 <head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230f766e%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20text-anchor%3D%22middle%22%20font-size%3D%2242%22%20fill%3D%22white%22%3E%E5%AD%B8%3C%2Ftext%3E%3C%2Fsvg%3E">
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>臺灣信託業務人員專業測驗：生活圖解重點教材與全真題庫刷題系統</title>
@@ -1599,8 +1601,7 @@
 .integrated-catalog-nav a:focus-visible,.question-bank-browser :focus-visible{outline:3px solid #f0a524;outline-offset:2px}
 @media(max-width:520px){.integrated-catalog-nav{gap:.5rem;padding-inline:.75rem;font-size:.82rem}.integrated-catalog-subject{display:none}.integrated-catalog-return{padding-inline:.55rem}}
 </style>
-<style id="study-platform-consistency">
-/* Shared design layer embedded in all standalone study pages. */
+<style id="study-platform-consistency">/* Shared design layer embedded in all standalone study pages. */
 :root,
 [data-theme="light"],
 [data-theme="system"] {
@@ -1812,6 +1813,22 @@ th {
   text-decoration: none;
 }
 
+/* Older Trust readers use full-height grid/flex shells; the catalog link must
+   occupy its own row instead of becoming a side column or consuming the app row. */
+body.catalog-app-grid {
+  grid-template-rows: auto auto minmax(0, 1fr) !important;
+}
+body.catalog-reader-flex > #integrated-catalog-nav {
+  position: fixed !important;
+  inset: 0 0 auto !important;
+  z-index: 70 !important;
+}
+body.catalog-reader-flex > #sidebar,
+body.catalog-reader-flex > #main-content {
+  height: calc(100vh - 3.25rem) !important;
+  margin-top: 3.25rem;
+}
+
 @media (max-width: 520px) {
   .integrated-catalog-nav,
   #integrated-catalog-nav { gap: .5rem; padding-inline: .75rem; }
@@ -1826,10 +1843,37 @@ th {
     min-width: 0 !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+
+  .brand-title,
+  #app-brand-title,
+  .topbar-title {
+    max-width: min(52vw, 240px) !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 768px) {
+  body.catalog-reader-flex > #sidebar {
+    top: 3.25rem !important;
+    bottom: 0 !important;
+    height: auto !important;
+    margin-top: 0;
+  }
+
+  body.catalog-reader-flex > #main-content {
+    height: calc(100vh - 3.25rem) !important;
+    margin-top: 3.25rem;
+  }
 }
 </style>
 </head>
-<body>
+<body class="catalog-reader-flex">
 <nav id="integrated-catalog-nav" class="integrated-catalog-nav" aria-label="五科整合目錄">
   <a class="integrated-catalog-brand" href="../../../index.html"><span class="integrated-catalog-mark" aria-hidden="true">學</span><span>五科教材與題庫</span></a>
   <span class="integrated-catalog-subject">信託業務人員</span>
@@ -1876,7 +1920,7 @@ th {
           <span>🎯 已練習: 0 題</span>
         </div>
         <button class="btn-action highlight" id="quickCrunchBtn">⚡ 速查手冊</button>
-        <button class="btn-icon" id="themeToggleBtn" title="切換色彩模式">🌓</button>
+        <button class="btn-icon" id="themeToggleBtn" title="切換色彩模式" onclick="toggleTheme()">🌓</button>
       </div>
     </header>
 
