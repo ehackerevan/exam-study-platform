@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="100%" height="440" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <text x="460" y="38" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 金錢信託分類架構與投資決定權歸屬</text>
+
+  <!-- 頂部 -->
+  <g transform="translate(330, 65)" filter="url(#shadow)">
+    <rect width="260" height="50" rx="8" fill="url(#gradEmerald)"/>
+    <text x="130" y="32" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">金錢信託 Money Trust</text>
+  </g>
+
+  <!-- 二大分類 -->
+  <!-- 左：指定金錢信託 -->
+  <g transform="translate(40, 150)" filter="url(#shadow)">
+    <rect width="400" height="46" rx="8" fill="url(#gradBlue)"/>
+    <text x="200" y="30" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">指定金錢信託 (委託人具體指明標的)</text>
+  </g>
+  <g transform="translate(40, 210)" filter="url(#shadow)">
+    <rect width="400" height="100" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+<text x="20" y="32" fill="#60a5fa" font-size="15" font-weight="700">特定金錢信託</text>
+<text x="20" y="58" fill="#cbd5e1" font-size="13">• 投資標的由委託人指定</text>
+    <text x="20" y="80" fill="#94a3b8" font-size="13">• 典型應用: 臨櫃或網銀指定申購境外基金、海外股票</text>
+  </g>
+  <g transform="translate(40, 325)" filter="url(#shadow)">
+    <rect width="400" height="90" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="20" y="30" fill="#60a5fa" font-size="15" font-weight="700">指定營運範圍金錢信託</text>
+    <text x="20" y="54" fill="#cbd5e1" font-size="13">• 投資決定權：委託人授權受託機構操盤</text>
+    <text x="20" y="74" fill="#94a3b8" font-size="13">• 典型應用: 全權委託投資代操業務</text>
+  </g>
+
+  <!-- 右：非特定金錢信託 -->
+  <g transform="translate(480, 150)" filter="url(#shadow)">
+    <rect width="400" height="46" rx="8" fill="url(#gradAmber)"/>
+    <text x="200" y="30" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">非特定金錢信託 (未具體指明標的)</text>
+  </g>
+  <g transform="translate(480, 210)" filter="url(#shadow)">
+    <rect width="400" height="205" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="20" y="32" fill="#fbbf24" font-size="15" font-weight="700">非指定營運範圍或方法之金錢信託</text>
+<text x="20" y="60" fill="#cbd5e1" font-size="13">• 依信託業法第 32 條辦理運用</text>
+<text x="20" y="88" fill="#cbd5e1" font-size="13">• 現金、存款、公債、公司債、金融債券</text>
+<text x="20" y="112" fill="#94a3b8" font-size="13">  短期票券及主管機關核准業務</text>
+<text x="20" y="150" fill="#f87171" font-size="14" font-weight="700">⚠ 不得承諾擔保本金或最低收益率</text>
+<text x="20" y="174" fill="#cbd5e1" font-size="13">  實際運用依契約及主管機關規定</text>
+  </g>
+
+  <!-- 連線 -->
+  <path d="M 460 115 L 460 135 L 240 135 L 240 150" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 460 115 L 460 135 L 680 135 L 680 150" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
+
+</svg>

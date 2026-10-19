@@ -1,0 +1,7 @@
+{
+  "id": "technical-learning",
+  "title": "Git 版本控制核心概念與命令實務",
+  "description": "深入理解 Git 內部物件模型、三層架構、分支與常見合併衝突解決策略",
+  "language": "zh-TW",
+  "contentVersion": "2026.10.1"
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="100%" height="360" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <text x="460.0" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 有價證券信託與企業員工福利信託雙核心全景架構</text>
+
+  <g transform="translate(40, 75)" filter="url(#shadow)">
+    <rect width="400" height="230" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="400" height="42" rx="10" fill="url(#gradBlue)"/>
+    <text x="200" y="27" fill="#fff" font-size="16" font-weight="700" text-anchor="middle"> 模塊一：有價證券信託</text>
+    <text x="25" y="80" fill="#60a5fa" font-size="14" font-weight="700">1. 信託標的與對抗要件</text>
+    <text x="45" y="105" fill="#cbd5e1" font-size="13">• 標的：上市櫃股票、公債、公司債</text>
+    <text x="45" y="125" fill="#cbd5e1" font-size="13">• 背書轉讓 ＋ 股東名簿載明信託專戶</text>
+    <text x="25" y="160" fill="#60a5fa" font-size="14" font-weight="700">2. 有價證券借貸 (借券業務)</text>
+    <text x="45" y="185" fill="#cbd5e1" font-size="13">• 出具借貸同意書、賺取穩定出借費</text>
+    <text x="45" y="205" fill="#38bdf8" font-size="13"> 140% 擔保維持率控管</text>
+  </g>
+
+  <g transform="translate(480, 75)" filter="url(#shadow)">
+    <rect width="400" height="230" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect width="400" height="42" rx="10" fill="url(#gradEmerald)"/>
+    <text x="200" y="27" fill="#fff" font-size="16" font-weight="700" text-anchor="middle"> 模塊二：企業員工福利信託</text>
+    <text x="25" y="80" fill="#34d399" font-size="14" font-weight="700">1. 員工持股信託 (ESOT)</text>
+<text x="45" y="105" fill="#cbd5e1" font-size="13">• 依契約約定員工自提與公司獎助金</text>
+    <text x="45" y="125" fill="#cbd5e1" font-size="13">• 專門定期定額長期買進自家公司股票</text>
+    <text x="25" y="160" fill="#34d399" font-size="14" font-weight="700">2. 股東會表決權行使原則</text>
+<text x="45" y="185" fill="#cbd5e1" font-size="13">• 依信託契約及持股會決議辦理</text>
+<text x="45" y="205" fill="#f87171" font-size="13">⚠ 受託人依約執行，不得逾越權限</text>
+  </g>
+
+</svg>

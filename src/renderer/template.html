@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Study Pack</title>
+  <style>
+/* __INLINE_CSS__ */
+  </style>
+<style id="study-ui-theme">
+:root {
+  --action-primary: #2563eb; --action-hover: #1d4ed8;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  --bg-app: #f8fafc; --bg-surface: #ffffff; --bg-surface-alt: #f1f5f9;
+  --text-main: #0f172a; --text-muted: #475569; --text-subtle: #64748b;
+  --border-subtle: #e2e8f0; --primary: #2563eb; --primary-hover: #1d4ed8; --primary-subtle: #eff6ff;
+  --success: #15803d; --danger: #b91c1c;
+  --bg: var(--bg-app); --card-bg: var(--bg-surface); --text-sub: var(--text-muted);
+  --border: var(--border-subtle); --primary-light: var(--primary-subtle);
+  --text: var(--text-main); --muted: var(--text-muted);
+  --radius-btn: 8px; --radius-card: 12px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --success:#86efac; --danger:#fca5a5; --success-light:#14532d; --danger-light:#7f1d1d;
+  --bg-app: #0f172a; --bg-surface: #1e293b; --bg-surface-alt: #334155;
+  --text-main: #f8fafc; --text-muted: #cbd5e1; --text-subtle: #94a3b8;
+  --border-subtle: #475569; --primary: #93c5fd; --primary-hover: #bfdbfe; --primary-subtle: #1e3a8a;
+  --bg: var(--bg-app); --card-bg: var(--bg-surface); --text-sub: var(--text-muted);
+  --border: var(--border-subtle); --primary-light: var(--primary-subtle);
+  --text: var(--text-main); --muted: var(--text-muted);
+}}
+[data-theme="dark"] {
+  --success:#86efac; --danger:#fca5a5; --success-light:#14532d; --danger-light:#7f1d1d;
+  --bg-app: #0f172a; --bg-surface: #1e293b; --bg-surface-alt: #334155;
+  --text-main: #f8fafc; --text-muted: #cbd5e1; --text-subtle: #94a3b8;
+  --border-subtle: #475569; --primary: #93c5fd; --primary-hover: #bfdbfe; --primary-subtle: #1e3a8a;
+  --bg: var(--bg-app); --card-bg: var(--bg-surface); --text-sub: var(--text-muted);
+  --border: var(--border-subtle); --primary-light: var(--primary-subtle);
+  --text: var(--text-main); --muted: var(--text-muted);
+}
+body { font-family: var(--font-sans); font-size:16px; line-height: 1.7; background-color: var(--bg-app); color: var(--text-main); margin: 0; }
+small, .stat-subtext, .brand-meta { color:var(--text-muted); }
+input::placeholder, textarea::placeholder { color:var(--text-muted); opacity:1; }
+.app-header, .top-header, .dashboard-hero { background-color: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); background-image: none !important; box-shadow: none !important; }
+.stat-card, .shortcut-card, .quiz-card, .q-card, .reader-sidebar { background: var(--bg-surface) !important; border: 1px solid var(--border-subtle) !important; border-radius: var(--radius-card); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+.btn, button, .tab-btn, .tab, .opt-chip { border-radius: var(--radius-btn); min-height: 44px; font-family: inherit; font-weight: 500; cursor: pointer; text-decoration: none; border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-main); transition: background-color .15s, border-color .15s; }
+.btn:hover, button:hover, .tab-btn:hover, .tab:hover, .opt-chip:hover { border-color: var(--primary); color: var(--primary); }
+.btn-primary, button.primary { background: var(--action-primary) !important; color: #ffffff !important; border-color: var(--primary) !important; }
+.btn-primary:hover, button.primary:hover:hover { background: var(--action-hover) !important; }
+.tab-btn.active, .tab.active, .opt-chip.active { background: var(--primary-subtle) !important; color: var(--primary) !important; border-color: var(--primary) !important; }
+.option-item.correct, .opt-chip.correct, .correct { border-color: var(--success) !important; color: var(--success) !important; background: transparent; }
+.option-item.wrong, .opt-chip.wrong, .wrong { border-color: var(--danger) !important; color: var(--danger) !important; background: transparent; }
+:focus-visible { outline: 2px solid var(--primary) !important; outline-offset: 2px; }
+input, select, textarea, .search-input, .filter-select { font-family: inherit; min-height: 44px; border-radius: var(--radius-btn); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-main); padding: 0.5rem 0.75rem; box-sizing: border-box; }
+table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+th, td { border: 1px solid var(--border-subtle); padding: 0.4rem; text-align: left; }
+th { background: var(--bg-surface-alt); }
+html:has(body > h1) body { max-width: 850px; margin: 2rem auto; padding: 0 1.5rem; background: var(--bg-app); }
+html:has(body > h1) a { color: var(--primary); text-decoration: none; } html:has(body > h1) a:hover { text-decoration: underline; }
+.brand-badge { background:var(--action-primary)!important; background-image:none!important; color:#fff; }
+.reader-content,.dashboard-hero,.stats-card,.quick-nav-box { border-radius:var(--radius-card); background-color:var(--bg-surface); }
+.btn-danger { color:var(--danger); border-color:var(--danger); background:var(--bg-surface); }
+.opt-selected-correct { border-color:var(--success)!important; background:var(--success-light)!important; color:var(--text-main); }
+.opt-selected-wrong { border-color:var(--danger)!important; background:var(--danger-light)!important; color:var(--text-main); }
+html:has(body > h1) a { min-height:44px; display:inline-flex; align-items:center; }
+@media(max-width:768px) {
+  .filter-inner,.filter-group,.header-inner { flex-wrap:wrap; }
+  .filter-group input,.filter-group select { min-width:0!important; max-width:100%; }
+}
+.catalog-main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem; color: var(--text-main); background: var(--bg-app); font-family: inherit; }
+.catalog-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; }
+.catalog-nav { display: flex; gap: 0.75rem; }
+.catalog-nav a { padding: 0.35rem 0.75rem; border-radius: 4px; text-decoration: none; color: var(--text-muted); border: 1px solid var(--border-subtle); font-size: 0.9rem; }
+.catalog-nav a:hover, .catalog-nav a:focus-visible { color: var(--primary); border-color: var(--primary); background: var(--primary-subtle); outline: 2px solid var(--primary); outline-offset: 1px; }
+.catalog-sections { display: flex; flex-direction: column; gap: 2.5rem; }
+.catalog-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-main); }
+.subject-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .subject-grid { grid-template-columns: repeat(2, 1fr); } }
+.subject-link { display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; min-height: 5rem; transition: border-color 0.15s ease; }
+.subject-link:hover { border-color: var(--primary); }
+.subject-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-color: var(--primary); }
+.subject-name { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem; }
+.subject-meta { font-size: 0.85rem; color: var(--text-muted); }
+
+#study-catalog-nav{position:sticky;top:0;z-index:150;box-sizing:border-box;min-height:44px;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--bg-surface);border-bottom:1px solid var(--border-subtle);font-size:.875rem}
+#study-catalog-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--primary);font-weight:650;text-decoration:none}#study-catalog-nav span{color:var(--text-muted)}
+body:has(#study-catalog-nav) .app-header,body:has(#study-catalog-nav) .top-header{top:44px}
+body:has(#study-catalog-nav) .reader-sidebar{top:calc(var(--header-height) + 60px)}
+.catalog-main h1{font-size:1.65rem;margin:0 0 .5rem}.catalog-nav{flex-wrap:wrap}.catalog-nav a{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+.catalog-section{scroll-margin-top:1rem}.catalog-section>p{color:var(--text-muted);margin-bottom:1rem}.subject-link{border-radius:var(--radius-card)}.catalog-footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-subtle)}
+.legal-term{font-weight:750;background:transparent;padding:0 .06em;border-radius:2px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+.legal-prohibit{color:#b91c1c;background:#fef2f2}.legal-duty{color:#1d4ed8;background:#eff6ff}.legal-permit{color:#166534;background:#f0fdf4}
+.legal-legend{font-size:.85rem;line-height:1.9;color:var(--text-muted);margin:.75rem 0 1.25rem}.legal-legend span{display:inline-block;margin-right:.75rem}
+[data-theme="dark"] .legal-prohibit{color:#fecaca;background:#7f1d1d}[data-theme="dark"] .legal-duty{color:#bfdbfe;background:#1e3a8a}[data-theme="dark"] .legal-permit{color:#bbf7d0;background:#14532d}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .legal-prohibit{color:#fecaca;background:#7f1d1d}:root:not([data-theme="light"]) .legal-duty{color:#bfdbfe;background:#1e3a8a}:root:not([data-theme="light"]) .legal-permit{color:#bbf7d0;background:#14532d}}
+@media(max-width:768px){body:has(#study-catalog-nav) .reader-sidebar{position:static}.section-block{scroll-margin-top:200px}.catalog-main{padding:1rem}.catalog-nav{width:100%}}
+#quiz-setup-panel select { min-width:0; max-width:100%; }
+@media(max-width:600px){#quiz-setup-panel .quiz-mode-card>div { flex-wrap:wrap; }#quiz-select-chapter{width:100%;flex:1 0 100%;}}
+
+.legal-quantity{color:#5b21b6;background:#f5f3ff}
+[data-theme="dark"] .legal-quantity{color:#ddd6fe;background:#4c1d95}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .legal-quantity{color:#ddd6fe;background:#4c1d95}}
+.answer-search{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.25rem .75rem;margin:.25rem 0 .75rem;border:1px solid var(--primary);border-radius:var(--radius-btn);color:var(--primary);background:var(--primary-subtle);font-size:.875rem;font-weight:600;text-decoration:none}
+.answer-search:hover{border-color:var(--primary-hover);text-decoration:underline}.answer-search[hidden]{display:none}
+</style>
+</head>
+<body>
+<nav id="study-catalog-nav" aria-label="學科目錄"><a href="../../dist/index.html">← 學科目錄</a><span>教材與題庫</span></nav>
+  <!-- 頂部通用導航列 -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="brand-badge">學</div>
+      <div class="brand-info">
+        <span class="brand-title" id="app-brand-title">Study Pack</span>
+        <span class="brand-meta" id="app-brand-version">v1.0.0</span>
+      </div>
+    </div>
+
+    <!-- 視圖切換標籤 -->
+    <nav class="nav-tabs" aria-label="主功能分頁">
+      <button class="tab-btn active" data-view="dashboard" type="button">📊 總覽</button>
+      <button class="tab-btn" data-view="reader" type="button">📘 教材</button>
+      <button class="tab-btn" data-view="search" type="button">🔍 搜尋</button>
+      <button class="tab-btn" data-view="quick-review" type="button">💡 速查</button>
+      <button class="tab-btn" data-view="quiz" type="button">📝 測驗</button>
+      <button class="tab-btn" data-view="settings" type="button">⚙️ 設定</button>
+    </nav>
+  </header>
+
+  <!-- 主內容視圖容器 -->
+  <main class="app-container">
+
+    <!-- 頂部資料庫/儲存警告橫幅 (持續警告 + 匯出備份按鈕) -->
+    <div id="storage-warning-banner" class="storage-warning-banner" style="display:none;" role="alert">
+      <div class="storage-warning-content">
+        <span class="storage-warning-icon">⚠️</span>
+        <span id="storage-warning-message" class="storage-warning-text">本機儲存空間讀寫異常，目前進度僅暫存於記憶體中，重新整理可能遺失！</span>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button>
+    </div>
+
+    <!-- 1. 總覽 Dashboard -->
+    <section id="view-dashboard" class="view-panel active">
+      <div class="dashboard-hero">
+        <h1 class="hero-title" id="hero-pack-title">學習教材</h1>
+        <p class="hero-desc" id="hero-pack-desc">歡迎使用單檔離線學習包</p>
+
+        <!-- 核心統計指標 -->
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-label">已讀章節</span>
+            <span class="stat-value" id="stat-completed-chapters">0 / 0</span>
+            <span class="stat-subtext">持續累計學習進度</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">總作答題數</span>
+            <span class="stat-value" id="stat-total-attempts">0</span>
+            <span class="stat-subtext">次數統計</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">整體答對率</span>
+            <span class="stat-value" id="stat-accuracy-rate">0%</span>
+            <span class="stat-subtext">答對題次佔比</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">目前錯題</span>
+            <span class="stat-value" style="color:var(--danger);" id="stat-wrong-questions">0</span>
+            <span class="stat-subtext">尚待加強複習</span>
+          </div>
+        </div>
+
+        <div style="font-size:0.875rem;color:var(--text-muted);display:flex;align-items:center;gap:0.5rem;">
+          <span>📍 最近學習：</span>
+          <strong id="stat-last-chapter" style="color:var(--text-main);">未開始</strong>
+        </div>
+      </div>
+
+      <!-- 快捷入口卡片 (使用 button 元素) -->
+      <h3 style="font-size:1.1rem;margin-bottom:0.75rem;font-weight:700;">快速開始</h3>
+      <div class="shortcuts-grid">
+        <button type="button" class="shortcut-card" id="shortcut-continue-read">
+          <span class="shortcut-icon">📖</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">閱讀教材</span>
+            <span class="shortcut-desc">循序漸進研讀各章節重點</span>
+          </span>
+        </button>
+        <button type="button" class="shortcut-card" id="shortcut-random-quiz">
+          <span class="shortcut-icon">🎯</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">隨機抽題測驗</span>
+            <span class="shortcut-desc">快速 20 題模擬小測驗</span>
+          </span>
+        </button>
+        <button type="button" class="shortcut-card" id="shortcut-wrong-answers">
+          <span class="shortcut-icon">🔥</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">錯題強化練習</span>
+            <span class="shortcut-desc">集中攻克目前待複習題目</span>
+          </span>
+        </button>
+        <button type="button" class="shortcut-card" id="shortcut-quick-review">
+          <span class="shortcut-icon">⚡</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">重點速查複習</span>
+            <span class="shortcut-desc">考前快速回顧精華清單</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- 弱點分析 -->
+      <div class="weakness-card">
+        <h3>📊 各章節學習掌握度分析</h3>
+        <div id="weakness-list"></div>
+      </div>
+    </section>
+
+    <!-- 2. 章節閱讀 Reader -->
+    <section id="view-reader" class="view-panel">
+      <div class="reader-layout">
+        <!-- 側邊目錄（可收合） -->
+        <aside class="reader-sidebar" id="reader-sidebar">
+          <div class="sidebar-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span class="sidebar-title" style="margin-bottom:0;">章節目錄</span>
+            <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="收合目錄" title="收合或展開目錄">收合 ◀</button>
+          </div>
+          <ul class="toc-list" id="reader-toc-list"></ul>
+        </aside>
+
+        <!-- 主閱讀區 -->
+        <article class="reader-content">
+          <header class="chapter-header">
+            <div>
+              <h2 class="chapter-title" id="chapter-heading">章節標題</h2>
+              <p class="chapter-summary" id="chapter-summary-text"></p>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button>
+            </div>
+          </header>
+
+          <!-- 小節列表容器 -->
+          <div id="sections-container"></div>
+
+          <!-- 章末本章練習區塊 -->
+          <div class="chapter-quiz-action" id="chapter-quiz-action" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <div style="font-weight:700;font-size:1rem;color:var(--primary);">✍️ 本章隨堂練習</div>
+              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">針對本章核心觀念即學即測，檢驗學習成效。</div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-chapter-practice">開始本章測驗</button>
+          </div>
+
+          <!-- 底部切換章節 -->
+          <footer class="reader-footer">
+            <button type="button" class="btn btn-secondary" id="btn-prev-chapter">← 上一章</button>
+            <button type="button" class="btn btn-secondary" id="btn-next-chapter">下一章 →</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 全文搜尋 Search -->
+    <section id="view-search" class="view-panel">
+      <div class="search-bar-container">
+        <h2 style="margin-bottom:0.75rem;font-size:1.25rem;font-weight:700;">全文即時搜尋</h2>
+        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或速查重點..." />
+      </div>
+      <div class="search-results-list" id="search-results">
+        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
+      </div>
+    </section>
+
+    <!-- 4. 速查模式 Quick Review -->
+    <section id="view-quick-review" class="view-panel">
+      <div style="margin-bottom:1.25rem;">
+        <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;">考前重點速查 (Quick Review)</h2>
+        <p style="font-size:0.875rem;color:var(--text-muted);">集中檢閱各章節精華要點，可依章節篩選或關鍵字過濾。</p>
+      </div>
+
+      <div class="quick-review-controls">
+        <select class="select-dropdown" id="quick-review-chapter-filter">
+          <option value="all">全部章節</option>
+        </select>
+        <input type="text" class="select-dropdown" id="quick-review-search" placeholder="關鍵字即時過濾..." style="flex:1;min-width:200px;" />
+      </div>
+
+      <div class="quick-review-grid" id="quick-review-container"></div>
+    </section>
+
+    <!-- 5. 測驗模式 Quiz -->
+    <section id="view-quiz" class="view-panel">
+      <!-- 測驗啟動設定面板 -->
+      <div id="quiz-setup-panel">
+        <div class="quiz-config-card">
+          <h2 class="quiz-config-title">選擇測驗模式</h2>
+
+          <!-- 模式一：章節測驗 -->
+          <div class="form-group">
+            <label class="form-label">指定章節測驗 (Chapter Quiz)</label>
+            <div style="display:flex;gap:0.5rem;">
+              <select class="select-dropdown" id="quiz-select-chapter" style="flex:1;"></select>
+              <button type="button" class="btn btn-primary" id="btn-start-chapter-quiz">開始章節測驗</button>
+            </div>
+          </div>
+
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+          <div class="form-group" id="featured-quiz-group" hidden>
+            <label class="form-label" for="quiz-select-featured">歷屆精選題組</label>
+            <div style="display:flex;gap:0.5rem;">
+              <select class="select-dropdown" id="quiz-select-featured" style="flex:1;"></select>
+              <button type="button" class="btn btn-primary" id="btn-start-featured-quiz">開始精選題練習</button>
+            </div>
+          </div>
+
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+          <div class="form-group">
+            <label class="form-label" for="quiz-select-exam">依歷屆考期與科目練習</label>
+            <div style="display:flex;gap:0.5rem;">
+              <select class="select-dropdown" id="quiz-select-exam" style="flex:1;"></select>
+              <button type="button" class="btn btn-primary" id="btn-start-exam-quiz">開始該場練習</button>
+            </div>
+          </div>
+
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+          <!-- 模式二：隨機抽題 -->
+          <div class="form-group">
+            <label class="form-label">全題庫隨機抽題 (Random Quiz)</label>
+            <div style="display:flex;gap:0.5rem;">
+              <select class="select-dropdown" id="quiz-random-count" style="flex:1;">
+                <option value="10">隨機抽取 10 題</option>
+                <option value="20" selected>隨機抽取 20 題</option>
+                <option value="50">隨機抽取 50 題</option>
+                <option value="all">全題庫所有題目</option>
+              </select>
+              <button type="button" class="btn btn-primary" id="btn-start-random-quiz">開始隨機測驗</button>
+            </div>
+          </div>
+
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+          <!-- 模式三：錯題重練 -->
+          <div class="form-group">
+            <label class="form-label">錯題強化模式 (Wrong Answers Quiz)</label>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，直到掌握為止。</p>
+            <button type="button" class="btn btn-danger" style="width:100%;" id="btn-start-wrong-quiz">練習目前錯題</button>
+          </div>
+        </div>
+        <section id="quiz-history-panel" hidden aria-labelledby="quiz-history-title" style="max-width:700px;margin:1rem auto;">
+          <h3 id="quiz-history-title">最近測驗紀錄</h3>
+          <ol id="quiz-history-list"></ol>
+        </section>
+      </div>
+
+      <!-- 測驗進行中面板 -->
+      <div id="quiz-running-panel" style="display:none;max-width:700px;margin:0 auto;">
+        <div class="quiz-card">
+          <div class="quiz-meta-bar">
+            <span id="quiz-progress-text" style="font-weight:700;">第 1 / 20 題</span>
+            <div>
+              <span class="badge" style="background:var(--bg-surface-alt);margin-right:0.35rem;" id="quiz-chapter-tag">章節</span>
+              <span class="badge" id="quiz-exam-tag" hidden></span>
+              <span class="badge" style="background:var(--primary-subtle);color:var(--primary);" id="quiz-type-tag">單選題</span>
+            </div>
+          </div>
+
+          <div class="quiz-question-text" id="quiz-stem"></div>
+          <div class="options-list" id="quiz-options-container"></div>
+
+          <!-- 回饋解析 -->
+          <div id="quiz-feedback-box" role="status" aria-live="polite" style="display:none;"></div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border-subtle);">
+            <button type="button" class="btn btn-secondary" id="btn-exit-quiz">結束測驗</button>
+            <div>
+              <button type="button" class="btn btn-primary" id="btn-quiz-submit">提交答案</button>
+              <button type="button" class="btn btn-primary" id="btn-quiz-next" style="display:none;">下一題 →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 測驗結束頁內結算面板 -->
+      <div id="quiz-summary-panel" style="display:none;max-width:700px;margin:0 auto;">
+        <div class="quiz-card" style="text-align:center;">
+          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title">🎉 測驗完成！</h2>
+          <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;" id="quiz-summary-desc">本次測驗結算如下：</p>
+
+          <div class="stat-grid" style="margin-bottom:1.5rem;text-align:left;">
+            <div class="stat-card">
+              <span class="stat-label">已答 / 總題數</span>
+              <span class="stat-value" id="quiz-summary-count">0 / 0</span>
+              <span class="stat-subtext">本次測驗題目</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">本次正確率</span>
+              <span class="stat-value" id="quiz-summary-accuracy">0%</span>
+              <span class="stat-subtext">首次作答統計</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">答對題數</span>
+              <span class="stat-value" style="color:var(--success);" id="quiz-summary-correct">0</span>
+              <span class="stat-subtext">首次正確題數</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">答錯題數</span>
+              <span class="stat-value" style="color:var(--danger);" id="quiz-summary-wrong">0</span>
+              <span class="stat-subtext">需再加強複習</span>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+            <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;">🔥 本輪錯題重練</button>
+            <button type="button" class="btn btn-primary" id="btn-quiz-restart">再測驗一次</button>
+            <button type="button" class="btn btn-secondary" id="btn-quiz-back-menu">返回測驗選單</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 系統設定 Settings -->
+    <section id="view-settings" class="view-panel">
+      <div style="max-width:600px;margin:0 auto;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.75rem;">
+        <h2 style="font-size:1.35rem;font-weight:800;margin-bottom:1.25rem;">系統設定與進度管理</h2>
+
+        <!-- 外觀主題 -->
+        <div class="form-group">
+          <label class="form-label">介面外觀主題 (Theme)</label>
+          <select class="select-dropdown" id="theme-select" style="width:100%;">
+            <option value="system">跟隨系統設定 (System)</option>
+            <option value="light">明亮模式 (Light)</option>
+            <option value="dark">深色暗黑模式 (Dark)</option>
+          </select>
+        </div>
+
+        <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+        <!-- 備份與還原 -->
+        <div class="form-group">
+          <label class="form-label">進度備份 (Export Progress)</label>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">將已完成章節、作答統計與錯題記錄匯出為 JSON 檔。</p>
+          <button type="button" class="btn btn-secondary" id="btn-export-progress">下載進度備份檔 (JSON)</button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">進度還原 (Import Progress)</label>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前備份的進度檔案（將進行完整格式與欄位結構檢核）。</p>
+          <input type="file" id="import-file-input" accept=".json" style="display:none;" />
+          <button type="button" class="btn btn-secondary" id="btn-import-progress-trigger">選擇備份檔匯入...</button>
+        </div>
+
+        <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
+        <!-- 清除紀錄 -->
+        <div class="form-group">
+          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄 (Reset Progress)</label>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">清除此教材在本機的所有答題與閱讀進度。教材內容與題庫本體不受影響。</p>
+          <button type="button" class="btn btn-danger" id="btn-reset-progress">清除本教材進度</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 注入 Study Pack 資料與核心邏輯 -->
+  <script>
+    window.__STUDY_PACK__ = /* __STUDY_PACK_DATA__ */;
+  </script>
+  <script>
+/* __INLINE_JS__ */
+  </script>
+<script id="study-legal-terms">
+(function () {
+  const scope = '.section-body,.section-title,.chapter-title,.chapter-summary,.learning-goals,.keypoints-list,.notes-box,.review-card,.explanation-text';
+  const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,[contenteditable]';
+  const words = /不可以|不得|不可|不應|禁止|必須|應當|可以|應|得|可/g;
+  const number = '[0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+(?:[.,，．點][0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+)*';
+  const units = '(?:個工作日|個營業日|個月|工作日|工作天|營業日|日曆日|億元|萬元|元|圓|萬|億|年|月|天|日|小時|分鐘|週|星期|%|％|倍)';
+  const quantity = `(?:新臺幣|新台幣|人民幣|美元|美金|港幣|日圓|歐元|NT\\$|US\\$|USD|\\$)\\s*${number}(?:\\s*${units})?(?:以上|以下|以內|內|前|後)?|百分之${number}|${number}\\s*${units}(?:以上|以下|以內|內|前|後)?|年限|金額|期限|時限|限額`;
+  const terms = new RegExp(`(?<quantity>${quantity})|${words.source}`, 'g');
+  function highlight(container) {
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+      acceptNode: node => node.parentElement?.closest(excluded) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+    });
+    const nodes = [];while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const node of nodes) {
+      const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
+        const before = text[match.index - 1] || '', after = text[match.index + match[0].length] || '';
+        if (match[0] === '得' && (/[取獲所值覺記心贏懂]/.test(before) || /[分失意到獎]/.test(after))) return false;
+        if (match[0] === '可' && /[能惜怕愛靠觀口]/.test(after)) return false;
+        if (match[0] === '應' && (/[反回對相因響供適]/.test(before) || /[用對變收付]/.test(after))) return false;
+        return !(match[0] === '不得' && /[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
+      });
+      if (!matches.length) continue;
+      const fragment = document.createDocumentFragment();let position = 0;
+      for (const match of matches) {
+        fragment.append(text.slice(position,match.index));
+        const mark = document.createElement('mark');
+        mark.className = 'legal-term ' + (match.groups.quantity !== undefined ? 'legal-quantity' : /^(不|禁止)/.test(match[0]) ? 'legal-prohibit' : /^(應|必須)/.test(match[0]) ? 'legal-duty' : 'legal-permit');
+        mark.textContent = match[0];fragment.append(mark);position = match.index + match[0].length;
+      }
+      fragment.append(text.slice(position));node.replaceWith(fragment);
+    }
+  }
+  const scan = root => {
+    if (root.nodeType !== 1 || root.closest(excluded)) return;
+    const parent = root.closest(scope);
+    if (parent) highlight(parent);
+    else root.querySelectorAll(scope).forEach(highlight);
+  };
+  new MutationObserver(records => {
+    const roots = new Set();
+    for (const record of records) for (const node of record.addedNodes) {
+      if (node.nodeType === 1) roots.add(node);
+      else if (node.nodeType === 3 && node.parentElement && !node.parentElement.closest(excluded)) roots.add(node.parentElement);
+    }
+    roots.forEach(scan);
+  }).observe(document.documentElement,{childList:true,subtree:true});
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',()=>scan(document.body));
+  else scan(document.body);
+})();
+
+</script>
+<script id="study-answer-search">
+(function () {
+  const selector = '#quiz-stem,.q-text';
+  function attach(question) {
+    const text = question.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
+    let link = question.nextElementSibling;
+    if (!link?.classList.contains('answer-search')) {
+      if (!text.trim()) return;
+      link = document.createElement('a');
+      link.className = 'answer-search';link.textContent = '查答案';
+      link.target = '_blank';link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label','查答案：Google 搜尋本題（開啟新分頁）');
+      question.after(link);
+    }
+    link.hidden = !text.trim();
+    link.href = 'https://www.google.com/search?q=' + encodeURIComponent(text);
+  }
+  function scan(root) {
+    if (root.nodeType !== 1) return;
+    if (root.matches(selector)) attach(root);
+    root.querySelectorAll(selector).forEach(attach);
+  }
+  new MutationObserver(records => {
+    const questions = new Set();
+    for (const record of records) {
+      if (record.target.nodeType === 1 && record.target.matches(selector)) questions.add(record.target);
+      for (const node of record.addedNodes) if (node.nodeType === 1) scan(node);
+    }
+    questions.forEach(attach);
+  }).observe(document.documentElement,{childList:true,subtree:true});
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',()=>scan(document.body));
+  else scan(document.body);
+})();
+
+</script>
+</body>
+</html>

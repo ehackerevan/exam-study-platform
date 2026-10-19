@@ -1,0 +1,8 @@
+id,chapter,section,type,question,option_a,option_b,option_c,option_d,answer,explanation
+t001,第一章 Git 三層區域與內部物件,工作區、暫存區與版本庫,single-choice,將工作目錄中已修改的檔案加入「暫存區 (Index)」應使用哪一個指令？,git commit,git add,git push,git checkout,B,git add 將工作區的檔案內容更新到暫存區 (Index)。
+t002,第一章 Git 三層區域與內部物件,工作區、暫存區與版本庫,single-choice,在 Git 內部物件模型中，專門用來存放「純檔案內容（不含檔名）」的物件類型為：,Commit,Tree,Blob,Tag,C,Blob (Binary Large Object) 僅記錄檔案資料內容，檔名由 Tree 物件負責維護。
+t003,第二章 分支原理與指標位移,HEAD、分支與 Checkout,single-choice,當處於「Detached HEAD（游離 HEAD 狀態）」時，代表 HEAD 指標：,指向一個尚未建立的遠端分支,直接指向某個特定 commit 而非任何分支名稱,儲存庫已經損毀,無法執行任何 commit 操作,B,Detached HEAD 表示 HEAD 直接繫結到某個 Commit 雜湊值上。
+t004,第二章 分支原理與指標位移,HEAD、分支與 Checkout,true-false,在 Git 中建立一個新分支會複製儲存庫中的所有歷史檔案，因此非常耗費硬碟空間。,正確 (O),錯誤 (X),,,B,Git 分支實質上僅是一個指向特定 Commit 的 41 位元組指標檔案，建立近乎零成本。
+t005,第三章 遠端協作與衝突處理,Fetch、Pull 與 Rebase,single-choice,指令「git pull」在概念上等同於執行下列哪兩個指令的組合？,git fetch 加上 git merge,git fetch 加上 git push,git clone 加上 git checkout,git status 加上 git commit,A,git pull 預設等於先做 git fetch 取得遠端物件，再執行 git merge 合併。
+t006,第三章 遠端協作與衝突處理,Fetch、Pull 與 Rebase,single-choice,若想要讓提交歷史保持乾淨平整的單一線性紀錄，在整合分支時應優先採用何種操作？,git merge --no-ff,git rebase,git reset --hard,git revert,B,git rebase 可將當前分支的基底重新嫁接到目標分支頂端，形成線性歷史。
+t007,第三章 遠端協作與衝突處理,Fetch、Pull 與 Rebase,true-false,針對已經公開推送到遠端供團隊協作的共用分支，可以任意執行 git push --force 進行歷史覆寫。,正確 (O),錯誤 (X),,,B,對公開分支執行強制推播會覆寫他人的提交紀錄，造成嚴重的協作災難。

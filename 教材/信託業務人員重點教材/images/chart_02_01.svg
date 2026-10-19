@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="100%" height="500" style="background-color: #0b1120; border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="gradEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="gradRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <text x="460" y="38" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle"> 信託業法金融監理金字塔與四大防線</text>
+
+  <!-- 頂部根節點 -->
+  <g transform="translate(320, 65)" filter="url(#shadow)">
+    <rect width="280" height="50" rx="10" fill="url(#gradEmerald)"/>
+    <text x="140" y="32" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">信託業法監理金字塔</text>
+  </g>
+
+  <!-- 四大模塊 -->
+  <!-- 模塊 1: 資金防線 -->
+  <g transform="translate(30, 150)" filter="url(#shadow)">
+    <rect width="200" height="45" rx="8" fill="url(#gradBlue)"/>
+    <text x="100" y="28" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 設立與資金防線</text>
+  </g>
+  <g transform="translate(30, 205)" filter="url(#shadow)">
+    <rect width="200" height="240" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="16" y="30" fill="#60a5fa" font-size="14" font-weight="700">實收資本額</text>
+    <text x="16" y="52" fill="#cbd5e1" font-size="13">• 最低 20 億元</text>
+    <text x="16" y="72" fill="#94a3b8" font-size="12">• 發起時全額認足</text>
+    
+    <text x="16" y="110" fill="#60a5fa" font-size="14" font-weight="700">營業保證金辨析</text>
+    <text x="16" y="132" fill="#cbd5e1" font-size="13">• 信託業法未設一般比例</text>
+    <text x="16" y="152" fill="#94a3b8" font-size="12">• 勿與賠償準備金混淆</text>
+
+    <text x="16" y="190" fill="#60a5fa" font-size="14" font-weight="700">賠償準備金</text>
+    <text x="16" y="212" fill="#cbd5e1" font-size="13">• 最少 5,000 萬</text>
+    <text x="16" y="232" fill="#38bdf8" font-size="12"> </text>
+  </g>
+
+  <!-- 模塊 2: 利益衝突防火牆 -->
+  <g transform="translate(255, 150)" filter="url(#shadow)">
+    <rect width="200" height="45" rx="8" fill="url(#gradRose)"/>
+    <text x="100" y="28" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 利益衝突防火牆</text>
+  </g>
+  <g transform="translate(255, 205)" filter="url(#shadow)">
+    <rect width="200" height="240" rx="8" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="16" y="30" fill="#fda4af" font-size="14" font-weight="700">第 25 條 特定交易限制</text>
+    <text x="16" y="52" fill="#cbd5e1" font-size="13">• 買自己/利害人證券</text>
+    <text x="16" y="72" fill="#f87171" font-size="12">• 不具運用決定權有例外</text>
+    
+    <text x="16" y="110" fill="#fda4af" font-size="14" font-weight="700">第 27 條 相對限制</text>
+    <text x="16" y="132" fill="#cbd5e1" font-size="13">• 第 27 條列舉交易</text>
+    <text x="16" y="152" fill="#94a3b8" font-size="12">• 契約約定或事前書面同意</text>
+
+    <text x="16" y="190" fill="#fda4af" font-size="14" font-weight="700">銀行法第 33 條</text>
+    <text x="16" y="212" fill="#cbd5e1" font-size="13">• 利害關係人授信</text>
+    <text x="16" y="232" fill="#fca5a5" font-size="12"> • 依銀行法規定辦理</text>
+  </g>
+
+  <!-- 模塊 3: 營運與組織規範 -->
+  <g transform="translate(480, 150)" filter="url(#shadow)">
+    <rect width="200" height="45" rx="8" fill="url(#gradPurple)"/>
+    <text x="100" y="28" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 營運與組織規範</text>
+  </g>
+  <g transform="translate(480, 205)" filter="url(#shadow)">
+    <rect width="200" height="240" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="16" y="30" fill="#c084fc" font-size="14" font-weight="700">信託財產評審會</text>
+    <text x="16" y="52" fill="#cbd5e1" font-size="13">• 每 3 個月開會一次</text>
+    <text x="16" y="72" fill="#94a3b8" font-size="12">• 評審資產公允價值</text>
+    
+    <text x="16" y="110" fill="#c084fc" font-size="14" font-weight="700">內部控制與稽核</text>
+    <text x="16" y="132" fill="#cbd5e1" font-size="13">• 總稽核專任</text>
+    <text x="16" y="152" fill="#94a3b8" font-size="12">• 法令遵循主管制度</text>
+
+    <text x="16" y="190" fill="#c084fc" font-size="14" font-weight="700">負責人資格把關</text>
+    <text x="16" y="212" fill="#cbd5e1" font-size="13">• 消極資格嚴格限制</text>
+    <text x="16" y="232" fill="#94a3b8" font-size="12">• 破產未復權者不得任</text>
+  </g>
+
+  <!-- 模塊 4: 罰則與處分權限 -->
+  <g transform="translate(705, 150)" filter="url(#shadow)">
+    <rect width="185" height="45" rx="8" fill="url(#gradAmber)"/>
+    <text x="92" y="28" fill="#fff" font-size="15" font-weight="700" text-anchor="middle"> 處分與罰則</text>
+  </g>
+  <g transform="translate(705, 205)" filter="url(#shadow)">
+    <rect width="185" height="240" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="14" y="30" fill="#fbbf24" font-size="14" font-weight="700">金管會行政處分</text>
+    <text x="14" y="52" fill="#cbd5e1" font-size="13">• 糾正、限期改善</text>
+    <text x="14" y="72" fill="#cbd5e1" font-size="13">• 停辦部分業務</text>
+    <text x="14" y="92" fill="#fbbf24" font-size="12"> 解除董監經理職務</text>
+    <text x="14" y="112" fill="#cbd5e1" font-size="13">• 廢止營業許可</text>
+
+    <text x="14" y="160" fill="#fbbf24" font-size="14" font-weight="700">法定罰鍰級距</text>
+    <text x="14" y="185" fill="#fca5a5" font-size="13">• 依違規態樣適用法定責任</text>
+    <text x="14" y="210" fill="#cbd5e1" font-size="13"></text>
+  </g>
+
+  <!-- 連線 -->
+  <path d="M 460 115 L 460 135 L 130 135 L 130 150" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 460 115 L 460 135 L 355 135 L 355 150" stroke="#f43f5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 460 115 L 460 135 L 580 135 L 580 150" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 460 115 L 460 135 L 795 135 L 795 150" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
+
+</svg>

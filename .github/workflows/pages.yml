@@ -25,8 +25,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Build unified study packs
+        run: npm run build:ui && npm run validate:offline
       - name: Prepare public site
         env:
           PAGES_OUTPUT_DIR: ${{ runner.temp }}/exam-study-platform-pages-${{ github.run_id }}-${{ github.run_attempt }}

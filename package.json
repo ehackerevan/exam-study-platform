@@ -1,0 +1,26 @@
+{
+  "name": "study-pack-compiler",
+  "version": "1.0.0",
+  "description": "將教材、章節資料與題庫轉換成完全離線、單一 HTML 即可執行的學習網站產生器",
+  "type": "module",
+  "bin": {
+    "study-pack": "./bin/study-pack.js"
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "test:e2e": "node tests/e2e-headless-test.js",
+    "build:examples": "node scripts/build-examples.js",
+    "build:ui": "node scripts/build-coursepacks.js && node scripts/build-examples.js && node scripts/harmonize-ui.js",
+    "validate:offline": "node scripts/validate-offline.js",
+    "verify": "npm test; npm run build:examples; npm run validate:offline; npm run test:e2e"
+  },
+  "keywords": [
+    "study-pack",
+    "compiler",
+    "offline-first",
+    "quiz",
+    "learning-generator"
+  ],
+  "author": "Antigravity Pair Programmer",
+  "license": "MIT"
+}
