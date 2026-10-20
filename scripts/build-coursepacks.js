@@ -48,6 +48,50 @@ const frequencySection = course => {
     : '統計方式：由題幹與選項的關鍵詞初步分類，法規依題幹及正確選項比對；完整方法與品質限制記錄於本機統計資料。';
   return `以下長條依本教材現有題庫的命中題數排序，僅供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。\n\n${chart('高頻觀念', data.concept_ranking, 'concept')}\n\n${chart('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n${method}`;
 };
+const practiceQuestionIds = (pack, course) => {
+  const questionText = question => `${question.question} ${question.options.join(' ')}`.toLocaleLowerCase('zh-TW');
+  const topicById = new Map(trustQuestions.map(question => [question.id, question.topic]));
+  const concepts = course.trust
+    ? [...new Set(trustQuestions.map(question => question.topic).filter(Boolean))].map(topic => ({
+        label: topic,
+        ids: new Set(),
+        terms: [topic],
+        rank: 0
+      }))
+    : frequency[course.name].concept_ranking.map((concept, rank) => ({
+        label: concept.concept,
+        ids: new Set(concept.sample_question_ids || []),
+        terms: concept.concept.replace(/（[^）]*）/g, '').split(/[、，,與及暨；;]/).map(term => term.trim().toLocaleLowerCase('zh-TW')).filter(term => term.length >= 2),
+        rank
+      }));
+  const countQuestions = (chapterQuestions, concept) => chapterQuestions.filter(question =>
+    concept.ids.has(question.id) || (course.trust
+      ? topicById.get(question.id) === concept.label
+      : concept.terms.some(term => questionText(question).includes(term)))
+  );
+  const allQuestions = pack.questions;
+
+  return Object.fromEntries(pack.chapters.map(chapter => {
+    const chapterQuestions = allQuestions.filter(question => question.chapterId === chapter.id);
+    const ranked = concepts.map(concept => ({ concept, questions: countQuestions(chapterQuestions, concept) }))
+      .filter(row => row.questions.length)
+      .sort((a, b) => b.questions.length - a.questions.length || a.concept.rank - b.concept.rank);
+    // Intro chapters span the whole subject and may have no questions assigned directly.
+    const source = ranked.length ? ranked : chapterQuestions.length ? [{ questions: chapterQuestions }] : concepts.map(concept => ({ concept, questions: countQuestions(allQuestions, concept) }))
+      .filter(row => row.questions.length)
+      .sort((a, b) => b.questions.length - a.questions.length || a.concept.rank - b.concept.rank);
+    const selected = [];
+    const seen = new Set();
+    for (const row of source) {
+      for (const question of row.questions) {
+        if (!seen.has(question.id)) selected.push(question.id), seen.add(question.id);
+        if (selected.length === 10) break;
+      }
+      if (selected.length === 10) break;
+    }
+    return [chapter.id, selected];
+  }));
+};
 
 const courses = [
   { name: '信託業務人員重點教材', dir: '教材/信託業務人員重點教材', out: 'dist/信託業務人員重點教材.html', trust: true },
@@ -118,6 +162,18 @@ for (const c of courses) {
       throw new Error(`${c.name} 導讀架構與其他學科不一致：${intro.sections.map(section => section.title).join(' / ')}`);
     }
   }
+  const practiceByChapter = practiceQuestionIds(pack, c);
+  const questionById = new Map(pack.questions.map(question => [question.id, question]));
+  for (const chapter of pack.chapters) {
+    chapter.practiceQuestionIds = practiceByChapter[chapter.id] || [];
+    const hasChapterQuestions = pack.questions.some(question => question.chapterId === chapter.id);
+    if (chapter.practiceQuestionIds.length > 10 || chapter.practiceQuestionIds.some(id => {
+      const question = questionById.get(id);
+      return !question || (hasChapterQuestions && question.chapterId !== chapter.id);
+    })) {
+      throw new Error(`${c.name} ${chapter.title} 的章末練習題不符合章節或題數限制`);
+    }
+  }
 
   // 驗證
   const report = validateStudyPack(pack);
@@ -129,6 +185,7 @@ for (const c of courses) {
   const res = compileAndWriteToFile(pack, outPath);
   c.questionCount = pack.questions.length;
   c.chapterCount = pack.chapters.length;
+  c.progress = { id: pack.id, chapters: pack.chapters.map(chapter => chapter.id), questions: pack.questions.map(question => question.id) };
   const sizeKb = (res.sizeBytes / 1024).toFixed(1);
   const multiCount = pack.questions.filter(q => q.type === 'multiple-choice').length;
   console.log(`[OK] ${c.name} -> ${c.out} (${sizeKb} KB, ${res.chaptersCount} 章節, ${res.questionsCount} 題目，其中複選題 ${multiCount} 題)`);
@@ -137,7 +194,11 @@ for (const c of courses) {
 console.log('\n=== 五科 Study Pack 全部編譯完成！ ===');
 const escape = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-const cards = view => courses.map(c => '<a class="subject-link" href="'+escape(path.basename(c.out))+'?view='+view+'"><span class="subject-name">'+escape(c.name.replace(/重點教材$/,''))+'</span><span class="subject-meta">'+(view==='reader' ? c.chapterCount+' 章教材 · 概念與重點整理' : c.questionCount.toLocaleString('zh-TW')+' 題 · 章節、隨機與錯題練習')+'</span></a>').join('');
+const cards = view => courses.map(c => '<a class="subject-link" data-pack="'+escape(c.progress.id)+'" data-progress-view="'+view+'" href="'+escape(path.basename(c.out))+'?view='+view+'"><span class="subject-name">'+escape(c.name.replace(/重點教材$/,''))+'</span><span class="subject-meta">'+(view==='reader' ? c.chapterCount+' 章教材 · 概念與重點整理' : c.questionCount.toLocaleString('zh-TW')+' 題 · 章節、隨機與錯題練習')+'</span><span class="subject-progress"><span class="subject-progress-label">讀取進度中…</span><progress max="100" value="0" aria-label="'+escape(c.name.replace(/重點教材$/,''))+(view==='reader' ? '閱讀進度' : '題庫作答進度')+'">0%</progress></span></a>').join('');
 const total = courses.reduce((sum,c)=>sum+c.questionCount,0);
-const catalogue = '<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜重點教材跟歷屆考題</title></head><body><main class="catalog-main"><header class="catalog-header"><div><h1>學科目錄</h1><p>'+courses.length+' 個學科 · '+total.toLocaleString('zh-TW')+' 題練習 · 離線使用</p></div><nav class="catalog-nav" aria-label="目錄分區"><a href="#materials">教材閱讀</a><a href="#question-banks">題庫練習</a></nav></header><div class="catalog-sections"><section class="catalog-section" id="materials" aria-labelledby="materials-title"><h2 id="materials-title">教材閱讀</h2><p>從概念與重點開始，讀完後可直接練習本章。</p><div class="subject-grid">'+cards('reader')+'</div></section><section class="catalog-section" id="question-banks" aria-labelledby="banks-title"><h2 id="banks-title">題庫練習</h2><p>選擇學科，進行章節練習、隨機抽題或複習錯題。</p><div class="subject-grid">'+cards('quiz')+'</div><p><a href="歷屆考古題_完整題庫大全.html">依考期與題型瀏覽歷屆題庫 →</a></p></section></div><footer class="catalog-footer"><p><small>進度保存在目前瀏覽器，請定期匯出備份。歷屆答案與現行規定須分別核對。</small></p></footer></main></body></html>';
+const catalogue = `<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜重點教材跟歷屆考題</title></head><body><main class="catalog-main">
+<nav class="landing-nav" aria-label="主要導覽"><a class="landing-brand" href="index.html">學習小步走<span>重點教材跟歷屆考題</span></a><div class="catalog-nav"><a href="#materials">探索學科</a><a href="#question-banks">開始練題</a></div></nav><header class="catalog-intro"><h1>學科目錄</h1><p>${courses.length} 個學科 · ${total.toLocaleString('zh-TW')} 題歷屆練習</p></header>
+<div class="catalog-sections"><section class="catalog-section" id="materials" aria-labelledby="materials-title"><span class="clay-eyebrow">你的下一站</span><h2 id="materials-title">選一門，從好奇開始</h2><p>五個學科，用同一套熟悉的閱讀與練習方式。</p><div class="subject-grid">${cards('reader')}</div></section>
+<section class="catalog-section" id="question-banks" aria-labelledby="banks-title"><span class="clay-eyebrow">把理解變成實力</span><h2 id="banks-title">換你出手，練一題吧</h2><p>依章節練習、隨機抽題，或專心複習答錯的題目。</p><div class="subject-grid">${cards('quiz')}</div><p class="bank-link"><a href="歷屆考古題_完整題庫大全.html">依考期與題型瀏覽完整歷屆題庫 →</a></p></section>
+</div><footer class="catalog-footer"><p>進度保存在目前瀏覽器，請定期匯出備份。歷屆答案與現行規定須分別核對。</p></footer></main><script>window.__CATALOG_PROGRESS__ = ${JSON.stringify(courses.map(course => course.progress)).replace(/</g, '\\u003c')};</script><script>${fs.readFileSync(new URL('../src/renderer/catalog-progress.js', import.meta.url), 'utf8')}</script></body></html>`;
 fs.writeFileSync('dist/index.html', applySharedUi(catalogue, null));

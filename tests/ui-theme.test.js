@@ -21,9 +21,9 @@ test('Shared UI: all project HTML contains the exact shared stylesheet',()=>{
   assert(match, file);assert.equal(match[1].trim(),css,file);
  }
 });
-test('Shared UI: Material You tokens preserve offline use and reduced-motion support',()=>{
+test('Shared UI: Dusty Grass tokens preserve offline use and reduced-motion support',()=>{
  const css=fs.readFileSync(themePath,'utf8');
- for(const value of ['--md-primary: #006B3C','--md-background: #FBFDF8','--md-surface-container: #F0F5ED','--md-radius-full: 9999px','prefers-reduced-motion: reduce']) assert(css.includes(value),value);
+ for(const value of ['--md-primary: #28563B','--md-background: #F5FAEF','--md-surface-container: #EDF5E6','linear-gradient(120deg, #D4FC79 0%, #96E6A1 100%)','--md-radius-full: 9999px','prefers-reduced-motion: reduce']) assert(css.includes(value),value);
  assert(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(css));
 });
 test('Catalogue return link: replace path without duplicate links; catalogue has no self-link',()=>{

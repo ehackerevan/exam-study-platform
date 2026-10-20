@@ -9,25 +9,29 @@
 /* __INLINE_CSS__ */
   </style>
 <style id="study-ui-theme">
-/* Material You shared theme — kept local so every study pack remains offline. */
+/* Dusty Grass palette shared by the catalogue, reader and quizzes; fully offline. */
 :root {
+  --grass-lemon: #D4FC79;
+  --grass-mint: #96E6A1;
+  --grass-gradient: linear-gradient(120deg, #D4FC79 0%, #96E6A1 100%);
+  --grass-card-gradient: var(--grass-gradient);
   color-scheme: light;
-  --md-primary: #006B3C;
+  --md-primary: #28563B;
   --md-on-primary: #FFFFFF;
-  --md-primary-container: #D4EBDD;
-  --md-on-primary-container: #00210F;
-  --md-secondary: #52634F;
-  --md-secondary-container: #D5E8D0;
-  --md-on-secondary-container: #101F13;
-  --md-tertiary: #6A6250;
-  --md-background: #FBFDF8;
-  --md-on-surface: #1C1B1F;
-  --md-on-surface-variant: #434940;
-  --md-surface: #FBFDF8;
-  --md-surface-container: #F0F5ED;
-  --md-surface-container-low: #E5EDE2;
-  --md-outline: #73796F;
-  --md-outline-variant: #C2C9BE;
+  --md-primary-container: #DFF4C6;
+  --md-on-primary-container: #183522;
+  --md-secondary: #53694B;
+  --md-secondary-container: #DDEBCB;
+  --md-on-secondary-container: #23351F;
+  --md-tertiary: #5D7240;
+  --md-background: #F5FAEF;
+  --md-on-surface: #203225;
+  --md-on-surface-variant: #465B43;
+  --md-surface: #F5FAEF;
+  --md-surface-container: #EDF5E6;
+  --md-surface-container-low: #E2EDD9;
+  --md-outline: #63745C;
+  --md-outline-variant: #BDCFB0;
   --md-danger: #B3261E;
   --md-on-danger: #FFFFFF;
   --md-danger-container: #F9DEDC;
@@ -83,23 +87,24 @@
 }
 
 [data-theme="dark"] {
+  --grass-card-gradient: linear-gradient(120deg, #30492A 0%, #214635 100%);
   color-scheme: dark;
-  --md-primary: #8BD5A8;
-  --md-on-primary: #00391C;
-  --md-primary-container: #00522B;
-  --md-on-primary-container: #A8F1C2;
-  --md-secondary: #B9CCB4;
-  --md-secondary-container: #3D4B3B;
-  --md-on-secondary-container: #D5E8D0;
-  --md-tertiary: #D4DDB8;
-  --md-background: #111411;
-  --md-on-surface: #E1E4DB;
-  --md-on-surface-variant: #C2C9BE;
-  --md-surface: #111411;
-  --md-surface-container: #191E19;
-  --md-surface-container-low: #1E241E;
-  --md-outline: #8C9389;
-  --md-outline-variant: #434940;
+  --md-primary: #B6E99A;
+  --md-on-primary: #193A23;
+  --md-primary-container: #314F2B;
+  --md-on-primary-container: #D4FCB5;
+  --md-secondary: #C4D6AE;
+  --md-secondary-container: #35472D;
+  --md-on-secondary-container: #DDEBCB;
+  --md-tertiary: #D4FC79;
+  --md-background: #121B13;
+  --md-on-surface: #E4EEDB;
+  --md-on-surface-variant: #BDCFB0;
+  --md-surface: #121B13;
+  --md-surface-container: #1B281C;
+  --md-surface-container-low: #243325;
+  --md-outline: #A0B493;
+  --md-outline-variant: #465B43;
   --md-danger: #F2B8B5;
   --md-on-danger: #601410;
   --md-danger-container: #601410;
@@ -116,13 +121,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { color-scheme: dark; }
   :root:not([data-theme="light"]) {
-    --md-primary: #8BD5A8; --md-on-primary: #00391C;
-    --md-primary-container: #00522B; --md-on-primary-container: #A8F1C2;
-    --md-secondary: #B9CCB4; --md-secondary-container: #3D4B3B; --md-on-secondary-container: #D5E8D0;
-    --md-tertiary: #D4DDB8; --md-background: #111411; --md-on-surface: #E1E4DB;
-    --md-on-surface-variant: #C2C9BE; --md-surface: #111411;
-    --md-surface-container: #191E19; --md-surface-container-low: #1E241E;
-    --md-outline: #8C9389; --md-outline-variant: #434940;
+    --grass-card-gradient: linear-gradient(120deg, #30492A 0%, #214635 100%);
+    --md-primary: #B6E99A; --md-on-primary: #193A23;
+    --md-primary-container: #314F2B; --md-on-primary-container: #D4FCB5;
+    --md-secondary: #C4D6AE; --md-secondary-container: #35472D; --md-on-secondary-container: #DDEBCB;
+    --md-tertiary: #D4FC79; --md-background: #121B13; --md-on-surface: #E4EEDB;
+    --md-on-surface-variant: #BDCFB0; --md-surface: #121B13;
+    --md-surface-container: #1B281C; --md-surface-container-low: #243325;
+    --md-outline: #A0B493; --md-outline-variant: #465B43;
     --md-danger: #F2B8B5; --md-on-danger: #601410; --md-danger-container: #601410; --md-success: #A8DAB5;
     --md-state-hover: rgb(139 213 168 / 10%); --md-state-press: rgb(139 213 168 / 16%);
     --success-light: #123B23; --danger-light: var(--md-danger-container);
@@ -322,6 +328,148 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Clay surfaces share the existing palette and keep reading content calm. */
+:root {
+  --clay-shadow: 7px 9px 18px rgb(37 91 61 / 12%), inset 3px 3px 7px rgb(255 255 255 / 65%), inset -3px -4px 8px rgb(37 91 61 / 6%);
+  --clay-mint: color-mix(in srgb, var(--md-primary-container) 72%, var(--md-background));
+  --clay-lemon: color-mix(in srgb, #D4FC79 38%, var(--md-surface-container));
+  --clay-soft-mint: color-mix(in srgb, #96E6A1 32%, var(--md-surface-container));
+  --clay-lime: color-mix(in srgb, #D4FC79 44%, var(--md-surface-container));
+}
+body { background: var(--md-background); }
+body::before { background: #96E6A1; opacity: .16; }
+body::after { background: #D4FC79; opacity: .13; }
+h1,h2,h3 { font-weight: 700; }
+.catalog-main { max-width: 1240px; padding-top: 1.25rem; }
+.landing-nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; padding:.5rem .75rem; }
+.landing-brand { color:var(--primary); text-decoration:none; font-size:1.35rem; font-weight:700; }
+.landing-brand span { display:block; color:var(--text-muted); font-size:.75rem; font-weight:400; letter-spacing:.06em; }
+.catalog-header.clay-hero { display:grid; grid-template-columns:1.3fr 1fr; min-height:440px; gap:1rem; background:var(--clay-mint); border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent); box-shadow:var(--clay-shadow); border-radius:40px; padding:clamp(1.5rem,4vw,3.25rem); }
+.clay-hero::before { display:none; }
+.clay-eyebrow { display:inline-block; color:var(--primary); font-size:.8rem; font-weight:700; letter-spacing:.08em; margin-bottom:.8rem; }
+.catalog-header h1 { font-size:clamp(2rem,4.2vw,3.5rem); line-height:1.25; margin:0 0 1.25rem; letter-spacing:-.035em; }
+.hero-copy>p { max-width:34rem; line-height:1.9; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.5rem 0; }
+.catalog-header .hero-meta { font-size:.8rem; }
+.clay-illustration { position:relative; height:320px; min-width:0; }
+.clay-orbit { position:absolute; border-radius:50%; box-shadow:var(--clay-shadow); }
+.orbit-one { width:240px;height:240px;right:8%;top:40px;background:var(--clay-lime); }
+.orbit-two { width:85px;height:85px;left:5%;top:15px;background:var(--clay-soft-mint); }
+.clay-book { position:absolute; width:170px;height:210px;border-radius:20px 28px 28px 20px;box-shadow:9px 12px 20px rgb(0 65 36 / 17%),inset 5px 5px 9px rgb(255 255 255 / 65%),inset -5px -5px 9px rgb(0 65 36 / 10%); }
+.book-back { background:#efa987; left:24%;top:52px;transform:rotate(-16deg); }
+.book-front { background:#8acba3;left:35%;top:65px;transform:rotate(10deg);padding:35px 20px;color:#173f2b;border-left:12px solid #74b78c; }
+.book-front span { display:block;font-size:1.1rem;font-weight:700;margin-bottom:30px; }
+.book-front i { display:block;width:75%;height:7px;border-radius:8px;background:rgb(255 255 255 / 65%);margin:12px 0; }
+.book-front i:last-child { width:45%; }
+.clay-check { position:absolute;right:3%;top:30px;display:grid;place-items:center;width:70px;height:70px;border-radius:22px;transform:rotate(12deg);background:#006b3c;color:#fff;font-size:2.5rem;box-shadow:var(--clay-shadow); }
+.clay-spark { position:absolute;left:12%;bottom:50px;color:#8762b4;font-size:3rem;font-weight:700; }
+.clay-note { position:absolute;right:1%;bottom:0;padding:.75rem 1.1rem;border-radius:18px;background:var(--clay-lemon);box-shadow:var(--clay-shadow);transform:rotate(-4deg);font-weight:700; }
+.catalog-sections { gap:2rem; }
+.catalog-section { background:var(--bg-surface); box-shadow:var(--clay-shadow); border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent); border-radius:32px; padding:clamp(1.5rem,3vw,2.5rem); }
+.catalog-section h2 { font-size:clamp(1.4rem,2.8vw,2rem);margin-bottom:.75rem; }
+.subject-grid { gap:1.25rem; }
+.subject-link { position:relative;min-height:150px;padding:1.5rem;border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent);border-radius:26px;background:var(--clay-mint);box-shadow:var(--clay-shadow);transition:transform 200ms var(--md-easing),box-shadow 200ms var(--md-easing); }
+.subject-link:nth-child(5n+2) { background:var(--clay-lemon); }
+.subject-link:nth-child(5n+3) { background:var(--clay-soft-mint); }
+.subject-link:nth-child(5n+4) { background:var(--clay-lime); }
+.subject-link::after { content:'↗';position:absolute;right:1.25rem;bottom:1rem;font-size:1.4rem;color:var(--primary); }
+.subject-name { font-size:1.1rem;line-height:1.5;color:var(--text-main);font-weight:700; }
+.subject-meta { padding-right:1.75rem;font-size:.8rem; }
+.subject-link:hover { background:var(--clay-mint);transform:translateY(-4px);box-shadow:10px 14px 22px rgb(37 91 61 / 16%),inset 3px 3px 7px rgb(255 255 255 / 65%); }
+.subject-link:active { transform:translateY(0) scale(.98); }
+.learning-demo { display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center; }
+.learning-demo p { color:var(--text-muted);line-height:1.8; }
+.learning-steps { padding-left:1.5rem;line-height:2.3; }
+.learning-steps li::marker { color:var(--primary);font-weight:700; }
+.progress-demo { background:var(--clay-soft-mint);padding:1.75rem;border-radius:28px;box-shadow:var(--clay-shadow);transform:rotate(1deg); }
+.demo-label { display:block;font-size:.75rem;color:var(--text-muted); }
+.progress-demo h3 { margin:.5rem 0 1.5rem;font-size:1.5rem; }
+.demo-progress-heading { display:flex;justify-content:space-between;gap:.75rem;font-size:.9rem; }
+.progress-demo progress { display:block;appearance:none;width:100%;height:14px;margin:.75rem 0 1.5rem;border:0;border-radius:99px;overflow:hidden;background:var(--bg-surface); }
+.progress-demo progress::-webkit-progress-bar { background:var(--bg-surface);border-radius:99px; }
+.progress-demo progress::-webkit-progress-value { background:var(--primary);border-radius:99px; }
+.progress-demo progress::-moz-progress-bar { background:var(--primary);border-radius:99px; }
+.demo-stat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem; }
+.demo-stat-grid>div { display:flex;flex-direction:column;gap:.25rem;padding:1rem .5rem;background:var(--bg-surface);border-radius:18px;text-align:center;box-shadow:var(--clay-shadow); }
+.demo-stat-grid strong { font-size:1.6rem;color:var(--primary); }
+.demo-stat-grid span { font-size:.75rem;color:var(--text-muted); }
+.progress-demo>p { margin:1.25rem 0 0;font-size:.8rem; }
+.bank-link { margin-top:1.5rem!important; }
+.learning-voices { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem; }
+.learning-voices article { padding:1.5rem;border-radius:26px;background:var(--clay-lemon);box-shadow:var(--clay-shadow); }
+.learning-voices article:nth-child(2) { background:var(--clay-lime); }
+.learning-voices article:nth-child(3) { background:var(--clay-mint); }
+.voice-initial { display:grid;place-items:center;width:44px;height:44px;border-radius:15px;background:var(--bg-surface);color:var(--primary);font-weight:700;box-shadow:var(--clay-shadow); }
+.learning-voices h3 { font-size:1rem;margin:1rem 0 .5rem; }
+.learning-voices p { font-size:.95rem;line-height:1.9; }
+.learning-voices article>span:last-child { font-size:.75rem;color:var(--text-muted); }
+.clay-final-cta { text-align:center;padding:clamp(2rem,6vw,4rem) 1.5rem;border-radius:40px;background:var(--clay-lime);box-shadow:var(--clay-shadow); }
+.clay-final-cta h2 { font-size:clamp(1.5rem,3vw,2.4rem);margin:0 0 1rem; }
+.clay-final-cta p { color:var(--text-muted);margin-bottom:1.5rem; }
+/* Apply the same tactile surfaces throughout the reader, dashboard and quizzes. */
+.dashboard-hero,.stat-card,.shortcut-card,.settings-panel,.quiz-setup-panel,.quiz-running-panel,.quiz-summary-panel,.card,.learning-goals,.keypoints-box,.notes-box,.chapter-quiz-action { box-shadow:var(--clay-shadow);border-radius:26px; }
+.stat-card:nth-child(3n+2) { background:var(--clay-lemon); }
+.stat-card:nth-child(3n+3) { background:var(--clay-soft-mint); }
+.reader-sidebar { border-radius:24px;box-shadow:var(--clay-shadow); }
+.option-item,.chapter-practice-question { border-radius:18px;box-shadow:2px 3px 7px rgb(37 91 61 / 7%),inset 2px 2px 5px rgb(255 255 255 / 22%); }
+.btn,.catalog-nav a { box-shadow:3px 4px 8px rgb(37 91 61 / 13%),inset 1px 1px 2px rgb(255 255 255 / 24%); }
+.btn:active { box-shadow:inset 2px 3px 6px rgb(0 0 0 / 15%); }
+[data-theme='dark'] { --clay-lemon: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-soft-mint: color-mix(in srgb, #96E6A1 18%, var(--md-surface-container)); --clay-lime: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-shadow:6px 8px 16px rgb(0 0 0 / 25%),inset 2px 2px 5px rgb(255 255 255 / 5%),inset -3px -3px 7px rgb(0 0 0 / 18%); }
+@media(prefers-color-scheme:dark) { :root:not([data-theme='light']) { --clay-lemon: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-soft-mint: color-mix(in srgb, #96E6A1 18%, var(--md-surface-container)); --clay-lime: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-shadow:6px 8px 16px rgb(0 0 0 / 25%),inset 2px 2px 5px rgb(255 255 255 / 5%),inset -3px -3px 7px rgb(0 0 0 / 18%); } }
+@media(max-width:760px) {
+  .landing-nav { flex-wrap:wrap;padding:0; }
+  .landing-nav .catalog-nav { width:auto; }
+  .landing-brand { font-size:1.1rem; }
+  .catalog-header.clay-hero { grid-template-columns:1fr;border-radius:28px; }
+  .clay-illustration { height:270px;width:100%;max-width:360px;justify-self:center; }
+  .clay-book { height:180px;width:145px; }
+  .orbit-one { width:200px;height:200px; }
+  .book-front { padding:25px 15px; }
+  .book-front span { margin-bottom:20px; }
+  .learning-demo,.learning-voices { grid-template-columns:1fr; }
+  .catalog-section { border-radius:26px; }
+  .progress-demo { transform:none; }
+  .clay-final-cta { border-radius:28px; }
+}
+@media(prefers-reduced-motion:reduce) { .subject-link:hover,.subject-link:active,.btn:active { transform:none; } }
+
+.catalog-intro { margin:1.5rem .75rem 2rem; }
+.catalog-intro h1 { margin:0 0 .5rem;font-size:clamp(1.75rem,3vw,2.5rem); }
+.catalog-intro p { margin:0;color:var(--text-muted); }
+.subject-progress { display:grid;gap:.5rem;padding-right:1.5rem;margin-top:.25rem; }
+.subject-progress-label { font-size:.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums; }
+.subject-progress progress { appearance:none;display:block;width:100%;height:9px;border:0;border-radius:99px;overflow:hidden;background:var(--bg-surface); }
+.subject-progress progress::-webkit-progress-bar { background:var(--bg-surface);border-radius:99px; }
+.subject-progress progress::-webkit-progress-value { background:var(--primary);border-radius:99px; }
+.subject-progress progress::-moz-progress-bar { background:var(--primary);border-radius:99px; }
+.subject-progress progress[hidden] { display:none; }
+
+/* Seed gradient is for navigation and actions; prose stays on quiet tonal surfaces. */
+.subject-link,.subject-link:nth-child(n),.subject-link:hover { background:var(--grass-card-gradient); }
+.clay-final-cta,.dashboard-hero { background:var(--grass-card-gradient); }
+.btn-primary,button.primary { background:var(--grass-gradient);color:#193A23;border-color:transparent; }
+.btn-primary:hover,button.primary:hover { background:var(--grass-gradient);color:#193A23; }
+.subject-link::after { color:var(--text-main); }
+.subject-progress progress::-webkit-progress-value { background:var(--primary); }
+.subject-progress progress::-moz-progress-bar { background:var(--primary); }
+.stat-card:nth-child(3n+2) { background:var(--clay-lemon); }
+.stat-card:nth-child(3n+3) { background:var(--clay-soft-mint); }
+.tab-btn.active,.tab.active,.opt-chip.active { background:var(--primary-subtle);color:var(--text-main); }
+
+.chapter-practice-preview { margin: 1rem 0; display: grid; gap: 0.75rem; }
+.chapter-practice-question { padding: 0.875rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); }
+.chapter-practice-question p { margin: 0 0 0.5rem; }
+.chapter-practice-question ol { margin: 0.35rem 0 0 1.5rem; padding: 0; }
+.chapter-practice-question li { padding: 0.1rem 0; }
+
+.chapter-practice-question fieldset { border:0;padding:0;margin:0;min-width:0; }
+.chapter-practice-question legend { font-weight:700;margin-bottom:.75rem; }
+.chapter-inline-options { display:grid;gap:.625rem; }
+.chapter-inline-options .option-item { display:flex;align-items:flex-start;gap:.75rem;margin:0;padding:.875rem;text-align:left;cursor:pointer; }
+.chapter-inline-options input { accent-color:var(--primary);flex:0 0 auto;width:1.15rem;height:1.15rem;margin:.25rem 0 0; }
+.chapter-inline-options label:has(input:checked) { outline:2px solid var(--primary);outline-offset:-2px; }
+.chapter-inline-feedback { margin:1rem 0!important;font-weight:700; }
 </style>
 </head>
 <body>
@@ -456,13 +604,14 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
           <div id="sections-container"></div>
 
           <!-- 章末本章練習區塊 -->
-          <div class="chapter-quiz-action" id="chapter-quiz-action" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+          <section class="chapter-quiz-action" id="chapter-quiz-action" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
             <div>
-              <div style="font-weight:700;font-size:1rem;color:var(--primary);">✍️ 本章隨堂練習</div>
-              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">針對本章核心觀念即學即測，檢驗學習成效。</div>
+              <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章高頻觀念練習</h3>
+              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">依本章歷屆常見觀念挑選題目，最多十題。</div>
             </div>
+            <div id="chapter-practice-preview" class="chapter-practice-preview"></div>
             <button type="button" class="btn btn-primary" id="btn-chapter-practice">開始本章測驗</button>
-          </div>
+          </section>
 
           <!-- 底部切換章節 -->
           <footer class="reader-footer">
@@ -685,11 +834,11 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
     const nodes = [];while (walker.nextNode()) nodes.push(walker.currentNode);
     for (const node of nodes) {
       const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
-        const before = text[match.index - 1] || '', after = text[match.index + match[0].length] || '';
-        if (match[0] === '得' && (/[取獲所值覺記心贏懂]/.test(before) || /[分失意到獎]/.test(after))) return false;
-        if (match[0] === '可' && /[能惜怕愛靠觀口]/.test(after)) return false;
-        if (match[0] === '應' && (/[反回對相因響供適]/.test(before) || /[用對變收付]/.test(after))) return false;
-        return !(match[0] === '不得' && /[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
+        const before = text.slice(Math.max(0, match.index - 3), match.index), after = text.slice(match.index + match[0].length);
+        if (match[0] === '得' && (/(?:取|獲|所|值|覺|記|心|贏|難|喜|懂|博)$/.test(before) || /^(?:分|失|意|到|獎|知|利|力|益|手|罪)/.test(after))) return false;
+        if (match[0] === '可' && /^(?:能|惜|怕|愛|靠|觀|口|憐|惡|見|行|是|不可以)/.test(after)) return false;
+        if (match[0] === '應' && (/(?:效|反|回|對|相|因|響|供|適|呼|承)$/.test(before) || /^(?:用|對|變|收|付)/.test(after))) return false;
+        return !(match[0] === '不得' && /^[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
       });
       if (!matches.length) continue;
       const fragment = document.createDocumentFragment();let position = 0;
@@ -756,5 +905,6 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 })();
 
 </script>
+
 </body>
 </html>

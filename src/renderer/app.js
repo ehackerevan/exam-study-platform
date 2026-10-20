@@ -225,6 +225,68 @@
     });
   }
 
+  const chapterPracticeAnswers = new Map();
+  function answerIsCorrect(question, selected) {
+    if (question.type !== 'multiple-choice') return selected === question.answer;
+    const expected = Array.isArray(question.answer) ? question.answer : [question.answer];
+    return Array.isArray(selected) && expected.length === selected.length && expected.every(value => selected.includes(value));
+  }
+  function recordQuestionAnswer(question, correct) {
+    const stats = progress.questionStats[question.id] || {attempts: 0, wrongCount: 0, correctCount: 0};
+    stats.attempts++;
+    if (correct) stats.correctCount++;
+    else stats.wrongCount++;
+    stats.lastResult = correct;
+    stats.lastAnsweredAt = new Date().toISOString();
+    progress.questionStats[question.id] = stats;
+    saveProgress();
+  }
+  function renderChapterPractice(container, questions) {
+    container.replaceChildren();
+    questions.forEach((question, index) => {
+      const state = chapterPracticeAnswers.get(question.id);
+      const submitted = !!state?.submitted;
+      const answers = Array.isArray(question.answer) ? question.answer : [question.answer];
+      const selected = state?.selected === undefined ? [] : Array.isArray(state.selected) ? state.selected : [state.selected];
+      const multiple = question.type === 'multiple-choice';
+      const form = document.createElement('form');
+      form.className = 'chapter-practice-question';
+      form.innerHTML = `<fieldset><legend>第 ${index + 1} 題 · ${multiple ? '多選題' : question.type === 'true-false' ? '是非題' : '單選題'}</legend>
+        <div class="chapter-practice-stem">${window.StudyContent.render(question.question)}</div>
+        <div class="chapter-inline-options">${question.options.map((option, optionIndex) => `<label class="option-item ${submitted && answers.includes(optionIndex) ? 'correct' : submitted && selected.includes(optionIndex) ? 'wrong' : ''}">
+          <input type="${multiple ? 'checkbox' : 'radio'}" name="answer" value="${optionIndex}" ${selected.includes(optionIndex) ? 'checked' : ''} ${submitted ? 'disabled' : ''}>
+          <span>${String.fromCharCode(65 + optionIndex)}. ${escapeHtml(option)}</span></label>`).join('')}</div></fieldset>
+        <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}` : ''}</p>
+        <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
+      form.onchange = () => {
+        const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
+        chapterPracticeAnswers.set(question.id, {selected: multiple ? values : values[0], submitted: false});
+      };
+      form.onsubmit = event => {
+        event.preventDefault();
+        if (submitted) {
+          chapterPracticeAnswers.delete(question.id);
+          renderChapterPractice(container, questions);
+          container.children[index].querySelector('input')?.focus();
+          return;
+        }
+        const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
+        if (!values.length) {
+          form.querySelector('.chapter-inline-feedback').textContent = '請先選擇答案。';
+          form.querySelector('input')?.focus();
+          return;
+        }
+        const answer = multiple ? values : values[0];
+        const correct = answerIsCorrect(question, answer);
+        chapterPracticeAnswers.set(question.id, {selected: answer, submitted: true, correct});
+        recordQuestionAnswer(question, correct);
+        renderChapterPractice(container, questions);
+        container.children[index].querySelector('.chapter-inline-feedback').focus({preventScroll: true});
+      };
+      container.appendChild(form);
+    });
+  }
+
   // ===== 2. 教材閱讀 Reader 渲染 =====
   function renderReader() {
     const ch = pack.chapters.find(c => c.id === currentChapterId) || pack.chapters[0];
@@ -306,9 +368,14 @@
     goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
     container.prepend(goals);
     const practice = document.getElementById('btn-chapter-practice');
-    practice.disabled = !pack.questions.some(q => q.chapterId === ch.id);
-    practice.textContent = practice.disabled ? '本章無練習題' : '開始本章測驗';
-    practice.onclick = () => {switchView('quiz'); startQuiz('chapter', ch.id, 'all');};
+    const practiceIds = new Set(ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id));
+    const questionById = new Map(pack.questions.map(question => [question.id, question]));
+    const practiceQuestions = [...practiceIds].map(id => questionById.get(id)).filter(Boolean);
+    const practicePreview = document.getElementById('chapter-practice-preview');
+    renderChapterPractice(practicePreview, practiceQuestions);
+    practice.disabled = practiceQuestions.length === 0;
+    practice.textContent = practice.disabled ? '本章無練習題' : `以測驗模式練習（${practiceQuestions.length} 題）`;
+    practice.onclick = () => {switchView('quiz'); startQuiz('chapter', ch.id, 'all', practiceQuestions);};
     const resume = progress.lastPosition.sectionId;
     if (resume) requestAnimationFrame(() => document.getElementById(`sec-${resume}`)?.scrollIntoView({block:'start'}));
 
@@ -634,14 +701,7 @@
         isCorrect = userSelected === q.answer;
       }
 
-      const st = progress.questionStats[q.id] || { attempts: 0, wrongCount: 0, correctCount: 0 };
-      st.attempts++;
-      if (isCorrect) st.correctCount++;
-      else st.wrongCount++;
-      st.lastResult = isCorrect;
-      st.lastAnsweredAt = new Date().toISOString();
-      progress.questionStats[q.id] = st;
-      saveProgress();
+      recordQuestionAnswer(q, isCorrect);
 
       renderQuizCard();
     };

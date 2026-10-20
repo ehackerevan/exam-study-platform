@@ -13,11 +13,11 @@
     const nodes = [];while (walker.nextNode()) nodes.push(walker.currentNode);
     for (const node of nodes) {
       const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
-        const before = text[match.index - 1] || '', after = text[match.index + match[0].length] || '';
-        if (match[0] === '得' && (/[取獲所值覺記心贏懂]/.test(before) || /[分失意到獎]/.test(after))) return false;
-        if (match[0] === '可' && /[能惜怕愛靠觀口]/.test(after)) return false;
-        if (match[0] === '應' && (/[反回對相因響供適]/.test(before) || /[用對變收付]/.test(after))) return false;
-        return !(match[0] === '不得' && /[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
+        const before = text.slice(Math.max(0, match.index - 3), match.index), after = text.slice(match.index + match[0].length);
+        if (match[0] === '得' && (/(?:取|獲|所|值|覺|記|心|贏|難|喜|懂|博)$/.test(before) || /^(?:分|失|意|到|獎|知|利|力|益|手|罪)/.test(after))) return false;
+        if (match[0] === '可' && /^(?:能|惜|怕|愛|靠|觀|口|憐|惡|見|行|是|不可以)/.test(after)) return false;
+        if (match[0] === '應' && (/(?:效|反|回|對|相|因|響|供|適|呼|承)$/.test(before) || /^(?:用|對|變|收|付)/.test(after))) return false;
+        return !(match[0] === '不得' && /^[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
       });
       if (!matches.length) continue;
       const fragment = document.createDocumentFragment();let position = 0;
