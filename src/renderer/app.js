@@ -823,7 +823,7 @@
     document.getElementById('app-brand-title').textContent = pack.title;
     document.getElementById('app-brand-version').textContent = `v${pack.contentVersion || '1.0'}`;
     document.getElementById('hero-pack-title').textContent = pack.title;
-    document.getElementById('hero-pack-desc').textContent = pack.description || '點選下方快捷入口開始學習！';
+    document.getElementById('hero-pack-desc').textContent = pack.description || '點選下方快速入口開始學習！';
 
     // 導航 Tab 事件
     navTabBtns.forEach(btn => {
