@@ -9,6 +9,33 @@ import { parseSourceExam } from '../src/core/utils/source-exam.js';
 import { loadTrustCourse } from '../src/core/utils/trust-course.js';
 
 const frequency = JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json', 'utf8')).courses;
+const trustBank = JSON.parse(fs.readFileSync('教材/信託業務人員重點教材/full_exam_bank.json', 'utf8'));
+const trustQuestions = [...new Map(Object.values(trustBank).flat().map(question => [question.id, question])).values()];
+const countTrustItems = selector => {
+  const counts = new Map();
+  for (const question of trustQuestions) {
+    const item = selector(question);
+    if (item) counts.set(item, (counts.get(item) || 0) + 1);
+  }
+  return [...counts].map(([item, question_count]) => ({ item, question_count })).sort((a, b) => b.question_count - a.question_count || a.item.localeCompare(b.item, 'zh-TW'));
+};
+const trustConceptRanking = countTrustItems(question => question.topic);
+const trustLawNames = [
+  '信託業法施行細則', '信託業設立標準', '信託資金集合管理運用管理辦法', '金融資產證券化條例',
+  '不動產證券化條例', '證券投資信託及顧問法', '遺產及贈與稅法', '信託業法', '信託法',
+  '所得稅法', '土地稅法', '證券交易法', '銀行法', '民法', '公司法'
+];
+const trustLawRanking = trustLawNames.map(item => ({
+  item,
+  question_count: trustQuestions.filter(question => [question.stem, ...question.options].join(' ').includes(item)).length
+})).filter(row => row.question_count > 0).sort((a, b) => b.question_count - a.question_count || a.item.localeCompare(b.item, 'zh-TW'));
+if (trustConceptRanking.reduce((sum, row) => sum + row.question_count, 0) !== trustQuestions.length || !trustLawRanking.length) {
+  throw new Error('信託高頻統計資料不完整，請先核對題庫的主題標籤與法規名稱。');
+}
+frequency['信託業務人員重點教材'] = {
+  concept_ranking: trustConceptRanking.slice(0, 10).map(({ item: concept, question_count }) => ({ concept, question_count })),
+  law_ranking: trustLawRanking.slice(0, 10).map(({ item: law_or_rule, question_count }) => ({ law_or_rule, question_count }))
+};
 const chart = (title, rows, labelKey) => {
   const max = rows[0]?.question_count || 1;
   return `### ${title}\n\n| 排名 | 項目 | 題數長條 | 題數 |\n| ---: | --- | --- | ---: |\n${rows.map((row, index) => `| ${index + 1} | ${row[labelKey].replace(/\|/g, '\\|')} | ${'█'.repeat(Math.max(1, Math.round(row.question_count / max * 24)))} | ${row.question_count} |`).join('\n')}`;
@@ -16,7 +43,10 @@ const chart = (title, rows, labelKey) => {
 const frequencySection = course => {
   const data = frequency[course];
   if (!data) throw new Error(`缺少歷屆頻率資料：${course}`);
-  return `以下長條依本教材現有題庫的命中題數排序，僅供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。\n\n${chart('高頻觀念', data.concept_ranking, 'concept')}\n\n${chart('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n統計方式：由題幹與選項的關鍵詞初步分類，法規依題幹及正確選項比對；完整方法與品質限制記錄於本機統計資料。`;
+  const method = course === '信託業務人員重點教材'
+    ? '統計方式：概念依題庫的 topic 主題標籤計數；法規依題幹與選項中出現的法規名稱計數，題目依 ID 去重。一題可能涉及多項法規。'
+    : '統計方式：由題幹與選項的關鍵詞初步分類，法規依題幹及正確選項比對；完整方法與品質限制記錄於本機統計資料。';
+  return `以下長條依本教材現有題庫的命中題數排序，僅供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。\n\n${chart('高頻觀念', data.concept_ranking, 'concept')}\n\n${chart('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n${method}`;
 };
 
 const courses = [
@@ -48,7 +78,11 @@ for (const c of courses) {
     chapter.summary = chapter.summary.replace(/100%\s*正確/g, '依來源整理的');
     chapter.summary = chapter.summary.replace(/\*\*/g, '');
     chapter.title = chapter.title.replace(/\*\*/g, '');
-    chapter.sections = chapter.sections.filter(section => !/本教材.*(?:特色|設計)/.test(section.title) && !/章節索引/.test(section.title));
+    chapter.sections = chapter.sections.filter(section =>
+      !/本教材.*(?:特色|設計)/.test(section.title) &&
+      !/章節索引/.test(section.title) &&
+      !(section.title === '概述' && (!section.content || section.content.trim() === '---'))
+    );
     for (const section of chapter.sections) {
       if (/00$/.test(chapter.id) && /出題權重|核心地圖|核心架構/.test(section.title)) {
         section.title = '學習範圍與報考提醒';
@@ -72,9 +106,17 @@ for (const c of courses) {
   }
   const intro = pack.chapters[0];
   if (intro) {
+    const overview = intro.sections.find(section => section.title === '概述');
+    const learningContext = intro.sections.find(section => section.title === '先建立本章的理解脈絡');
+    if (overview?.content && learningContext) learningContext.content = `${overview.content}\n\n${learningContext.content}`;
+    intro.sections = intro.sections.filter(section => section.title !== '概述' && section.title !== '章節');
     intro.sections.unshift({id:`${intro.id}-learning-guide`, title:'如何使用這份教材', content:'先讀各章概念，再用「本章練習」檢查理解；答錯時返回相關教材。每章完成後，確認自己能用自己的話說明重點，再標記已讀。\n\n歷屆答案保留考試當時的判定，可能與後續規定不同。涉及日期、門檻或法規適用，請以該考期與官方現行資料分別核對。\n\n本次整理日期：2026-10-20；不是逐題法規審校日期。', keyPoints:['讀概念 → 練本章 → 對照答案 → 回教材 → 重練錯題'], notes:[]});
-    if (!c.trust) intro.sections.splice(1, 0, {id:`${intro.id}-exam-frequency`, title:'歷屆高頻觀念與法規排行', content:frequencySection(c.name), keyPoints:[], notes:[]});
+    intro.sections.splice(1, 0, {id:`${intro.id}-exam-frequency`, title:'歷屆高頻觀念與法規排行', content:frequencySection(c.name), keyPoints:[], notes:[]});
     intro.sections.push({id:`${intro.id}-question-count`, title:'題目總數', content:`本教材目前共收錄 ${pack.questions.length} 題。`, keyPoints:[], notes:[]});
+    const expectedIntro = ['如何使用這份教材', '歷屆高頻觀念與法規排行', '先建立本章的理解脈絡', '學科範圍與報考提醒', '題目總數'];
+    if (JSON.stringify(intro.sections.map(section => section.title)) !== JSON.stringify(expectedIntro)) {
+      throw new Error(`${c.name} 導讀架構與其他學科不一致：${intro.sections.map(section => section.title).join(' / ')}`);
+    }
   }
 
   // 驗證
