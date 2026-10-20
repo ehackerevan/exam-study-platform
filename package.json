@@ -10,7 +10,8 @@
     "test": "node --test tests/**/*.test.js",
     "test:e2e": "node tests/e2e-headless-test.js",
     "build:examples": "node scripts/build-examples.js",
-    "build:ui": "node scripts/build-coursepacks.js && node scripts/build-examples.js && node scripts/harmonize-ui.js",
+    "build:ui": "node scripts/build-coursepacks.js && node scripts/build-examples.js && node scripts/harmonize-ui.js && node scripts/build-single-html.js",
+    "build:single": "node scripts/build-single-html.js",
     "validate:offline": "node scripts/validate-offline.js",
     "verify": "npm test; npm run build:examples; npm run validate:offline; npm run test:e2e"
   },
