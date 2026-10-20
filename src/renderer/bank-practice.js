@@ -37,7 +37,7 @@
       <a href="${escape(question.studyHref)}">到本學科練習</a>
       <form><fieldset><legend>${multiple ? '請選出所有正確選項' : '請選擇一個答案'}</legend>
       <div class="chapter-inline-options">${question.options.map((option,index) => `<label class="option-item ${submitted && expected.includes(index) ? 'correct' : submitted && selected.includes(index) ? 'wrong' : ''}"><input type="${multiple ? 'checkbox' : 'radio'}" name="answer" value="${index}" ${selected.includes(index) ? 'checked' : ''} ${submitted ? 'disabled' : ''}><span>${String.fromCharCode(65 + index)}. ${escape(option)}</span></label>`).join('')}</div></fieldset>
-      <p class="bank-feedback" role="status" tabindex="-1">${submitted ? `${result.correct ? '作答正確' : '作答錯誤'}；正確答案：${expected.map(index => String.fromCharCode(65 + index)).join('、')}${result.saved ? '。已同步學科進度。' : '。進度儲存失敗，原有紀錄未覆寫。'}` : ''}</p>
+      <p class="bank-feedback" role="status" tabindex="-1">${submitted ? `${result.correct ? '作答正確' : '作答錯誤'}；正確答案：${expected.map(index => String.fromCharCode(65 + index)).join('、')}${result.saved ? '。' : '。進度儲存失敗，原有紀錄未覆寫。'}` : ''}</p>
       <button type="submit">${submitted ? '重新作答' : '送出答案'}</button></form>`;
     const form = card.querySelector('form');
     form.onchange = () => results.set(key, {selected:[...form.querySelectorAll('input:checked')].map(input => Number(input.value)),submitted:false});
