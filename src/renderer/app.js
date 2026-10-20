@@ -12,6 +12,8 @@
     return;
   }
 
+  if (pack.readerLayout === 'chunked') document.documentElement.dataset.readerLayout = 'chunked';
+
   // 常數與門檻設定
   const STORAGE_KEY = `study-pack.${pack.id}.progress`;
   const THRESHOLDS = {
@@ -328,7 +330,7 @@
     const container = document.getElementById('sections-container');
     container.innerHTML = '';
 
-    ch.sections.forEach(sec => {
+    ch.sections.forEach((sec, sectionIndex) => {
       const secDiv = document.createElement('div');
       secDiv.className = 'section-block';
       secDiv.id = `sec-${sec.id}`;
@@ -356,6 +358,7 @@
       }
 
       secDiv.innerHTML = `
+        ${pack.readerLayout === 'chunked' ? `<p class="section-step">第 ${sectionIndex + 1} / ${ch.sections.length} 節</p>` : ''}
         <h3 class="section-title">${escapeHtml(sec.title)}</h3>
         ${sec.content ? `<div class="section-body">${window.StudyContent.render(sec.content)}</div>` : ''}
         ${keyPointsHtml}
@@ -365,7 +368,12 @@
     });
     const goals = document.createElement('aside');
     goals.className = 'learning-goals';
-    goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
+    if (pack.readerLayout === 'chunked') {
+      const stops = ch.sections.filter(section => !/理解脈絡|學習導航|如何使用|排行|題目總數/.test(section.title)).slice(0, 3);
+      goals.innerHTML = '<strong>本章閱讀路線</strong><p>一次讀一節；讀完先用自己的話回答一個問題，再往下。</p><ol>' + stops.map(section => `<li><a href="#sec-${escapeHtml(section.id)}">${escapeHtml(section.title)}</a></li>`).join('') + '</ol>';
+    } else {
+      goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
+    }
     container.prepend(goals);
     const practice = document.getElementById('btn-chapter-practice');
     const practiceIds = new Set(ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id));

@@ -112,6 +112,7 @@ for (const c of courses) {
   pack.chapters = pack.chapters.filter((chapter, index, all) =>
     !all.some((other, otherIndex) => otherIndex !== index && other.id === chapter.id && other.sections.some(s => s.content)) || chapter.sections.some(s => s.content));
   pack.description = pack.description.replace(/100%\s*正確/g, '依來源整理的');
+  if (!c.trust) pack.readerLayout = 'chunked';
   pack.contentVersion = c.trust ? '2026.10.18' : '2026.10.20';
   pack.description = `收錄 ${pack.questions.length} 題。先讀概念，再練本章與複習待加強題；進度可匯出備份。`;
   for (const question of pack.questions) {
@@ -161,6 +162,11 @@ for (const c of courses) {
     if (JSON.stringify(intro.sections.map(section => section.title)) !== JSON.stringify(expectedIntro)) {
       throw new Error(`${c.name} 導讀架構與其他學科不一致：${intro.sections.map(section => section.title).join(' / ')}`);
     }
+  }
+  if (!c.trust) for (const chapter of pack.chapters) {
+    const context = chapter.sections.find(section => section.title === '先建立本章的理解脈絡');
+    const summary = context?.content.split('### 用這段話串起觀念')[1]?.split('\n').find(line => line.startsWith('- '));
+    if (summary) chapter.summary = summary.slice(2);
   }
   const practiceByChapter = practiceQuestionIds(pack, c);
   const questionById = new Map(pack.questions.map(question => [question.id, question]));

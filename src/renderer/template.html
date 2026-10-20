@@ -470,6 +470,21 @@ h1,h2,h3 { font-weight: 700; }
 .chapter-inline-options input { accent-color:var(--primary);flex:0 0 auto;width:1.15rem;height:1.15rem;margin:.25rem 0 0; }
 .chapter-inline-options label:has(input:checked) { outline:2px solid var(--primary);outline-offset:-2px; }
 .chapter-inline-feedback { margin:1rem 0!important;font-weight:700; }
+
+/* Structured reading is opt-in for the four revised subjects; Trust keeps its layout. */
+[data-reader-layout="chunked"] .section-block { margin:0 0 2rem;padding:1.25rem 0 1.25rem 1.25rem;border-left:3px solid var(--primary-border);scroll-margin-top:160px; }
+[data-reader-layout="chunked"] .section-step { font-size:.8rem;color:var(--text-muted);margin:0 0 .5rem;font-variant-numeric:tabular-nums; }
+[data-reader-layout="chunked"] .section-body { line-height:1.85; }
+[data-reader-layout="chunked"] .section-body>p { max-width:72ch;margin:1rem 0; }
+[data-reader-layout="chunked"] .section-body li { margin-bottom:.65rem; }
+[data-reader-layout="chunked"] .section-body h3 { margin:1.5rem 0 .75rem;font-size:1.05rem; }
+[data-reader-layout="chunked"] .section-body th { text-align:left;background:var(--primary-subtle); }
+[data-reader-layout="chunked"] .section-body td { vertical-align:top;line-height:1.7; }
+[data-reader-layout="chunked"] .section-body tbody tr:nth-child(even) { background:color-mix(in srgb,var(--primary-subtle) 25%,var(--bg-surface)); }
+[data-reader-layout="chunked"] .learning-goals p { margin:.5rem 0;color:var(--text-muted); }
+[data-reader-layout="chunked"] .learning-goals li { margin:.4rem 0; }
+[data-reader-layout="chunked"] .chapter-practice-question { margin-bottom:1rem; }
+@media(max-width:600px) { [data-reader-layout="chunked"] .section-block { padding-left:.75rem; } }
 </style>
 </head>
 <body>
