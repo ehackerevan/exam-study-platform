@@ -9,7 +9,7 @@
       const pie = line.match(/^\s*"([^"]+)"\s*:\s*([\d.]+)/);
       if (pie) rows.push(`<tr><td>${escape(pie[1])}</td><td>${escape(pie[2])}</td></tr>`);
       const edge = line.replace(node, (_, id) => id).match(/^\s*([A-Za-z][\w-]*)\s*(?:-->|---|-.->|==>)\s*(?:\|([^|]+)\|)?\s*([A-Za-z][\w-]*)/);
-      if (edge) rows.push(`<tr><td>${escape(labels.get(edge[1]) || edge[1])}</td><td>${edge[2] ? `<strong>${escape(edge[2])}</strong><br>` : ''}${escape(labels.get(edge[3]) || edge[3])}</td></tr>`);
+      if (edge) rows.push(`<tr><td>${escape(labels.get(edge[1]) || edge[1])}</td><td>${edge[2] ? `<strong>${edge[2].split(/<br\s*\/?>/i).map(escape).join('<br>')}</strong><br>` : ''}${escape(labels.get(edge[3]) || edge[3])}</td></tr>`);
     }
     // shortcut: current course diagrams use simple edges; retain unfamiliar syntax as a text alternative.
     return rows.length ? `<div class="table-scroll" tabindex="0" aria-label="關係圖文字對照"><table><caption>概念關係對照</caption><tbody>${rows.join('')}</tbody></table></div>` : `<details><summary>概念圖文字版</summary><pre>${escape(source)}</pre></details>`;
