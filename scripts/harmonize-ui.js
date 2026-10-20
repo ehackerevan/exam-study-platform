@@ -11,6 +11,7 @@ export function htmlFiles(root = process.cwd()) {
   walk('dist');
   files.push('src/renderer/template.html');
   if (fs.existsSync(path.join(root, '考古題/歷屆考古題_完整題庫大全.html'))) files.push('考古題/歷屆考古題_完整題庫大全.html');
+  if (fs.existsSync(path.join(root, '06_四科彙整題庫/歷屆考古題_完整題庫大全.html'))) files.push('06_四科彙整題庫/歷屆考古題_完整題庫大全.html');
   return files.sort();
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
