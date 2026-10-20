@@ -14,6 +14,7 @@
     for (const node of nodes) {
       const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
         const before = text.slice(Math.max(0, match.index - 3), match.index), after = text.slice(match.index + match[0].length);
+        if (/^[得可應]$/.test(match[0]) && (!/^(?:依|於|向|由|在|經|以|為|就|將|申請|申報|辦理|提供|保存|設置|拒絕|揭露|遵守|負|視|採|扣|繳|報|按|立即|通知|提|受|終止|撤銷|變更|同意|要求)/.test(after) || /[許認適反供對回效響相因]$/.test(before))) return false;
         if (match[0] === '得' && (/(?:取|獲|所|值|覺|記|心|贏|難|喜|懂|博)$/.test(before) || /^(?:分|失|意|到|獎|知|利|力|益|手|罪)/.test(after))) return false;
         if (match[0] === '可' && /^(?:能|惜|怕|愛|靠|觀|口|憐|惡|見|行|是|不可以)/.test(after)) return false;
         if (match[0] === '應' && (/(?:效|反|回|對|相|因|響|供|適|呼|承)$/.test(before) || /^(?:用|對|變|收|付)/.test(after))) return false;

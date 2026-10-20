@@ -481,6 +481,8 @@ h1,h2,h3 { font-weight: 700; }
 [data-reader-layout="chunked"] .section-body tbody tr:nth-child(even) { background:color-mix(in srgb,var(--primary-subtle) 25%,var(--bg-surface)); }
 [data-reader-layout="chunked"] .learning-goals p { margin:.5rem 0;color:var(--text-muted); }
 [data-reader-layout="chunked"] .learning-goals li { margin:.4rem 0; }
+.learning-goals ol { padding-inline-start:1.75rem;margin-block:.75rem 0; }
+[data-highlights="off"] .legal-term { color:inherit;background:none;text-decoration:none;font-weight:inherit; }
 [data-reader-layout="chunked"] .chapter-practice-question { margin-bottom:1rem; }
 @media(max-width:600px) { [data-reader-layout="chunked"] .section-block { padding-left:.75rem; } }
 

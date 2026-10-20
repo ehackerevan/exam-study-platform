@@ -492,6 +492,8 @@ h1,h2,h3 { font-weight: 700; }
 [data-reader-layout="chunked"] .section-body tbody tr:nth-child(even) { background:color-mix(in srgb,var(--primary-subtle) 25%,var(--bg-surface)); }
 [data-reader-layout="chunked"] .learning-goals p { margin:.5rem 0;color:var(--text-muted); }
 [data-reader-layout="chunked"] .learning-goals li { margin:.4rem 0; }
+.learning-goals ol { padding-inline-start:1.75rem;margin-block:.75rem 0; }
+[data-highlights="off"] .legal-term { color:inherit;background:none;text-decoration:none;font-weight:inherit; }
 [data-reader-layout="chunked"] .chapter-practice-question { margin-bottom:1rem; }
 @media(max-width:600px) { [data-reader-layout="chunked"] .section-block { padding-left:.75rem; } }
 
@@ -540,7 +542,7 @@ h1,h2,h3 { font-weight: 700; }
 <nav id="study-catalog-nav" aria-label="學科目錄"><a href="../../dist/index.html">← 學科目錄</a><span>教材與題庫</span></nav>
   <!-- 頂部通用導航列 -->
   <header class="app-header">
-    <button type="button" class="mobile-reader-menu" id="btn-mobile-menu" aria-label="開啟章節目錄" aria-controls="reader-sidebar" aria-expanded="false">☰</button>
+    <button type="button" class="mobile-reader-menu" id="btn-mobile-menu" aria-label="開啟章節目錄" aria-controls="reader-sidebar" aria-expanded="false"></button>
     <div class="brand-section">
       <div class="brand-badge">學</div>
       <div class="brand-info">
@@ -551,11 +553,11 @@ h1,h2,h3 { font-weight: 700; }
 
     <!-- 視圖切換標籤 -->
     <nav class="nav-tabs" aria-label="主功能分頁">
-      <button class="tab-btn active" data-view="dashboard" type="button"><span class="nav-icon" aria-hidden="true">📊</span> 總覽</button>
-      <button class="tab-btn" data-view="reader" type="button"><span class="nav-icon" aria-hidden="true">📘</span> 教材</button>
-      <button class="tab-btn" data-view="search" type="button"><span class="nav-icon" aria-hidden="true">🔍</span> 搜尋</button>
-      <button class="tab-btn" data-view="quiz" type="button"><span class="nav-icon" aria-hidden="true">📝</span> 測驗</button>
-      <button class="tab-btn" data-view="settings" type="button"><span class="nav-icon" aria-hidden="true">⚙️</span> 設定</button>
+      <button class="tab-btn active" data-view="dashboard" type="button"><span class="nav-icon" aria-hidden="true"></span> 總覽</button>
+      <button class="tab-btn" data-view="reader" type="button"><span class="nav-icon" aria-hidden="true"></span> 教材</button>
+      <button class="tab-btn" data-view="search" type="button"><span class="nav-icon" aria-hidden="true"></span> 搜尋</button>
+      <button class="tab-btn" data-view="quiz" type="button"><span class="nav-icon" aria-hidden="true"></span> 測驗</button>
+      <button class="tab-btn" data-view="settings" type="button"><span class="nav-icon" aria-hidden="true"></span> 設定</button>
     </nav>
   </header>
 
@@ -565,7 +567,7 @@ h1,h2,h3 { font-weight: 700; }
     <!-- 頂部資料庫/儲存警告橫幅 (持續警告 + 匯出備份按鈕) -->
     <div id="storage-warning-banner" class="storage-warning-banner" style="display:none;" role="alert">
       <div class="storage-warning-content">
-        <span class="storage-warning-icon">⚠️</span>
+        <span class="storage-warning-icon"></span>
         <span id="storage-warning-message" class="storage-warning-text">本機儲存空間讀寫異常，目前進度僅暫存於記憶體中，重新整理可能遺失！</span>
       </div>
       <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button>
@@ -602,7 +604,7 @@ h1,h2,h3 { font-weight: 700; }
         </div>
 
         <div style="font-size:0.875rem;color:var(--text-muted);display:flex;align-items:center;gap:0.5rem;">
-          <span>📍 最近學習：</span>
+          <span> 最近學習：</span>
           <strong id="stat-last-chapter" style="color:var(--text-main);">未開始</strong>
         </div>
       </div>
@@ -611,24 +613,24 @@ h1,h2,h3 { font-weight: 700; }
       <h3 style="font-size:1.1rem;margin-bottom:0.75rem;font-weight:700;">快速開始</h3>
       <div class="shortcuts-grid">
         <button type="button" class="shortcut-card" id="shortcut-continue-read">
-          <span class="shortcut-icon">📖</span>
+          <span class="shortcut-icon"></span>
           <span class="shortcut-info">
             <span class="shortcut-title">閱讀教材</span>
             <span class="shortcut-desc">循序漸進研讀各章節重點</span>
           </span>
         </button>
         <button type="button" class="shortcut-card" id="shortcut-random-quiz">
-          <span class="shortcut-icon">🎯</span>
+          <span class="shortcut-icon"></span>
           <span class="shortcut-info">
             <span class="shortcut-title">隨機抽題測驗</span>
             <span class="shortcut-desc">快速 20 題模擬小測驗</span>
           </span>
         </button>
         <button type="button" class="shortcut-card" id="shortcut-wrong-answers">
-          <span class="shortcut-icon">🔥</span>
+          <span class="shortcut-icon"></span>
           <span class="shortcut-info">
             <span class="shortcut-title">錯題強化練習</span>
-            <span class="shortcut-desc">集中攻克目前待複習題目</span>
+            <span class="shortcut-desc">複習目前答錯的題目</span>
           </span>
         </button>
 
@@ -636,7 +638,7 @@ h1,h2,h3 { font-weight: 700; }
 
       <!-- 弱點分析 -->
       <div class="weakness-card">
-        <h3><span class="nav-icon" aria-hidden="true">📊</span> 各章節學習掌握度分析</h3>
+        <h3><span class="nav-icon" aria-hidden="true"></span> 各章作答統計</h3>
         <div id="weakness-list"></div>
       </div>
     </section>
@@ -672,8 +674,8 @@ h1,h2,h3 { font-weight: 700; }
           <!-- 章末本章練習區塊 -->
           <section class="chapter-quiz-action" id="chapter-quiz-action" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
             <div>
-              <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章高頻觀念練習</h3>
-              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">依本章歷屆常見觀念挑選題目，最多十題。</div>
+              <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章練習</h3>
+              <div id="chapter-practice-scope" style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">依收錄題目練習，最多十題。</div>
             </div>
             <div id="chapter-practice-preview" class="chapter-practice-preview"></div>
             <button type="button" class="btn btn-primary" id="btn-chapter-practice">開始本章測驗</button>
@@ -710,12 +712,13 @@ h1,h2,h3 { font-weight: 700; }
     <section id="view-quiz" class="view-panel">
       <!-- 測驗啟動設定面板 -->
       <div id="quiz-setup-panel">
+        <label style="display:block;margin:1rem 0;"><input type="checkbox" id="quiz-unseen-only"> 只練習尚未作答的題目（錯題模式除外）</label>
         <div class="quiz-config-card">
           <h2 class="quiz-config-title">選擇測驗模式</h2>
 
           <!-- 模式一：章節測驗 -->
           <div class="form-group">
-            <label class="form-label">指定章節測驗 (Chapter Quiz)</label>
+            <label class="form-label">指定章節測驗</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-chapter" style="flex:1;"></select>
               <button type="button" class="btn btn-primary" id="btn-start-chapter-quiz">開始章節測驗</button>
@@ -746,7 +749,7 @@ h1,h2,h3 { font-weight: 700; }
 
           <!-- 模式二：隨機抽題 -->
           <div class="form-group">
-            <label class="form-label">全題庫隨機抽題 (Random Quiz)</label>
+            <label class="form-label">全題庫隨機抽題</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-random-count" style="flex:1;">
                 <option value="10">隨機抽取 10 題</option>
@@ -762,8 +765,8 @@ h1,h2,h3 { font-weight: 700; }
 
           <!-- 模式三：錯題重練 -->
           <div class="form-group">
-            <label class="form-label">錯題強化模式 (Wrong Answers Quiz)</label>
-            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，直到掌握為止。</p>
+            <label class="form-label">錯題強化模式</label>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，逐題確認觀念。</p>
             <button type="button" class="btn btn-danger" style="width:100%;" id="btn-start-wrong-quiz">練習目前錯題</button>
           </div>
         </div>
@@ -786,6 +789,16 @@ h1,h2,h3 { font-weight: 700; }
           </div>
 
           <div class="quiz-question-text" id="quiz-stem"></div>
+          <details class="question-issue">
+            <summary>標記題目疑義</summary>
+            <label for="question-issue-type">問題類型（僅保存在此瀏覽器，可隨進度匯出）</label>
+            <select id="question-issue-type">
+              <option value="">沒有標記</option><option value="missing-text">文字缺漏</option>
+              <option value="options">選項不完整</option><option value="answer">答案疑義</option>
+            </select>
+            <button type="button" id="btn-save-question-issue">儲存標記</button>
+            <p id="question-issue-status" role="status"></p>
+          </details>
           <div class="options-list" id="quiz-options-container"></div>
 
           <!-- 回饋解析 -->
@@ -804,7 +817,7 @@ h1,h2,h3 { font-weight: 700; }
       <!-- 測驗結束頁內結算面板 -->
       <div id="quiz-summary-panel" style="display:none;max-width:700px;margin:0 auto;">
         <div class="quiz-card" style="text-align:center;">
-          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title">🎉 測驗完成！</h2>
+          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title"> 測驗完成！</h2>
           <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;" id="quiz-summary-desc">本次測驗結算如下：</p>
 
           <div class="stat-grid" style="margin-bottom:1.5rem;text-align:left;">
@@ -831,7 +844,7 @@ h1,h2,h3 { font-weight: 700; }
           </div>
 
           <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
-            <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;">🔥 本輪錯題重練</button>
+            <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;"> 本輪錯題重練</button>
             <button type="button" class="btn btn-primary" id="btn-quiz-restart">再測驗一次</button>
             <button type="button" class="btn btn-secondary" id="btn-quiz-back-menu">返回測驗選單</button>
           </div>
@@ -856,15 +869,18 @@ h1,h2,h3 { font-weight: 700; }
 
         <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
+        <div class="form-group">
+          <label><input type="checkbox" id="highlight-toggle" checked> 顯示法規用語與數字標示</label>
+        </div>
         <!-- 備份與還原 -->
         <div class="form-group">
-          <label class="form-label">進度備份 (Export Progress)</label>
+          <label class="form-label">進度備份</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">將已完成章節、作答統計與錯題記錄匯出為 JSON 檔。</p>
           <button type="button" class="btn btn-secondary" id="btn-export-progress">下載進度備份檔 (JSON)</button>
         </div>
 
         <div class="form-group">
-          <label class="form-label">進度還原 (Import Progress)</label>
+          <label class="form-label">進度還原</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前備份的進度檔案（將進行完整格式與欄位結構檢核）。</p>
           <input type="file" id="import-file-input" accept=".json" style="display:none;" />
           <button type="button" class="btn btn-secondary" id="btn-import-progress-trigger">選擇備份檔匯入...</button>
@@ -874,7 +890,7 @@ h1,h2,h3 { font-weight: 700; }
 
         <!-- 清除紀錄 -->
         <div class="form-group">
-          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄 (Reset Progress)</label>
+          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">清除此教材在本機的所有答題與閱讀進度。教材內容與題庫本體不受影響。</p>
           <button type="button" class="btn btn-danger" id="btn-reset-progress">清除本教材進度</button>
         </div>
@@ -907,6 +923,7 @@ h1,h2,h3 { font-weight: 700; }
     for (const node of nodes) {
       const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
         const before = text.slice(Math.max(0, match.index - 3), match.index), after = text.slice(match.index + match[0].length);
+        if (/^[得可應]$/.test(match[0]) && (!/^(?:依|於|向|由|在|經|以|為|就|將|申請|申報|辦理|提供|保存|設置|拒絕|揭露|遵守|負|視|採|扣|繳|報|按|立即|通知|提|受|終止|撤銷|變更|同意|要求)/.test(after) || /[許認適反供對回效響相因]$/.test(before))) return false;
         if (match[0] === '得' && (/(?:取|獲|所|值|覺|記|心|贏|難|喜|懂|博)$/.test(before) || /^(?:分|失|意|到|獎|知|利|力|益|手|罪)/.test(after))) return false;
         if (match[0] === '可' && /^(?:能|惜|怕|愛|靠|觀|口|憐|惡|見|行|是|不可以)/.test(after)) return false;
         if (match[0] === '應' && (/(?:效|反|回|對|相|因|響|供|適|呼|承)$/.test(before) || /^(?:用|對|變|收|付)/.test(after))) return false;
@@ -951,9 +968,9 @@ h1,h2,h3 { font-weight: 700; }
     if (!link?.classList.contains('answer-search')) {
       if (!text.trim()) return;
       link = document.createElement('a');
-      link.className = 'answer-search';link.textContent = '查答案';
+      link.className = 'answer-search';link.textContent = '搜尋本題';
       link.target = '_blank';link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label','查答案：Google 搜尋本題（開啟新分頁）');
+      link.setAttribute('aria-label','搜尋本題：Google 搜尋本題（開啟新分頁）');
       question.after(link);
     }
     link.hidden = !text.trim();

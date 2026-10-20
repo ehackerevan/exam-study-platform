@@ -17,8 +17,8 @@
   // 常數與門檻設定
   const STORAGE_KEY = `study-pack.${pack.id}.progress`;
   const THRESHOLDS = {
-    WEAK: 60,     // < 60% 需要加強
-    MODERATE: 80  // 60-80% 尚未穩定, > 80% 穩定
+    WEAK: 60,     // < 60% 累計正確率較低
+    MODERATE: 80  // 60-80% 累計正確率中等, > 80% 穩定
   };
 
   // 預設進度狀態
@@ -29,6 +29,7 @@
     contentVersion: pack.contentVersion || '1.0.0',
     completedChapters: [],
     questionStats: Object.create(null), // { [id]: { attempts, wrongCount, correctCount, lastResult, lastAnsweredAt } }
+    questionIssues: Object.create(null),
     quizHistory: [],
     lastPosition: { chapterId: '', sectionId: '' },
     settings: { theme: 'system' }
@@ -60,9 +61,11 @@
       if (!record || !['attempts','wrongCount','correctCount'].every(key => Number.isSafeInteger(record[key]) && record[key] >= 0) ||
         record.attempts !== record.wrongCount + record.correctCount || typeof record.lastResult !== 'boolean') throw Error('作答紀錄不正確');
     }
+    if (data.questionIssues !== undefined && (!data.questionIssues || typeof data.questionIssues !== 'object' || Array.isArray(data.questionIssues) || Object.values(data.questionIssues).some(value => !['missing-text','options','answer'].includes(value)))) throw Error('疑義標記格式不正確');
     return {...progress, ...data, questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)),
-      settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system'},
+      settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system', highlights:data.settings?.highlights !== false},
       lastPosition:{chapterId:data.lastPosition.chapterId,sectionId:data.lastPosition.sectionId || ''},
+      questionIssues:Object.assign(Object.create(null),data.questionIssues || {}),
       quizHistory:(data.quizHistory || []).slice(0,20)};
   }
   // 載入 localStorage
@@ -210,11 +213,11 @@
         badgeHtml = '<span class="badge">資料不足，繼續練習</span>';
       } else if (rate !== null) {
         if (rate < THRESHOLDS.WEAK) {
-          badgeHtml = `<span class="badge badge-danger">需要加強 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-danger">累計正確率較低 (${rate}%)</span>`;
         } else if (rate < THRESHOLDS.MODERATE) {
-          badgeHtml = `<span class="badge badge-warning">尚未穩定 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-warning">累計正確率中等 (${rate}%)</span>`;
         } else {
-          badgeHtml = `<span class="badge badge-success">穩定熟悉 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-success">累計正確率較高 (${rate}%)</span>`;
         }
       }
 
@@ -327,7 +330,7 @@
     // 完成狀態按鈕
     const isCompleted = progress.completedChapters.includes(ch.id);
     const completeBtn = document.getElementById('btn-toggle-complete');
-    completeBtn.textContent = isCompleted ? '✓ 已讀本章' : '標記已讀';
+    completeBtn.textContent = isCompleted ? ' 已讀本章' : '標記已讀';
     completeBtn.className = isCompleted ? 'btn btn-secondary' : 'btn btn-primary';
 
     // 渲染 Sections
@@ -343,7 +346,7 @@
       if (sec.keyPoints && sec.keyPoints.length > 0) {
         keyPointsHtml = `
           <div class="keypoints-box">
-            <div class="keypoints-header">💡 核心重點速記</div>
+            <div class="keypoints-header"> 本節重點</div>
             <ul class="keypoints-list">
               ${sec.keyPoints.map(kp => `<li>${window.StudyContent.render(kp)}</li>`).join('')}
             </ul>
@@ -373,13 +376,16 @@
     const goals = document.createElement('aside');
     goals.className = 'learning-goals';
     if (pack.readerLayout === 'chunked') {
-      const stops = ch.sections.filter(section => !/理解脈絡|學習導航|如何使用|排行|題目總數/.test(section.title)).slice(0, 3);
+      const stops = ch.sections.filter(section => !/本章概念|本章重點|理解脈絡|學習導航|如何使用|排行|題目總數/.test(section.title)).slice(0, 3);
       goals.innerHTML = '<strong>本章閱讀路線</strong><p>一次讀一節；讀完先用自己的話回答一個問題，再往下。</p><ol>' + stops.map(section => `<li><a href="#sec-${escapeHtml(section.id)}">${escapeHtml(section.title)}</a></li>`).join('') + '</ol>';
     } else {
       goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
     }
     container.prepend(goals);
     const practice = document.getElementById('btn-chapter-practice');
+    const practiceTitle = document.getElementById('chapter-practice-title');
+    practiceTitle.textContent = /00$/.test(ch.id) ? '全科暖身練習' : '本章練習';
+    document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `本次涵蓋：${ch.practiceConcepts.join('、')}。最多十題。` : '依收錄題目練習，最多十題。';
     const practiceIds = new Set(ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id));
     const questionById = new Map(pack.questions.map(question => [question.id, question]));
     const practiceQuestions = [...practiceIds].map(id => questionById.get(id)).filter(Boolean);
@@ -548,6 +554,9 @@
       pool = [...pack.questions];
     }
 
+    if (mode !== 'wrong' && document.getElementById('quiz-unseen-only').checked) {
+      pool = pool.filter(question => !progress.questionStats[question.id]?.attempts);
+    }
     // 洗牌
     if (mode !== 'featured') for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -592,6 +601,16 @@
     document.getElementById('quiz-type-tag').textContent = q.type === 'multiple-choice' ? '多選題' : (q.type === 'true-false' ? '是非題' : '單選題');
 
     document.getElementById('quiz-stem').textContent = q.question;
+    const issueSelect = document.getElementById('question-issue-type');
+    issueSelect.value = progress.questionIssues[q.id] || '';
+    document.querySelector('.question-issue').open = false;
+    document.getElementById('question-issue-status').textContent = '';
+    document.getElementById('btn-save-question-issue').onclick = () => {
+      if (issueSelect.value) progress.questionIssues[q.id] = issueSelect.value;
+      else delete progress.questionIssues[q.id];
+      const saved = saveProgress();
+      document.getElementById('question-issue-status').textContent = saved ? '已儲存於此瀏覽器，可隨進度備份匯出。' : '儲存失敗，請立即匯出進度備份。';
+    };
 
     const optionsContainer = document.getElementById('quiz-options-container');
     optionsContainer.innerHTML = '';
@@ -686,7 +705,7 @@
 
       feedbackBox.innerHTML = `
         <div style="font-weight:800;font-size:1.05rem;">
-          ${isCorrect ? '✓ 作答正確！' : '✕ 作答錯誤！'} (正確答案：${ansLabel})
+          ${isCorrect ? ' 作答正確！' : ' 作答錯誤！'} (正確答案：${ansLabel})
         </div>
         <button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>
       `;
@@ -878,6 +897,14 @@
     new ResizeObserver(updateHeaderOffset).observe(header);
     updateHeaderOffset();
     loadProgress();
+    const highlightToggle = document.getElementById('highlight-toggle');
+    highlightToggle.checked = progress.settings.highlights !== false;
+    const applyHighlights = () => {
+      document.documentElement.dataset.highlights = highlightToggle.checked ? 'on' : 'off';
+      progress.settings.highlights = highlightToggle.checked;
+    };
+    applyHighlights();
+    highlightToggle.onchange = () => { applyHighlights(); saveProgress(); };
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');
