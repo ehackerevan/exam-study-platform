@@ -341,7 +341,6 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       <button class="tab-btn active" data-view="dashboard" type="button">📊 總覽</button>
       <button class="tab-btn" data-view="reader" type="button">📘 教材</button>
       <button class="tab-btn" data-view="search" type="button">🔍 搜尋</button>
-      <button class="tab-btn" data-view="quick-review" type="button">💡 速查</button>
       <button class="tab-btn" data-view="quiz" type="button">📝 測驗</button>
       <button class="tab-btn" data-view="settings" type="button">⚙️ 設定</button>
     </nav>
@@ -419,13 +418,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
             <span class="shortcut-desc">集中攻克目前待複習題目</span>
           </span>
         </button>
-        <button type="button" class="shortcut-card" id="shortcut-quick-review">
-          <span class="shortcut-icon">⚡</span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">重點速查複習</span>
-            <span class="shortcut-desc">考前快速回顧精華清單</span>
-          </span>
-        </button>
+
       </div>
 
       <!-- 弱點分析 -->
@@ -484,31 +477,15 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
     <section id="view-search" class="view-panel">
       <div class="search-bar-container">
         <h2 style="margin-bottom:0.75rem;font-size:1.25rem;font-weight:700;">全文即時搜尋</h2>
-        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或速查重點..." />
+        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
       </div>
       <div class="search-results-list" id="search-results">
         <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
       </div>
     </section>
 
-    <!-- 4. 速查模式 Quick Review -->
-    <section id="view-quick-review" class="view-panel">
-      <div style="margin-bottom:1.25rem;">
-        <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;">考前重點速查 (Quick Review)</h2>
-        <p style="font-size:0.875rem;color:var(--text-muted);">集中檢閱各章節精華要點，可依章節篩選或關鍵字過濾。</p>
-      </div>
 
-      <div class="quick-review-controls">
-        <select class="select-dropdown" id="quick-review-chapter-filter">
-          <option value="all">全部章節</option>
-        </select>
-        <input type="text" class="select-dropdown" id="quick-review-search" placeholder="關鍵字即時過濾..." style="flex:1;min-width:200px;" />
-      </div>
-
-      <div class="quick-review-grid" id="quick-review-container"></div>
-    </section>
-
-    <!-- 5. 測驗模式 Quiz -->
+    <!-- 4. 測驗模式 Quiz -->
     <section id="view-quiz" class="view-panel">
       <!-- 測驗啟動設定面板 -->
       <div id="quiz-setup-panel">
@@ -641,7 +618,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       </div>
     </section>
 
-    <!-- 6. 系統設定 Settings -->
+    <!-- 5. 系統設定 Settings -->
     <section id="view-settings" class="view-panel">
       <div style="max-width:600px;margin:0 auto;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.75rem;">
         <h2 style="font-size:1.35rem;font-weight:800;margin-bottom:1.25rem;">系統設定與進度管理</h2>
@@ -694,7 +671,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
   </script>
 <script id="study-legal-terms">
 (function () {
-  const scope = '.section-body,.section-title,.chapter-title,.chapter-summary,.learning-goals,.keypoints-list,.notes-box,.review-card,.explanation-text';
+  const scope = '.section-body,.section-title,.chapter-title,.chapter-summary,.learning-goals,.keypoints-list,.notes-box,.explanation-text';
   const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,[contenteditable]';
   const words = /不可以|不得|不可|不應|禁止|必須|應當|可以|應|得|可/g;
   const number = '[0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+(?:[.,，．點][0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+)*';

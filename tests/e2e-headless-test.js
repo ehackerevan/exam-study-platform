@@ -130,16 +130,7 @@ async function runE2e() {
     console.log(`   - 搜尋「演繹」獲得結果數: ${resultCount}`);
     if (resultCount === 0) throw new Error('搜尋未能找到符合項目');
 
-    // 4. 測試速查模式
-    console.log('4. 測試重點速查 Quick Review...');
-    await evalCode('document.querySelector(".tab-btn[data-view=\\"quick-review\\"]").click()');
-    await wait(200);
-    const reviewCards = await evalCode('document.querySelectorAll(".review-card").length');
-    console.log(`   - 速查卡片數量: ${reviewCards}`);
-    if (reviewCards === 0) throw new Error('速查重點為空');
-
-    // 5. 測試測驗模式與作答
-    console.log('5. 測試測驗模式 Quiz 作答流程...');
+    console.log('4. 測試測驗模式 Quiz 作答流程...');
     await evalCode('document.querySelector(".tab-btn[data-view=\\"quiz\\"]").click()');
     await wait(200);
     // 點擊開始隨機測驗

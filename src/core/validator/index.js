@@ -158,7 +158,7 @@ export function validateStudyPack(pack) {
       }
 
       if (totalKeyPointsInChapter === 0) {
-        report.addWarning('NO_KEY_POINTS_IN_CHAPTER', `章節 '${ch.title}' 沒有任何速查重點 (keyPoints)`, chLabel);
+        report.addWarning('NO_KEY_POINTS_IN_CHAPTER', `章節 '${ch.title}' 沒有任何教材重點 (keyPoints)`, chLabel);
       }
 
       if (totalContentLength === 0 && totalKeyPointsInChapter === 0) {

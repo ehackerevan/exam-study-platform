@@ -20,8 +20,9 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
   try {
     const page=await context.newPage();
     await page.goto(url);
-    await page.locator('#shortcut-quick-review').click();
-    assert(await page.locator('#view-quick-review').isVisible());
+    await page.locator('[data-view="search"]').click();
+    await page.locator('#search-input').fill('自我檢核');
+    assert(await page.locator('.search-result-card').count() > 0, '全文搜尋應可找到教材重點');
     await page.locator('[data-view="reader"]').click();
     assert.equal(await page.locator('.section-body table').count(),1);
     assert(await page.locator('.section-body strong').first().isVisible());
@@ -74,7 +75,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     results.push('PASS: Markdown rendering, no MD links, native keyboard answers, first-answer count, multi-choice, summary, wrong resolution, related section and reload');
     for(const width of [320,390,768,1440]){
       await page.setViewportSize({width,height:900});
-      for(const view of ['dashboard','reader','quiz','quick-review','settings']){
+      for(const view of ['dashboard','reader','search','quiz','settings']){
         await page.locator(`[data-view="${view}"]`).click();
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,`${view} overflow at ${width}`);
       }

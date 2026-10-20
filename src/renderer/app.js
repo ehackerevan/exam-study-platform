@@ -97,7 +97,7 @@
   }
 
   // 狀態管理
-  let currentView = 'dashboard'; // 'dashboard' | 'reader' | 'search' | 'quick-review' | 'quiz' | 'settings'
+  let currentView = 'dashboard'; // 'dashboard' | 'reader' | 'search' | 'quiz' | 'settings'
   let currentChapterId = progress.lastPosition.chapterId || (pack.chapters[0] ? pack.chapters[0].id : '');
 
   // 測驗執行狀態
@@ -115,7 +115,6 @@
     dashboard: document.getElementById('view-dashboard'),
     reader: document.getElementById('view-reader'),
     search: document.getElementById('view-search'),
-    'quick-review': document.getElementById('view-quick-review'),
     quiz: document.getElementById('view-quiz'),
     settings: document.getElementById('view-settings')
   };
@@ -138,7 +137,6 @@
     if (viewName === 'dashboard') renderDashboard();
     if (viewName === 'quiz') renderQuizHistory();
     if (viewName === 'reader') renderReader();
-    if (viewName === 'quick-review') renderQuickReview();
     if (viewName === 'search') document.getElementById('search-input')?.focus();
   }
 
@@ -401,7 +399,7 @@
                   chapter: ch,
                   section: sec,
                   snippet: `重點：${highlight(kp, q)}`,
-                  type: '重點速查'
+                  type: '教材重點'
                 });
               }
             }
@@ -443,62 +441,8 @@
     return escapeHtml(text).replace(regex, '<span class="highlight">$1</span>');
   }
 
-  // ===== 4. 速查模式 Quick Review =====
-  function renderQuickReview() {
-    const select = document.getElementById('quick-review-chapter-filter');
-    const container = document.getElementById('quick-review-container');
-    const filterInput = document.getElementById('quick-review-search');
 
-    // 填入章節選單
-    if (select.children.length === 1) {
-      pack.chapters.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c.id;
-        opt.textContent = c.title;
-        select.appendChild(opt);
-      });
-    }
-
-    function doRender() {
-      const selectedChapterId = select.value;
-      const kw = filterInput.value.trim().toLowerCase();
-      container.innerHTML = '';
-
-      let totalPoints = 0;
-      pack.chapters.forEach(ch => {
-        if (selectedChapterId !== 'all' && ch.id !== selectedChapterId) return;
-
-        ch.sections.forEach(sec => {
-          if (!sec.keyPoints || sec.keyPoints.length === 0) return;
-
-          const matchedPoints = sec.keyPoints.filter(kp => !kw || kp.toLowerCase().includes(kw));
-          if (matchedPoints.length === 0) return;
-
-          totalPoints += matchedPoints.length;
-          const card = document.createElement('div');
-          card.className = 'review-card';
-          card.innerHTML = `
-            <div class="review-card-header">${escapeHtml(ch.title)}</div>
-            <div class="review-card-title">${escapeHtml(sec.title)}</div>
-            <ul class="keypoints-list">
-              ${matchedPoints.map(kp => `<li>${highlight(kp, kw)}</li>`).join('')}
-            </ul>
-          `;
-          container.appendChild(card);
-        });
-      });
-
-      if (totalPoints === 0) {
-        container.innerHTML = '<div style="color:var(--text-muted);padding:2rem;text-align:center;">此篩選條件下沒有速查重點</div>';
-      }
-    }
-
-    select.onchange = doRender;
-    filterInput.oninput = doRender;
-    doRender();
-  }
-
-  // ===== 5. 測驗引擎 Quiz Engine =====
+  // ===== 4. 測驗引擎 Quiz Engine =====
   function startQuiz(mode, chapterId = '', count = 20, selectedPool = null) {
     quizState.mode = mode;
     quizState.answers = Object.create(null);
@@ -774,7 +718,7 @@
     }
   }
 
-  // ===== 6. 備份與還原 Backup & Reset =====
+  // ===== 5. 備份與還原 Backup & Reset =====
   function exportProgressJson() {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(progress, null, 2));
     const dlAnchor = document.createElement('a');
@@ -906,7 +850,6 @@
       switchView('quiz');
       startQuiz('wrong', '', 'all');
     });
-    document.getElementById('shortcut-quick-review')?.addEventListener('click', () => switchView('quick-review'));
 
     // 測驗設定表單初始化
     const quizChSelect = document.getElementById('quiz-select-chapter');
@@ -1008,7 +951,7 @@
 
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');
-    switchView(['reader','quiz','dashboard','search','quick-review','settings'].includes(initialView) ? initialView : 'dashboard');
+    switchView(initialView === 'quick-review' ? 'search' : ['reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'dashboard');
   }
 
   // 啟動應用程式
