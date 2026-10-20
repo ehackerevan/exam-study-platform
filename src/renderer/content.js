@@ -44,8 +44,24 @@
       }
     }
     for (const table of template.content.querySelectorAll('table')) {
+      const headers = [...table.querySelectorAll('thead th')];
+      const rows = [...table.querySelectorAll('tbody tr')];
+      if (headers.length && rows.length && !table.querySelector('[colspan], [rowspan]') && rows.every(row => row.children.length === headers.length)) {
+        table.classList.add('mobile-card-table');
+        table.setAttribute('role', 'table');
+        rows.forEach(row => {
+          row.setAttribute('role', 'row');
+          [...row.children].forEach((cell, index) => {
+            cell.setAttribute('role', 'cell');
+            const label = document.createElement('span');
+            label.className = 'mobile-cell-label'; label.setAttribute('aria-hidden', 'true');
+            label.textContent = headers[index].textContent;
+            cell.prepend(label);
+          });
+        });
+      }
       const wrapper = document.createElement('div'); wrapper.className = 'table-scroll'; wrapper.tabIndex = 0;
-      wrapper.setAttribute('aria-label', '表格，可左右捲動'); table.replaceWith(wrapper); wrapper.append(table);
+      wrapper.setAttribute('aria-label', table.classList.contains('mobile-card-table') ? '教材對照表' : '表格，可左右捲動'); table.replaceWith(wrapper); wrapper.append(table);
     }
     return template.innerHTML;
   }

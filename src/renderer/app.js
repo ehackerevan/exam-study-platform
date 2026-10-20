@@ -125,7 +125,9 @@
 
   // 切換視圖
   function switchView(viewName) {
+    closeMobileMenu();
     currentView = viewName;
+    document.documentElement.dataset.view = viewName;
     Object.keys(views).forEach(key => {
       if (views[key]) {
         views[key].classList.toggle('active', key === viewName);
@@ -309,8 +311,10 @@
       li.tabIndex = 0;
       li.setAttribute('role','button');
       li.onclick = () => {
+        closeMobileMenu();
         currentChapterId = c.id;
         renderReader();
+        window.scrollTo({top:0});
       };
       li.onkeydown = event => {if (event.key === 'Enter' || event.key === ' ') {event.preventDefault();li.click();}};
       tocList.appendChild(li);
@@ -382,6 +386,7 @@
     const practicePreview = document.getElementById('chapter-practice-preview');
     renderChapterPractice(practicePreview, practiceQuestions);
     practice.disabled = practiceQuestions.length === 0;
+    document.getElementById('btn-mobile-practice').disabled = practice.disabled;
     practice.textContent = practice.disabled ? '本章無練習題' : `以測驗模式練習（${practiceQuestions.length} 題）`;
     practice.onclick = () => {switchView('quiz'); startQuiz('chapter', ch.id, 'all', practiceQuestions);};
     const resume = progress.lastPosition.sectionId;
@@ -394,6 +399,8 @@
 
     prevBtn.disabled = currIdx <= 0;
     nextBtn.disabled = currIdx >= pack.chapters.length - 1;
+    document.getElementById('btn-mobile-prev').disabled = prevBtn.disabled;
+    document.getElementById('btn-mobile-next').disabled = nextBtn.disabled;
 
     prevBtn.onclick = () => {
       if (currIdx > 0) {
@@ -849,7 +856,27 @@
   }
 
   // ===== 初始化事件綁定 =====
+  let mobileMenuTrigger;
+  function closeMobileMenu() {
+    if (!document.documentElement.classList.contains('reader-menu-open')) return;
+    document.documentElement.classList.remove('reader-menu-open');
+    const sidebar = document.getElementById('reader-sidebar');
+    sidebar.removeAttribute('role'); sidebar.removeAttribute('aria-modal');
+    const toggle = document.getElementById('btn-toggle-sidebar');
+    toggle.textContent = '收合 ◀'; toggle.setAttribute('aria-label', '收合目錄');
+    document.getElementById('reader-backdrop').hidden = true;
+    document.querySelector('.reader-content').inert = false;
+    document.querySelector('.app-header').inert = false;
+    document.querySelector('.mobile-reader-nav').inert = false;
+    document.getElementById('study-catalog-nav')?.removeAttribute('inert');
+    for (const id of ['btn-mobile-menu', 'btn-mobile-toc']) document.getElementById(id).setAttribute('aria-expanded', 'false');
+    mobileMenuTrigger?.focus({preventScroll:true});
+  }
   function init() {
+    const header = document.querySelector('.app-header');
+    const updateHeaderOffset = () => document.documentElement.style.setProperty('--reader-header-offset', `${header.getBoundingClientRect().bottom}px`);
+    new ResizeObserver(updateHeaderOffset).observe(header);
+    updateHeaderOffset();
     loadProgress();
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
@@ -857,11 +884,46 @@
     sidebarToggle.setAttribute('aria-controls','reader-toc-list');
     sidebarToggle.setAttribute('aria-expanded','true');
     sidebarToggle.onclick = () => {
+      if (matchMedia('(max-width:768px)').matches) { closeMobileMenu(); return; }
       const list = document.getElementById('reader-toc-list');
       list.hidden = !list.hidden;
       sidebarToggle.textContent = list.hidden ? '展開目錄' : '收合目錄';
       sidebarToggle.setAttribute('aria-expanded',String(!list.hidden));
     };
+    const mobileMedia = matchMedia('(max-width:768px)');
+    const openMobileMenu = event => {
+      mobileMenuTrigger = event.currentTarget;
+      document.documentElement.classList.add('reader-menu-open');
+      const sidebar = document.getElementById('reader-sidebar');
+      sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true');
+      sidebar.setAttribute('aria-label', '章節目錄');
+      sidebarToggle.textContent = '關閉'; sidebarToggle.setAttribute('aria-label', '關閉章節目錄');
+      document.getElementById('reader-toc-list').hidden = false;
+      document.getElementById('reader-backdrop').hidden = false;
+      document.querySelector('.reader-content').inert = true;
+      document.querySelector('.app-header').inert = true;
+      document.querySelector('.mobile-reader-nav').inert = true;
+      document.getElementById('study-catalog-nav')?.setAttribute('inert', '');
+      for (const id of ['btn-mobile-menu', 'btn-mobile-toc']) document.getElementById(id).setAttribute('aria-expanded', 'true');
+      sidebarToggle.focus();
+    };
+    document.getElementById('btn-mobile-menu').onclick = openMobileMenu;
+    document.getElementById('btn-mobile-toc').onclick = openMobileMenu;
+    document.getElementById('reader-backdrop').onclick = closeMobileMenu;
+    document.getElementById('btn-mobile-prev').onclick = () => document.getElementById('btn-prev-chapter').click();
+    document.getElementById('btn-mobile-next').onclick = () => document.getElementById('btn-next-chapter').click();
+    document.getElementById('btn-mobile-practice').onclick = () => document.getElementById('btn-chapter-practice').click();
+    mobileMedia.addEventListener('change', closeMobileMenu);
+    document.addEventListener('keydown', event => {
+      if (!document.documentElement.classList.contains('reader-menu-open')) return;
+      if (event.key === 'Escape') closeMobileMenu();
+      if (event.key === 'Tab') {
+        const controls = [...document.querySelectorAll('#reader-sidebar button, #reader-sidebar [tabindex="0"]')];
+        const first = controls[0], last = controls.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
     document.getElementById('sections-container').addEventListener('click', event => {
       const link = event.target.closest('a[data-chapter]');
       if (!link) return;
@@ -878,7 +940,8 @@
         readingFrame = 0;
         if (currentView !== 'reader') return;
         const sections = [...document.querySelectorAll('#sections-container .section-block')];
-        const visible = sections.filter(section => section.getBoundingClientRect().top <= 180).at(-1) || sections[0];
+        const readingTop = document.querySelector('.app-header').getBoundingClientRect().bottom + 32;
+        const visible = sections.filter(section => section.getBoundingClientRect().top <= readingTop).at(-1) || sections[0];
         if (visible && progress.lastPosition.sectionId !== visible.id.slice(4)) {
           progress.lastPosition.sectionId = visible.id.slice(4);
           saveProgress();

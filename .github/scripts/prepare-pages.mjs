@@ -38,7 +38,7 @@ const coursePages = [
 const publicPages = ['index.html', ...coursePages, '歷屆考古題_完整題庫大全.html'];
 copyFile('dist/index.html', 'index.html');
 for (const page of coursePages) copyFile(`dist/${page}`, page);
-copyFile('06_四科彙整題庫/歷屆考古題_完整題庫大全.html', '歷屆考古題_完整題庫大全.html');
+copyFile('dist/歷屆考古題_完整題庫大全.html', '歷屆考古題_完整題庫大全.html');
 
 const indexPath = path.join(output, 'index.html');
 const index = readFileSync(indexPath, 'utf8');
