@@ -200,6 +200,7 @@ for (const c of courses) {
   c.progress = { id: pack.id, chapters: pack.chapters.map(chapter => chapter.id), questions: pack.questions.map(question => question.id) };
   const category = c.trust ? '信託業務人員' : c.name.startsWith('消費') ? '消費金融' : c.name.startsWith('永續') ? '永續發展' : c.name.startsWith('防制') ? '防制洗錢' : '金融科技力';
   c.bankQuestions = pack.questions.map(question => ({
+    id:question.id, packId:pack.id, chapterId:question.chapterId, contentVersion:pack.contentVersion,
     category, period:question.sourceExam?.term?.replace(/^第\s*|\s*屆$/g, '') || '',
     subject:question.sourceExam?.subject || '', number:question.sourceExam?.number || '',
     text:question.question.replace(/^【[^】]+】\s*/, ''),

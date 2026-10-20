@@ -10,7 +10,9 @@ export function applySharedUi(html, homeHref = 'index.html') {
   else if (/<\/head>/i.test(html)) result = html.replace(/<\/head>/i, () => style + '\n</head>');
   else if (/<\/style>/i.test(html)) result = html.replace(/<\/style>/i, match => match + '\n' + style);
   else throw Error('HTML has no head or stylesheet to attach the shared UI');
-  for (const [id, file] of [['study-legal-terms','legal-terms.js'],['study-answer-search','answer-search.js']]) {
+  const scripts = [['study-legal-terms','legal-terms.js'],['study-answer-search','answer-search.js']];
+  if (html.includes('const RAW_QUESTIONS')) scripts.push(['study-bank-practice','bank-practice.js']);
+  for (const [id, file] of scripts) {
     const source = fs.readFileSync(new URL('../../renderer/'+file,import.meta.url),'utf8');
     const script = `<script id="${id}">\n${source}\n</script>`;
     const previousScript = new RegExp(`<script id="${id}">[\\s\\S]*?<\\/script>`);
