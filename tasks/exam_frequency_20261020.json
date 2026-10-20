@@ -1,0 +1,1288 @@
+{
+  "generated_on": "2026-10-20",
+  "scope": "四科 questions.json 的每筆題目紀錄；重複題幹跨考期仍各算一次",
+  "method": {
+    "counting_grain": "questions.json 的 question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",
+    "concepts": "以題幹與所有選項比對本程式內的人工整理關鍵詞；每題每個觀念最多計一次。若沒有關鍵詞命中，才以一般教材章節作備援分類；高頻彙整章未命中者標為未分類。",
+    "laws": "以題幹及正確選項比對人工整理的法規名稱與別名；每題每項法規最多計一次。統計的是提及題數，不代表法規考題權重或答案正確性。",
+    "percentages": "題數除以該科 questions.json 紀錄數；概念為多標籤，比例不可相加視為 100%。",
+    "limitations": "詞彙標籤是可追溯的初步分類，不等於人工逐題語意審校；未分類題數與考期題次衝突均保留揭露，不推定為重複或刪除。"
+  },
+  "courses": {
+    "金融科技力重點教材": {
+      "question_record_count": 839,
+      "unique_question_id_count": 839,
+      "duplicate_question_id_count": 0,
+      "parsed_exam_metadata_count": 839,
+      "unparsed_exam_metadata_count": 0,
+      "exam_session_count": 14,
+      "invalid_answer_index_count": 0,
+      "short_stem_at_most_10_characters_count": 7,
+      "short_stem_sample_ids": [
+        "ft-11-16",
+        "ft-12-34",
+        "ft-15-60",
+        "ft-17-2",
+        "ft-19-27",
+        "ft-20-2",
+        "ft-20-44"
+      ],
+      "same_exam_subject_number_collision_group_count": 0,
+      "records_in_collision_groups": 0,
+      "extra_records_in_collision_groups": 0,
+      "collision_samples": [],
+      "repeated_stem_across_exam_terms_group_count": 134,
+      "topic_classified_unique_question_count": 547,
+      "topic_classification_coverage_percent": 65.2,
+      "unclassified_question_count": 292,
+      "unclassified_sample_ids": [
+        "ft-8-5",
+        "ft-8-20",
+        "ft-8-21",
+        "ft-8-22",
+        "ft-8-23",
+        "ft-8-24",
+        "ft-8-25",
+        "ft-8-26",
+        "ft-8-27",
+        "ft-8-28"
+      ],
+      "concept_ranking": [
+        {
+          "rank": 1,
+          "concept": "大數據與人工智慧",
+          "question_count": 163,
+          "share_of_all_records_percent": 19.43,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "ft-8-6",
+            "ft-8-8",
+            "ft-8-9",
+            "ft-8-10",
+            "ft-8-16"
+          ]
+        },
+        {
+          "rank": 2,
+          "concept": "區塊鏈、分散式帳本與虛擬資產",
+          "question_count": 103,
+          "share_of_all_records_percent": 12.28,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "ft-8-11",
+            "ft-8-12",
+            "ft-8-13",
+            "ft-8-35",
+            "ft-8-47"
+          ]
+        },
+        {
+          "rank": 3,
+          "concept": "雲端運算",
+          "question_count": 84,
+          "share_of_all_records_percent": 10.01,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "ft-8-2",
+            "ft-8-3",
+            "ft-8-4",
+            "ft-8-42",
+            "ft-8-43"
+          ]
+        },
+        {
+          "rank": 4,
+          "concept": "純網銀、開放銀行與API",
+          "question_count": 81,
+          "share_of_all_records_percent": 9.65,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "ft-8-1",
+            "ft-8-19",
+            "ft-8-31",
+            "ft-8-32",
+            "ft-8-33"
+          ]
+        },
+        {
+          "rank": 5,
+          "concept": "RegTech、SupTech與監理沙盒",
+          "question_count": 65,
+          "share_of_all_records_percent": 7.75,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "ft-8-34",
+            "ft-8-35",
+            "ft-8-38",
+            "ft-9-34",
+            "ft-9-35"
+          ]
+        },
+        {
+          "rank": 6,
+          "concept": "數位身分與生物辨識",
+          "question_count": 55,
+          "share_of_all_records_percent": 6.56,
+          "exam_session_count": 13,
+          "sample_question_ids": [
+            "ft-8-14",
+            "ft-8-15",
+            "ft-8-16",
+            "ft-8-34",
+            "ft-8-35"
+          ]
+        },
+        {
+          "rank": 7,
+          "concept": "行動支付、電子支付與第三方支付",
+          "question_count": 35,
+          "share_of_all_records_percent": 4.17,
+          "exam_session_count": 12,
+          "sample_question_ids": [
+            "ft-8-17",
+            "ft-8-18",
+            "ft-8-19",
+            "ft-8-50",
+            "ft-8-51"
+          ]
+        },
+        {
+          "rank": 8,
+          "concept": "金融資安與零信任",
+          "question_count": 34,
+          "share_of_all_records_percent": 4.05,
+          "exam_session_count": 13,
+          "sample_question_ids": [
+            "ft-8-55",
+            "ft-8-58",
+            "ft-9-33",
+            "ft-9-37",
+            "ft-10-36"
+          ]
+        },
+        {
+          "rank": 9,
+          "concept": "金融科技發展與數位轉型",
+          "question_count": 22,
+          "share_of_all_records_percent": 2.62,
+          "exam_session_count": 13,
+          "sample_question_ids": [
+            "ft-8-1",
+            "ft-9-34",
+            "ft-10-1",
+            "ft-10-57",
+            "ft-11-34"
+          ]
+        },
+        {
+          "rank": 10,
+          "concept": "支付、數位身分與金融資安",
+          "question_count": 18,
+          "share_of_all_records_percent": 2.15,
+          "exam_session_count": 11,
+          "sample_question_ids": [
+            "ft-9-14",
+            "ft-9-17",
+            "ft-10-16",
+            "ft-11-19",
+            "ft-11-51"
+          ]
+        },
+        {
+          "rank": 11,
+          "concept": "雲端運算、大數據與AI應用",
+          "question_count": 6,
+          "share_of_all_records_percent": 0.72,
+          "exam_session_count": 6,
+          "sample_question_ids": [
+            "ft-9-28",
+            "ft-13-28",
+            "ft-14-5",
+            "ft-17-22",
+            "ft-18-22"
+          ]
+        }
+      ],
+      "law_ranking": [
+        {
+          "rank": 1,
+          "law_or_rule": "個人資料保護法",
+          "question_count": 3,
+          "share_of_all_records_percent": 0.36,
+          "exam_session_count": 3,
+          "sample_question_ids": [
+            "ft-9-5",
+            "ft-18-43",
+            "ft-21-34"
+          ]
+        },
+        {
+          "rank": 2,
+          "law_or_rule": "金融機構使用物聯網設備安全控管規範",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.24,
+          "exam_session_count": 2,
+          "sample_question_ids": [
+            "ft-19-58",
+            "ft-21-59"
+          ]
+        },
+        {
+          "rank": 3,
+          "law_or_rule": "金融科技發展與創新實驗條例",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.24,
+          "exam_session_count": 2,
+          "sample_question_ids": [
+            "ft-18-41",
+            "ft-19-41"
+          ]
+        },
+        {
+          "rank": 4,
+          "law_or_rule": "金融服務業辦理數位身分驗證指引",
+          "question_count": 1,
+          "share_of_all_records_percent": 0.12,
+          "exam_session_count": 1,
+          "sample_question_ids": [
+            "ft-20-37"
+          ]
+        },
+        {
+          "rank": 5,
+          "law_or_rule": "金融機構運用新興科技作業規範",
+          "question_count": 1,
+          "share_of_all_records_percent": 0.12,
+          "exam_session_count": 1,
+          "sample_question_ids": [
+            "ft-17-59"
+          ]
+        }
+      ],
+      "source_file": "教材/金融科技力重點教材/questions.json",
+      "label": "金融科技力"
+    },
+    "消費金融內部控制與稽核重點教材": {
+      "question_record_count": 2989,
+      "unique_question_id_count": 2989,
+      "duplicate_question_id_count": 0,
+      "parsed_exam_metadata_count": 2989,
+      "unparsed_exam_metadata_count": 0,
+      "exam_session_count": 23,
+      "invalid_answer_index_count": 0,
+      "short_stem_at_most_10_characters_count": 1,
+      "short_stem_sample_ids": [
+        "cf-49-實務-45"
+      ],
+      "same_exam_subject_number_collision_group_count": 0,
+      "records_in_collision_groups": 0,
+      "extra_records_in_collision_groups": 0,
+      "collision_samples": [],
+      "repeated_stem_across_exam_terms_group_count": 712,
+      "topic_classified_unique_question_count": 1822,
+      "topic_classification_coverage_percent": 60.96,
+      "unclassified_question_count": 1167,
+      "unclassified_sample_ids": [
+        "cf-25-法規-11",
+        "cf-25-法規-14",
+        "cf-25-法規-15",
+        "cf-25-法規-19",
+        "cf-25-法規-20",
+        "cf-25-法規-42",
+        "cf-25-法規-46",
+        "cf-25-法規-47",
+        "cf-25-法規-49",
+        "cf-25-實務-8"
+      ],
+      "concept_ranking": [
+        {
+          "rank": 1,
+          "concept": "授信、徵信與擔保品",
+          "question_count": 764,
+          "share_of_all_records_percent": 25.56,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-1",
+            "cf-25-法規-4",
+            "cf-25-法規-5",
+            "cf-25-法規-8",
+            "cf-25-法規-13"
+          ]
+        },
+        {
+          "rank": 2,
+          "concept": "內部控制與內部稽核",
+          "question_count": 519,
+          "share_of_all_records_percent": 17.36,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-2",
+            "cf-25-法規-3",
+            "cf-25-法規-5",
+            "cf-25-法規-6",
+            "cf-25-法規-7"
+          ]
+        },
+        {
+          "rank": 3,
+          "concept": "信用卡與循環信用",
+          "question_count": 402,
+          "share_of_all_records_percent": 13.45,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-9",
+            "cf-25-法規-38",
+            "cf-25-法規-39",
+            "cf-25-法規-50",
+            "cf-25-實務-44"
+          ]
+        },
+        {
+          "rank": 4,
+          "concept": "銀行作業、委外與風險管理",
+          "question_count": 361,
+          "share_of_all_records_percent": 12.08,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-8",
+            "cf-25-法規-12",
+            "cf-25-法規-21",
+            "cf-25-法規-34",
+            "cf-25-法規-35"
+          ]
+        },
+        {
+          "rank": 5,
+          "concept": "逾期放款、催收與呆帳",
+          "question_count": 255,
+          "share_of_all_records_percent": 8.53,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-39",
+            "cf-25-法規-40",
+            "cf-25-法規-50",
+            "cf-25-實務-3",
+            "cf-25-實務-12"
+          ]
+        },
+        {
+          "rank": 6,
+          "concept": "消費者保護與個資",
+          "question_count": 43,
+          "share_of_all_records_percent": 1.44,
+          "exam_session_count": 19,
+          "sample_question_ids": [
+            "cf-25-法規-21",
+            "cf-25-實務-80",
+            "cf-26-法規-31",
+            "cf-29-實務-61",
+            "cf-30-法規-20"
+          ]
+        },
+        {
+          "rank": 7,
+          "concept": "防制洗錢與交易監控",
+          "question_count": 25,
+          "share_of_all_records_percent": 0.84,
+          "exam_session_count": 12,
+          "sample_question_ids": [
+            "cf-25-法規-8",
+            "cf-25-法規-10",
+            "cf-25-法規-37",
+            "cf-26-法規-8",
+            "cf-26-法規-16"
+          ]
+        }
+      ],
+      "law_ranking": [
+        {
+          "rank": 1,
+          "law_or_rule": "金融控股公司及銀行業內部控制及稽核制度實施辦法",
+          "question_count": 176,
+          "share_of_all_records_percent": 5.89,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-3",
+            "cf-25-法規-6",
+            "cf-25-法規-7",
+            "cf-25-法規-29",
+            "cf-25-法規-30"
+          ]
+        },
+        {
+          "rank": 2,
+          "law_or_rule": "銀行法",
+          "question_count": 142,
+          "share_of_all_records_percent": 4.75,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-1",
+            "cf-25-法規-22",
+            "cf-25-法規-23",
+            "cf-25-法規-25",
+            "cf-25-實務-22"
+          ]
+        },
+        {
+          "rank": 3,
+          "law_or_rule": "信用卡業務機構管理辦法",
+          "question_count": 67,
+          "share_of_all_records_percent": 2.24,
+          "exam_session_count": 23,
+          "sample_question_ids": [
+            "cf-25-法規-38",
+            "cf-25-實務-44",
+            "cf-26-法規-13",
+            "cf-26-法規-14",
+            "cf-26-法規-15"
+          ]
+        },
+        {
+          "rank": 4,
+          "law_or_rule": "中華民國銀行公會會員徵信準則",
+          "question_count": 32,
+          "share_of_all_records_percent": 1.07,
+          "exam_session_count": 21,
+          "sample_question_ids": [
+            "cf-25-法規-13",
+            "cf-25-法規-41",
+            "cf-26-法規-20",
+            "cf-26-實務-21",
+            "cf-29-法規-24"
+          ]
+        },
+        {
+          "rank": 5,
+          "law_or_rule": "金融控股公司法",
+          "question_count": 30,
+          "share_of_all_records_percent": 1.0,
+          "exam_session_count": 19,
+          "sample_question_ids": [
+            "cf-25-法規-24",
+            "cf-25-法規-26",
+            "cf-25-法規-49",
+            "cf-26-法規-2",
+            "cf-26-法規-37"
+          ]
+        },
+        {
+          "rank": 6,
+          "law_or_rule": "金融同業間遭歹徒詐騙案件通報要點",
+          "question_count": 26,
+          "share_of_all_records_percent": 0.87,
+          "exam_session_count": 20,
+          "sample_question_ids": [
+            "cf-25-法規-8",
+            "cf-26-法規-9",
+            "cf-29-法規-16",
+            "cf-30-實務-15",
+            "cf-31-法規-19"
+          ]
+        },
+        {
+          "rank": 7,
+          "law_or_rule": "銀行資產評估損失準備提列及逾期放款催收款呆帳處理辦法",
+          "question_count": 24,
+          "share_of_all_records_percent": 0.8,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "cf-25-實務-25",
+            "cf-25-實務-52",
+            "cf-29-法規-5",
+            "cf-29-實務-67",
+            "cf-30-法規-16"
+          ]
+        },
+        {
+          "rank": 8,
+          "law_or_rule": "中華民國銀行公會會員授信準則",
+          "question_count": 17,
+          "share_of_all_records_percent": 0.57,
+          "exam_session_count": 13,
+          "sample_question_ids": [
+            "cf-26-實務-24",
+            "cf-30-實務-23",
+            "cf-32-實務-21",
+            "cf-33-實務-21",
+            "cf-38-法規-25"
+          ]
+        },
+        {
+          "rank": 9,
+          "law_or_rule": "金融機構作業委託他人處理內部作業制度及程序辦法",
+          "question_count": 12,
+          "share_of_all_records_percent": 0.4,
+          "exam_session_count": 10,
+          "sample_question_ids": [
+            "cf-34-法規-16",
+            "cf-35-法規-15",
+            "cf-35-實務-73",
+            "cf-37-法規-17",
+            "cf-41-法規-16"
+          ]
+        },
+        {
+          "rank": 10,
+          "law_or_rule": "消費者保護法",
+          "question_count": 5,
+          "share_of_all_records_percent": 0.17,
+          "exam_session_count": 4,
+          "sample_question_ids": [
+            "cf-41-法規-27",
+            "cf-46-法規-35",
+            "cf-47-法規-32",
+            "cf-49-法規-32",
+            "cf-49-法規-35"
+          ]
+        },
+        {
+          "rank": 11,
+          "law_or_rule": "金融消費者保護法",
+          "question_count": 5,
+          "share_of_all_records_percent": 0.17,
+          "exam_session_count": 4,
+          "sample_question_ids": [
+            "cf-41-法規-27",
+            "cf-46-法規-35",
+            "cf-47-法規-32",
+            "cf-49-法規-32",
+            "cf-49-法規-35"
+          ]
+        },
+        {
+          "rank": 12,
+          "law_or_rule": "個人資料保護法",
+          "question_count": 4,
+          "share_of_all_records_percent": 0.13,
+          "exam_session_count": 4,
+          "sample_question_ids": [
+            "cf-34-法規-40",
+            "cf-39-法規-47",
+            "cf-44-法規-41",
+            "cf-46-法規-16"
+          ]
+        }
+      ],
+      "source_file": "教材/消費金融內部控制與稽核重點教材/questions.json",
+      "label": "消費金融內部控制與稽核"
+    },
+    "永續發展基礎能力重點教材": {
+      "question_record_count": 1267,
+      "unique_question_id_count": 1267,
+      "duplicate_question_id_count": 0,
+      "parsed_exam_metadata_count": 1267,
+      "unparsed_exam_metadata_count": 0,
+      "exam_session_count": 15,
+      "invalid_answer_index_count": 0,
+      "short_stem_at_most_10_characters_count": 2,
+      "short_stem_sample_ids": [
+        "esg-114-4-2-680",
+        "esg-115-3-69"
+      ],
+      "same_exam_subject_number_collision_group_count": 78,
+      "records_in_collision_groups": 157,
+      "extra_records_in_collision_groups": 79,
+      "collision_samples": [
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 1,
+          "question_ids": [
+            "esg-114-4-1",
+            "esg-114-4-1-708"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 2,
+          "question_ids": [
+            "esg-114-4-2",
+            "esg-114-4-2-680",
+            "esg-114-4-2-709"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 3,
+          "question_ids": [
+            "esg-114-4-3",
+            "esg-114-4-3-710"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 4,
+          "question_ids": [
+            "esg-114-4-4",
+            "esg-114-4-4-711"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 5,
+          "question_ids": [
+            "esg-114-4-5",
+            "esg-114-4-5-712"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 6,
+          "question_ids": [
+            "esg-114-4-6",
+            "esg-114-4-6-713"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 7,
+          "question_ids": [
+            "esg-114-4-7",
+            "esg-114-4-7-714"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 8,
+          "question_ids": [
+            "esg-114-4-8",
+            "esg-114-4-8-715"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 9,
+          "question_ids": [
+            "esg-114-4-9",
+            "esg-114-4-9-716"
+          ]
+        },
+        {
+          "term": "114-4",
+          "subject": "永續發展基礎能力",
+          "number": 10,
+          "question_ids": [
+            "esg-114-4-10",
+            "esg-114-4-10-717"
+          ]
+        }
+      ],
+      "repeated_stem_across_exam_terms_group_count": 259,
+      "topic_classified_unique_question_count": 815,
+      "topic_classification_coverage_percent": 64.33,
+      "unclassified_question_count": 452,
+      "unclassified_sample_ids": [
+        "esg-113-1-7",
+        "esg-113-1-8",
+        "esg-113-1-9",
+        "esg-113-1-11",
+        "esg-113-1-15",
+        "esg-113-1-16",
+        "esg-113-1-31",
+        "esg-113-1-36",
+        "esg-113-1-46",
+        "esg-113-1-49"
+      ],
+      "concept_ranking": [
+        {
+          "rank": 1,
+          "concept": "永續資訊揭露準則與反漂綠",
+          "question_count": 305,
+          "share_of_all_records_percent": 24.07,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-14",
+            "esg-113-1-22",
+            "esg-113-1-24",
+            "esg-113-1-25",
+            "esg-113-1-26"
+          ]
+        },
+        {
+          "rank": 2,
+          "concept": "ESG與永續治理",
+          "question_count": 302,
+          "share_of_all_records_percent": 23.84,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-1",
+            "esg-113-1-2",
+            "esg-113-1-3",
+            "esg-113-1-5",
+            "esg-113-1-6"
+          ]
+        },
+        {
+          "rank": 3,
+          "concept": "溫室氣體盤查、查驗與確信",
+          "question_count": 192,
+          "share_of_all_records_percent": 15.15,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-6",
+            "esg-113-1-17",
+            "esg-113-1-19",
+            "esg-113-1-21",
+            "esg-113-1-30"
+          ]
+        },
+        {
+          "rank": 4,
+          "concept": "永續金融、債券與責任投資",
+          "question_count": 156,
+          "share_of_all_records_percent": 12.31,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-19",
+            "esg-113-1-22",
+            "esg-113-1-24",
+            "esg-113-1-61",
+            "esg-113-1-62"
+          ]
+        },
+        {
+          "rank": 5,
+          "concept": "氣候公約與轉型政策",
+          "question_count": 72,
+          "share_of_all_records_percent": 5.68,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-4",
+            "esg-113-1-6",
+            "esg-113-1-12",
+            "esg-113-1-13",
+            "esg-113-1-40"
+          ]
+        },
+        {
+          "rank": 6,
+          "concept": "碳定價、碳費與碳交易",
+          "question_count": 57,
+          "share_of_all_records_percent": 4.5,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-4",
+            "esg-113-1-10",
+            "esg-113-1-28",
+            "esg-113-1-33",
+            "esg-113-1-34"
+          ]
+        },
+        {
+          "rank": 7,
+          "concept": "溫室氣體盤查與碳定價（章節未細分）",
+          "question_count": 3,
+          "share_of_all_records_percent": 0.24,
+          "exam_session_count": 3,
+          "sample_question_ids": [
+            "esg-113-4-74",
+            "esg-113-5-56",
+            "esg-114-6-75"
+          ]
+        }
+      ],
+      "law_ranking": [
+        {
+          "rank": 1,
+          "law_or_rule": "上市櫃公司永續發展實務守則",
+          "question_count": 31,
+          "share_of_all_records_percent": 2.45,
+          "exam_session_count": 15,
+          "sample_question_ids": [
+            "esg-113-1-3",
+            "esg-113-1-17",
+            "esg-113-1-18",
+            "esg-113-1-23",
+            "esg-113-1-38"
+          ]
+        },
+        {
+          "rank": 2,
+          "law_or_rule": "上市公司編製與申報永續報告書作業辦法",
+          "question_count": 24,
+          "share_of_all_records_percent": 1.89,
+          "exam_session_count": 11,
+          "sample_question_ids": [
+            "esg-113-1-26",
+            "esg-113-1-45",
+            "esg-113-2-33",
+            "esg-113-2-34",
+            "esg-113-2-39"
+          ]
+        },
+        {
+          "rank": 3,
+          "law_or_rule": "巴黎協定",
+          "question_count": 20,
+          "share_of_all_records_percent": 1.58,
+          "exam_session_count": 12,
+          "sample_question_ids": [
+            "esg-113-2-79",
+            "esg-113-3-14",
+            "esg-113-3-80",
+            "esg-113-4-11",
+            "esg-113-4-18"
+          ]
+        },
+        {
+          "rank": 4,
+          "law_or_rule": "永續金融揭露規範（SFDR）",
+          "question_count": 20,
+          "share_of_all_records_percent": 1.58,
+          "exam_session_count": 14,
+          "sample_question_ids": [
+            "esg-113-1-22",
+            "esg-113-1-24",
+            "esg-113-2-19",
+            "esg-113-3-5",
+            "esg-113-3-9"
+          ]
+        },
+        {
+          "rank": 5,
+          "law_or_rule": "氣候變遷因應法（含舊稱溫室氣體減量及管理法）",
+          "question_count": 16,
+          "share_of_all_records_percent": 1.26,
+          "exam_session_count": 11,
+          "sample_question_ids": [
+            "esg-113-1-4",
+            "esg-113-1-6",
+            "esg-113-2-16",
+            "esg-113-3-54",
+            "esg-113-5-8"
+          ]
+        },
+        {
+          "rank": 6,
+          "law_or_rule": "聯合國氣候變化綱要公約",
+          "question_count": 14,
+          "share_of_all_records_percent": 1.1,
+          "exam_session_count": 10,
+          "sample_question_ids": [
+            "esg-113-2-1",
+            "esg-113-2-22",
+            "esg-113-2-23",
+            "esg-113-3-22",
+            "esg-113-4-8"
+          ]
+        },
+        {
+          "rank": 7,
+          "law_or_rule": "公開發行公司年報應行記載事項準則",
+          "question_count": 6,
+          "share_of_all_records_percent": 0.47,
+          "exam_session_count": 5,
+          "sample_question_ids": [
+            "esg-113-1-33",
+            "esg-113-4-36",
+            "esg-114-3-45",
+            "esg-114-5-47",
+            "esg-115-1-41"
+          ]
+        },
+        {
+          "rank": 8,
+          "law_or_rule": "再生能源發展條例",
+          "question_count": 5,
+          "share_of_all_records_percent": 0.39,
+          "exam_session_count": 5,
+          "sample_question_ids": [
+            "esg-114-3-13",
+            "esg-114-4-11",
+            "esg-114-5-20",
+            "esg-115-1-24",
+            "esg-115-3-17"
+          ]
+        },
+        {
+          "rank": 9,
+          "law_or_rule": "公開發行公司建立內部控制制度處理準則",
+          "question_count": 3,
+          "share_of_all_records_percent": 0.24,
+          "exam_session_count": 3,
+          "sample_question_ids": [
+            "esg-114-4-10-717",
+            "esg-115-2-4",
+            "esg-115-3-3"
+          ]
+        },
+        {
+          "rank": 10,
+          "law_or_rule": "歐洲氣候法",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.16,
+          "exam_session_count": 2,
+          "sample_question_ids": [
+            "esg-113-4-5",
+            "esg-114-6-14"
+          ]
+        }
+      ],
+      "source_file": "教材/永續發展基礎能力重點教材/questions.json",
+      "label": "永續發展基礎能力"
+    },
+    "防制洗錢與打擊資恐重點教材": {
+      "question_record_count": 2388,
+      "unique_question_id_count": 2388,
+      "duplicate_question_id_count": 0,
+      "parsed_exam_metadata_count": 2388,
+      "unparsed_exam_metadata_count": 0,
+      "exam_session_count": 28,
+      "invalid_answer_index_count": 0,
+      "short_stem_at_most_10_characters_count": 19,
+      "short_stem_sample_ids": [
+        "aml-107年第3次-7-207",
+        "aml-109年第1次-25",
+        "aml-109年第1次-2-555",
+        "aml-109年第1次-14-566",
+        "aml-109年第3次-6",
+        "aml-109年第3次-38",
+        "aml-110年第2次-38",
+        "aml-110年第2次-50",
+        "aml-110年第2次-2-993",
+        "aml-111年第1次-25"
+      ],
+      "same_exam_subject_number_collision_group_count": 162,
+      "records_in_collision_groups": 326,
+      "extra_records_in_collision_groups": 164,
+      "collision_samples": [
+        {
+          "term": "107年第3次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 4,
+          "question_ids": [
+            "aml-107年第3次-4",
+            "aml-107年第3次-4-181"
+          ]
+        },
+        {
+          "term": "107年第3次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 7,
+          "question_ids": [
+            "aml-107年第3次-7",
+            "aml-107年第3次-7-207"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 1,
+          "question_ids": [
+            "aml-109年第1次-1",
+            "aml-109年第1次-1-554"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 2,
+          "question_ids": [
+            "aml-109年第1次-2",
+            "aml-109年第1次-2-555"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 3,
+          "question_ids": [
+            "aml-109年第1次-3",
+            "aml-109年第1次-3-556"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 4,
+          "question_ids": [
+            "aml-109年第1次-4",
+            "aml-109年第1次-4-557"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 5,
+          "question_ids": [
+            "aml-109年第1次-5",
+            "aml-109年第1次-5-558"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 6,
+          "question_ids": [
+            "aml-109年第1次-6",
+            "aml-109年第1次-6-559"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 7,
+          "question_ids": [
+            "aml-109年第1次-7",
+            "aml-109年第1次-7-560"
+          ]
+        },
+        {
+          "term": "109年第1次",
+          "subject": "防制洗錢與打擊資恐",
+          "number": 8,
+          "question_ids": [
+            "aml-109年第1次-8",
+            "aml-109年第1次-8-561"
+          ]
+        }
+      ],
+      "repeated_stem_across_exam_terms_group_count": 581,
+      "topic_classified_unique_question_count": 1980,
+      "topic_classification_coverage_percent": 82.91,
+      "unclassified_question_count": 408,
+      "unclassified_sample_ids": [
+        "aml-107年第1次-7",
+        "aml-107年第1次-10",
+        "aml-107年第1次-20",
+        "aml-107年第1次-27",
+        "aml-107年第1次-38",
+        "aml-107年第1次-45",
+        "aml-107年第1次-56",
+        "aml-107年第1次-62",
+        "aml-107年第1次-79",
+        "aml-107年第2次-12"
+      ],
+      "concept_ranking": [
+        {
+          "rank": 1,
+          "concept": "資恐防制與金融制裁",
+          "question_count": 900,
+          "share_of_all_records_percent": 37.69,
+          "exam_session_count": 27,
+          "sample_question_ids": [
+            "aml-107年第1次-1",
+            "aml-107年第1次-8",
+            "aml-107年第1次-9",
+            "aml-107年第1次-12",
+            "aml-107年第1次-13"
+          ]
+        },
+        {
+          "rank": 2,
+          "concept": "客戶審查、實質受益人與PEP",
+          "question_count": 750,
+          "share_of_all_records_percent": 31.41,
+          "exam_session_count": 28,
+          "sample_question_ids": [
+            "aml-107年第1次-3",
+            "aml-107年第1次-6",
+            "aml-107年第1次-18",
+            "aml-107年第1次-19",
+            "aml-107年第1次-22"
+          ]
+        },
+        {
+          "rank": 3,
+          "concept": "風險基礎方法、內控與FATF",
+          "question_count": 560,
+          "share_of_all_records_percent": 23.45,
+          "exam_session_count": 28,
+          "sample_question_ids": [
+            "aml-107年第1次-1",
+            "aml-107年第1次-2",
+            "aml-107年第1次-3",
+            "aml-107年第1次-4",
+            "aml-107年第1次-9"
+          ]
+        },
+        {
+          "rank": 4,
+          "concept": "大額通貨與可疑交易申報",
+          "question_count": 492,
+          "share_of_all_records_percent": 20.6,
+          "exam_session_count": 27,
+          "sample_question_ids": [
+            "aml-107年第1次-6",
+            "aml-107年第1次-14",
+            "aml-107年第1次-16",
+            "aml-107年第1次-23",
+            "aml-107年第1次-26"
+          ]
+        },
+        {
+          "rank": 5,
+          "concept": "洗錢犯罪與法定要件",
+          "question_count": 172,
+          "share_of_all_records_percent": 7.2,
+          "exam_session_count": 27,
+          "sample_question_ids": [
+            "aml-107年第1次-5",
+            "aml-107年第1次-8",
+            "aml-107年第1次-25",
+            "aml-107年第1次-36",
+            "aml-107年第1次-37"
+          ]
+        },
+        {
+          "rank": 6,
+          "concept": "保存期限、申報時限與罰則",
+          "question_count": 106,
+          "share_of_all_records_percent": 4.44,
+          "exam_session_count": 27,
+          "sample_question_ids": [
+            "aml-107年第1次-2",
+            "aml-107年第1次-5",
+            "aml-107年第1次-8",
+            "aml-107年第1次-31",
+            "aml-107年第2次-2"
+          ]
+        }
+      ],
+      "law_ranking": [
+        {
+          "rank": 1,
+          "law_or_rule": "洗錢防制法",
+          "question_count": 117,
+          "share_of_all_records_percent": 4.9,
+          "exam_session_count": 26,
+          "sample_question_ids": [
+            "aml-107年第1次-5",
+            "aml-107年第1次-7",
+            "aml-107年第1次-9",
+            "aml-107年第1次-10",
+            "aml-107年第1次-61"
+          ]
+        },
+        {
+          "rank": 2,
+          "law_or_rule": "金融機構防制洗錢辦法",
+          "question_count": 85,
+          "share_of_all_records_percent": 3.56,
+          "exam_session_count": 22,
+          "sample_question_ids": [
+            "aml-107年第1次-51",
+            "aml-107年第1次-77",
+            "aml-107年第2次-15",
+            "aml-107年第2次-18",
+            "aml-107年第2次-45"
+          ]
+        },
+        {
+          "rank": 3,
+          "law_or_rule": "資恐防制法",
+          "question_count": 79,
+          "share_of_all_records_percent": 3.31,
+          "exam_session_count": 27,
+          "sample_question_ids": [
+            "aml-107年第1次-1",
+            "aml-107年第1次-9",
+            "aml-107年第1次-12",
+            "aml-107年第1次-13",
+            "aml-107年第2次-11"
+          ]
+        },
+        {
+          "rank": 4,
+          "law_or_rule": "銀行評估洗錢及資恐風險及訂定相關防制計畫指引",
+          "question_count": 13,
+          "share_of_all_records_percent": 0.54,
+          "exam_session_count": 11,
+          "sample_question_ids": [
+            "aml-107年第1次-76",
+            "aml-107年第2次-74",
+            "aml-107年第3次-55",
+            "aml-108年第3次-56",
+            "aml-108年第3次-61"
+          ]
+        },
+        {
+          "rank": 5,
+          "law_or_rule": "銀行業及指定金融機構防制洗錢及打擊資恐內控與稽核實施辦法",
+          "question_count": 12,
+          "share_of_all_records_percent": 0.5,
+          "exam_session_count": 11,
+          "sample_question_ids": [
+            "aml-108年第2次-22",
+            "aml-108年第3次-69",
+            "aml-109年第1次-16",
+            "aml-109年第3次-66",
+            "aml-109年第4次-15"
+          ]
+        },
+        {
+          "rank": 6,
+          "law_or_rule": "洗錢防制物品出入境申報及通報辦法",
+          "question_count": 8,
+          "share_of_all_records_percent": 0.34,
+          "exam_session_count": 8,
+          "sample_question_ids": [
+            "aml-107年第2次-9",
+            "aml-108年第1次-8",
+            "aml-108年第2次-7",
+            "aml-109年第1次-13",
+            "aml-109年第3次-35"
+          ]
+        },
+        {
+          "rank": 7,
+          "law_or_rule": "金融機構辦理國內匯款作業確認客戶身分原則",
+          "question_count": 5,
+          "share_of_all_records_percent": 0.21,
+          "exam_session_count": 5,
+          "sample_question_ids": [
+            "aml-107年第2次-16",
+            "aml-109年第1次-16-568",
+            "aml-110年第2次-29-978",
+            "aml-110年第3次-17",
+            "aml-112年第3次-16"
+          ]
+        },
+        {
+          "rank": 8,
+          "law_or_rule": "存款帳戶及其疑似不法或顯屬異常交易管理辦法",
+          "question_count": 4,
+          "share_of_all_records_percent": 0.17,
+          "exam_session_count": 4,
+          "sample_question_ids": [
+            "aml-109年第4次-67",
+            "aml-110年第2次-73",
+            "aml-112年第3次-67",
+            "aml-114年第4次-59"
+          ]
+        },
+        {
+          "rank": 9,
+          "law_or_rule": "金融機構對達一定金額以上通貨交易及疑似洗錢交易申報辦法",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.08,
+          "exam_session_count": 2,
+          "sample_question_ids": [
+            "aml-107年第3次-39",
+            "aml-113年第1次-8"
+          ]
+        },
+        {
+          "rank": 10,
+          "law_or_rule": "銀行法",
+          "question_count": 1,
+          "share_of_all_records_percent": 0.04,
+          "exam_session_count": 1,
+          "sample_question_ids": [
+            "aml-113年第1次-74"
+          ]
+        }
+      ],
+      "source_file": "教材/防制洗錢與打擊資恐重點教材/questions.json",
+      "label": "防制洗錢與打擊資恐"
+    }
+  }
+}

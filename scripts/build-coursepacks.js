@@ -8,6 +8,17 @@ import {applySharedUi} from '../src/core/compiler/ui-theme.js';
 import { parseSourceExam } from '../src/core/utils/source-exam.js';
 import { loadTrustCourse } from '../src/core/utils/trust-course.js';
 
+const frequency = JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json', 'utf8')).courses;
+const chart = (title, rows, labelKey) => {
+  const max = rows[0]?.question_count || 1;
+  return `### ${title}\n\n| 排名 | 項目 | 題數長條 | 題數 |\n| ---: | --- | --- | ---: |\n${rows.map((row, index) => `| ${index + 1} | ${row[labelKey].replace(/\|/g, '\\|')} | ${'█'.repeat(Math.max(1, Math.round(row.question_count / max * 24)))} | ${row.question_count} |`).join('\n')}`;
+};
+const frequencySection = course => {
+  const data = frequency[course];
+  if (!data) throw new Error(`缺少歷屆頻率資料：${course}`);
+  return `以下長條依本教材現有題庫的命中題數排序，僅供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。\n\n${chart('高頻觀念', data.concept_ranking, 'concept')}\n\n${chart('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n統計方式：由題幹與選項的關鍵詞初步分類，法規依題幹及正確選項比對；完整方法與品質限制記錄於本機統計資料。`;
+};
+
 const courses = [
   { name: '信託業務人員重點教材', dir: '教材/信託業務人員重點教材', out: 'dist/信託業務人員重點教材.html', trust: true },
   { name: '金融科技力重點教材', dir: '教材/金融科技力重點教材', out: 'dist/金融科技力重點教材.html' },
@@ -27,7 +38,7 @@ for (const c of courses) {
   pack.chapters = pack.chapters.filter((chapter, index, all) =>
     !all.some((other, otherIndex) => otherIndex !== index && other.id === chapter.id && other.sections.some(s => s.content)) || chapter.sections.some(s => s.content));
   pack.description = pack.description.replace(/100%\s*正確/g, '依來源整理的');
-  pack.contentVersion = '2026.10.18';
+  pack.contentVersion = c.trust ? '2026.10.18' : '2026.10.20';
   pack.description = `收錄 ${pack.questions.length} 題。先讀概念，再練本章與複習待加強題；進度可匯出備份。`;
   for (const question of pack.questions) {
     question.sourceExam ||= parseSourceExam(question, c.name.replace(/重點教材$/, ''));
@@ -61,7 +72,8 @@ for (const c of courses) {
   }
   const intro = pack.chapters[0];
   if (intro) {
-    intro.sections.unshift({id:`${intro.id}-learning-guide`, title:'如何使用這份教材', content:'先讀各章概念，再用「本章練習」檢查理解；答錯時返回相關教材。每章完成後，確認自己能用自己的話說明重點，再標記已讀。\n\n歷屆答案保留考試當時的判定，可能與後續規定不同。涉及日期、門檻或法規適用，請以該考期與官方現行資料分別核對。\n\n本次整理日期：2026-10-18；不是逐題法規審校日期。', keyPoints:['讀概念 → 練本章 → 看理由 → 回教材 → 重練待加強題'], notes:[]});
+    intro.sections.unshift({id:`${intro.id}-learning-guide`, title:'如何使用這份教材', content:'先讀各章概念，再用「本章練習」檢查理解；答錯時返回相關教材。每章完成後，確認自己能用自己的話說明重點，再標記已讀。\n\n歷屆答案保留考試當時的判定，可能與後續規定不同。涉及日期、門檻或法規適用，請以該考期與官方現行資料分別核對。\n\n本次整理日期：2026-10-20；不是逐題法規審校日期。', keyPoints:['讀概念 → 練本章 → 對照答案 → 回教材 → 重練錯題'], notes:[]});
+    if (!c.trust) intro.sections.splice(1, 0, {id:`${intro.id}-exam-frequency`, title:'歷屆高頻觀念與法規排行', content:frequencySection(c.name), keyPoints:[], notes:[]});
     intro.sections.push({id:`${intro.id}-question-count`, title:'題目總數', content:`本教材目前共收錄 ${pack.questions.length} 題。`, keyPoints:[], notes:[]});
   }
 
@@ -85,5 +97,5 @@ const escape = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;',
 
 const cards = view => courses.map(c => '<a class="subject-link" href="'+escape(path.basename(c.out))+'?view='+view+'"><span class="subject-name">'+escape(c.name.replace(/重點教材$/,''))+'</span><span class="subject-meta">'+(view==='reader' ? c.chapterCount+' 章教材 · 概念與重點整理' : c.questionCount.toLocaleString('zh-TW')+' 題 · 章節、隨機與錯題練習')+'</span></a>').join('');
 const total = courses.reduce((sum,c)=>sum+c.questionCount,0);
-const catalogue = '<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜教材與題庫</title></head><body><main class="catalog-main"><header class="catalog-header"><div><h1>學科目錄</h1><p>'+courses.length+' 個學科 · '+total.toLocaleString('zh-TW')+' 題練習 · 離線使用</p></div><nav class="catalog-nav" aria-label="目錄分區"><a href="#materials">教材閱讀</a><a href="#question-banks">題庫練習</a></nav></header><div class="catalog-sections"><section class="catalog-section" id="materials" aria-labelledby="materials-title"><h2 id="materials-title">教材閱讀</h2><p>從概念與重點開始，讀完後可直接練習本章。</p><div class="subject-grid">'+cards('reader')+'</div></section><section class="catalog-section" id="question-banks" aria-labelledby="banks-title"><h2 id="banks-title">題庫練習</h2><p>選擇學科，進行章節練習、隨機抽題或複習錯題。</p><div class="subject-grid">'+cards('quiz')+'</div><p><a href="歷屆考古題_完整題庫大全.html">依考期與題型瀏覽歷屆題庫 →</a></p></section></div><footer class="catalog-footer"><p><small>進度保存在目前瀏覽器，請定期匯出備份。歷屆答案與現行規定須分別核對。</small></p></footer></main></body></html>';
+const catalogue = '<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜重點教材跟歷屆考題</title></head><body><main class="catalog-main"><header class="catalog-header"><div><h1>學科目錄</h1><p>'+courses.length+' 個學科 · '+total.toLocaleString('zh-TW')+' 題練習 · 離線使用</p></div><nav class="catalog-nav" aria-label="目錄分區"><a href="#materials">教材閱讀</a><a href="#question-banks">題庫練習</a></nav></header><div class="catalog-sections"><section class="catalog-section" id="materials" aria-labelledby="materials-title"><h2 id="materials-title">教材閱讀</h2><p>從概念與重點開始，讀完後可直接練習本章。</p><div class="subject-grid">'+cards('reader')+'</div></section><section class="catalog-section" id="question-banks" aria-labelledby="banks-title"><h2 id="banks-title">題庫練習</h2><p>選擇學科，進行章節練習、隨機抽題或複習錯題。</p><div class="subject-grid">'+cards('quiz')+'</div><p><a href="歷屆考古題_完整題庫大全.html">依考期與題型瀏覽歷屆題庫 →</a></p></section></div><footer class="catalog-footer"><p><small>進度保存在目前瀏覽器，請定期匯出備份。歷屆答案與現行規定須分別核對。</small></p></footer></main></body></html>';
 fs.writeFileSync('dist/index.html', applySharedUi(catalogue, null));

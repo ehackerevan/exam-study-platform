@@ -44,7 +44,7 @@ export function loadTrustCourse(sourceDir) {
     schemaVersion: 1,
     contentVersion: '2026.10.19',
     id: 'trust-exam',
-    title: '信託業務人員',
+    title: '信託業務人員：重點教材跟歷屆考題',
     description: `收錄 ${questions.length} 題歷屆練習題。`,
     language: 'zh-TW',
     chapters,
