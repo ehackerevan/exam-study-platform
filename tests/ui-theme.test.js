@@ -21,6 +21,11 @@ test('Shared UI: all project HTML contains the exact shared stylesheet',()=>{
   assert(match, file);assert.equal(match[1].trim(),css,file);
  }
 });
+test('Shared UI: Material You tokens preserve offline use and reduced-motion support',()=>{
+ const css=fs.readFileSync(themePath,'utf8');
+ for(const value of ['--md-primary: #006B3C','--md-background: #FBFDF8','--md-surface-container: #F0F5ED','--md-radius-full: 9999px','prefers-reduced-motion: reduce']) assert(css.includes(value),value);
+ assert(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(css));
+});
 test('Catalogue return link: replace path without duplicate links; catalogue has no self-link',()=>{
  const html='<html><head></head><body><p>教材</p></body></html>';
  const themed=applySharedUi(html,'../../dist/index.html');

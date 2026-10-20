@@ -9,8 +9,8 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const p=await c.newPage(),catalog=pathToFileURL(path.resolve('dist/index.html')).href;
  try{
   await p.goto(catalog);
-  assert.equal(await p.locator('#materials .subject-link').count(),4);
-  assert.equal(await p.locator('#question-banks .subject-link').count(),4);
+  assert.equal(await p.locator('#materials .subject-link').count(),5);
+  assert.equal(await p.locator('#question-banks .subject-link').count(),5);
   const readerLinks=await p.locator('#materials .subject-link').evaluateAll(nodes=>nodes.map(a=>a.href));
   const quizLinks=await p.locator('#question-banks .subject-link').evaluateAll(nodes=>nodes.map(a=>a.href));
   for(const url of readerLinks){
@@ -26,7 +26,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    await p.locator('#study-catalog-nav a').click();assert.equal(p.url(),catalog);
   }
   for(const url of quizLinks){await p.goto(url);assert(await p.locator('#view-quiz').isVisible());assert(await p.locator('#quiz-setup-panel').isVisible());}
-  results.push('PASS: separate four-course material and question-bank sections; correct reader/quiz deep links and return flow');
+  results.push('PASS: separate five-subject material and question-bank sections; correct reader/quiz deep links and return flow');
   const files=htmlFiles().filter(f=>!['dist/index.html','src/renderer/template.html'].includes(f.replaceAll('\\','/')));
   for(const file of files){
    await p.goto(pathToFileURL(path.resolve(file)).href);

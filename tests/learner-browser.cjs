@@ -40,7 +40,9 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       else {await page.locator('.option-item').nth(0).click();if(multiple)await page.locator('.option-item').nth(2).click();}
       await page.locator('#btn-quiz-submit').click();
       if(!i){
-        assert((await page.locator('#quiz-feedback-box').innerText()).includes('尚待補充詳解'));
+        const feedback=await page.locator('#quiz-feedback-box').innerText();
+        assert(feedback.includes('作答錯誤'));
+        assert(!feedback.includes('歷屆官方正確解答'));
         await page.evaluate(()=>document.getElementById('btn-quiz-submit').click());
         const attempts=await page.evaluate(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0),key);
         assert.equal(attempts,1);

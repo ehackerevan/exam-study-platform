@@ -23,7 +23,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
   for(const theme of ['light','dark']){
    await p.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);
    const color=await p.locator('#quantity-fixture mark').first().evaluate(node=>getComputedStyle(node).color);
-   assert.equal(color,theme==='light'?'rgb(91, 33, 182)':'rgb(221, 214, 254)');
+   assert.equal(color,theme==='light'?'rgb(102, 80, 0)':'rgb(244, 215, 122)');
   }
   assert.deepEqual(errors,[]);
   console.log(`PASS: ${results.length} packs show only chapters with questions; legend removed; time/amount/percentage highlighting preserves text in both themes`);

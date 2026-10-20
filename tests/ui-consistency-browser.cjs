@@ -19,8 +19,8 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    for(const theme of ['light','dark']){
     await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);
     const values=await page.evaluate(()=>{const style=getComputedStyle(document.body);return{background:style.backgroundColor,color:style.color,font:style.fontFamily};});
-    assert.equal(values.background,theme==='light'?'rgb(248, 250, 252)':'rgb(15, 23, 42)',file+' '+theme);
-    assert.equal(values.color,theme==='light'?'rgb(15, 23, 42)':'rgb(248, 250, 252)',file+' '+theme);
+    assert.equal(values.background,theme==='light'?'rgb(251, 253, 248)':'rgb(17, 20, 17)',file+' '+theme);
+    assert.equal(values.color,theme==='light'?'rgb(28, 27, 31)':'rgb(225, 228, 219)',file+' '+theme);
     palettes.push(values);
    }
    if(file.includes('金融科技力重點教材')||file.endsWith('index.html')||file.includes('歷屆考古題')){

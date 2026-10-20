@@ -44,7 +44,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
    await p.waitForFunction(expected=>{const a=document.querySelector('.q-text+.answer-search');return a&&new URL(a.href).searchParams.get('q')===expected;},expected);
    assert.equal(await p.locator('.q-text').textContent(),input);
   }
-  assert.equal(results.length,12);assert(clicked);assert.deepEqual(errors,[]);
-  console.log('PASS: all 12 learning/question-bank pages have exact Google question URLs; popup, unchanged storage and next-question update verified');
+  assert.equal(results.length,9);assert(clicked);assert.deepEqual(errors,[]);
+  console.log('PASS: all 9 learning/question-bank pages have exact Google question URLs; popup, unchanged storage and next-question update verified');
  }finally{fs.writeFileSync('.qa-artifacts/answer-search.json',JSON.stringify({results,errors,date:new Date().toISOString()},null,2));await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
