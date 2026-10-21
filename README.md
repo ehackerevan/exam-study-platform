@@ -68,3 +68,5 @@ node bin/study-pack.js --help
 ## 額外單檔整合版
 
 `npm run build:ui` 也會輸出根目錄與 `dist/學習平台_單檔整合版.html`，內含目錄、六科頁面與歷屆題庫共八頁，可直接開啟。單檔保留在 GitHub，Pages 沿用分頁版。網站與本機檔案的進度可能分開儲存，轉移前請匯出備份；查答案等外部連結仍需網路。
+
+Pages 發布打包時會在八個公開頁面加入 Cloudflare Web Analytics；`dist`、教材來源及單檔整合版不包含追蹤碼。Web Analytics 網站 token 是公開頁面識別碼，並非 Cloudflare API Token。

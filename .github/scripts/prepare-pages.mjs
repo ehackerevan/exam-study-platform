@@ -20,12 +20,17 @@ if (outputRelativeToRoot === '' || (!outputRelativeToRoot.startsWith('..') && !p
 mkdirSync(output, { recursive: true });
 if (readdirSync(output).length) throw new Error('Pages output directory must be empty');
 
+const analytics = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "59713a6319a6493194058911d9a9a96d"}'></script><!-- End Cloudflare Web Analytics -->`;
+
 function copyFile(relativePath, destinationPath = relativePath) {
   const source = path.join(root, relativePath);
   if (!existsSync(source)) throw new Error(`Missing site file: ${relativePath}`);
   const destination = path.join(output, destinationPath);
   mkdirSync(path.dirname(destination), { recursive: true });
-  writeFileSync(destination, readFileSync(source));
+  const html = readFileSync(source, 'utf8');
+  if (!/<\/body>/i.test(html)) throw new Error(`Missing closing body: ${relativePath}`);
+  if (html.includes('static.cloudflareinsights.com/beacon.min.js')) throw new Error(`Analytics already present: ${relativePath}`);
+  writeFileSync(destination, html.replace(/<\/body>/i, () => analytics + '\n</body>'));
 }
 
 const coursePages = [
