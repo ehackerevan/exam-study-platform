@@ -10,15 +10,16 @@ import { loadTrustCourse } from '../src/core/utils/trust-course.js';
 
 const statistics = JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json', 'utf8'));
 const frequency = statistics.courses;
-const chart = (title, rows, labelKey) => {
-  const shown = rows.slice(0, 10), max = shown[0]?.question_count || 1;
-  const table = `### ${title}\n\n| 排名 | 項目 | 題數長條 | 題數 |\n| ---: | --- | --- | ---: |\n${shown.map((row, index) => `| ${index + 1} | ${row[labelKey].replace(/\|/g, '\\|')} | ${'█'.repeat(Math.max(1, Math.round(row.question_count / max * 24)))} | ${row.question_count} |`).join('\n')}`;
-  return rows.length > shown.length ? `${table}\n\n共 ${rows.length} 項，教材頁列出前 ${shown.length} 項；一題可能命中多項，題數不可直接相加。` : table;
+const ranking = (title, rows, labelKey) => {
+  const shown = rows.slice(0, 10);
+  const escapeMarkdown = text => text.replace(/[\\`*_{}\[\]<>()#+.!|&~\-]/g, '\\$&');
+  const list = `### ${title}\n\n${shown.map((row, index) => `${index + 1}. ${escapeMarkdown(row[labelKey])}：**${row.question_count.toLocaleString('zh-TW')} 題**`).join('\n') || '目前沒有命中資料。'}`;
+  return rows.length > shown.length ? `${list}\n\n共 ${rows.length} 項，教材頁列出前 ${shown.length} 項；一題可能命中多項，題數不可直接相加。` : list;
 };
 const frequencySection = course => {
   const data = frequency[course];
   if (!data) throw new Error(`缺少歷屆頻率資料：${course}`);
-  return `以下長條依本教材現有題庫命中題數排序，只供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。知識點分類沿用題庫來源與統計資料所列的方法；法規／規範按題幹及正確選項的名稱詞彙命中。這不是逐題語意或法律審校。\n\n${chart('高頻觀念', data.concept_ranking, 'concept')}\n\n${chart('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n可到「測驗」依知識點練習；尚未分類的題目列在「其他／未分類」。`;
+  return `以下排名依本教材現有題庫命中題數排序，每項直接列出題數，只供安排複習順序，不代表官方命題比例；一題可能命中多個觀念。知識點分類沿用題庫來源與統計資料所列的方法；法規／規範按題幹及正確選項的名稱詞彙命中。這不是逐題語意或法律審校。\n\n${ranking('高頻觀念', data.concept_ranking, 'concept')}\n\n${ranking('高頻法規與規範', data.law_ranking, 'law_or_rule')}\n\n可到「測驗」依知識點練習；尚未分類的題目列在「其他／未分類」。`;
 };
 
 const courses = [
