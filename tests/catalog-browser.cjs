@@ -9,10 +9,15 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const p=await c.newPage(),catalog=pathToFileURL(path.resolve('dist/index.html')).href;
  try{
   await p.goto(catalog);
-  assert.equal(await p.locator('#materials .subject-link').count(),5);
-  assert.equal(await p.locator('#question-banks .subject-link').count(),5);
-  const readerLinks=await p.locator('#materials .subject-link').evaluateAll(nodes=>nodes.map(a=>a.href));
-  const quizLinks=await p.locator('#question-banks .subject-link').evaluateAll(nodes=>nodes.map(a=>a.href));
+  const statistics=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json','utf8')).courses;
+  const total=Object.entries(statistics).filter(([name])=>!name.includes('證基會')).reduce((sum,[,course])=>sum+course.question_record_count,0);
+  assert((await p.locator('.catalog-header').innerText()).includes(`5 科教材 · ${total.toLocaleString('zh-TW')} 題練習 · 1 個獨立題庫`));
+  assert.equal(await p.locator('.subject-card').count(),6);
+  assert((await p.locator('[data-action=quiz]').first().boundingBox()).height<80,'catalogue actions are compact');
+  assert.equal(await p.locator('[data-action=reader]').count(),5);
+  assert.equal(await p.locator('[data-action=quiz]').count(),6);
+  const readerLinks=await p.locator('[data-action=reader]').evaluateAll(nodes=>nodes.map(a=>a.href));
+  const quizLinks=await p.locator('[data-action=quiz]').evaluateAll(nodes=>nodes.map(a=>a.href));
   for(const url of readerLinks){
    await p.goto(url);assert(await p.locator('#view-reader').isVisible());
    const before=await p.locator('#chapter-heading').innerText();assert(before);
@@ -26,7 +31,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    await p.locator('#study-catalog-nav a').click();assert.equal(p.url(),catalog);
   }
   for(const url of quizLinks){await p.goto(url);assert(await p.locator('#view-quiz').isVisible());assert(await p.locator('#quiz-setup-panel').isVisible());}
-  results.push('PASS: separate five-subject material and question-bank sections; correct reader/quiz deep links and return flow');
+  results.push('PASS: one card per subject with reading and quiz actions; correct reader/quiz deep links and return flow');
   const files=htmlFiles().filter(f=>!['dist/index.html','src/renderer/template.html'].includes(f.replaceAll('\\','/')));
   for(const file of files){
    await p.goto(pathToFileURL(path.resolve(file)).href);

@@ -9,35 +9,32 @@
 /* __INLINE_CSS__ */
   </style>
 <style id="study-ui-theme">
-/* Dusty Grass palette shared by the catalogue, reader and quizzes; fully offline. */
+/* Shared offline theme using the user's green-to-blue brand palette. */
 :root {
-  --grass-lemon: #D4FC79;
-  --grass-mint: #96E6A1;
-  --grass-gradient: linear-gradient(120deg, #D4FC79 0%, #96E6A1 100%);
-  --grass-card-gradient: var(--grass-gradient);
   color-scheme: light;
-  --md-primary: #28563B;
+  --md-primary: #2F4858;
   --md-on-primary: #FFFFFF;
-  --md-primary-container: #DFF4C6;
-  --md-on-primary-container: #183522;
-  --md-secondary: #53694B;
-  --md-secondary-container: #DDEBCB;
-  --md-on-secondary-container: #23351F;
-  --md-tertiary: #5D7240;
-  --md-background: #F5FAEF;
-  --md-on-surface: #203225;
-  --md-on-surface-variant: #465B43;
-  --md-surface: #F5FAEF;
-  --md-surface-container: #EDF5E6;
-  --md-surface-container-low: #E2EDD9;
-  --md-outline: #63745C;
-  --md-outline-variant: #BDCFB0;
+  --md-primary-container: #96E6A1;
+  --md-on-primary-container: #2F4858;
+  --md-secondary: #2B878F;
+  --md-secondary-container: #DDF4E8;
+  --md-on-secondary-container: #2F4858;
+  --md-tertiary: #3AA79E;
+  --md-brand-gradient: linear-gradient(90deg, #96E6A1 0%, #61C8A3 20%, #3AA79E 40%, #2B878F 60%, #2E6677 80%, #2F4858 100%);
+  --md-background: #FBFDF8;
+  --md-on-surface: #1C1B1F;
+  --md-on-surface-variant: #434940;
+  --md-surface: #FBFDF8;
+  --md-surface-container: #F0F5ED;
+  --md-surface-container-low: #E5EDE2;
+  --md-outline: #2E6677;
+  --md-outline-variant: #B9D4CE;
   --md-danger: #B3261E;
   --md-on-danger: #FFFFFF;
   --md-danger-container: #F9DEDC;
-  --md-success: #146C2E;
-  --md-state-hover: rgb(0 107 60 / 8%);
-  --md-state-press: rgb(0 107 60 / 14%);
+  --md-success: #2B878F;
+  --md-state-hover: rgb(47 72 88 / 8%);
+  --md-state-press: rgb(47 72 88 / 14%);
   --md-easing: cubic-bezier(0.2, 0, 0, 1);
   --md-radius-xs: 8px;
   --md-radius-sm: 12px;
@@ -87,30 +84,29 @@
 }
 
 [data-theme="dark"] {
-  --grass-card-gradient: linear-gradient(120deg, #30492A 0%, #214635 100%);
   color-scheme: dark;
-  --md-primary: #B6E99A;
-  --md-on-primary: #193A23;
-  --md-primary-container: #314F2B;
-  --md-on-primary-container: #D4FCB5;
-  --md-secondary: #C4D6AE;
-  --md-secondary-container: #35472D;
-  --md-on-secondary-container: #DDEBCB;
-  --md-tertiary: #D4FC79;
-  --md-background: #121B13;
-  --md-on-surface: #E4EEDB;
-  --md-on-surface-variant: #BDCFB0;
-  --md-surface: #121B13;
-  --md-surface-container: #1B281C;
-  --md-surface-container-low: #243325;
-  --md-outline: #A0B493;
-  --md-outline-variant: #465B43;
+  --md-primary: #96E6A1;
+  --md-on-primary: #2F4858;
+  --md-primary-container: #2E6677;
+  --md-on-primary-container: #F1FFF3;
+  --md-secondary: #61C8A3;
+  --md-secondary-container: #2F4858;
+  --md-on-secondary-container: #E7FFF0;
+  --md-tertiary: #3AA79E;
+  --md-background: #111411;
+  --md-on-surface: #E1E4DB;
+  --md-on-surface-variant: #C2C9BE;
+  --md-surface: #111411;
+  --md-surface-container: #191E19;
+  --md-surface-container-low: #1E241E;
+  --md-outline: #61C8A3;
+  --md-outline-variant: #2E6677;
   --md-danger: #F2B8B5;
   --md-on-danger: #601410;
   --md-danger-container: #601410;
-  --md-success: #A8DAB5;
-  --md-state-hover: rgb(139 213 168 / 10%);
-  --md-state-press: rgb(139 213 168 / 16%);
+  --md-success: #96E6A1;
+  --md-state-hover: rgb(150 230 161 / 10%);
+  --md-state-press: rgb(150 230 161 / 16%);
   --success-light: #123B23;
   --danger-light: var(--md-danger-container);
   --shadow-sm: 0 1px 3px rgb(0 0 0 / 18%);
@@ -121,16 +117,15 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { color-scheme: dark; }
   :root:not([data-theme="light"]) {
-    --grass-card-gradient: linear-gradient(120deg, #30492A 0%, #214635 100%);
-    --md-primary: #B6E99A; --md-on-primary: #193A23;
-    --md-primary-container: #314F2B; --md-on-primary-container: #D4FCB5;
-    --md-secondary: #C4D6AE; --md-secondary-container: #35472D; --md-on-secondary-container: #DDEBCB;
-    --md-tertiary: #D4FC79; --md-background: #121B13; --md-on-surface: #E4EEDB;
-    --md-on-surface-variant: #BDCFB0; --md-surface: #121B13;
-    --md-surface-container: #1B281C; --md-surface-container-low: #243325;
-    --md-outline: #A0B493; --md-outline-variant: #465B43;
-    --md-danger: #F2B8B5; --md-on-danger: #601410; --md-danger-container: #601410; --md-success: #A8DAB5;
-    --md-state-hover: rgb(139 213 168 / 10%); --md-state-press: rgb(139 213 168 / 16%);
+    --md-primary: #96E6A1; --md-on-primary: #2F4858;
+    --md-primary-container: #2E6677; --md-on-primary-container: #F1FFF3;
+    --md-secondary: #61C8A3; --md-secondary-container: #2F4858; --md-on-secondary-container: #E7FFF0;
+    --md-tertiary: #3AA79E; --md-background: #111411; --md-on-surface: #E1E4DB;
+    --md-on-surface-variant: #C2C9BE; --md-surface: #111411;
+    --md-surface-container: #191E19; --md-surface-container-low: #1E241E;
+    --md-outline: #61C8A3; --md-outline-variant: #2E6677;
+    --md-danger: #F2B8B5; --md-on-danger: #601410; --md-danger-container: #601410; --md-success: #96E6A1;
+    --md-state-hover: rgb(150 230 161 / 10%); --md-state-press: rgb(150 230 161 / 16%);
     --success-light: #123B23; --danger-light: var(--md-danger-container);
     --shadow-sm: 0 1px 3px rgb(0 0 0 / 18%); --shadow-md: 0 6px 18px rgb(0 0 0 / 24%);
     --shadow-lg: 0 12px 30px rgb(0 0 0 / 28%);
@@ -140,15 +135,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: auto; }
 body {
-  --site-ink: var(--md-on-surface);
-  --site-page: var(--md-background);
-  --site-surface: var(--md-surface);
-  --site-muted: var(--md-on-surface-variant);
-  --site-line: var(--md-outline-variant);
-  --site-primary: var(--md-primary);
-  --site-primary-hover: var(--md-primary);
-  --site-primary-soft: var(--md-primary-container);
-  --site-focus: var(--md-primary);
   position: relative; isolation: isolate; min-height: 100vh; margin: 0;
   color: var(--md-on-surface); background: var(--md-background);
   font: 400 1rem/1.6 var(--font-sans); -webkit-font-smoothing: antialiased;
@@ -159,7 +145,7 @@ body::before, body::after {
   pointer-events: none; transform: translateZ(0);
 }
 body::before { top: -8rem; right: -7rem; background: var(--md-primary-container); }
-body::after { bottom: -10rem; left: -8rem; background: #B7D7A8; opacity: .10; }
+body::after { bottom: -10rem; left: -8rem; background: #61C8A3; opacity: .10; }
 ::selection { color: var(--md-on-primary-container); background: var(--md-primary-container); }
 
 h1, h2, h3, h4 { color: var(--md-on-surface); font-weight: 500; letter-spacing: -.01em; line-height: 1.25; }
@@ -168,13 +154,14 @@ input::placeholder, textarea::placeholder { color: var(--md-on-surface-variant);
 
 .app-header, .top-header {
   background: color-mix(in srgb, var(--md-surface) 92%, transparent);
-  border-bottom: 1px solid var(--md-outline-variant); box-shadow: none;
+  border-bottom: 2px solid transparent; border-image: var(--md-brand-gradient) 1; box-shadow: none;
   backdrop-filter: blur(16px);
 }
 .dashboard-hero {
   position: relative; overflow: hidden; isolation: isolate;
   background: linear-gradient(135deg, var(--md-surface-container), var(--md-primary-container));
-  border: 0; border-radius: var(--md-radius-hero); box-shadow: var(--shadow-md);
+  border: 0; border-bottom: 4px solid transparent; border-image: var(--md-brand-gradient) 1;
+  border-radius: var(--md-radius-hero); box-shadow: var(--shadow-md);
 }
 .stat-card, .shortcut-card, .quiz-card, .q-card, .reader-sidebar, .reader-content, .stats-card, .quick-nav-box {
   background: var(--md-surface-container); border: 1px solid var(--md-outline-variant);
@@ -183,7 +170,7 @@ input::placeholder, textarea::placeholder { color: var(--md-on-surface-variant);
 .stat-card, .shortcut-card, .subject-link, .quiz-card, .q-card {
   transition: transform 300ms var(--md-easing), box-shadow 300ms var(--md-easing), background-color 200ms var(--md-easing);
 }
-.stat-card:hover, .shortcut-card:hover, .subject-link:hover, .quiz-card:hover, .q-card:hover {
+.stat-card:hover, .shortcut-card:hover, .subject-link:hover, .q-card:hover {
   box-shadow: var(--shadow-md); transform: translateY(-2px);
 }
 
@@ -239,7 +226,8 @@ label, .form-label { color: var(--md-on-surface-variant); font-weight: 500; }
 .catalog-header {
   position: relative; isolation: isolate; overflow: hidden; display: flex; flex-wrap: wrap;
   justify-content: space-between; align-items: center; gap: 1.5rem; margin-bottom: 2rem;
-  padding: clamp(1.5rem, 4vw, 3rem); border: 0; border-radius: var(--md-radius-hero);
+  padding: clamp(1.5rem, 4vw, 3rem); border: 0; border-bottom: 4px solid transparent;
+  border-image: var(--md-brand-gradient) 1; border-radius: var(--md-radius-hero);
   background: linear-gradient(135deg, var(--md-surface-container), var(--md-primary-container));
   box-shadow: var(--shadow-md);
 }
@@ -321,7 +309,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
   .nav-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: 100%; overflow: visible; }
   .nav-tabs .tab-btn { min-width: 0; white-space: nowrap; padding-inline: .3rem; }
   body:has(#study-catalog-nav) .reader-sidebar { position: static; }
-.section-block { scroll-margin-top: calc(var(--reader-header-offset, 160px) + 1rem); }
+.section-block { scroll-margin-top: 160px; }
   .catalog-main { padding: 1rem .75rem 2rem; }
   .catalog-header { border-radius: var(--md-radius-lg); }
   .catalog-nav { width: 100%; }
@@ -338,215 +326,28 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-/* Clay surfaces share the existing palette and keep reading content calm. */
-:root {
-  --clay-shadow: 7px 9px 18px rgb(37 91 61 / 12%), inset 3px 3px 7px rgb(255 255 255 / 65%), inset -3px -4px 8px rgb(37 91 61 / 6%);
-  --clay-mint: color-mix(in srgb, var(--md-primary-container) 72%, var(--md-background));
-  --clay-lemon: color-mix(in srgb, #D4FC79 38%, var(--md-surface-container));
-  --clay-soft-mint: color-mix(in srgb, #96E6A1 32%, var(--md-surface-container));
-  --clay-lime: color-mix(in srgb, #D4FC79 44%, var(--md-surface-container));
-}
-body { background: var(--md-background); }
-body::before { background: #96E6A1; opacity: .16; }
-body::after { background: #D4FC79; opacity: .13; }
-h1,h2,h3 { font-weight: 700; }
-.catalog-main { max-width: 1240px; padding-top: 1.25rem; }
-.landing-nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; padding:.5rem .75rem; }
-.landing-brand { color:var(--primary); text-decoration:none; font-size:1.35rem; font-weight:700; }
-.landing-brand span { display:block; color:var(--text-muted); font-size:.75rem; font-weight:400; letter-spacing:.06em; }
-.catalog-header.clay-hero { display:grid; grid-template-columns:1.3fr 1fr; min-height:440px; gap:1rem; background:var(--clay-mint); border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent); box-shadow:var(--clay-shadow); border-radius:40px; padding:clamp(1.5rem,4vw,3.25rem); }
-.clay-hero::before { display:none; }
-.clay-eyebrow { display:inline-block; color:var(--primary); font-size:.8rem; font-weight:700; letter-spacing:.08em; margin-bottom:.8rem; }
-.catalog-header h1 { font-size:clamp(2rem,4.2vw,3.5rem); line-height:1.25; margin:0 0 1.25rem; letter-spacing:-.035em; }
-.hero-copy>p { max-width:34rem; line-height:1.9; }
-.hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.5rem 0; }
-.catalog-header .hero-meta { font-size:.8rem; }
-.clay-illustration { position:relative; height:320px; min-width:0; }
-.clay-orbit { position:absolute; border-radius:50%; box-shadow:var(--clay-shadow); }
-.orbit-one { width:240px;height:240px;right:8%;top:40px;background:var(--clay-lime); }
-.orbit-two { width:85px;height:85px;left:5%;top:15px;background:var(--clay-soft-mint); }
-.clay-book { position:absolute; width:170px;height:210px;border-radius:20px 28px 28px 20px;box-shadow:9px 12px 20px rgb(0 65 36 / 17%),inset 5px 5px 9px rgb(255 255 255 / 65%),inset -5px -5px 9px rgb(0 65 36 / 10%); }
-.book-back { background:#efa987; left:24%;top:52px;transform:rotate(-16deg); }
-.book-front { background:#8acba3;left:35%;top:65px;transform:rotate(10deg);padding:35px 20px;color:#173f2b;border-left:12px solid #74b78c; }
-.book-front span { display:block;font-size:1.1rem;font-weight:700;margin-bottom:30px; }
-.book-front i { display:block;width:75%;height:7px;border-radius:8px;background:rgb(255 255 255 / 65%);margin:12px 0; }
-.book-front i:last-child { width:45%; }
-.clay-check { position:absolute;right:3%;top:30px;display:grid;place-items:center;width:70px;height:70px;border-radius:22px;transform:rotate(12deg);background:#006b3c;color:#fff;font-size:2.5rem;box-shadow:var(--clay-shadow); }
-.clay-spark { position:absolute;left:12%;bottom:50px;color:#8762b4;font-size:3rem;font-weight:700; }
-.clay-note { position:absolute;right:1%;bottom:0;padding:.75rem 1.1rem;border-radius:18px;background:var(--clay-lemon);box-shadow:var(--clay-shadow);transform:rotate(-4deg);font-weight:700; }
-.catalog-sections { gap:2rem; }
-.catalog-section { background:var(--bg-surface); box-shadow:var(--clay-shadow); border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent); border-radius:32px; padding:clamp(1.5rem,3vw,2.5rem); }
-.catalog-section h2 { font-size:clamp(1.4rem,2.8vw,2rem);margin-bottom:.75rem; }
-.subject-grid { gap:1.25rem; }
-.subject-link { position:relative;min-height:150px;padding:1.5rem;border:2px solid color-mix(in srgb,var(--md-background) 65%,transparent);border-radius:26px;background:var(--clay-mint);box-shadow:var(--clay-shadow);transition:transform 200ms var(--md-easing),box-shadow 200ms var(--md-easing); }
-.subject-link:nth-child(5n+2) { background:var(--clay-lemon); }
-.subject-link:nth-child(5n+3) { background:var(--clay-soft-mint); }
-.subject-link:nth-child(5n+4) { background:var(--clay-lime); }
-.subject-link::after { content:'↗';position:absolute;right:1.25rem;bottom:1rem;font-size:1.4rem;color:var(--primary); }
-.subject-name { font-size:1.1rem;line-height:1.5;color:var(--text-main);font-weight:700; }
-.subject-meta { padding-right:1.75rem;font-size:.8rem; }
-.subject-link:hover { background:var(--clay-mint);transform:translateY(-4px);box-shadow:10px 14px 22px rgb(37 91 61 / 16%),inset 3px 3px 7px rgb(255 255 255 / 65%); }
-.subject-link:active { transform:translateY(0) scale(.98); }
-.learning-demo { display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center; }
-.learning-demo p { color:var(--text-muted);line-height:1.8; }
-.learning-steps { padding-left:1.5rem;line-height:2.3; }
-.learning-steps li::marker { color:var(--primary);font-weight:700; }
-.progress-demo { background:var(--clay-soft-mint);padding:1.75rem;border-radius:28px;box-shadow:var(--clay-shadow);transform:rotate(1deg); }
-.demo-label { display:block;font-size:.75rem;color:var(--text-muted); }
-.progress-demo h3 { margin:.5rem 0 1.5rem;font-size:1.5rem; }
-.demo-progress-heading { display:flex;justify-content:space-between;gap:.75rem;font-size:.9rem; }
-.progress-demo progress { display:block;appearance:none;width:100%;height:14px;margin:.75rem 0 1.5rem;border:0;border-radius:99px;overflow:hidden;background:var(--bg-surface); }
-.progress-demo progress::-webkit-progress-bar { background:var(--bg-surface);border-radius:99px; }
-.progress-demo progress::-webkit-progress-value { background:var(--primary);border-radius:99px; }
-.progress-demo progress::-moz-progress-bar { background:var(--primary);border-radius:99px; }
-.demo-stat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem; }
-.demo-stat-grid>div { display:flex;flex-direction:column;gap:.25rem;padding:1rem .5rem;background:var(--bg-surface);border-radius:18px;text-align:center;box-shadow:var(--clay-shadow); }
-.demo-stat-grid strong { font-size:1.6rem;color:var(--primary); }
-.demo-stat-grid span { font-size:.75rem;color:var(--text-muted); }
-.progress-demo>p { margin:1.25rem 0 0;font-size:.8rem; }
-.bank-link { margin-top:1.5rem!important; }
-.learning-voices { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem; }
-.learning-voices article { padding:1.5rem;border-radius:26px;background:var(--clay-lemon);box-shadow:var(--clay-shadow); }
-.learning-voices article:nth-child(2) { background:var(--clay-lime); }
-.learning-voices article:nth-child(3) { background:var(--clay-mint); }
-.voice-initial { display:grid;place-items:center;width:44px;height:44px;border-radius:15px;background:var(--bg-surface);color:var(--primary);font-weight:700;box-shadow:var(--clay-shadow); }
-.learning-voices h3 { font-size:1rem;margin:1rem 0 .5rem; }
-.learning-voices p { font-size:.95rem;line-height:1.9; }
-.learning-voices article>span:last-child { font-size:.75rem;color:var(--text-muted); }
-.clay-final-cta { text-align:center;padding:clamp(2rem,6vw,4rem) 1.5rem;border-radius:40px;background:var(--clay-lime);box-shadow:var(--clay-shadow); }
-.clay-final-cta h2 { font-size:clamp(1.5rem,3vw,2.4rem);margin:0 0 1rem; }
-.clay-final-cta p { color:var(--text-muted);margin-bottom:1.5rem; }
-/* Apply the same tactile surfaces throughout the reader, dashboard and quizzes. */
-.dashboard-hero,.stat-card,.shortcut-card,.settings-panel,.quiz-setup-panel,.quiz-running-panel,.quiz-summary-panel,.card,.learning-goals,.keypoints-box,.notes-box,.chapter-quiz-action { box-shadow:var(--clay-shadow);border-radius:26px; }
-.stat-card:nth-child(3n+2) { background:var(--clay-lemon); }
-.stat-card:nth-child(3n+3) { background:var(--clay-soft-mint); }
-.reader-sidebar { border-radius:24px;box-shadow:var(--clay-shadow); }
-.option-item,.chapter-practice-question { border-radius:18px;box-shadow:2px 3px 7px rgb(37 91 61 / 7%),inset 2px 2px 5px rgb(255 255 255 / 22%); }
-.btn,.catalog-nav a { box-shadow:3px 4px 8px rgb(37 91 61 / 13%),inset 1px 1px 2px rgb(255 255 255 / 24%); }
-.btn:active { box-shadow:inset 2px 3px 6px rgb(0 0 0 / 15%); }
-[data-theme='dark'] { --clay-lemon: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-soft-mint: color-mix(in srgb, #96E6A1 18%, var(--md-surface-container)); --clay-lime: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-shadow:6px 8px 16px rgb(0 0 0 / 25%),inset 2px 2px 5px rgb(255 255 255 / 5%),inset -3px -3px 7px rgb(0 0 0 / 18%); }
-@media(prefers-color-scheme:dark) { :root:not([data-theme='light']) { --clay-lemon: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-soft-mint: color-mix(in srgb, #96E6A1 18%, var(--md-surface-container)); --clay-lime: color-mix(in srgb, #D4FC79 18%, var(--md-surface-container)); --clay-shadow:6px 8px 16px rgb(0 0 0 / 25%),inset 2px 2px 5px rgb(255 255 255 / 5%),inset -3px -3px 7px rgb(0 0 0 / 18%); } }
-@media(max-width:760px) {
-  .landing-nav { flex-wrap:wrap;padding:0; }
-  .landing-nav .catalog-nav { width:auto; }
-  .landing-brand { font-size:1.1rem; }
-  .catalog-header.clay-hero { grid-template-columns:1fr;border-radius:28px; }
-  .clay-illustration { height:270px;width:100%;max-width:360px;justify-self:center; }
-  .clay-book { height:180px;width:145px; }
-  .orbit-one { width:200px;height:200px; }
-  .book-front { padding:25px 15px; }
-  .book-front span { margin-bottom:20px; }
-  .learning-demo,.learning-voices { grid-template-columns:1fr; }
-  .catalog-section { border-radius:26px; }
-  .progress-demo { transform:none; }
-  .clay-final-cta { border-radius:28px; }
-}
-@media(prefers-reduced-motion:reduce) { .subject-link:hover,.subject-link:active,.btn:active { transform:none; } }
-
-.catalog-intro { margin:1.5rem .75rem 2rem; }
-.catalog-intro h1 { margin:0 0 .5rem;font-size:clamp(1.75rem,3vw,2.5rem); }
-.catalog-intro p { margin:0;color:var(--text-muted); }
-.subject-progress { display:grid;gap:.5rem;padding-right:1.5rem;margin-top:.25rem; }
-.subject-progress-label { font-size:.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums; }
-.subject-progress progress { appearance:none;display:block;width:100%;height:9px;border:0;border-radius:99px;overflow:hidden;background:var(--bg-surface); }
-.subject-progress progress::-webkit-progress-bar { background:var(--bg-surface);border-radius:99px; }
-.subject-progress progress::-webkit-progress-value { background:var(--primary);border-radius:99px; }
-.subject-progress progress::-moz-progress-bar { background:var(--primary);border-radius:99px; }
-.subject-progress progress[hidden] { display:none; }
-
-/* Seed gradient is for navigation and actions; prose stays on quiet tonal surfaces. */
-.subject-link,.subject-link:nth-child(n),.subject-link:hover { background:var(--grass-card-gradient); }
-.clay-final-cta,.dashboard-hero { background:var(--grass-card-gradient); }
-.btn-primary,button.primary { background:var(--grass-gradient);color:#193A23;border-color:transparent; }
-.btn-primary:hover,button.primary:hover { background:var(--grass-gradient);color:#193A23; }
-.subject-link::after { color:var(--text-main); }
-.subject-progress progress::-webkit-progress-value { background:var(--primary); }
-.subject-progress progress::-moz-progress-bar { background:var(--primary); }
-.stat-card:nth-child(3n+2) { background:var(--clay-lemon); }
-.stat-card:nth-child(3n+3) { background:var(--clay-soft-mint); }
-.tab-btn.active,.tab.active,.opt-chip.active { background:var(--primary-subtle);color:var(--text-main); }
-
-.chapter-practice-preview { margin: 1rem 0; display: grid; gap: 0.75rem; }
-.chapter-practice-question { padding: 0.875rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); }
-.chapter-practice-question p { margin: 0 0 0.5rem; }
-.chapter-practice-question ol { margin: 0.35rem 0 0 1.5rem; padding: 0; }
-.chapter-practice-question li { padding: 0.1rem 0; }
-
-.chapter-practice-question fieldset { border:0;padding:0;margin:0;min-width:0; }
-.chapter-practice-question legend { font-weight:700;margin-bottom:.75rem; }
-.chapter-inline-options { display:grid;gap:.625rem; }
-.chapter-inline-options .option-item { display:flex;align-items:flex-start;gap:.75rem;margin:0;padding:.875rem;text-align:left;cursor:pointer; }
-.chapter-inline-options input { accent-color:var(--primary);flex:0 0 auto;width:1.15rem;height:1.15rem;margin:.25rem 0 0; }
-.chapter-inline-options label:has(input:checked) { outline:2px solid var(--primary);outline-offset:-2px; }
-.chapter-inline-feedback { margin:1rem 0!important;font-weight:700; }
-
-/* Structured reading is opt-in for the four revised subjects; Trust keeps its layout. */
-[data-reader-layout="chunked"] .section-block { margin:0 0 2rem;padding:1.25rem 0 1.25rem 1.25rem;border-left:3px solid var(--primary-border);scroll-margin-top:calc(var(--reader-header-offset, 160px) + 1rem); }
-[data-reader-layout="chunked"] .section-step { font-size:.8rem;color:var(--text-muted);margin:0 0 .5rem;font-variant-numeric:tabular-nums; }
-[data-reader-layout="chunked"] .section-body { line-height:1.85; }
-[data-reader-layout="chunked"] .section-body>p { max-width:72ch;margin:1rem 0; }
-[data-reader-layout="chunked"] .section-body li { margin-bottom:.65rem; }
-[data-reader-layout="chunked"] .section-body h3 { margin:1.5rem 0 .75rem;font-size:1.05rem; }
-[data-reader-layout="chunked"] .section-body th { text-align:left;background:var(--primary-subtle); }
-[data-reader-layout="chunked"] .section-body td { vertical-align:top;line-height:1.7; }
-[data-reader-layout="chunked"] .section-body tbody tr:nth-child(even) { background:color-mix(in srgb,var(--primary-subtle) 25%,var(--bg-surface)); }
-[data-reader-layout="chunked"] .learning-goals p { margin:.5rem 0;color:var(--text-muted); }
-[data-reader-layout="chunked"] .learning-goals li { margin:.4rem 0; }
-.learning-goals ol { padding-inline-start:1.75rem;margin-block:.75rem 0; }
-[data-highlights="off"] .legal-term { color:inherit;background:none;text-decoration:none;font-weight:inherit; }
-[data-reader-layout="chunked"] .chapter-practice-question { margin-bottom:1rem; }
-@media(max-width:600px) { [data-reader-layout="chunked"] .section-block { padding-left:.75rem; } }
-
-@media(max-width:768px) {
-  .table-scroll table { min-width:32rem; }
-  .table-scroll table:has(tr > :nth-child(3)) { min-width:40rem; }
-  .table-scroll table:has(tr > :nth-child(5)) { min-width:50rem; }
-}
-
-.mobile-reader-menu, .mobile-reader-nav, .mobile-reader-backdrop, .mobile-cell-label { display:none; }
-.q-card fieldset { min-width:0;border:0;padding:0;margin:1rem 0; }
-.q-card legend { margin-bottom:.75rem;font-weight:700; }
-.bank-feedback { margin:1rem 0; }
-#bank-score { margin:1rem 0;font-weight:700; }
-@media(max-width:768px) {
-  html[data-view="reader"] .brand-section { display:none; }
-  html[data-view="reader"] .app-header { display:flex;flex-wrap:nowrap;height:auto;gap:.25rem;padding:.5rem; }
-  html[data-view="reader"] .mobile-reader-menu { display:block;flex:0 0 44px;padding:.5rem; }
-  html[data-view="reader"] .nav-tabs { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));flex:1;min-width:0;width:auto;gap:0; }
-  html[data-view="reader"] .nav-icon { display:none; }
-  html[data-view="reader"] .tab-btn { font-size:.75rem;padding-inline:.15rem; }
-  html[data-view="reader"] #study-catalog-nav { min-height:44px; }
-  html[data-view="reader"] body:has(#study-catalog-nav) .app-header { top:44px; }
-  html[data-view="reader"] .app-container { padding:.75rem .5rem calc(88px + env(safe-area-inset-bottom)); }
-  html[data-view="reader"] .reader-content { border-radius:16px;padding:1rem;box-shadow:none; }
-  html[data-view="reader"] .reader-sidebar { display:none; }
-  html.reader-menu-open { overflow:hidden; }
-  html.reader-menu-open body:has(#study-catalog-nav) .reader-sidebar,
-  html.reader-menu-open .reader-sidebar {
-    display:block;position:fixed;inset:0 auto 0 0;width:min(86vw,340px);height:100dvh;
-    max-height:none;margin:0;padding:1rem;z-index:301;overflow-y:auto;border-radius:0 24px 24px 0;
-  }
-  html.reader-menu-open .toc-list { max-height:none;overflow:visible; }
-  html.reader-menu-open .mobile-reader-backdrop { display:block;position:fixed;inset:0;z-index:300;border:0;border-radius:0;background:rgb(0 0 0 / 45%); }
-  .mobile-reader-nav { display:grid;grid-template-columns:repeat(4,1fr);gap:.25rem;position:fixed;inset:auto 0 0;z-index:160;padding:.5rem .5rem calc(.5rem + env(safe-area-inset-bottom));background:var(--md-surface);border-top:1px solid var(--md-outline-variant); }
-  .mobile-reader-nav button { padding:.5rem .25rem;min-height:48px;font-size:.875rem; }
-  .reader-footer { display:none; }
-  .table-scroll:has(.mobile-card-table) { overflow:visible; }
-  .table-scroll .mobile-card-table { display:block;min-width:0!important;width:100%; }
-  .mobile-card-table thead { position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%); }
-  .mobile-card-table tbody { display:grid;gap:1rem; }
-  .mobile-card-table tbody tr { display:block;padding:.75rem;border:1px solid var(--border-subtle);border-radius:16px;background:var(--bg-surface-alt); }
-  .section-body .mobile-card-table td { display:block;min-width:0;width:auto;padding:.5rem 0;border:0;overflow-wrap:anywhere; }
-  .mobile-card-table td + td { border-top:1px solid var(--border-subtle); }
-  .mobile-card-table .mobile-cell-label { display:block;margin-bottom:.25rem;font-size:.8rem;font-weight:700;color:var(--text-muted); }
-}
+/* Subject cards contain compact actions rather than full-size linked cards. */
+.subject-card .subject-link { display:inline-flex; flex-direction:row; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--md-outline); border-radius:var(--md-radius-full); }
+.subject-card [data-action="reader"] { background:var(--md-primary-container); color:var(--md-on-primary-container); }
+.subject-card h2.subject-name { font-size:1.125rem; line-height:1.5; }
+.feedback-correct { background:var(--success-light); border-color:var(--md-success); color:var(--md-on-surface); }
+.feedback-wrong { background:var(--danger-light); border-color:var(--md-danger); color:var(--md-on-surface); }
 </style>
-</head>
+<style>
+.learner-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin:1rem 0; }
+#quiz-advanced summary { cursor:pointer; padding:1rem 0; font-weight:700; }
+@media(max-width:768px) {
+ #view-quiz { animation:none; }
+ #quiz-running-panel .quiz-action-bar { position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--bg-surface); padding: .75rem max(1rem, env(safe-area-inset-right)) calc(.75rem + env(safe-area-inset-bottom)); margin:0!important; }
+ #quiz-running-panel { padding-bottom:6rem; }
+ #quiz-advanced .form-group > div { flex-wrap:wrap; }
+ #quiz-advanced select { min-width:0; width:100%; }
+}
+</style></head>
 <body>
 <nav id="study-catalog-nav" aria-label="學科目錄"><a href="../../dist/index.html">← 學科目錄</a><span>教材與題庫</span></nav>
   <!-- 頂部通用導航列 -->
   <header class="app-header">
-    <button type="button" class="mobile-reader-menu" id="btn-mobile-menu" aria-label="開啟章節目錄" aria-controls="reader-sidebar" aria-expanded="false"></button>
     <div class="brand-section">
       <div class="brand-badge">學</div>
       <div class="brand-info">
@@ -557,11 +358,11 @@ h1,h2,h3 { font-weight: 700; }
 
     <!-- 視圖切換標籤 -->
     <nav class="nav-tabs" aria-label="主功能分頁">
-      <button class="tab-btn active" data-view="dashboard" type="button"><span class="nav-icon" aria-hidden="true"></span> 總覽</button>
-      <button class="tab-btn" data-view="reader" type="button"><span class="nav-icon" aria-hidden="true"></span> 教材</button>
-      <button class="tab-btn" data-view="search" type="button"><span class="nav-icon" aria-hidden="true"></span> 搜尋</button>
-      <button class="tab-btn" data-view="quiz" type="button"><span class="nav-icon" aria-hidden="true"></span> 測驗</button>
-      <button class="tab-btn" data-view="settings" type="button"><span class="nav-icon" aria-hidden="true"></span> 設定</button>
+      <button class="tab-btn active" data-view="dashboard" type="button">📊 總覽</button>
+      <button class="tab-btn" data-view="reader" type="button">📘 教材</button>
+      <button class="tab-btn" data-view="search" type="button">🔍 搜尋</button>
+      <button class="tab-btn" data-view="quiz" type="button">📝 測驗</button>
+      <button class="tab-btn" data-view="settings" type="button">⚙️ 設定</button>
     </nav>
   </header>
 
@@ -571,7 +372,7 @@ h1,h2,h3 { font-weight: 700; }
     <!-- 頂部資料庫/儲存警告橫幅 (持續警告 + 匯出備份按鈕) -->
     <div id="storage-warning-banner" class="storage-warning-banner" style="display:none;" role="alert">
       <div class="storage-warning-content">
-        <span class="storage-warning-icon"></span>
+        <span class="storage-warning-icon">⚠️</span>
         <span id="storage-warning-message" class="storage-warning-text">本機儲存空間讀寫異常，目前進度僅暫存於記憶體中，重新整理可能遺失！</span>
       </div>
       <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button>
@@ -583,6 +384,33 @@ h1,h2,h3 { font-weight: 700; }
         <h1 class="hero-title" id="hero-pack-title">學習教材</h1>
         <p class="hero-desc" id="hero-pack-desc">歡迎使用單檔離線學習包</p>
 
+      <!-- 快捷入口卡片 (使用 button 元素) -->
+      <h3 style="font-size:1.1rem;margin-bottom:0.75rem;font-weight:700;">快速開始</h3>
+      <div class="shortcuts-grid">
+        <button type="button" class="shortcut-card" id="shortcut-continue-read">
+          <span class="shortcut-icon">📖</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">繼續學習</span>
+            <span class="shortcut-desc">回到上次閱讀的位置</span>
+          </span>
+        </button>
+        <button type="button" class="shortcut-card" id="shortcut-random-quiz">
+          <span class="shortcut-icon">🎯</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">練習 10 題</span>
+            <span class="shortcut-desc">不必設定，直接開始</span>
+          </span>
+        </button>
+        <button type="button" class="shortcut-card" id="shortcut-wrong-answers">
+          <span class="shortcut-icon">🔥</span>
+          <span class="shortcut-info">
+            <span class="shortcut-title">錯題強化練習</span>
+            <span class="shortcut-desc">集中攻克目前待複習題目</span>
+          </span>
+        </button>
+
+      </div>
+
         <!-- 核心統計指標 -->
         <div class="stat-grid">
           <div class="stat-card">
@@ -591,58 +419,31 @@ h1,h2,h3 { font-weight: 700; }
             <span class="stat-subtext">持續累計學習進度</span>
           </div>
           <div class="stat-card">
-            <span class="stat-label">總作答題數</span>
+            <span class="stat-label">已練題目</span>
             <span class="stat-value" id="stat-total-attempts">0</span>
-            <span class="stat-subtext">次數統計</span>
+            <span class="stat-subtext">不重複題目；重練不累加</span>
           </div>
           <div class="stat-card">
-            <span class="stat-label">整體答對率</span>
+            <span class="stat-label">累計作答正確率</span>
             <span class="stat-value" id="stat-accuracy-rate">0%</span>
-            <span class="stat-subtext">答對題次佔比</span>
+            <span class="stat-subtext">包含首次及重複作答</span>
           </div>
           <div class="stat-card">
-            <span class="stat-label">目前錯題</span>
+            <span class="stat-label">待複習錯題</span>
             <span class="stat-value" style="color:var(--danger);" id="stat-wrong-questions">0</span>
             <span class="stat-subtext">尚待加強複習</span>
           </div>
         </div>
 
         <div style="font-size:0.875rem;color:var(--text-muted);display:flex;align-items:center;gap:0.5rem;">
-          <span> 最近學習：</span>
+          <span>📍 最近學習：</span>
           <strong id="stat-last-chapter" style="color:var(--text-main);">未開始</strong>
         </div>
       </div>
 
-      <!-- 快捷入口卡片 (使用 button 元素) -->
-      <h3 style="font-size:1.1rem;margin-bottom:0.75rem;font-weight:700;">快速開始</h3>
-      <div class="shortcuts-grid">
-        <button type="button" class="shortcut-card" id="shortcut-continue-read">
-          <span class="shortcut-icon"></span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">閱讀教材</span>
-            <span class="shortcut-desc">循序漸進研讀各章節重點</span>
-          </span>
-        </button>
-        <button type="button" class="shortcut-card" id="shortcut-random-quiz">
-          <span class="shortcut-icon"></span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">隨機抽題測驗</span>
-            <span class="shortcut-desc">快速 20 題模擬小測驗</span>
-          </span>
-        </button>
-        <button type="button" class="shortcut-card" id="shortcut-wrong-answers">
-          <span class="shortcut-icon"></span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">錯題強化練習</span>
-            <span class="shortcut-desc">複習目前答錯的題目</span>
-          </span>
-        </button>
-
-      </div>
-
       <!-- 弱點分析 -->
       <div class="weakness-card">
-        <h3><span class="nav-icon" aria-hidden="true"></span> 各章作答統計</h3>
+        <h3>優先複習的知識點</h3><p id="knowledge-review-list"></p><h3>各章練習進度</h3>
         <div id="weakness-list"></div>
       </div>
     </section>
@@ -658,7 +459,6 @@ h1,h2,h3 { font-weight: 700; }
           </div>
           <ul class="toc-list" id="reader-toc-list"></ul>
         </aside>
-        <button type="button" class="mobile-reader-backdrop" id="reader-backdrop" aria-label="關閉章節目錄" tabindex="-1" hidden></button>
 
         <!-- 主閱讀區 -->
         <article class="reader-content">
@@ -675,14 +475,10 @@ h1,h2,h3 { font-weight: 700; }
           <!-- 小節列表容器 -->
           <div id="sections-container"></div>
 
-          <!-- 章末本章練習區塊 -->
-          <section class="chapter-quiz-action" id="chapter-quiz-action" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
-            <div>
-              <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章練習</h3>
-              <div id="chapter-practice-scope" style="font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem;">依收錄題目練習，最多十題。</div>
-            </div>
+          <section id="chapter-practice-panel" class="chapter-practice-panel" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
+            <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章練習</h3>
+            <p id="chapter-practice-scope" style="font-size:0.85rem;color:var(--text-muted);margin:.25rem 0 0;">依本章歷屆題目直接作答並查看答案。</p>
             <div id="chapter-practice-preview" class="chapter-practice-preview"></div>
-            <button type="button" class="btn btn-primary" id="btn-chapter-practice">開始本章測驗</button>
           </section>
 
           <!-- 底部切換章節 -->
@@ -692,12 +488,6 @@ h1,h2,h3 { font-weight: 700; }
           </footer>
         </article>
       </div>
-      <nav class="mobile-reader-nav" aria-label="手機閱讀導覽">
-        <button type="button" id="btn-mobile-toc" aria-controls="reader-sidebar" aria-expanded="false">目錄</button>
-        <button type="button" id="btn-mobile-prev">上一章</button>
-        <button type="button" id="btn-mobile-next">下一章</button>
-        <button type="button" id="btn-mobile-practice">練習</button>
-      </nav>
     </section>
 
     <!-- 3. 全文搜尋 Search -->
@@ -716,13 +506,26 @@ h1,h2,h3 { font-weight: 700; }
     <section id="view-quiz" class="view-panel">
       <!-- 測驗啟動設定面板 -->
       <div id="quiz-setup-panel">
-        <label style="display:block;margin:1rem 0;"><input type="checkbox" id="quiz-unseen-only"> 只練習尚未作答的題目（錯題模式除外）</label>
         <div class="quiz-config-card">
-          <h2 class="quiz-config-title">選擇測驗模式</h2>
+          <h2 class="quiz-config-title">開始練習</h2>
+          <p>先練 10 題，或複習待複習錯題。</p>
+          <div class="learner-actions"><button type="button" class="btn btn-primary" id="btn-quick-ten">練習 10 題</button><button type="button" class="btn btn-secondary" id="btn-quick-wrong">複習錯題</button></div>
+          <details id="quiz-advanced"><summary>調整出題：知識點、章節、考期與題數</summary>
+
+          <div class="form-group" id="knowledge-point-quiz-group" hidden>
+            <label class="form-label" for="quiz-select-knowledge-point">依知識點出題</label>
+            <div style="display:flex;gap:0.5rem;">
+              <select class="select-dropdown" id="quiz-select-knowledge-point" style="flex:1;"></select>
+              <button type="button" class="btn btn-primary" id="btn-start-knowledge-point-quiz">隨機抽 20 題</button>
+            </div>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">題目可跨章節；依題庫已有的知識點或官方科目分類。題數不足 20 題時會全部出題。</p>
+          </div>
+
+          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
           <!-- 模式一：章節測驗 -->
           <div class="form-group">
-            <label class="form-label">指定章節測驗</label>
+            <label class="form-label">指定章節測驗 (Chapter Quiz)</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-chapter" style="flex:1;"></select>
               <button type="button" class="btn btn-primary" id="btn-start-chapter-quiz">開始章節測驗</button>
@@ -753,11 +556,11 @@ h1,h2,h3 { font-weight: 700; }
 
           <!-- 模式二：隨機抽題 -->
           <div class="form-group">
-            <label class="form-label">全題庫隨機抽題</label>
+            <label class="form-label">全題庫隨機抽題 (Random Quiz)</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-random-count" style="flex:1;">
-                <option value="10">隨機抽取 10 題</option>
-                <option value="20" selected>隨機抽取 20 題</option>
+                <option value="10" selected>隨機抽取 10 題</option>
+                <option value="20">隨機抽取 20 題</option>
                 <option value="50">隨機抽取 50 題</option>
                 <option value="all">全題庫所有題目</option>
               </select>
@@ -769,10 +572,11 @@ h1,h2,h3 { font-weight: 700; }
 
           <!-- 模式三：錯題重練 -->
           <div class="form-group">
-            <label class="form-label">錯題強化模式</label>
-            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，逐題確認觀念。</p>
-            <button type="button" class="btn btn-danger" style="width:100%;" id="btn-start-wrong-quiz">練習目前錯題</button>
+            <label class="form-label">錯題強化模式 (Wrong Answers Quiz)</label>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，直到掌握為止。</p>
+            <button type="button" class="btn btn-danger" style="width:100%;" id="btn-start-wrong-quiz">練習待複習錯題</button>
           </div>
+          </details>
         </div>
         <section id="quiz-history-panel" hidden aria-labelledby="quiz-history-title" style="max-width:700px;margin:1rem auto;">
           <h3 id="quiz-history-title">最近測驗紀錄</h3>
@@ -793,22 +597,12 @@ h1,h2,h3 { font-weight: 700; }
           </div>
 
           <div class="quiz-question-text" id="quiz-stem"></div>
-          <details class="question-issue">
-            <summary>標記題目疑義</summary>
-            <label for="question-issue-type">問題類型（僅保存在此瀏覽器，可隨進度匯出）</label>
-            <select id="question-issue-type">
-              <option value="">沒有標記</option><option value="missing-text">文字缺漏</option>
-              <option value="options">選項不完整</option><option value="answer">答案疑義</option>
-            </select>
-            <button type="button" id="btn-save-question-issue">儲存標記</button>
-            <p id="question-issue-status" role="status"></p>
-          </details>
           <div class="options-list" id="quiz-options-container"></div>
 
           <!-- 回饋解析 -->
           <div id="quiz-feedback-box" role="status" aria-live="polite" style="display:none;"></div>
 
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border-subtle);">
+          <div class="quiz-action-bar" style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border-subtle);">
             <button type="button" class="btn btn-secondary" id="btn-exit-quiz">結束測驗</button>
             <div>
               <button type="button" class="btn btn-primary" id="btn-quiz-submit">送出答案</button>
@@ -821,7 +615,7 @@ h1,h2,h3 { font-weight: 700; }
       <!-- 測驗結束頁內結算面板 -->
       <div id="quiz-summary-panel" style="display:none;max-width:700px;margin:0 auto;">
         <div class="quiz-card" style="text-align:center;">
-          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title"> 測驗完成！</h2>
+          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title">🎉 測驗完成！</h2>
           <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;" id="quiz-summary-desc">本次測驗結算如下：</p>
 
           <div class="stat-grid" style="margin-bottom:1.5rem;text-align:left;">
@@ -833,12 +627,12 @@ h1,h2,h3 { font-weight: 700; }
             <div class="stat-card">
               <span class="stat-label">本次正確率</span>
               <span class="stat-value" id="quiz-summary-accuracy">0%</span>
-              <span class="stat-subtext">首次作答統計</span>
+              <span class="stat-subtext">本輪已答題目統計</span>
             </div>
             <div class="stat-card">
               <span class="stat-label">答對題數</span>
               <span class="stat-value" style="color:var(--success);" id="quiz-summary-correct">0</span>
-              <span class="stat-subtext">首次正確題數</span>
+              <span class="stat-subtext">本輪答對題數</span>
             </div>
             <div class="stat-card">
               <span class="stat-label">答錯題數</span>
@@ -848,7 +642,7 @@ h1,h2,h3 { font-weight: 700; }
           </div>
 
           <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
-            <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;"> 本輪錯題重練</button>
+            <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;">🔥 本輪錯題重練</button>
             <button type="button" class="btn btn-primary" id="btn-quiz-restart">再測驗一次</button>
             <button type="button" class="btn btn-secondary" id="btn-quiz-back-menu">返回測驗選單</button>
           </div>
@@ -873,18 +667,15 @@ h1,h2,h3 { font-weight: 700; }
 
         <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
-        <div class="form-group">
-          <label><input type="checkbox" id="highlight-toggle" checked> 顯示法規用語與數字標示</label>
-        </div>
         <!-- 備份與還原 -->
         <div class="form-group">
-          <label class="form-label">進度備份</label>
+          <label class="form-label">進度備份 (Export Progress)</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">將已完成章節、作答統計與錯題記錄匯出為 JSON 檔。</p>
           <button type="button" class="btn btn-secondary" id="btn-export-progress">下載進度備份檔 (JSON)</button>
         </div>
 
         <div class="form-group">
-          <label class="form-label">進度還原</label>
+          <label class="form-label">進度還原 (Import Progress)</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前備份的進度檔案（將進行完整格式與欄位結構檢核）。</p>
           <input type="file" id="import-file-input" accept=".json" style="display:none;" />
           <button type="button" class="btn btn-secondary" id="btn-import-progress-trigger">選擇備份檔匯入...</button>
@@ -894,7 +685,7 @@ h1,h2,h3 { font-weight: 700; }
 
         <!-- 清除紀錄 -->
         <div class="form-group">
-          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄</label>
+          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄 (Reset Progress)</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">清除此教材在本機的所有答題與閱讀進度。教材內容與題庫本體不受影響。</p>
           <button type="button" class="btn btn-danger" id="btn-reset-progress">清除本教材進度</button>
         </div>
@@ -926,12 +717,11 @@ h1,h2,h3 { font-weight: 700; }
     const nodes = [];while (walker.nextNode()) nodes.push(walker.currentNode);
     for (const node of nodes) {
       const text = node.nodeValue, matches = [...text.matchAll(terms)].filter(match => {
-        const before = text.slice(Math.max(0, match.index - 3), match.index), after = text.slice(match.index + match[0].length);
-        if (/^[得可應]$/.test(match[0]) && (!/^(?:依|於|向|由|在|經|以|為|就|將|申請|申報|辦理|提供|保存|設置|拒絕|揭露|遵守|負|視|採|扣|繳|報|按|立即|通知|提|受|終止|撤銷|變更|同意|要求)/.test(after) || /[許認適反供對回效響相因]$/.test(before))) return false;
-        if (match[0] === '得' && (/(?:取|獲|所|值|覺|記|心|贏|難|喜|懂|博)$/.test(before) || /^(?:分|失|意|到|獎|知|利|力|益|手|罪)/.test(after))) return false;
-        if (match[0] === '可' && /^(?:能|惜|怕|愛|靠|觀|口|憐|惡|見|行|是|不可以)/.test(after)) return false;
-        if (match[0] === '應' && (/(?:效|反|回|對|相|因|響|供|適|呼|承)$/.test(before) || /^(?:用|對|變|收|付)/.test(after))) return false;
-        return !(match[0] === '不得' && /^[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
+        const before = text[match.index - 1] || '', after = text[match.index + match[0].length] || '';
+        if (match[0] === '得' && (/[取獲所值覺記心贏懂]/.test(before) || /[分失意到獎]/.test(after))) return false;
+        if (match[0] === '可' && /[能惜怕愛靠觀口]/.test(after)) return false;
+        if (match[0] === '應' && (/[反回對相因響供適]/.test(before) || /[用對變收付]/.test(after))) return false;
+        return !(match[0] === '不得' && /[不已]/.test(after)) && !(match[0] === '不可' && text.slice(match.index).startsWith('不可或缺'));
       });
       if (!matches.length) continue;
       const fragment = document.createDocumentFragment();let position = 0;
@@ -972,9 +762,9 @@ h1,h2,h3 { font-weight: 700; }
     if (!link?.classList.contains('answer-search')) {
       if (!text.trim()) return;
       link = document.createElement('a');
-      link.className = 'answer-search';link.textContent = '搜尋本題';
+      link.className = 'answer-search';link.textContent = '查答案';
       link.target = '_blank';link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label','搜尋本題：Google 搜尋本題（開啟新分頁）');
+      link.setAttribute('aria-label','查答案：Google 搜尋本題（開啟新分頁）');
       question.after(link);
     }
     link.hidden = !text.trim();
@@ -998,6 +788,5 @@ h1,h2,h3 { font-weight: 700; }
 })();
 
 </script>
-
 </body>
 </html>

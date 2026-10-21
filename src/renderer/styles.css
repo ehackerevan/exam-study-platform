@@ -5,17 +5,17 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* 亮色主題色盤 */
-  --bg-app: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-alt: #f1f5f9;
-  --bg-surface-hover: #e2e8f0;
+  --bg-app: #fbfdf8;
+  --bg-surface: #f0f5ed;
+  --bg-surface-alt: #e5ede2;
+  --bg-surface-hover: #d4e6d5;
   
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
+  --border-subtle: #c2c9be;
+  --border-strong: #73796f;
 
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #94a3b8;
+  --text-main: #1c1b1f;
+  --text-muted: #434940;
+  --text-subtle: #73796f;
   --text-inverse: #ffffff;
 
   --primary: #006b3c;
@@ -707,6 +707,16 @@ body {
   color: var(--text-muted);
 }
 
+.chapter-practice-preview { display:grid; gap:.75rem; margin-top:1rem; }
+.chapter-practice-question { min-width:0; padding:1rem; background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); }
+.chapter-practice-question fieldset { min-width:0; padding:0; margin:0; border:0; }
+.chapter-practice-question legend { margin-bottom:.75rem; font-weight:700; }
+.chapter-practice-stem { margin-bottom:.75rem; overflow-wrap:anywhere; }
+.chapter-inline-options { display:grid; gap:.5rem; }
+.chapter-inline-options .option-item { display:flex; align-items:flex-start; gap:.65rem; padding:.75rem; text-align:left; cursor:pointer; }
+.chapter-inline-options input { flex:0 0 auto; width:1.1rem; height:1.1rem; margin:.2rem 0 0; accent-color:var(--primary); }
+.chapter-inline-feedback { min-height:1.5em; margin:.75rem 0; font-weight:700; }
+
 .reader-footer {
   border-top: 1px solid var(--border-subtle);
   padding-top: 1.5rem;
@@ -785,7 +795,6 @@ body {
   font-weight: 700;
 }
 
-
 /* Shared select styling for quiz and settings controls. */
 .select-dropdown {
   padding: 0.5rem 0.75rem;
@@ -796,7 +805,7 @@ body {
   font-size: 0.875rem;
 }
 
-/* ===== 4. 測驗模式 Quiz 樣式 ===== */
+/* ===== 4. 測驗模式 Quiz 樣式 ===== *//* ===== 5. 測驗模式 Quiz 樣式 ===== */
 .quiz-config-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);

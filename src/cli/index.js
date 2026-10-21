@@ -1,3 +1,4 @@
+import {readUtf8File} from '../core/utils/utf8.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildNormalizedStudyPack } from '../core/parser/index.js';
@@ -17,8 +18,8 @@ export function loadSourcesFromDirectory(sourceDir) {
   const stat = fs.statSync(dir);
   if (!stat.isDirectory()) {
     // 若傳入的是單一檔案 (例如 study-pack.json)
-    if (dir.endsWith('.json')) {
-      const jsonContent = fs.readFileSync(dir, 'utf-8');
+    if (dir.toLowerCase().endsWith('.json')) {
+      const jsonContent = readUtf8File(dir);
       return { jsons: [jsonContent] };
     }
     throw new Error(`路徑必須為目錄或 .json 檔案: ${dir}`);
@@ -32,9 +33,10 @@ export function loadSourcesFromDirectory(sourceDir) {
 
   // 遞迴讀取目錄
   function walk(currentDir) {
-    const files = fs.readdirSync(currentDir);
+    const files = fs.readdirSync(currentDir).sort();
     for (const file of files) {
       const fullPath = path.join(currentDir, file);
+      if (fs.lstatSync(fullPath).isSymbolicLink()) continue;
       const s = fs.statSync(fullPath);
       if (s.isDirectory()) {
         walk(fullPath);
@@ -44,21 +46,21 @@ export function loadSourcesFromDirectory(sourceDir) {
 
         if (base === 'pack.json' || base === 'study-pack.json' || base === 'metadata.json') {
           try {
-            const raw = fs.readFileSync(fullPath, 'utf-8');
+            const raw = readUtf8File(fullPath);
             const parsed = JSON.parse(raw);
             meta = { ...meta, ...parsed };
             jsons.push(raw);
           } catch (e) {
-            console.warn(`警告: 無法讀取 ${fullPath}: ${e.message}`);
+            throw new Error(`無法讀取中繼資料 ${fullPath}: ${e.message}`);
           }
         } else if (ext === '.json') {
-          jsons.push(fs.readFileSync(fullPath, 'utf-8'));
+          jsons.push(readUtf8File(fullPath));
         } else if (ext === '.md' || ext === '.markdown') {
-          markdowns.push(fs.readFileSync(fullPath, 'utf-8'));
+          markdowns.push(readUtf8File(fullPath));
         } else if (ext === '.csv') {
-          csvQuestions.push(fs.readFileSync(fullPath, 'utf-8'));
+          csvQuestions.push(readUtf8File(fullPath));
         } else if (ext === '.txt') {
-          txtQuestions.push(fs.readFileSync(fullPath, 'utf-8'));
+          txtQuestions.push(readUtf8File(fullPath));
         }
       }
     }

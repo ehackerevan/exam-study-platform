@@ -10,7 +10,7 @@ export function parseStudyPackJson(input) {
   let parsed = input;
   if (typeof input === 'string') {
     try {
-      parsed = JSON.parse(input);
+      parsed = JSON.parse(input.replace(/^\uFEFF/, ''));
     } catch (err) {
       throw new Error(`JSON 解析失敗: ${err.message}`);
     }
@@ -35,11 +35,16 @@ export function parseStudyPackJson(input) {
     return pack;
   }
 
+  for (const field of ['chapters', 'questions']) {
+    if (parsed[field] !== undefined && !Array.isArray(parsed[field])) throw new Error(`${field} 必須為陣列`);
+  }
+
   const base = createDefaultStudyPack(parsed);
 
   // 消毒章節
   if (Array.isArray(base.chapters)) {
     base.chapters = base.chapters.map(ch => ({
+      ...ch,
       id: String(ch.id || 'chapter-01'),
       title: String(ch.title || '未命名章節'),
       summary: String(ch.summary || ''),
@@ -65,13 +70,21 @@ export function parseStudyPackJson(input) {
 
 function sanitizeQuestions(questions) {
   return questions.map((q, idx) => ({
+    ...q,
     id: String(q.id || `q${String(idx + 1).padStart(3, '0')}`),
     chapterId: String(q.chapterId || 'chapter-01'),
     sectionId: String(q.sectionId || ''),
-    type: ['single-choice', 'true-false', 'multiple-choice'].includes(q.type) ? q.type : 'single-choice',
+    type: q.type === undefined ? 'single-choice' : q.type,
     question: sanitizeHtml(String(q.question || '')),
-    options: Array.isArray(q.options) ? q.options.map(o => sanitizeHtml(String(o))) : ['選項 A', '選項 B'],
-    answer: q.answer !== undefined ? q.answer : 0,
-    explanation: sanitizeHtml(String(q.explanation || ''))
+    options: Array.isArray(q.options) ? q.options.map(o => typeof o === 'string' ? sanitizeHtml(o) : o) : [],
+    answer: q.answer,
+    explanation: sanitizeHtml(String(q.explanation || '')),
+    ...(q.sourceExam && typeof q.sourceExam === 'object' && !Array.isArray(q.sourceExam) ? {
+      sourceExam: {
+        term: sanitizeHtml(String(q.sourceExam.term || '')),
+        subject: sanitizeHtml(String(q.sourceExam.subject || '')),
+        number: q.sourceExam.number
+      }
+    } : {})
   }));
 }

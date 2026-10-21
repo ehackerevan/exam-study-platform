@@ -114,3 +114,11 @@ test('Validator: requires complete featured question metadata', () => {
   pack.questions[0].featuredRank = 0;
   assert(validateStudyPack(pack).issues.some(i => i.code === 'INVALID_FEATURED_QUESTION'));
 });
+
+test('Validator: accepts unique knowledge point labels and rejects empty or duplicate labels', () => {
+  const pack = getValidPack();
+  pack.questions[0].knowledgePoints = ['雲端運算', '金融資安'];
+  assert.equal(validateStudyPack(pack).isValid, true);
+  pack.questions[0].knowledgePoints = ['雲端運算', '雲端運算'];
+  assert(validateStudyPack(pack).issues.some(i => i.code === 'INVALID_KNOWLEDGE_POINTS'));
+});

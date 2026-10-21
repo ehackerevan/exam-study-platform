@@ -6,9 +6,9 @@
     if (!link?.classList.contains('answer-search')) {
       if (!text.trim()) return;
       link = document.createElement('a');
-      link.className = 'answer-search';link.textContent = '搜尋本題';
+      link.className = 'answer-search';link.textContent = '查答案';
       link.target = '_blank';link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label','搜尋本題：Google 搜尋本題（開啟新分頁）');
+      link.setAttribute('aria-label','查答案：Google 搜尋本題（開啟新分頁）');
       question.after(link);
     }
     link.hidden = !text.trim();

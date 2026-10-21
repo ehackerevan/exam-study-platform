@@ -6,7 +6,7 @@ export function htmlFiles(root = process.cwd()) {
   const files = [];
   function walk(dir) {for (const entry of fs.readdirSync(path.join(root,dir),{withFileTypes:true})) {
     const name = path.join(dir,entry.name);
-    if (entry.isDirectory()) walk(name); else if (entry.name.endsWith('.html')) files.push(name);
+    if (entry.isDirectory()) walk(name); else if (entry.name.endsWith('.html') && entry.name !== '學習平台_單檔整合版.html') files.push(name);
   }}
   walk('dist');
   files.push('src/renderer/template.html');
@@ -25,6 +25,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     );
     fs.writeFileSync(file, applySharedUi(html, home));
   }
-  fs.writeFileSync('dist/歷屆考古題_完整題庫大全.html', fs.readFileSync('06_四科彙整題庫/歷屆考古題_完整題庫大全.html', 'utf8').replaceAll('href="../index.html"', 'href="index.html"'));
   console.log(`Applied shared offline UI to ${htmlFiles().length} HTML pages`);
 }

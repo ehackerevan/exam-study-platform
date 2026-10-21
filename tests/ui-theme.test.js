@@ -21,9 +21,9 @@ test('Shared UI: all project HTML contains the exact shared stylesheet',()=>{
   assert(match, file);assert.equal(match[1].trim(),css,file);
  }
 });
-test('Shared UI: Dusty Grass tokens preserve offline use and reduced-motion support',()=>{
+test('Shared UI: brand palette preserves offline use and reduced-motion support',()=>{
  const css=fs.readFileSync(themePath,'utf8');
- for(const value of ['--md-primary: #28563B','--md-background: #F5FAEF','--md-surface-container: #EDF5E6','linear-gradient(120deg, #D4FC79 0%, #96E6A1 100%)','--md-radius-full: 9999px','prefers-reduced-motion: reduce']) assert(css.includes(value),value);
+ for(const value of ['--md-primary: #2F4858','--md-primary-container: #96E6A1','--md-secondary: #2B878F','--md-tertiary: #3AA79E','--md-brand-gradient: linear-gradient(90deg, #96E6A1 0%, #61C8A3 20%, #3AA79E 40%, #2B878F 60%, #2E6677 80%, #2F4858 100%)','--md-background: #FBFDF8','--md-surface-container: #F0F5ED','--md-radius-full: 9999px','prefers-reduced-motion: reduce']) assert(css.includes(value),value);
  assert(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(css));
 });
 test('Catalogue return link: replace path without duplicate links; catalogue has no self-link',()=>{
@@ -34,4 +34,12 @@ test('Catalogue return link: replace path without duplicate links; catalogue has
  assert.equal(applySharedUi(themed).match(/id="study-catalog-nav"/g).length,1);
  assert(!applySharedUi(themed,null).includes('id="study-catalog-nav"'));
  assert.throws(()=>applySharedUi(html,'javascript:bad'));
+});
+
+test('Single HTML: eight embedded pages keep the shared theme',()=>{
+ const html=fs.readFileSync('dist/學習平台_單檔整合版.html','utf8');
+ const pages=JSON.parse(html.match(/<script id="embedded-pages" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+ assert.equal(Object.keys(pages).length,8);
+ const css=fs.readFileSync(themePath,'utf8').trim();
+ for(const page of Object.values(pages)) assert.equal(page.match(/<style id="study-ui-theme">([\s\S]*?)<\/style>/)[1].trim(),css);
 });

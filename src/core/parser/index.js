@@ -51,6 +51,11 @@ export function buildNormalizedStudyPack(sources = {}) {
     }
   }
 
+  // Question-array imports add empty chapters; keep the teaching source when its ID matches.
+  const hasContent = chapter => chapter.sections.some(section => section.content || section.keyPoints?.length || section.notes?.length);
+  const populatedIds = new Set(pack.chapters.filter(hasContent).map(chapter => chapter.id));
+  pack.chapters = pack.chapters.filter(chapter => !populatedIds.has(chapter.id) || hasContent(chapter));
+
   // 建立章節名稱與 ID 的對應表，協助 CSV/TXT 正確配對
   const chapterMapping = {};
   for (const ch of pack.chapters) {
@@ -72,6 +77,15 @@ export function buildNormalizedStudyPack(sources = {}) {
     for (const txt of sources.txtQuestions) {
       const qs = parseQuestionsTxt(txt, defaultChapterId);
       pack.questions.push(...qs);
+    }
+  }
+
+  const chaptersById = new Map(pack.chapters.map(chapter => [chapter.id, chapter]));
+  for (const question of pack.questions) {
+    const sections = chaptersById.get(question.chapterId)?.sections || [];
+    if (question.sectionId && !sections.some(section => section.id === question.sectionId)) {
+      const matches = sections.filter(section => section.title === question.sectionId);
+      if (matches.length === 1) question.sectionId = matches[0].id;
     }
   }
 

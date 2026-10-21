@@ -3,7 +3,13 @@
   "title": "StudyPack",
   "description": "Study Pack Compiler 正規化學習包資料契約",
   "type": "object",
-  "required": ["version", "id", "title", "chapters", "questions"],
+  "required": [
+    "version",
+    "id",
+    "title",
+    "chapters",
+    "questions"
+  ],
   "properties": {
     "version": {
       "type": "integer",
@@ -63,7 +69,11 @@
   "definitions": {
     "Chapter": {
       "type": "object",
-      "required": ["id", "title", "sections"],
+      "required": [
+        "id",
+        "title",
+        "sections"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -84,12 +94,30 @@
           "items": {
             "$ref": "#/definitions/Section"
           }
+        },
+        "practiceQuestionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "description": "本章練習使用的題目 ID"
+        },
+        "practiceConcepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "本章練習涵蓋的知識點"
         }
       }
     },
     "Section": {
       "type": "object",
-      "required": ["id", "title"],
+      "required": [
+        "id",
+        "title"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -124,7 +152,14 @@
     },
     "Question": {
       "type": "object",
-      "required": ["id", "chapterId", "type", "question", "options", "answer"],
+      "required": [
+        "id",
+        "chapterId",
+        "type",
+        "question",
+        "options",
+        "answer"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -139,9 +174,23 @@
           "description": "所屬小節代碼 (選填)",
           "default": ""
         },
+        "knowledgePoints": {
+          "type": "array",
+          "description": "題目所屬知識點標籤",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
         "type": {
           "type": "string",
-          "enum": ["single-choice", "true-false", "multiple-choice"],
+          "enum": [
+            "single-choice",
+            "true-false",
+            "multiple-choice"
+          ],
           "description": "題型"
         },
         "question": {
@@ -160,10 +209,16 @@
         "answer": {
           "description": "正確答案 (0-based 數字索引或數字索引陣列)",
           "oneOf": [
-            { "type": "integer", "minimum": 0 },
+            {
+              "type": "integer",
+              "minimum": 0
+            },
             {
               "type": "array",
-              "items": { "type": "integer", "minimum": 0 },
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
               "minItems": 1
             }
           ]
@@ -175,11 +230,24 @@
         },
         "sourceExam": {
           "type": "object",
-          "required": ["term", "subject", "number"],
+          "required": [
+            "term",
+            "subject",
+            "number"
+          ],
           "properties": {
-            "term": { "type": "string", "minLength": 1 },
-            "subject": { "type": "string", "minLength": 1 },
-            "number": { "type": "integer", "minimum": 1 }
+            "term": {
+              "type": "string",
+              "minLength": 1
+            },
+            "subject": {
+              "type": "string",
+              "minLength": 1
+            },
+            "number": {
+              "type": "integer",
+              "minimum": 1
+            }
           }
         },
         "featuredGroup": {

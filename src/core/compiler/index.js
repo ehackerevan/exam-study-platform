@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateStudyPack } from '../validator/index.js';
 import {applySharedUi} from './ui-theme.js';
+import {findExternalResources} from '../utils/offline.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,9 +68,9 @@ export function compileStudyPackToHtml(studyPack, options = {}) {
 
   finalHtml = applySharedUi(finalHtml);
   // 5. 離線完整性驗證：確認無外部資源載入
-  const externalResourceMatch = finalHtml.match(/<(?:script|link)[^>]*(?:src|href)=["'](https?:\/\/[^"']+)["']/i);
-  if (externalResourceMatch) {
-    throw new Error(`編譯結果違反零外部依賴規範，偵測到外部引用: ${externalResourceMatch[1]}`);
+  const externalResources = findExternalResources(finalHtml);
+  if (externalResources.length) {
+    throw new Error(`編譯結果違反零外部依賴規範，偵測到外部引用: ${externalResources.join(', ')}`);
   }
 
   const sizeBytes = Buffer.byteLength(finalHtml, 'utf-8');

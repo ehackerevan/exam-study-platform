@@ -12,13 +12,13 @@
     return;
   }
 
-  if (pack.readerLayout === 'chunked') document.documentElement.dataset.readerLayout = 'chunked';
-
   // 常數與門檻設定
+  const questionIds = new Set(pack.questions.map(question => question.id));
+  const hasTeachingChapter = id => pack.chapters.find(chapter => chapter.id === id)?.sections.some(section => !section.id.endsWith('-source-note') && (section.content || section.keyPoints?.length || section.notes?.length));
   const STORAGE_KEY = `study-pack.${pack.id}.progress`;
   const THRESHOLDS = {
-    WEAK: 60,     // < 60% 累計正確率較低
-    MODERATE: 80  // 60-80% 累計正確率中等, > 80% 穩定
+    WEAK: 60,     // < 60% 需要加強
+    MODERATE: 80  // 60-80% 尚未穩定, > 80% 穩定
   };
 
   // 預設進度狀態
@@ -29,7 +29,6 @@
     contentVersion: pack.contentVersion || '1.0.0',
     completedChapters: [],
     questionStats: Object.create(null), // { [id]: { attempts, wrongCount, correctCount, lastResult, lastAnsweredAt } }
-    questionIssues: Object.create(null),
     quizHistory: [],
     lastPosition: { chapterId: '', sectionId: '' },
     settings: { theme: 'system' }
@@ -47,7 +46,7 @@
       !data.lastPosition || typeof data.lastPosition.chapterId !== 'string' ||
       (data.lastPosition.sectionId !== undefined && typeof data.lastPosition.sectionId !== 'string') ||
       (data.quizHistory !== undefined && (!Array.isArray(data.quizHistory) || data.quizHistory.length > 20 || data.quizHistory.some(item =>
-        !item || !['chapter','random','wrong','exam','featured'].includes(item.mode) ||
+        !item || !['chapter','random','wrong','exam','featured','knowledge-point'].includes(item.mode) ||
         !Number.isSafeInteger(item.questionCount) || item.questionCount < 1 ||
         !Number.isSafeInteger(item.correctCount) || item.correctCount < 0 ||
         !Number.isSafeInteger(item.wrongCount) || item.wrongCount < 0 ||
@@ -56,16 +55,15 @@
         typeof item.completedAt !== 'string' || !Number.isFinite(Date.parse(item.completedAt)) ||
         (item.term !== undefined && typeof item.term !== 'string') ||
         (item.subject !== undefined && typeof item.subject !== 'string') ||
+        (item.knowledgePoint !== undefined && (typeof item.knowledgePoint !== 'string' || !item.knowledgePoint.trim())) ||
         (item.featuredGroup !== undefined && typeof item.featuredGroup !== 'string'))))) throw Error('進度結構不正確');
     for (const record of Object.values(data.questionStats)) {
       if (!record || !['attempts','wrongCount','correctCount'].every(key => Number.isSafeInteger(record[key]) && record[key] >= 0) ||
         record.attempts !== record.wrongCount + record.correctCount || typeof record.lastResult !== 'boolean') throw Error('作答紀錄不正確');
     }
-    if (data.questionIssues !== undefined && (!data.questionIssues || typeof data.questionIssues !== 'object' || Array.isArray(data.questionIssues) || Object.values(data.questionIssues).some(value => !['missing-text','options','answer'].includes(value)))) throw Error('疑義標記格式不正確');
-    return {...progress, ...data, questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)),
-      settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system', highlights:data.settings?.highlights !== false},
+    return {...progress, ...data, questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:[...new Set(data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)))],
+      settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system'},
       lastPosition:{chapterId:data.lastPosition.chapterId,sectionId:data.lastPosition.sectionId || ''},
-      questionIssues:Object.assign(Object.create(null),data.questionIssues || {}),
       quizHistory:(data.quizHistory || []).slice(0,20)};
   }
   // 載入 localStorage
@@ -107,7 +105,8 @@
 
   // 測驗執行狀態
   let quizState = {
-    mode: 'random', // 'chapter' | 'random' | 'wrong'
+    mode: 'random', // 'chapter' | 'random' | 'wrong' | 'exam' | 'featured' | 'knowledge-point'
+    knowledgePoint: '',
     pool: [],
     currentIndex: 0,
     answers: Object.create(null), // { [qId]: selectedIndex or Array }
@@ -128,9 +127,7 @@
 
   // 切換視圖
   function switchView(viewName) {
-    closeMobileMenu();
     currentView = viewName;
-    document.documentElement.dataset.view = viewName;
     Object.keys(views).forEach(key => {
       if (views[key]) {
         views[key].classList.toggle('active', key === viewName);
@@ -158,7 +155,7 @@
     let totalCorrect = 0;
     let currentWrongCount = 0; // lastResult === false
 
-    const statEntries = Object.entries(progress.questionStats);
+    const statEntries = Object.entries(progress.questionStats).filter(([id]) => questionIds.has(id));
     for (const [, st] of statEntries) {
       totalAttempts += (st.attempts || 0);
       totalWrong += (st.wrongCount || 0);
@@ -172,7 +169,7 @@
 
     // 更新 DOM
     document.getElementById('stat-completed-chapters').textContent = `${completedChapters} / ${totalChapters}`;
-    document.getElementById('stat-total-attempts').textContent = totalAttempts;
+    document.getElementById('stat-total-attempts').textContent = statEntries.filter(([, stats]) => stats.attempts > 0).length;
     document.getElementById('stat-accuracy-rate').textContent = `${accuracyRate}%`;
     document.getElementById('stat-wrong-questions').textContent = currentWrongCount;
 
@@ -180,6 +177,15 @@
     const lastCh = pack.chapters.find(c => c.id === progress.lastPosition.chapterId);
     document.getElementById('stat-last-chapter').textContent = lastCh ? lastCh.title : '尚未開始';
 
+    const continueButton = document.getElementById('shortcut-continue-read');
+    continueButton.hidden = !pack.chapters.some(chapter => hasTeachingChapter(chapter.id));
+    continueButton.querySelector('.shortcut-desc').textContent = lastCh ? `繼續：${lastCh.title}` : '從第一章開始';
+    document.getElementById('shortcut-wrong-answers').querySelector('.shortcut-desc').textContent = `目前 ${currentWrongCount} 題待複習`;
+    const reviewPoints = new Map();
+    pack.questions.filter(question => progress.questionStats[question.id]?.lastResult === false).forEach(question => {
+      (question.knowledgePoints?.length ? question.knowledgePoints : ['其他／未分類']).forEach(point => reviewPoints.set(point, (reviewPoints.get(point) || 0) + 1));
+    });
+    document.getElementById('knowledge-review-list').textContent = [...reviewPoints].sort((a,b) => b[1] - a[1]).slice(0,5).map(([point,count]) => `${point}：${count} 題待複習`).join('；') || '目前沒有待複習錯題。';
     // 弱點分析（依章節）
     const weaknessList = document.getElementById('weakness-list');
     weaknessList.innerHTML = '';
@@ -213,11 +219,11 @@
         badgeHtml = '<span class="badge">資料不足，繼續練習</span>';
       } else if (rate !== null) {
         if (rate < THRESHOLDS.WEAK) {
-          badgeHtml = `<span class="badge badge-danger">累計正確率較低 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-danger">需要加強 (${rate}%)</span>`;
         } else if (rate < THRESHOLDS.MODERATE) {
-          badgeHtml = `<span class="badge badge-warning">累計正確率中等 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-warning">尚未穩定 (${rate}%)</span>`;
         } else {
-          badgeHtml = `<span class="badge badge-success">累計正確率較高 (${rate}%)</span>`;
+          badgeHtml = `<span class="badge badge-success">穩定熟悉 (${rate}%)</span>`;
         }
       }
 
@@ -239,7 +245,7 @@
     return Array.isArray(selected) && expected.length === selected.length && expected.every(value => selected.includes(value));
   }
   function recordQuestionAnswer(question, correct) {
-    const stats = progress.questionStats[question.id] || {attempts: 0, wrongCount: 0, correctCount: 0};
+    const stats = progress.questionStats[question.id] || {attempts:0, wrongCount:0, correctCount:0};
     stats.attempts++;
     if (correct) stats.correctCount++;
     else stats.wrongCount++;
@@ -251,14 +257,12 @@
   function renderChapterPractice(container, questions) {
     container.replaceChildren();
     questions.forEach((question, index) => {
-      const state = chapterPracticeAnswers.get(question.id);
-      const submitted = !!state?.submitted;
+      const state = chapterPracticeAnswers.get(question.id), submitted = !!state?.submitted;
       const answers = Array.isArray(question.answer) ? question.answer : [question.answer];
       const selected = state?.selected === undefined ? [] : Array.isArray(state.selected) ? state.selected : [state.selected];
-      const multiple = question.type === 'multiple-choice';
-      const form = document.createElement('form');
+      const multiple = question.type === 'multiple-choice', form = document.createElement('form');
       form.className = 'chapter-practice-question';
-      form.innerHTML = `<fieldset><legend>第 ${index + 1} 題 · ${multiple ? '多選題' : question.type === 'true-false' ? '是非題' : '單選題'}</legend>
+      form.innerHTML = `<fieldset><legend>第 ${index + 1} 題・${multiple ? '多選題' : question.type === 'true-false' ? '是非題' : '單選題'}</legend>
         <div class="chapter-practice-stem">${window.StudyContent.render(question.question)}</div>
         <div class="chapter-inline-options">${question.options.map((option, optionIndex) => `<label class="option-item ${submitted && answers.includes(optionIndex) ? 'correct' : submitted && selected.includes(optionIndex) ? 'wrong' : ''}">
           <input type="${multiple ? 'checkbox' : 'radio'}" name="answer" value="${optionIndex}" ${selected.includes(optionIndex) ? 'checked' : ''} ${submitted ? 'disabled' : ''}>
@@ -267,7 +271,7 @@
         <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
       form.onchange = () => {
         const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
-        chapterPracticeAnswers.set(question.id, {selected: multiple ? values : values[0], submitted: false});
+        chapterPracticeAnswers.set(question.id, {selected:multiple ? values : values[0], submitted:false});
       };
       form.onsubmit = event => {
         event.preventDefault();
@@ -283,15 +287,32 @@
           form.querySelector('input')?.focus();
           return;
         }
-        const answer = multiple ? values : values[0];
-        const correct = answerIsCorrect(question, answer);
-        chapterPracticeAnswers.set(question.id, {selected: answer, submitted: true, correct});
+        const answer = multiple ? values : values[0], correct = answerIsCorrect(question, answer);
+        chapterPracticeAnswers.set(question.id, {selected:answer, submitted:true, correct});
         recordQuestionAnswer(question, correct);
         renderChapterPractice(container, questions);
-        container.children[index].querySelector('.chapter-inline-feedback').focus({preventScroll: true});
+        container.children[index].querySelector('.chapter-inline-feedback').focus({preventScroll:true});
       };
       container.appendChild(form);
     });
+    const answered = questions.filter(question => chapterPracticeAnswers.get(question.id)?.submitted);
+    if (questions.length && answered.length === questions.length) {
+      const actions = document.createElement('div');
+      actions.className = 'learner-actions';
+      const wrong = questions.filter(question => !chapterPracticeAnswers.get(question.id)?.correct);
+      actions.innerHTML = `<p>本章練習完成：${questions.length - wrong.length} / ${questions.length} 題答對。</p><button type="button" class="btn btn-secondary" id="btn-practice-retry" ${wrong.length ? '' : 'hidden'}>重練本章錯題（${wrong.length} 題）</button><button type="button" class="btn btn-primary" id="btn-practice-next">${pack.chapters.findIndex(chapter => chapter.id === currentChapterId) < pack.chapters.length - 1 ? '下一章' : '回學習總覽'}</button>`;
+      container.appendChild(actions);
+      actions.querySelector('#btn-practice-retry').onclick = () => {
+        wrong.forEach(question => chapterPracticeAnswers.delete(question.id));
+        renderChapterPractice(container, questions);
+        container.querySelector('input:not(:disabled)')?.focus();
+      };
+      actions.querySelector('#btn-practice-next').onclick = () => {
+        const next = pack.chapters[pack.chapters.findIndex(chapter => chapter.id === currentChapterId) + 1];
+        if (next) { currentChapterId = next.id; progress.lastPosition.sectionId = ''; renderReader(); window.scrollTo(0, 0); }
+        else switchView('dashboard');
+      };
+    }
   }
 
   // ===== 2. 教材閱讀 Reader 渲染 =====
@@ -314,10 +335,8 @@
       li.tabIndex = 0;
       li.setAttribute('role','button');
       li.onclick = () => {
-        closeMobileMenu();
         currentChapterId = c.id;
         renderReader();
-        window.scrollTo({top:0});
       };
       li.onkeydown = event => {if (event.key === 'Enter' || event.key === ' ') {event.preventDefault();li.click();}};
       tocList.appendChild(li);
@@ -330,14 +349,14 @@
     // 完成狀態按鈕
     const isCompleted = progress.completedChapters.includes(ch.id);
     const completeBtn = document.getElementById('btn-toggle-complete');
-    completeBtn.textContent = isCompleted ? ' 已讀本章' : '標記已讀';
+    completeBtn.textContent = isCompleted ? '✓ 已讀本章' : '標記已讀';
     completeBtn.className = isCompleted ? 'btn btn-secondary' : 'btn btn-primary';
 
     // 渲染 Sections
     const container = document.getElementById('sections-container');
     container.innerHTML = '';
 
-    ch.sections.forEach((sec, sectionIndex) => {
+    ch.sections.forEach(sec => {
       const secDiv = document.createElement('div');
       secDiv.className = 'section-block';
       secDiv.id = `sec-${sec.id}`;
@@ -346,7 +365,7 @@
       if (sec.keyPoints && sec.keyPoints.length > 0) {
         keyPointsHtml = `
           <div class="keypoints-box">
-            <div class="keypoints-header"> 本節重點</div>
+            <div class="keypoints-header">💡 核心重點速記</div>
             <ul class="keypoints-list">
               ${sec.keyPoints.map(kp => `<li>${window.StudyContent.render(kp)}</li>`).join('')}
             </ul>
@@ -365,7 +384,6 @@
       }
 
       secDiv.innerHTML = `
-        ${pack.readerLayout === 'chunked' ? `<p class="section-step">第 ${sectionIndex + 1} / ${ch.sections.length} 節</p>` : ''}
         <h3 class="section-title">${escapeHtml(sec.title)}</h3>
         ${sec.content ? `<div class="section-body">${window.StudyContent.render(sec.content)}</div>` : ''}
         ${keyPointsHtml}
@@ -375,26 +393,20 @@
     });
     const goals = document.createElement('aside');
     goals.className = 'learning-goals';
-    if (pack.readerLayout === 'chunked') {
-      const stops = ch.sections.filter(section => !/本章概念|本章重點|理解脈絡|學習導航|如何使用|排行|題目總數/.test(section.title)).slice(0, 3);
-      goals.innerHTML = '<strong>本章閱讀路線</strong><p>一次讀一節；讀完先用自己的話回答一個問題，再往下。</p><ol>' + stops.map(section => `<li><a href="#sec-${escapeHtml(section.id)}">${escapeHtml(section.title)}</a></li>`).join('') + '</ol>';
-    } else {
-      goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
-    }
+    goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
     container.prepend(goals);
-    const practice = document.getElementById('btn-chapter-practice');
-    const practiceTitle = document.getElementById('chapter-practice-title');
-    practiceTitle.textContent = /00$/.test(ch.id) ? '全科暖身練習' : '本章練習';
-    document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `本次涵蓋：${ch.practiceConcepts.join('、')}。最多十題。` : '依收錄題目練習，最多十題。';
-    const practiceIds = new Set(ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id));
-    const questionById = new Map(pack.questions.map(question => [question.id, question]));
-    const practiceQuestions = [...practiceIds].map(id => questionById.get(id)).filter(Boolean);
-    const practicePreview = document.getElementById('chapter-practice-preview');
-    renderChapterPractice(practicePreview, practiceQuestions);
-    practice.disabled = practiceQuestions.length === 0;
-    document.getElementById('btn-mobile-practice').disabled = practice.disabled;
-    practice.textContent = practice.disabled ? '本章無練習題' : `以測驗模式練習（${practiceQuestions.length} 題）`;
-    practice.onclick = () => {switchView('quiz'); startQuiz('chapter', ch.id, 'all', practiceQuestions);};
+    const practice = document.getElementById('chapter-practice-panel');
+    const hasTeachingContent = pack.chapters.some(chapter => chapter.sections.some(section => section.content));
+    const hasPracticeQuestions = pack.chapters.some(chapter => (chapter.practiceQuestionIds || pack.questions.filter(question => question.chapterId === chapter.id).slice(0, 10).map(question => question.id)).length > 0);
+    practice.hidden = !hasTeachingContent || !hasPracticeQuestions;
+    if (!practice.hidden) {
+      const questionById = new Map(pack.questions.map(question => [question.id, question]));
+      const practiceQuestions = (ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id))
+        .map(id => questionById.get(id)).filter(Boolean);
+      document.getElementById('chapter-practice-title').textContent = /00$/.test(ch.id) ? `全科暖身練習（${practiceQuestions.length} 題）` : `本章練習（${practiceQuestions.length} 題）`;
+      document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `本次涵蓋：${ch.practiceConcepts.join('、')}。直接作答並查看答案。` : '依本章歷屆題目直接作答並查看答案。';
+      renderChapterPractice(document.getElementById('chapter-practice-preview'), practiceQuestions);
+    }
     const resume = progress.lastPosition.sectionId;
     if (resume) requestAnimationFrame(() => document.getElementById(`sec-${resume}`)?.scrollIntoView({block:'start'}));
 
@@ -405,8 +417,6 @@
 
     prevBtn.disabled = currIdx <= 0;
     nextBtn.disabled = currIdx >= pack.chapters.length - 1;
-    document.getElementById('btn-mobile-prev').disabled = prevBtn.disabled;
-    document.getElementById('btn-mobile-next').disabled = nextBtn.disabled;
 
     prevBtn.onclick = () => {
       if (currIdx > 0) {
@@ -526,13 +536,14 @@
   function highlight(text, query) {
     if (!query) return escapeHtml(text);
     const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return escapeHtml(text).replace(regex, '<span class="highlight">$1</span>');
+    return text.split(regex).map((part, index) => index % 2 ? `<span class="highlight">${escapeHtml(part)}</span>` : escapeHtml(part)).join('');
   }
 
 
   // ===== 4. 測驗引擎 Quiz Engine =====
-  function startQuiz(mode, chapterId = '', count = 20, selectedPool = null) {
+  function startQuiz(mode, chapterId = '', count = 20, selectedPool = null, knowledgePoint = '') {
     quizState.mode = mode;
+    quizState.knowledgePoint = knowledgePoint;
     quizState.answers = Object.create(null);
     quizState.submitted = Object.create(null);
     quizState.currentIndex = 0;
@@ -554,11 +565,9 @@
       pool = [...pack.questions];
     }
 
-    if (mode !== 'wrong' && document.getElementById('quiz-unseen-only').checked) {
-      pool = pool.filter(question => !progress.questionStats[question.id]?.attempts);
-    }
     // 洗牌
-    if (mode !== 'featured') for (let i = pool.length - 1; i > 0; i--) {
+    if (mode === 'exam') pool.sort((a, b) => a.sourceExam.number - b.sourceExam.number);
+    else if (mode !== 'featured') for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
@@ -601,16 +610,6 @@
     document.getElementById('quiz-type-tag').textContent = q.type === 'multiple-choice' ? '多選題' : (q.type === 'true-false' ? '是非題' : '單選題');
 
     document.getElementById('quiz-stem').textContent = q.question;
-    const issueSelect = document.getElementById('question-issue-type');
-    issueSelect.value = progress.questionIssues[q.id] || '';
-    document.querySelector('.question-issue').open = false;
-    document.getElementById('question-issue-status').textContent = '';
-    document.getElementById('btn-save-question-issue').onclick = () => {
-      if (issueSelect.value) progress.questionIssues[q.id] = issueSelect.value;
-      else delete progress.questionIssues[q.id];
-      const saved = saveProgress();
-      document.getElementById('question-issue-status').textContent = saved ? '已儲存於此瀏覽器，可隨進度備份匯出。' : '儲存失敗，請立即匯出進度備份。';
-    };
 
     const optionsContainer = document.getElementById('quiz-options-container');
     optionsContainer.innerHTML = '';
@@ -684,15 +683,7 @@
       nextBtn.style.display = 'inline-flex';
       feedbackBox.style.display = 'block';
 
-      // 檢查是否正確
-      let isCorrect = false;
-      if (q.type === 'multiple-choice') {
-        const ansArr = Array.isArray(q.answer) ? q.answer : [q.answer];
-        const userArr = Array.isArray(userSelected) ? userSelected : [];
-        isCorrect = ansArr.length === userArr.length && ansArr.every(v => userArr.includes(v));
-      } else {
-        isCorrect = userSelected === q.answer;
-      }
+      const isCorrect = answerIsCorrect(q, userSelected);
 
       feedbackBox.className = `feedback-box ${isCorrect ? 'feedback-correct' : 'feedback-wrong'}`;
       
@@ -705,11 +696,12 @@
 
       feedbackBox.innerHTML = `
         <div style="font-weight:800;font-size:1.05rem;">
-          ${isCorrect ? ' 作答正確！' : ' 作答錯誤！'} (正確答案：${ansLabel})
+          ${isCorrect ? '✓ 作答正確！' : '✕ 作答錯誤！'} (正確答案：${ansLabel})
         </div>
-        <button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>
+        ${hasTeachingChapter(q.chapterId) ? '<button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>' : ''}
       `;
-      document.getElementById('btn-answer-reader').onclick = () => openRelatedChapter(q);
+      const readerButton = document.getElementById('btn-answer-reader');
+      if (readerButton) readerButton.onclick = () => openRelatedChapter(q);
     } else {
       submitBtn.style.display = 'inline-flex';
       nextBtn.style.display = 'none';
@@ -726,15 +718,7 @@
       quizState.submitted[q.id] = true;
 
       // 紀錄進度
-      let isCorrect = false;
-      if (q.type === 'multiple-choice') {
-        const ansArr = Array.isArray(q.answer) ? q.answer : [q.answer];
-        const userArr = Array.isArray(userSelected) ? userSelected : [];
-        isCorrect = ansArr.length === userArr.length && ansArr.every(v => userArr.includes(v));
-      } else {
-        isCorrect = userSelected === q.answer;
-      }
-
+      const isCorrect = answerIsCorrect(q, userSelected);
       recordQuestionAnswer(q, isCorrect);
 
       renderQuizCard();
@@ -760,10 +744,7 @@
   function showQuizSummary() {
     quizState.active = false;
     const answered = quizState.pool.filter(q => quizState.submitted[q.id]);
-    const wrong = answered.filter(q => {
-      const selected = quizState.answers[q.id];
-      return Array.isArray(q.answer) ? !Array.isArray(selected) || selected.length !== q.answer.length || !q.answer.every(v => selected.includes(v)) : selected !== q.answer;
-    });
+    const wrong = answered.filter(q => !answerIsCorrect(q, quizState.answers[q.id]));
     const correctCount = answered.length - wrong.length;
     const examSource = quizState.pool[0]?.sourceExam;
     const oneExam = examSource && quizState.pool.every(q => q.sourceExam?.term === examSource.term && q.sourceExam.subject === examSource.subject);
@@ -773,6 +754,7 @@
       completedAt: new Date().toISOString(), mode: quizState.mode, questionCount: answered.length,
       correctCount, wrongCount: wrong.length, accuracy: answered.length ? Math.round(correctCount / answered.length * 100) : 0,
       ...(oneExam ? {term: examSource.term, subject: examSource.subject} : {}),
+      ...(quizState.knowledgePoint ? {knowledgePoint: quizState.knowledgePoint} : {}),
       ...(oneFeaturedGroup ? {featuredGroup} : {})
     });
     progress.quizHistory.length = Math.min(progress.quizHistory.length, 20);
@@ -780,6 +762,7 @@
     document.getElementById('quiz-running-panel').style.display = 'none';
     document.getElementById('quiz-setup-panel').style.display = 'none';
     document.getElementById('quiz-summary-panel').style.display = 'block';
+    document.getElementById('quiz-summary-title').textContent = answered.length === quizState.pool.length ? '測驗完成' : '測驗已結束';
     document.getElementById('quiz-summary-count').textContent = `${answered.length} / ${quizState.pool.length}`;
     document.getElementById('quiz-summary-correct').textContent = answered.length - wrong.length;
     document.getElementById('quiz-summary-wrong').textContent = wrong.length;
@@ -787,12 +770,20 @@
     const retry = document.getElementById('btn-quiz-retry-wrong');
     retry.style.display = wrong.length ? 'inline-flex' : 'none';
     retry.onclick = () => startQuiz('wrong', '', 'all', wrong);
-    document.getElementById('btn-quiz-restart').onclick = () => startQuiz(quizState.mode, '', 'all', quizState.pool);
+    document.getElementById('btn-quiz-restart').onclick = () => startQuiz(quizState.mode, '', 'all', quizState.pool, quizState.knowledgePoint);
     document.getElementById('btn-quiz-back-menu').onclick = () => {document.getElementById('quiz-summary-panel').style.display='none';document.getElementById('quiz-setup-panel').style.display='block';};
     let list = document.getElementById('quiz-summary-list');
     if (!list) {list = document.createElement('ul');list.id='quiz-summary-list';document.getElementById('quiz-summary-panel').append(list);}
     list.replaceChildren();
-    for (const q of wrong) {const item=document.createElement('li'),button=document.createElement('button');button.type='button';button.className='btn btn-secondary';button.textContent=q.question;button.onclick=()=>openRelatedChapter(q);item.append(button);list.append(item);}
+    for (const question of wrong) {
+      const item = document.createElement('li');
+      if (hasTeachingChapter(question.chapterId)) {
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'btn btn-secondary'; button.textContent = question.question;
+        button.onclick = () => openRelatedChapter(question); item.append(button);
+      } else item.textContent = question.question;
+      list.append(item);
+    }
     renderDashboard();
     renderQuizHistory();
   }
@@ -805,8 +796,8 @@
     panel.hidden = progress.quizHistory.length === 0;
     for (const record of progress.quizHistory) {
       const item = document.createElement('li');
-      const label = {chapter:'章節',random:'隨機',wrong:'錯題',exam:'歷屆考期',featured:'精選題'}[record.mode];
-      const title = record.term ? `${record.term} ${record.subject}` : record.featuredGroup ? `精選題組 ${record.featuredGroup.replace(/^c/, '')}` : label;
+      const label = {chapter:'章節',random:'隨機',wrong:'錯題',exam:'歷屆考期',featured:'精選題','knowledge-point':'知識點'}[record.mode];
+      const title = record.knowledgePoint ? `知識點：${record.knowledgePoint}` : record.term ? `${record.term} ${record.subject}` : record.featuredGroup ? `精選題組 ${record.featuredGroup.replace(/^c/, '')}` : label;
       item.textContent = `${new Date(record.completedAt).toLocaleString()}｜${title}｜${record.accuracy}%（${record.correctCount}/${record.questionCount}）`;
       list.append(item);
     }
@@ -875,82 +866,19 @@
   }
 
   // ===== 初始化事件綁定 =====
-  let mobileMenuTrigger;
-  function closeMobileMenu() {
-    if (!document.documentElement.classList.contains('reader-menu-open')) return;
-    document.documentElement.classList.remove('reader-menu-open');
-    const sidebar = document.getElementById('reader-sidebar');
-    sidebar.removeAttribute('role'); sidebar.removeAttribute('aria-modal');
-    const toggle = document.getElementById('btn-toggle-sidebar');
-    toggle.textContent = '收合 ◀'; toggle.setAttribute('aria-label', '收合目錄');
-    document.getElementById('reader-backdrop').hidden = true;
-    document.querySelector('.reader-content').inert = false;
-    document.querySelector('.app-header').inert = false;
-    document.querySelector('.mobile-reader-nav').inert = false;
-    document.getElementById('study-catalog-nav')?.removeAttribute('inert');
-    for (const id of ['btn-mobile-menu', 'btn-mobile-toc']) document.getElementById(id).setAttribute('aria-expanded', 'false');
-    mobileMenuTrigger?.focus({preventScroll:true});
-  }
   function init() {
-    const header = document.querySelector('.app-header');
-    const updateHeaderOffset = () => document.documentElement.style.setProperty('--reader-header-offset', `${header.getBoundingClientRect().bottom}px`);
-    new ResizeObserver(updateHeaderOffset).observe(header);
-    updateHeaderOffset();
     loadProgress();
-    const highlightToggle = document.getElementById('highlight-toggle');
-    highlightToggle.checked = progress.settings.highlights !== false;
-    const applyHighlights = () => {
-      document.documentElement.dataset.highlights = highlightToggle.checked ? 'on' : 'off';
-      progress.settings.highlights = highlightToggle.checked;
-    };
-    applyHighlights();
-    highlightToggle.onchange = () => { applyHighlights(); saveProgress(); };
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');
     sidebarToggle.setAttribute('aria-controls','reader-toc-list');
     sidebarToggle.setAttribute('aria-expanded','true');
     sidebarToggle.onclick = () => {
-      if (matchMedia('(max-width:768px)').matches) { closeMobileMenu(); return; }
       const list = document.getElementById('reader-toc-list');
       list.hidden = !list.hidden;
       sidebarToggle.textContent = list.hidden ? '展開目錄' : '收合目錄';
       sidebarToggle.setAttribute('aria-expanded',String(!list.hidden));
     };
-    const mobileMedia = matchMedia('(max-width:768px)');
-    const openMobileMenu = event => {
-      mobileMenuTrigger = event.currentTarget;
-      document.documentElement.classList.add('reader-menu-open');
-      const sidebar = document.getElementById('reader-sidebar');
-      sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true');
-      sidebar.setAttribute('aria-label', '章節目錄');
-      sidebarToggle.textContent = '關閉'; sidebarToggle.setAttribute('aria-label', '關閉章節目錄');
-      document.getElementById('reader-toc-list').hidden = false;
-      document.getElementById('reader-backdrop').hidden = false;
-      document.querySelector('.reader-content').inert = true;
-      document.querySelector('.app-header').inert = true;
-      document.querySelector('.mobile-reader-nav').inert = true;
-      document.getElementById('study-catalog-nav')?.setAttribute('inert', '');
-      for (const id of ['btn-mobile-menu', 'btn-mobile-toc']) document.getElementById(id).setAttribute('aria-expanded', 'true');
-      sidebarToggle.focus();
-    };
-    document.getElementById('btn-mobile-menu').onclick = openMobileMenu;
-    document.getElementById('btn-mobile-toc').onclick = openMobileMenu;
-    document.getElementById('reader-backdrop').onclick = closeMobileMenu;
-    document.getElementById('btn-mobile-prev').onclick = () => document.getElementById('btn-prev-chapter').click();
-    document.getElementById('btn-mobile-next').onclick = () => document.getElementById('btn-next-chapter').click();
-    document.getElementById('btn-mobile-practice').onclick = () => document.getElementById('btn-chapter-practice').click();
-    mobileMedia.addEventListener('change', closeMobileMenu);
-    document.addEventListener('keydown', event => {
-      if (!document.documentElement.classList.contains('reader-menu-open')) return;
-      if (event.key === 'Escape') closeMobileMenu();
-      if (event.key === 'Tab') {
-        const controls = [...document.querySelectorAll('#reader-sidebar button, #reader-sidebar [tabindex="0"]')];
-        const first = controls[0], last = controls.at(-1);
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-      }
-    });
     document.getElementById('sections-container').addEventListener('click', event => {
       const link = event.target.closest('a[data-chapter]');
       if (!link) return;
@@ -967,8 +895,7 @@
         readingFrame = 0;
         if (currentView !== 'reader') return;
         const sections = [...document.querySelectorAll('#sections-container .section-block')];
-        const readingTop = document.querySelector('.app-header').getBoundingClientRect().bottom + 32;
-        const visible = sections.filter(section => section.getBoundingClientRect().top <= readingTop).at(-1) || sections[0];
+        const visible = sections.filter(section => section.getBoundingClientRect().top <= 180).at(-1) || sections[0];
         if (visible && progress.lastPosition.sectionId !== visible.id.slice(4)) {
           progress.lastPosition.sectionId = visible.id.slice(4);
           saveProgress();
@@ -1002,13 +929,15 @@
     document.getElementById('shortcut-continue-read')?.addEventListener('click', () => switchView('reader'));
     document.getElementById('shortcut-random-quiz')?.addEventListener('click', () => {
       switchView('quiz');
-      startQuiz('random', '', 20);
+      startQuiz('random', '', 10);
     });
     document.getElementById('shortcut-wrong-answers')?.addEventListener('click', () => {
       switchView('quiz');
       startQuiz('wrong', '', 'all');
     });
 
+    document.getElementById('btn-quick-ten')?.addEventListener('click', () => startQuiz('random', '', 10));
+    document.getElementById('btn-quick-wrong')?.addEventListener('click', () => startQuiz('wrong', '', 'all'));
     // 測驗設定表單初始化
     const quizChSelect = document.getElementById('quiz-select-chapter');
     if (quizChSelect) {
@@ -1020,6 +949,30 @@
       });
       quizChSelect.disabled = quizChSelect.options.length === 0;
       document.getElementById('btn-start-chapter-quiz').disabled = quizChSelect.disabled;
+    }
+
+    const knowledgeSelect = document.getElementById('quiz-select-knowledge-point');
+    if (knowledgeSelect) {
+      const knowledgeQuestions = new Map();
+      for (const question of pack.questions) for (const label of question.knowledgePoints || []) {
+        if (!knowledgeQuestions.has(label)) knowledgeQuestions.set(label, []);
+        knowledgeQuestions.get(label).push(question);
+      }
+      [...knowledgeQuestions.entries()].sort(([a, questionsA], [b, questionsB]) => questionsB.length - questionsA.length || a.localeCompare(b, 'zh-Hant')).forEach(([label, questions]) => {
+        const option = document.createElement('option');
+        option.value = label;
+        option.textContent = `${label}（${questions.length} 題）`;
+        knowledgeSelect.appendChild(option);
+      });
+      const disabled = knowledgeQuestions.size === 0;
+      knowledgeSelect.disabled = disabled;
+      document.getElementById('knowledge-point-quiz-group').hidden = disabled;
+      document.getElementById('btn-start-knowledge-point-quiz').disabled = disabled;
+      document.getElementById('btn-start-knowledge-point-quiz').addEventListener('click', () => {
+        const label = knowledgeSelect.value;
+        const questions = knowledgeQuestions.get(label);
+        if (questions?.length) startQuiz('knowledge-point', '', 20, questions, label);
+      });
     }
 
     const examSelect = document.getElementById('quiz-select-exam');
@@ -1086,7 +1039,9 @@
     });
 
     document.getElementById('btn-exit-quiz')?.addEventListener('click', () => {
-      if (confirm('確定要離開本次測驗嗎？已作答的紀錄將被保存。')) {
+      if (confirm('結束本次測驗並查看已答結果？未作答題目不計分。')) {
+        if (quizState.pool.some(question => quizState.submitted[question.id])) { showQuizSummary(); return; }
+        quizState.active = false;
         document.getElementById('quiz-setup-panel').style.display = 'block';
         document.getElementById('quiz-running-panel').style.display = 'none';
         renderDashboard();
@@ -1100,9 +1055,11 @@
     });
     document.getElementById('import-file-input')?.addEventListener('change', (e) => {
       const file = e.target.files[0];
+      e.target.value = '';
       if (!file) return;
       const reader = new FileReader();
       reader.onload = (evt) => importProgressJson(evt.target.result);
+      reader.onerror = () => alert('無法讀取備份檔案，請重新選擇。');
       reader.readAsText(file);
     });
     document.getElementById('btn-reset-progress')?.addEventListener('click', resetProgress);

@@ -6,6 +6,7 @@ import { sanitizeHtml } from '../utils/sanitize.js';
  * @returns {Array<Array<string>>}
  */
 export function parseCsvRows(csvText) {
+  csvText = csvText.replace(/^\uFEFF/, '');
   const rows = [];
   let currentRow = [];
   let currentVal = '';
@@ -51,6 +52,7 @@ export function parseCsvRows(csvText) {
     }
   }
 
+  if (inQuotes) throw new Error('CSV 引號未閉合，請確認來源檔案完整。');
   currentRow.push(currentVal.trim());
   if (currentRow.some(c => c.length > 0)) rows.push(currentRow);
 
@@ -65,51 +67,25 @@ export function parseCsvRows(csvText) {
  * @returns {number|Array<number>}
  */
 export function normalizeAnswer(rawAnswer, type = 'single-choice', options = []) {
-  if (rawAnswer === null || rawAnswer === undefined) return 0;
+  if (rawAnswer === null || rawAnswer === undefined) return undefined;
   const str = String(rawAnswer).trim().toUpperCase();
-
-  // 是非題型
+  if (!str) return undefined;
   if (type === 'true-false') {
     if (['O', 'T', 'TRUE', 'YES', '是', '對', '1'].includes(str)) return 0;
     if (['X', 'F', 'FALSE', 'NO', '否', '錯', '2', '0'].includes(str)) return 1;
-    const num = parseInt(str, 10);
-    return isNaN(num) ? 0 : (num > 0 ? num - 1 : num);
   }
-
-  // 多選題型
+  const index = token => /^[A-Z]$/.test(token) ? token.charCodeAt(0) - 65
+    : /^\d+$/.test(token) ? Math.max(0, Number(token) - 1) : undefined;
   if (type === 'multiple-choice') {
-    // 可能是 "A,C" 或 "AC" 或 "1,3"
-    let tokens = str.split(/[,\s;/]+/).filter(Boolean);
-    if (tokens.length === 1 && /^[A-Z]{2,}$/.test(tokens[0])) {
-      tokens = tokens[0].split('');
-    }
-    const result = [];
-    for (const tok of tokens) {
-      if (/^[A-Z]$/.test(tok)) {
-        result.push(tok.charCodeAt(0) - 65);
-      } else {
-        const n = parseInt(tok, 10);
-        if (!isNaN(n)) result.push(n >= 1 ? n - 1 : n);
-      }
-    }
-    return [...new Set(result)].sort((a, b) => a - b);
+    let tokens = str.split(/[,，、\s;/]+/).filter(Boolean);
+    if (tokens.length === 1 && /^[A-Z]{2,}$/.test(tokens[0])) tokens = tokens[0].split('');
+    const indexes = tokens.map(index);
+    return indexes.some(i => i === undefined) ? undefined : [...new Set(indexes)].sort((a, b) => a - b);
   }
-
-  // 單選題型 (預設)
-  if (/^[A-Z]$/.test(str)) {
-    return str.charCodeAt(0) - 65;
-  }
-  const n = parseInt(str, 10);
-  if (!isNaN(n)) {
-    // 如果答案是 1,2,3,4 通常是 1-based，若是 0 則為 0-based
-    return n >= 1 && n <= (options.length || 4) ? n - 1 : n;
-  }
-
-  // 嘗試字串精確比對選項文字
-  const optIdx = options.findIndex(o => o.trim().toUpperCase() === str);
-  if (optIdx !== -1) return optIdx;
-
-  return 0;
+  const value = index(str);
+  if (value !== undefined) return value;
+  const match = options.findIndex(o => typeof o === 'string' && o.trim().toUpperCase() === str);
+  return match === -1 ? undefined : match;
 }
 
 /**
@@ -175,11 +151,11 @@ export function parseQuestionsCsv(csvContent, defaultChapterMapping = {}) {
     const rawSection = secCol !== -1 && row[secCol] ? row[secCol].trim() : '';
     const rawType = typeCol !== -1 && row[typeCol] ? row[typeCol].trim().toLowerCase() : 'single-choice';
     const questionText = qCol !== -1 && row[qCol] ? row[qCol].trim() : '';
-    const rawAnswer = ansCol !== -1 && row[ansCol] ? row[ansCol].trim() : '0';
+    const rawAnswer = ansCol !== -1 ? row[ansCol] : undefined;
     const explanation = expCol !== -1 && row[expCol] ? row[expCol].trim() : '';
 
     // 處理題型
-    let type = 'single-choice';
+    let type = ['single', 'single-choice', '單選', '單選題'].includes(rawType) ? 'single-choice' : rawType;
     if (rawType.includes('true') || rawType.includes('false') || rawType.includes('是') || rawType.includes('非')) {
       type = 'true-false';
     } else if (rawType.includes('multi') || rawType.includes('複選') || rawType.includes('多選')) {
@@ -190,11 +166,12 @@ export function parseQuestionsCsv(csvContent, defaultChapterMapping = {}) {
     let options = [];
     if (optionCols.length > 0) {
       for (const { col } of optionCols) {
-        if (col < row.length && row[col].trim()) {
-          options.push(sanitizeHtml(row[col].trim()));
-        }
+        options.push(sanitizeHtml((row[col] || '').trim()));
       }
     }
+
+    // 只移除尾端空欄；保留中間空欄，避免移動答案索引。
+    while (options.length && !options.at(-1)) options.pop();
 
     // 是非題若無選項，自動補上標準選項
     if (type === 'true-false' && options.length === 0) {

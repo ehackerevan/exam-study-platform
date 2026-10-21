@@ -78,6 +78,14 @@ export function validateStudyPack(pack) {
     return report;
   }
 
+  const checkText = (text, target) => {
+    if (typeof text !== 'string' || /[\uFFFD\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(text)) {
+      report.addError('INVALID_TEXT', '文字必須為字串，且不可含編碼替代字元或非法控制字元', target);
+    }
+  };
+  if (!Array.isArray(pack.questions)) report.addError('INVALID_QUESTIONS', 'questions 必須為陣列');
+  if (typeof pack.title === 'string') checkText(pack.title, 'title');
+
   // 1. Pack 基本資訊檢查
   if (!pack.id || typeof pack.id !== 'string' || !pack.id.trim()) {
     report.addError('MISSING_PACK_ID', '缺少學習包識別代碼 (id)');
@@ -103,6 +111,7 @@ export function validateStudyPack(pack) {
   // 2. 章節 Chapter 檢查
   if (Array.isArray(pack.chapters)) {
     pack.chapters.forEach((ch, chIdx) => {
+      if (!ch || typeof ch !== 'object') { report.addError('INVALID_CHAPTER', '章節必須為物件', `Chapter #${chIdx + 1}`); return; }
       const chLabel = ch.id ? `Chapter ${ch.id}` : `Chapter #${chIdx + 1}`;
 
       if (!ch.id || typeof ch.id !== 'string') {
@@ -123,6 +132,8 @@ export function validateStudyPack(pack) {
         chapterTitles.add(ch.title.trim());
       }
 
+      if (typeof ch.title === 'string') checkText(ch.title, chLabel);
+      if (ch.summary !== undefined) checkText(ch.summary, chLabel);
       let totalKeyPointsInChapter = 0;
       let totalContentLength = 0;
 
@@ -133,19 +144,25 @@ export function validateStudyPack(pack) {
         report.stats.sectionsCount += ch.sections.length;
 
         ch.sections.forEach((sec, secIdx) => {
+          if (!sec || typeof sec !== 'object') { report.addError('INVALID_SECTION', '小節必須為物件', chLabel); return; }
           const secLabel = `${chLabel} > Section ${sec.id || '#' + (secIdx + 1)}`;
           if (!sec.id) {
             report.addError('MISSING_SECTION_ID', `小節缺少 ID`, secLabel);
           } else if (sectionIdSet.has(sec.id)) {
-            report.addWarning('DUPLICATE_SECTION_ID', `章節內小節 ID '${sec.id}' 重複`, secLabel);
+            report.addError('DUPLICATE_SECTION_ID', `章節內小節 ID '${sec.id}' 重複`, secLabel);
           } else {
             sectionIdSet.add(sec.id);
           }
 
-          if (!sec.title || !sec.title.trim()) {
+          if (typeof sec.title !== 'string' || !sec.title.trim()) {
             report.addWarning('MISSING_SECTION_TITLE', `小節缺少標題`, secLabel);
           }
 
+          for (const field of ['title', 'content']) if (sec[field] !== undefined) checkText(sec[field], `${secLabel} ${field}`);
+          for (const field of ['keyPoints', 'notes']) {
+            if (sec[field] !== undefined && !Array.isArray(sec[field])) report.addError('INVALID_TEXT_LIST', `${field} 必須為文字陣列`, secLabel);
+            else for (const text of sec[field] || []) checkText(text, secLabel);
+          }
           if (Array.isArray(sec.keyPoints)) {
             totalKeyPointsInChapter += sec.keyPoints.length;
             report.stats.keyPointsCount += sec.keyPoints.length;
@@ -173,6 +190,7 @@ export function validateStudyPack(pack) {
 
   if (Array.isArray(pack.questions)) {
     pack.questions.forEach((q, qIdx) => {
+      if (!q || typeof q !== 'object') { report.addError('INVALID_QUESTION', '題目必須為物件', `Question #${qIdx + 1}`); return; }
       const qLabel = q.id ? `Question ${q.id}` : `Question #${qIdx + 1}`;
 
       // ID 唯一性
@@ -194,6 +212,11 @@ export function validateStudyPack(pack) {
         chapterQuestionCounter.set(q.chapterId, count + 1);
       }
 
+      const questionChapter = (Array.isArray(pack.chapters) ? pack.chapters : []).find(chapter => chapter?.id === q.chapterId);
+      if (q.sectionId && (!Array.isArray(questionChapter?.sections) || !questionChapter.sections.some(section => section?.id === q.sectionId))) {
+        report.addError('INVALID_QUESTION_SECTION', '題目小節不存在於所屬章節', qLabel);
+      }
+
       // 題型支援
       const validTypes = ['single-choice', 'true-false', 'multiple-choice'];
       if (!q.type || !validTypes.includes(q.type)) {
@@ -205,25 +228,34 @@ export function validateStudyPack(pack) {
         report.addError('EMPTY_QUESTION_TEXT', `題目內容不可為空`, qLabel);
       }
 
+      if (typeof q.question === 'string') checkText(q.question, qLabel);
+
       // 選項檢查
       if (!Array.isArray(q.options) || q.options.length < 2) {
         report.addError('INSUFFICIENT_OPTIONS', `題目選項必須至少提供 2 個，目前有 ${q.options ? q.options.length : 0} 個`, qLabel);
       }
+
+      if (Array.isArray(q.options)) for (const option of q.options) {
+        checkText(option, qLabel);
+        if (typeof option === 'string' && !option.trim()) report.addError('EMPTY_OPTION', '題目選項不可空白', qLabel);
+      }
+      if (q.type === 'true-false' && q.options?.length !== 2) report.addError('INVALID_TRUE_FALSE_OPTIONS', '是非題必須有兩個選項', qLabel);
 
       // 答案檢查
       if (q.type === 'multiple-choice') {
         if (!Array.isArray(q.answer) || q.answer.length === 0) {
           report.addError('INVALID_MULTIPLE_CHOICE_ANSWER', `多選題答案必須為非空數字陣列`, qLabel);
         } else {
+          if (new Set(q.answer).size !== q.answer.length) report.addError('DUPLICATE_ANSWER', '多選答案不可重複', qLabel);
           for (const ansIdx of q.answer) {
-            if (typeof ansIdx !== 'number' || ansIdx < 0 || (q.options && ansIdx >= q.options.length)) {
-              report.addError('ANSWER_OUT_OF_BOUNDS', `多選題答案索引 ${ansIdx} 超出選項範圍 (0 至 ${q.options.length - 1})`, qLabel);
+            if (!Number.isSafeInteger(ansIdx) || ansIdx < 0 || !Array.isArray(q.options) || ansIdx >= q.options.length) {
+              report.addError('ANSWER_OUT_OF_BOUNDS', `多選題答案索引 ${ansIdx} 超出選項範圍 (0 至 ${(q.options?.length || 0) - 1})`, qLabel);
             }
           }
         }
       } else {
         // 單選或是非
-        if (typeof q.answer !== 'number' || q.answer < 0 || (q.options && q.answer >= q.options.length)) {
+        if (!Number.isSafeInteger(q.answer) || q.answer < 0 || !Array.isArray(q.options) || q.answer >= q.options.length) {
           report.addError('ANSWER_OUT_OF_BOUNDS', `答案索引 ${q.answer} 超出選項範圍 (共有 ${q.options ? q.options.length : 0} 個選項)`, qLabel);
         }
       }
@@ -235,13 +267,20 @@ export function validateStudyPack(pack) {
         report.addError('INVALID_SOURCE_EXAM', '考試來源需包含考期、科目與正整數題號', qLabel);
       }
 
+      if (q.knowledgePoints !== undefined &&
+        (!Array.isArray(q.knowledgePoints) || !q.knowledgePoints.length ||
+          q.knowledgePoints.some(label => typeof label !== 'string' || !label.trim()) ||
+          new Set(q.knowledgePoints).size !== q.knowledgePoints.length)) {
+        report.addError('INVALID_KNOWLEDGE_POINTS', '知識點需為不重複的非空文字陣列', qLabel);
+      }
+
       if ((q.featuredGroup !== undefined || q.featuredRank !== undefined) &&
         (typeof q.featuredGroup !== 'string' || !q.featuredGroup.trim() || !Number.isSafeInteger(q.featuredRank) || q.featuredRank < 1)) {
         report.addError('INVALID_FEATURED_QUESTION', '精選題需包含題組代碼與正整數排序', qLabel);
       }
 
       // 重複題目檢查 (normalized exact match)
-      if (q.question) {
+      if (typeof q.question === 'string' && q.question) {
         const normStem = q.question.replace(/\s+/g, '').toLowerCase();
         if (normalizedQuestionsMap.has(normStem)) {
           report.addWarning('DUPLICATE_QUESTION_TEXT', `發現題幹內容與 ${normalizedQuestionsMap.get(normStem)} 高度重複`, qLabel);
@@ -250,6 +289,14 @@ export function validateStudyPack(pack) {
         }
       }
     });
+  }
+
+  for (const chapter of Array.isArray(pack.chapters) ? pack.chapters : []) {
+    if (!chapter || chapter.practiceQuestionIds === undefined) continue;
+    const ids = chapter.practiceQuestionIds;
+    if (!Array.isArray(ids) || new Set(ids).size !== ids.length || ids.some(id => !questionIdSet.has(id))) {
+      report.addError('INVALID_PRACTICE_QUESTIONS', '章末練習需使用不重複且存在的題目 ID', chapter.id);
+    }
   }
 
   // 檢查是否有章節完全沒有題目

@@ -114,7 +114,7 @@ async function runE2e() {
     await wait(200);
     const completeBtnText = await evalCode('document.getElementById("btn-toggle-complete").textContent');
     console.log(`   - 完成按鈕狀態: ${completeBtnText}`);
-    if (!completeBtnText.includes('已完成')) throw new Error('標記完成失敗');
+    if (!completeBtnText.includes('已讀本章')) throw new Error('標記完成失敗');
 
     // 3. 測試全文搜尋
     console.log('3. 測試全文搜尋 Search...');
@@ -141,7 +141,7 @@ async function runE2e() {
 
     // 選取第一個選項並提交
     console.log('   - 點選選項 A 並提交答案...');
-    await evalCode('document.querySelectorAll(".option-item")[0].click()');
+    await evalCode('document.querySelectorAll("#quiz-options-container .option-item")[0].click()');
     await wait(100);
     await evalCode('document.getElementById("btn-quiz-submit").click()');
     await wait(200);

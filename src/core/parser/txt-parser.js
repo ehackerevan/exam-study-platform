@@ -30,7 +30,7 @@ export function parseQuestionsTxt(txtContent, defaultChapterId = 'chapter-01') {
 
     let questionText = '';
     const options = [];
-    let rawAnswer = 'A';
+    let rawAnswer;
     let explanation = '';
     let foundStem = false;
 

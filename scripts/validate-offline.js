@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {findExternalResources} from '../src/core/utils/offline.js';
 
 const distDir = path.resolve(process.cwd(), 'dist');
 if (!fs.existsSync(distDir)) {
@@ -19,30 +20,13 @@ for (const file of htmlFiles) {
   const fullPath = path.join(distDir, file);
   const content = fs.readFileSync(fullPath, 'utf-8');
 
-  // 檢查外部 script src
-  const scriptMatch = content.match(/<script[^>]+src=["'](https?:|\/\/)[^"']+["']/gi);
-  if (scriptMatch) {
-    console.error(`[FAIL] ${file} 包含外部腳本:`, scriptMatch);
+  const resources = findExternalResources(content);
+  if (resources.length) {
+    console.error(`[FAIL] ${file} 包含外部資源:`, resources);
     failed = true;
-  }
-
-  // 檢查外部 link stylesheet
-  const linkMatch = content.match(/<link[^>]+rel=["']stylesheet["'][^>]+href=["'](https?:|\/\/)[^"']+["']/gi);
-  if (linkMatch) {
-    console.error(`[FAIL] ${file} 包含外部樣式表:`, linkMatch);
-    failed = true;
-  }
-
-  // 檢查外部 CDN 關鍵字
-  const cdnMatch = content.match(/(?:googleapis|cdnjs|unpkg|jsdelivr|bootstrap|tailwind)/gi);
-  if (cdnMatch) {
-    console.error(`[FAIL] ${file} 包含外部 CDN 關鍵字:`, cdnMatch);
-    failed = true;
-  }
-
-  if (!failed) {
+  } else {
     const sizeKb = (Buffer.byteLength(content, 'utf-8') / 1024).toFixed(1);
-    console.log(`[PASS] ${file} (${sizeKb} KB) - 零外部依賴、純本機離線可用`);
+    console.log(`[PASS] ${file} (${sizeKb} KB) - 無外部資源依賴`);
   }
 }
 

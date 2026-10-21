@@ -6,6 +6,7 @@ import { sanitizeHtml, slugify } from '../utils/sanitize.js';
  * @returns {{ data: Record<string, string>, content: string }}
  */
 export function parseFrontmatter(mdContent) {
+  mdContent = mdContent.replace(/^\uFEFF/, '');
   const match = mdContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) {
     return { data: {}, content: mdContent };
@@ -99,7 +100,8 @@ export function parseMarkdownToChapters(rawMarkdown, options = {}) {
       sectionIndex = 0;
       activeSublist = null;
       const rawTitle = h1Match[1].trim();
-      const id = frontmatter.id || frontmatter.chapterId || slugify(rawTitle, `chapter-${String(chapterIndex).padStart(2, '0')}`);
+      const baseId = frontmatter.chapterId || frontmatter.id || options.defaultChapterId;
+      const id = baseId ? (chapterIndex === 1 ? baseId : `${baseId}-${chapterIndex}`) : slugify(rawTitle, `chapter-${String(chapterIndex).padStart(2, '0')}`);
       currentChapter = {
         id,
         title: rawTitle,

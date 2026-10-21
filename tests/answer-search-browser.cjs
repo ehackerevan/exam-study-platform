@@ -23,7 +23,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
    assert.equal(invalid,0,file);
    if(pack&&!clicked){
     const snapshot=await p.evaluate(()=>JSON.stringify(localStorage)),originalUrl=p.url();
-    const popupPromise=context.waitForEvent('page');await p.locator('.answer-search').first().click();const popup=await popupPromise;await popup.waitForLoadState();
+    assert.equal(await p.locator('.answer-search').first().isVisible(),true);const popupPromise=context.waitForEvent('page');await p.locator('.answer-search').first().click();const popup=await popupPromise;await popup.waitForLoadState();
     assert.equal(new URL(popup.url()).searchParams.get('q'),await p.locator('.answer-search').first().evaluate(a=>new URL(a.href).searchParams.get('q')));
     assert.equal(p.url(),originalUrl);assert.equal(await p.evaluate(()=>JSON.stringify(localStorage)),snapshot);await popup.close();
     await p.locator('.option-item').first().click();await p.locator('#btn-quiz-submit').click();await p.locator('#btn-quiz-next').click();
@@ -44,7 +44,8 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
    await p.waitForFunction(expected=>{const a=document.querySelector('.q-text+.answer-search');return a&&new URL(a.href).searchParams.get('q')===expected;},expected);
    assert.equal(await p.locator('.q-text').textContent(),input);
   }
-  assert.equal(results.length,9);assert(clicked);assert.deepEqual(errors,[]);
-  console.log('PASS: all 9 learning/question-bank pages have exact Google question URLs; popup, unchanged storage and next-question update verified');
+   const questionPages=files.filter(file=>path.basename(file)!=='index.html'&&file!=='src/renderer/template.html');
+   assert.equal(results.length,questionPages.length);assert(clicked);assert.deepEqual(errors,[]);
+   console.log(`PASS: all ${results.length} question-bearing pages have exact Google question URLs; popup, unchanged storage and next-question update verified`);
  }finally{fs.writeFileSync('.qa-artifacts/answer-search.json',JSON.stringify({results,errors,date:new Date().toISOString()},null,2));await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

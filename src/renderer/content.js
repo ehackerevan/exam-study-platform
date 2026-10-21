@@ -4,14 +4,18 @@
     const labels = new Map();
     const node = /\b([A-Za-z][\w-]*)\s*(?:\["([^"]+)"\]|\[([^\]]+)\]|\("([^"]+)"\)|\(([^)]+)\)|\{"([^"]+)"\}|\{([^}]+)\})/g;
     for (const match of source.matchAll(node)) labels.set(match[1], match.slice(2).find(value => value !== undefined).replace(/<br\s*\/?>/gi, ' '));
-    const rows = [];
+    const rows = [], groups = new Map();
     for (const line of source.split('\n')) {
       const pie = line.match(/^\s*"([^"]+)"\s*:\s*([\d.]+)/);
       if (pie) rows.push(`<tr><td>${escape(pie[1])}</td><td>${escape(pie[2])}</td></tr>`);
       const edge = line.replace(node, (_, id) => id).match(/^\s*([A-Za-z][\w-]*)\s*(?:-->|---|-.->|==>)\s*(?:\|([^|]+)\|)?\s*([A-Za-z][\w-]*)/);
-      if (edge) rows.push(`<tr><td>${escape(labels.get(edge[1]) || edge[1])}</td><td>${edge[2] ? `<strong>${edge[2].split(/<br\s*\/?>/i).map(escape).join('<br>')}</strong><br>` : ''}${escape(labels.get(edge[3]) || edge[3])}</td></tr>`);
+      if (edge) {
+        if (!groups.has(edge[1])) groups.set(edge[1], []);
+        groups.get(edge[1]).push(`${edge[2] ? `<strong>${edge[2].split(/<br\s*\/?>/i).map(escape).join('<br>')}</strong>：` : ''}${escape(labels.get(edge[3]) || edge[3])}`);
+      }
     }
     // shortcut: current course diagrams use simple edges; retain unfamiliar syntax as a text alternative.
+    if (groups.size) return [...groups].map(([id, items]) => `<p><strong>${escape(labels.get(id) || id)}</strong></p><ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`).join('');
     return rows.length ? `<div class="table-scroll" tabindex="0" aria-label="關係圖文字對照"><table><caption>概念關係對照</caption><tbody>${rows.join('')}</tbody></table></div>` : `<details><summary>概念圖文字版</summary><pre>${escape(source)}</pre></details>`;
   }
   function render(raw) {
@@ -44,24 +48,8 @@
       }
     }
     for (const table of template.content.querySelectorAll('table')) {
-      const headers = [...table.querySelectorAll('thead th')];
-      const rows = [...table.querySelectorAll('tbody tr')];
-      if (headers.length && rows.length && !table.querySelector('[colspan], [rowspan]') && rows.every(row => row.children.length === headers.length)) {
-        table.classList.add('mobile-card-table');
-        table.setAttribute('role', 'table');
-        rows.forEach(row => {
-          row.setAttribute('role', 'row');
-          [...row.children].forEach((cell, index) => {
-            cell.setAttribute('role', 'cell');
-            const label = document.createElement('span');
-            label.className = 'mobile-cell-label'; label.setAttribute('aria-hidden', 'true');
-            label.textContent = headers[index].textContent;
-            cell.prepend(label);
-          });
-        });
-      }
       const wrapper = document.createElement('div'); wrapper.className = 'table-scroll'; wrapper.tabIndex = 0;
-      wrapper.setAttribute('aria-label', table.classList.contains('mobile-card-table') ? '教材對照表' : '表格，可左右捲動'); table.replaceWith(wrapper); wrapper.append(table);
+      wrapper.setAttribute('aria-label', '表格，可左右捲動'); table.replaceWith(wrapper); wrapper.append(table);
     }
     return template.innerHTML;
   }

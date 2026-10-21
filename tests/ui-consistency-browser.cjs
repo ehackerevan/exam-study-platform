@@ -18,9 +18,11 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    const palettes=[];
    for(const theme of ['light','dark']){
     await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);
-    const values=await page.evaluate(()=>{const style=getComputedStyle(document.body);return{background:style.backgroundColor,color:style.color,font:style.fontFamily};});
+    const values=await page.evaluate(()=>{const style=getComputedStyle(document.body),tokens=getComputedStyle(document.documentElement);return{background:style.backgroundColor,color:style.color,font:style.fontFamily,primary:tokens.getPropertyValue('--md-primary').trim(),secondary:tokens.getPropertyValue('--md-secondary').trim()};});
     assert.equal(values.background,theme==='light'?'rgb(251, 253, 248)':'rgb(17, 20, 17)',file+' '+theme);
     assert.equal(values.color,theme==='light'?'rgb(28, 27, 31)':'rgb(225, 228, 219)',file+' '+theme);
+    assert.equal(values.primary,theme==='light'?'#2F4858':'#96E6A1',file+' '+theme+' primary palette');
+    assert.equal(values.secondary,theme==='light'?'#2B878F':'#61C8A3',file+' '+theme+' secondary palette');
     palettes.push(values);
    }
    if(file.includes('金融科技力重點教材')||file.endsWith('index.html')||file.includes('歷屆考古題')){

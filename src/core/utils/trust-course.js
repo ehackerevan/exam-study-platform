@@ -1,11 +1,12 @@
+import {readUtf8File} from './utf8.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseMarkdownToChapters } from '../parser/markdown-parser.js';
 
 export function loadTrustCourse(sourceDir) {
-  const course = JSON.parse(fs.readFileSync(path.join(sourceDir, 'course_data.json'), 'utf8'));
-  const bank = JSON.parse(fs.readFileSync(path.join(sourceDir, 'full_exam_bank.json'), 'utf8'));
-  const curated = JSON.parse(fs.readFileSync(path.join(sourceDir, 'curated_top10_bank.json'), 'utf8'));
+  const course = JSON.parse(readUtf8File(path.join(sourceDir, 'course_data.json')));
+  const bank = JSON.parse(readUtf8File(path.join(sourceDir, 'full_exam_bank.json')));
+  const curated = JSON.parse(readUtf8File(path.join(sourceDir, 'curated_top10_bank.json')));
   const chapters = course.chapters.flatMap((source) => {
     const markdown = source.markdown.replace(/!\[([^\]]*)\]\((images\/[^)]+\.svg)\)/g, (_, alt, relative) => {
       const imagePath = path.resolve(sourceDir, relative);
