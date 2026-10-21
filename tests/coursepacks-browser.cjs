@@ -2,6 +2,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const {pathToFileURL}=require('node:url');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const frequency=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json','utf8')).courses;
+const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*(\d+)\s*題】\s*/, (label,number)=>Number(number)===q.sourceExam?.number?'':label);
 (async()=>{
  const browser=await chromium.launch({channel:'msedge',headless:true}),context=await browser.newContext(),errors=[],external=[],results=[];
  await context.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
@@ -90,9 +91,9 @@ const frequency=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json',
    await page.locator('#btn-start-knowledge-point-quiz').click();
    assert.equal(await page.locator('#quiz-progress-text').textContent(),`第 1 / ${Math.min(20,pointQuestions.length)} 題`,'Knowledge point quiz count: '+course);
    const knowledgePointStem=await page.locator('#quiz-stem').textContent();
-   assert(pointQuestions.some(q=>q.question===knowledgePointStem),'Knowledge point only includes tagged questions: '+course);
+   assert(pointQuestions.some(q=>visibleQuestion(q)===knowledgePointStem),'Knowledge point only includes tagged questions: '+course);
    if(quizOnly){
-    const question=pack.questions.find(q=>q.question===knowledgePointStem);
+    const question=pack.questions.find(q=>visibleQuestion(q)===knowledgePointStem);
     await page.locator(`[data-option="${question.answer}"]`).click();await page.locator('#btn-quiz-submit').click();
     assert.equal(await page.locator('#btn-answer-reader').count(),0,'Question-only banks have no empty reader link');
    }
@@ -106,8 +107,8 @@ const frequency=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json',
    assert.equal(await page.locator('#quiz-progress-text').textContent(),'第 1 / '+examQuestions.length+' 題');
    assert.equal(await page.locator('#quiz-exam-tag').textContent(),exam.sourceExam.term+' · '+exam.sourceExam.subject);
    const displayedQuestion=await page.locator('#quiz-stem').textContent();
-   assert(examQuestions.some(q=>q.question===displayedQuestion),'Exam filter selection: '+course);
-   assert.equal(displayedQuestion,[...examQuestions].sort((a,b)=>a.sourceExam.number-b.sourceExam.number)[0].question,'Exam mode preserves original question order');
+   assert(examQuestions.some(q=>visibleQuestion(q)===displayedQuestion),'Exam filter selection: '+course);
+   assert.equal(displayedQuestion,visibleQuestion([...examQuestions].sort((a,b)=>a.sourceExam.number-b.sourceExam.number)[0]),'Exam mode preserves original question order');
    if(course==='信託業務人員重點教材'){
     await page.reload();await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     const group=pack.questions.find(q=>q.featuredGroup).featuredGroup;
@@ -115,7 +116,7 @@ const frequency=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json',
     await page.locator('#quiz-select-featured').selectOption(group);
     await page.locator('#btn-start-featured-quiz').click();
     assert.equal(await page.locator('#quiz-progress-text').textContent(),`第 1 / ${featuredQuestions.length} 題`);
-    assert.equal(await page.locator('#quiz-stem').textContent(),featuredQuestions[0].question,'Featured ranking is preserved');
+    assert.equal(await page.locator('#quiz-stem').textContent(),visibleQuestion(featuredQuestions[0]),'Featured ranking is preserved');
     for(const question of featuredQuestions){
      await page.locator(`[data-option="${question.answer}"]`).click();
      await page.locator('#btn-quiz-submit').click();

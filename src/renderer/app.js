@@ -610,7 +610,10 @@
     }
     document.getElementById('quiz-type-tag').textContent = q.type === 'multiple-choice' ? '多選題' : (q.type === 'true-false' ? '是非題' : '單選題');
 
-    document.getElementById('quiz-stem').textContent = q.question;
+    const sourceLabel = q.question.match(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*(\d+)\s*題】\s*/);
+    document.getElementById('quiz-stem').textContent = sourceLabel && Number(sourceLabel[1]) === q.sourceExam?.number
+      ? q.question.slice(sourceLabel[0].length)
+      : q.question;
 
     const optionsContainer = document.getElementById('quiz-options-container');
     optionsContainer.innerHTML = '';
