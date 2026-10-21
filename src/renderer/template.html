@@ -321,6 +321,16 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
   .brand-badge { width: 32px; height: 32px; }
   .brand-meta { display: none; }
   .nav-tabs { gap: .125rem; padding: .2rem; }
+  body:has(#view-quiz.active #quiz-running-panel[style*="display: block"]) #study-catalog-nav,
+  body:has(#view-quiz.active #quiz-running-panel[style*="display: block"]) .brand-section { display: none; }
+  body:has(#view-quiz.active #quiz-running-panel[style*="display: block"]) .app-header { top: 0; }
+  #view-quiz { padding-top: .75rem; }
+  #quiz-running-panel .quiz-card { padding: .875rem; margin-bottom: .75rem; }
+  #quiz-running-panel .quiz-meta-bar { margin-bottom: .5rem; line-height: 1.25; }
+  #quiz-running-panel .quiz-question-text { font-size: 1.0625rem; line-height: 1.45; margin-bottom: .5rem; }
+  #quiz-running-panel .answer-search { margin: 0 0 .5rem; }
+  #quiz-running-panel .options-list { gap: .4rem; margin-bottom: .5rem; }
+  #quiz-running-panel .option-item { min-height: 44px; align-items: center; padding: .55rem .75rem; line-height: 1.35; }
   #quiz-setup-panel .quiz-mode-card > div { flex-wrap: wrap; }
   #quiz-select-chapter { width: 100%; flex: 1 0 100%; }
   .reader-content, .quiz-card { padding: 1.25rem; }

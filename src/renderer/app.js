@@ -588,6 +588,7 @@
     document.getElementById('quiz-summary-panel').style.display = 'none';
     document.getElementById('quiz-running-panel').style.display = 'block';
     renderQuizCard();
+    window.scrollTo(0, 0);
   }
 
   function renderQuizCard() {
@@ -728,6 +729,7 @@
       if (quizState.currentIndex < quizState.pool.length - 1) {
         quizState.currentIndex++;
         renderQuizCard();
+        window.scrollTo(0, 0);
       } else {
         // 完成此輪測驗
         showQuizSummary();
