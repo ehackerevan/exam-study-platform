@@ -10,6 +10,9 @@ export function applySharedUi(html, homeHref = 'index.html') {
   else if (/<\/head>/i.test(html)) result = html.replace(/<\/head>/i, () => style + '\n</head>');
   else if (/<\/style>/i.test(html)) result = html.replace(/<\/style>/i, match => match + '\n' + style);
   else throw Error('HTML has no head or stylesheet to attach the shared UI');
+  if (!/<link\b[^>]*\brel=["'](?:shortcut )?icon["']/i.test(result)) {
+    result = result.replace(/<\/head>/i, '<link rel="icon" href="data:,">\n</head>');
+  }
   for (const [id, file] of [['study-legal-terms','legal-terms.js'],['study-answer-search','answer-search.js']]) {
     const source = fs.readFileSync(new URL('../../renderer/'+file,import.meta.url),'utf8');
     const script = `<script id="${id}">\n${source}\n</script>`;

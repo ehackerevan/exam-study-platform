@@ -570,6 +570,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 .feedback-correct { background:var(--success-light); border-color:var(--md-success); color:var(--md-on-surface); }
 .feedback-wrong { background:var(--danger-light); border-color:var(--md-danger); color:var(--md-on-surface); }
 </style>
+<link rel="icon" href="data:,">
 </head>
 <body>
 <nav id="study-catalog-nav" aria-label="學科目錄"><a href="../dist/index.html">← 學科目錄</a><span>教材與題庫</span></nav>
@@ -631,7 +632,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       <div class="stat-badge">
         <span>目前顯示：</span>
         <span class="stat-count" id="displayCount">0</span>
-        <span>題 / 全庫合格總題數：<strong id="totalCount">7395</strong> 題</span>
+        <span>題 / 全庫總題數：<strong id="totalCount">0</strong> 題</span>
       </div>
       <div style="font-size:0.85rem;color:var(--text-sub);">
         <span>💡 題目右上方標註官方標準答案，點擊選項即可即時對答案練習（紫標為官方正統複選題）</span>
@@ -659,6 +660,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
     let searchTimeout = null;
 
     function init() {
+      document.getElementById('totalCount').textContent = RAW_QUESTIONS.length.toLocaleString('zh-TW');
       updatePeriodDropdown();
       applyFilters();
     }
