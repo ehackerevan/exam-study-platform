@@ -6,7 +6,7 @@
 
 逐筆使用清理後 canonical 題庫：信託使用 `教材/信託業務人員重點教材/full_exam_bank.json`，其他五科使用各自的 `questions.json`。每個知識點與法規／機關排名都保留完整 `question_ids` 以供追溯；排名題數按題庫紀錄計，重複題幹在不同考期仍分別計數。
 
-四科（金融科技、消費金融、ESG、AML）延用分析器內人工整理的關鍵詞分類；信託沿用完整題庫既有 `topic` 欄；SFI 116 年版只沿用官方題庫的「金融市場常識」與「職業道德」兩類，不另造更細的出題分類。SFI 本機來源檔為 `tmp/pdfs/116-financial-market.pdf`、`tmp/pdfs/116-professional-ethics.pdf`，題庫包資料記載 558 題及 616 題。
+四科（金融科技、消費金融、ESG、AML）延用分析器內人工整理的關鍵詞分類；信託沿用完整題庫既有 `topic` 欄；SFI 113 年版只沿用官方題庫的「金融市場常識」與「職業道德」兩類，不另造更細的出題分類。官方題庫下載頁公告題數為504題及616題；113/9/23修訂表已套用於職業道德第279題。
 
 法規統計以題幹加正確選項，比對分析器明列的法規名稱與別名；SFI 的官方機關／機構統計使用同樣範圍。這些是詞彙命中數，不能解讀為官方命題比例、法規重要度、答案正確性或現行效力。關鍵詞可能漏判或誤命中；本報告不等於逐題語意及法律審查。
 
@@ -21,7 +21,7 @@
 | 永續發展基礎能力 | 1207 | 769 | 63.71% | 438 | 7 | 132 | 73 |
 | 防制洗錢與打擊資恐 | 2376 | 2034 | 85.61% | 342 | 6 | 334 | 158 |
 | 信託業務人員 | 2724 | 2724 | 100.00% | 0 | 73 | 620 | 0 |
-| 金融市場常識與職業道德（證基會116年版） | 1174 | 1174 | 100.00% | 0 | 2 | 43 | 0 |
+| 金融市場常識與職業道德（證基會113年版） | 1120 | 1120 | 100.00% | 0 | 2 | 39 | 0 |
 
 ## 逐科點位、法規與官方資料命中
 
@@ -259,39 +259,39 @@
 | 遺產及贈與稅法 | 3 | 0.11% | `past-42-law-50、past-48-law-49、past-55-law-46` |
 | 公司法 | 1 | 0.04% | `past-41-law-23` |
 
-### 金融市場常識與職業道德（證基會116年版）
+### 金融市場常識與職業道德（證基會113年版）
 
-來源：`教材/金融市場常識與職業道德題庫/questions.json`。題數 1174；知識點分類覆蓋 1174/1174（100.00%）；未分類 0。
-分類方法：逐題依證基會116年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。
+來源：`教材/金融市場常識與職業道德題庫/questions.json`。題數 1120；知識點分類覆蓋 1120/1120（100.00%）；未分類 0。
+分類方法：逐題依證基會113年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。
 
 | 知識點 | 題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 職業道德 | 616 | 52.47% | `professional-ethics-001、professional-ethics-002、professional-ethics-003、professional-ethics-004、professional-ethics-005` |
-| 金融市場常識 | 558 | 47.53% | `financial-market-001、financial-market-002、financial-market-003、financial-market-004、financial-market-005` |
+| 職業道德 | 616 | 55.00% | `professional-ethics-001、professional-ethics-002、professional-ethics-003、professional-ethics-004、professional-ethics-005` |
+| 金融市場常識 | 504 | 45.00% | `financial-market-001、financial-market-002、financial-market-003、financial-market-004、financial-market-005` |
 
 **法規／規範名稱命中**（題幹與正確選項詞彙比對；項目可重疊）：
 
 | 法規／規範 | 命中題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 金融消費者保護法 | 8 | 0.68% | `financial-market-064、professional-ethics-572、professional-ethics-573、professional-ethics-574、professional-ethics-577` |
-| 保險法 | 6 | 0.51% | `financial-market-401、financial-market-405、financial-market-414、financial-market-415、financial-market-416` |
-| 信託業法 | 6 | 0.51% | `financial-market-324、financial-market-325、financial-market-326、financial-market-327、financial-market-336` |
-| 洗錢防制法 | 6 | 0.51% | `financial-market-081、financial-market-140、financial-market-273、professional-ethics-010、professional-ethics-521` |
-| 信託法 | 5 | 0.43% | `financial-market-307、financial-market-323、financial-market-334、financial-market-335、financial-market-336` |
-| 證券交易法 | 5 | 0.43% | `financial-market-054、professional-ethics-020、professional-ethics-509、professional-ethics-576、professional-ethics-579` |
-| 銀行法 | 3 | 0.26% | `financial-market-087、financial-market-263、financial-market-517` |
-| 公司法 | 2 | 0.17% | `financial-market-167、financial-market-535` |
-| 證券投資人及期貨交易人保護法 | 2 | 0.17% | `financial-market-078、professional-ethics-199` |
+| 金融消費者保護法 | 8 | 0.71% | `financial-market-064、professional-ethics-572、professional-ethics-573、professional-ethics-574、professional-ethics-577` |
+| 保險法 | 6 | 0.54% | `financial-market-401、financial-market-405、financial-market-414、financial-market-415、financial-market-416` |
+| 信託業法 | 6 | 0.54% | `financial-market-324、financial-market-325、financial-market-326、financial-market-327、financial-market-336` |
+| 信託法 | 5 | 0.45% | `financial-market-307、financial-market-323、financial-market-334、financial-market-335、financial-market-336` |
+| 洗錢防制法 | 5 | 0.45% | `financial-market-081、financial-market-140、financial-market-273、professional-ethics-521、professional-ethics-526` |
+| 證券交易法 | 5 | 0.45% | `financial-market-054、professional-ethics-020、professional-ethics-509、professional-ethics-576、professional-ethics-579` |
+| 銀行法 | 2 | 0.18% | `financial-market-087、financial-market-263` |
+| 公司法 | 1 | 0.09% | `financial-market-167` |
+| 證券投資人及期貨交易人保護法 | 1 | 0.09% | `professional-ethics-199` |
 
 **SFI 官方機關／機構名稱命中**（不代表正式引註）：
 
 | 機關／機構 | 命中題數 | 樣本題目 ID |
 | --- | ---: | --- |
-| 金融監督管理委員會 | 17 | `financial-market-006、financial-market-007、financial-market-008、financial-market-010、financial-market-013` |
 | 中央銀行 | 13 | `financial-market-013、financial-market-259、financial-market-260、financial-market-261、financial-market-290` |
+| 金融監督管理委員會 | 11 | `financial-market-007、financial-market-010、financial-market-013、financial-market-033、financial-market-060` |
 | 金融消費評議中心 | 5 | `financial-market-503、professional-ethics-577、professional-ethics-582、professional-ethics-583、professional-ethics-588` |
-| 臺灣證券交易所 | 4 | `financial-market-025、financial-market-112、financial-market-175、financial-market-527` |
-| 證券投資人及期貨交易人保護中心 | 3 | `financial-market-078、financial-market-553、professional-ethics-199` |
+| 臺灣證券交易所 | 2 | `financial-market-025、financial-market-112` |
+| 證券投資人及期貨交易人保護中心 | 2 | `financial-market-078、professional-ethics-199` |
 | 證券櫃檯買賣中心 | 1 | `financial-market-068` |
 
 ## 與目前教材包知識點的串接

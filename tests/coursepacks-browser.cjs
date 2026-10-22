@@ -18,7 +18,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     : (()=>{const source=JSON.parse(fs.readFileSync(path.join('教材',course,'questions.json'),'utf8'));return Array.isArray(source)?source:source.questions;})();
    const core=questions=>questions.map(q=>({id:q.id,chapterId:q.chapterId,type:q.type,question:q.question,options:q.options,answer:q.answer}));
    assert.deepEqual(core(pack.questions).sort((a,b)=>a.id.localeCompare(b.id)),core(original).sort((a,b)=>a.id.localeCompare(b.id)),'Original question data: '+course);
-   const stats=frequency[course==='金融市場常識與職業道德題庫'?'金融市場常識與職業道德題庫（證基會116年版）':course];
+   const stats=frequency[course==='金融市場常識與職業道德題庫'?'金融市場常識與職業道德題庫（證基會113年版）':course];
    assert(stats,`Updated knowledge-point statistics exist: ${course}`);
    assert.equal(stats.question_record_count,original.length,`Statistics use current canonical question count: ${course}`);
    const originalIds=new Set(original.map(q=>q.id));
@@ -49,7 +49,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    }
    if(course==='金融市場常識與職業道德題庫'){
     assert.deepEqual(stats.concept_ranking.map(row=>row.concept).sort(),['職業道德','金融市場常識'].sort(),'SFI keeps only the two official knowledge points');
-    assert.deepEqual(Object.fromEntries(stats.concept_ranking.map(row=>[row.concept,row.question_count])),{'金融市場常識':558,'職業道德':616});
+    assert.deepEqual(Object.fromEntries(stats.concept_ranking.map(row=>[row.concept,row.question_count])),{'金融市場常識':504,'職業道德':616});
     for(const question of original){
      const expected=question.chapterId==='financial-market'?'金融市場常識':'職業道德';
      assert.deepEqual(pack.questions.find(q=>q.id===question.id).knowledgePoints,[expected],`SFI official chapter mapping: ${question.id}`);

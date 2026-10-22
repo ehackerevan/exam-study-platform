@@ -4,7 +4,7 @@
   "scope": "六科清理後 canonical 題庫的每筆題目紀錄；信託來源為 full_exam_bank.json，其餘來源為 questions.json；重複題幹跨考期仍按各筆紀錄計數",
   "method": {
     "counting_grain": "每個 canonical source question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",
-    "concepts": "四科以題幹及選項關鍵詞分類，沒有命中時才用已配置的教材章節備援分類；信託逐題沿用來源 topic 欄；證基會116年題庫僅依官方 financial-market/professional-ethics 兩個 chapterId 分類，不自創細分類。完整 question_ids 為知識點選單及章末題目的共同依據。",
+    "concepts": "四科以題幹及選項關鍵詞分類，沒有命中時才用已配置的教材章節備援分類；信託逐題沿用來源 topic 欄；證基會113年題庫僅依官方 financial-market/professional-ethics 兩個 chapterId 分類，不自創細分類。完整 question_ids 為知識點選單及章末題目的共同依據。",
     "laws": "以題幹及正確選項比對程式列出的法規名稱與別名；只代表詞彙命中題數，不代表官方命題比例、法規重要性、答案正確性或法規現行狀態。",
     "official_references": "只對證基會題庫統計題幹及正確選項中的指定官方機關／機構名稱與別名；不是完整引註或來源效力審核。",
     "percentages": "題數除以該科 canonical 題目紀錄數；概念可能為多標籤，比例不可相加視為 100%。",
@@ -16665,17 +16665,18 @@
       "source_file": "教材/信託業務人員重點教材/full_exam_bank.json",
       "label": "信託業務人員"
     },
-    "金融市場常識與職業道德題庫（證基會116年版）": {
-      "question_record_count": 1174,
-      "unique_question_id_count": 1174,
+    "金融市場常識與職業道德題庫（證基會113年版）": {
+      "question_record_count": 1120,
+      "unique_question_id_count": 1120,
       "duplicate_question_id_count": 0,
-      "parsed_exam_metadata_count": 1174,
+      "parsed_exam_metadata_count": 1120,
       "unparsed_exam_metadata_count": 0,
       "exam_session_count": 1,
       "invalid_answer_index_count": 0,
-      "short_stem_at_most_10_characters_count": 18,
+      "short_stem_at_most_10_characters_count": 20,
       "short_stem_sample_ids": [
         "financial-market-062",
+        "financial-market-098",
         "financial-market-111",
         "financial-market-143",
         "financial-market-144",
@@ -16683,27 +16684,26 @@
         "financial-market-230",
         "financial-market-231",
         "financial-market-351",
-        "financial-market-386",
-        "financial-market-396"
+        "financial-market-386"
       ],
       "same_exam_subject_number_collision_group_count": 0,
       "records_in_collision_groups": 0,
       "extra_records_in_collision_groups": 0,
       "collision_samples": [],
       "repeated_stem_across_exam_terms_group_count": 0,
-      "topic_classified_unique_question_count": 1174,
+      "topic_classified_unique_question_count": 1120,
       "topic_classification_coverage_percent": 100.0,
       "unclassified_question_count": 0,
       "unclassified_sample_ids": [],
       "unclassified_question_ids": [],
       "unclassified_knowledge_point": "其他／未分類",
-      "classification_method": "逐題依證基會116年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。",
+      "classification_method": "逐題依證基會113年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。",
       "concept_ranking": [
         {
           "rank": 1,
           "concept": "職業道德",
           "question_count": 616,
-          "share_of_all_records_percent": 52.47,
+          "share_of_all_records_percent": 55.0,
           "exam_session_count": 1,
           "question_ids": [
             "professional-ethics-001",
@@ -17334,8 +17334,8 @@
         {
           "rank": 2,
           "concept": "金融市場常識",
-          "question_count": 558,
-          "share_of_all_records_percent": 47.53,
+          "question_count": 504,
+          "share_of_all_records_percent": 45.0,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-001",
@@ -17841,61 +17841,7 @@
             "financial-market-501",
             "financial-market-502",
             "financial-market-503",
-            "financial-market-504",
-            "financial-market-505",
-            "financial-market-506",
-            "financial-market-507",
-            "financial-market-508",
-            "financial-market-509",
-            "financial-market-510",
-            "financial-market-511",
-            "financial-market-512",
-            "financial-market-513",
-            "financial-market-514",
-            "financial-market-515",
-            "financial-market-516",
-            "financial-market-517",
-            "financial-market-518",
-            "financial-market-519",
-            "financial-market-520",
-            "financial-market-521",
-            "financial-market-522",
-            "financial-market-523",
-            "financial-market-524",
-            "financial-market-525",
-            "financial-market-526",
-            "financial-market-527",
-            "financial-market-528",
-            "financial-market-529",
-            "financial-market-530",
-            "financial-market-531",
-            "financial-market-532",
-            "financial-market-533",
-            "financial-market-534",
-            "financial-market-535",
-            "financial-market-536",
-            "financial-market-537",
-            "financial-market-538",
-            "financial-market-539",
-            "financial-market-540",
-            "financial-market-541",
-            "financial-market-542",
-            "financial-market-543",
-            "financial-market-544",
-            "financial-market-545",
-            "financial-market-546",
-            "financial-market-547",
-            "financial-market-548",
-            "financial-market-549",
-            "financial-market-550",
-            "financial-market-551",
-            "financial-market-552",
-            "financial-market-553",
-            "financial-market-554",
-            "financial-market-555",
-            "financial-market-556",
-            "financial-market-557",
-            "financial-market-558"
+            "financial-market-504"
           ],
           "sample_question_ids": [
             "financial-market-001",
@@ -17911,7 +17857,7 @@
           "rank": 1,
           "law_or_rule": "金融消費者保護法",
           "question_count": 8,
-          "share_of_all_records_percent": 0.68,
+          "share_of_all_records_percent": 0.71,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-064",
@@ -17935,7 +17881,7 @@
           "rank": 2,
           "law_or_rule": "保險法",
           "question_count": 6,
-          "share_of_all_records_percent": 0.51,
+          "share_of_all_records_percent": 0.54,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-401",
@@ -17957,7 +17903,7 @@
           "rank": 3,
           "law_or_rule": "信託業法",
           "question_count": 6,
-          "share_of_all_records_percent": 0.51,
+          "share_of_all_records_percent": 0.54,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-324",
@@ -17977,15 +17923,35 @@
         },
         {
           "rank": 4,
+          "law_or_rule": "信託法",
+          "question_count": 5,
+          "share_of_all_records_percent": 0.45,
+          "exam_session_count": 1,
+          "question_ids": [
+            "financial-market-307",
+            "financial-market-323",
+            "financial-market-334",
+            "financial-market-335",
+            "financial-market-336"
+          ],
+          "sample_question_ids": [
+            "financial-market-307",
+            "financial-market-323",
+            "financial-market-334",
+            "financial-market-335",
+            "financial-market-336"
+          ]
+        },
+        {
+          "rank": 5,
           "law_or_rule": "洗錢防制法",
-          "question_count": 6,
-          "share_of_all_records_percent": 0.51,
+          "question_count": 5,
+          "share_of_all_records_percent": 0.45,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-081",
             "financial-market-140",
             "financial-market-273",
-            "professional-ethics-010",
             "professional-ethics-521",
             "professional-ethics-526"
           ],
@@ -17993,36 +17959,15 @@
             "financial-market-081",
             "financial-market-140",
             "financial-market-273",
-            "professional-ethics-010",
-            "professional-ethics-521"
-          ]
-        },
-        {
-          "rank": 5,
-          "law_or_rule": "信託法",
-          "question_count": 5,
-          "share_of_all_records_percent": 0.43,
-          "exam_session_count": 1,
-          "question_ids": [
-            "financial-market-307",
-            "financial-market-323",
-            "financial-market-334",
-            "financial-market-335",
-            "financial-market-336"
-          ],
-          "sample_question_ids": [
-            "financial-market-307",
-            "financial-market-323",
-            "financial-market-334",
-            "financial-market-335",
-            "financial-market-336"
+            "professional-ethics-521",
+            "professional-ethics-526"
           ]
         },
         {
           "rank": 6,
           "law_or_rule": "證券交易法",
           "question_count": 5,
-          "share_of_all_records_percent": 0.43,
+          "share_of_all_records_percent": 0.45,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-054",
@@ -18042,47 +17987,41 @@
         {
           "rank": 7,
           "law_or_rule": "銀行法",
-          "question_count": 3,
-          "share_of_all_records_percent": 0.26,
+          "question_count": 2,
+          "share_of_all_records_percent": 0.18,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-087",
-            "financial-market-263",
-            "financial-market-517"
+            "financial-market-263"
           ],
           "sample_question_ids": [
             "financial-market-087",
-            "financial-market-263",
-            "financial-market-517"
+            "financial-market-263"
           ]
         },
         {
           "rank": 8,
           "law_or_rule": "公司法",
-          "question_count": 2,
-          "share_of_all_records_percent": 0.17,
+          "question_count": 1,
+          "share_of_all_records_percent": 0.09,
           "exam_session_count": 1,
           "question_ids": [
-            "financial-market-167",
-            "financial-market-535"
+            "financial-market-167"
           ],
           "sample_question_ids": [
-            "financial-market-167",
-            "financial-market-535"
+            "financial-market-167"
           ]
         },
         {
           "rank": 9,
           "law_or_rule": "證券投資人及期貨交易人保護法",
-          "question_count": 2,
-          "share_of_all_records_percent": 0.17,
+          "question_count": 1,
+          "share_of_all_records_percent": 0.09,
           "exam_session_count": 1,
           "question_ids": [
-            "financial-market-078",
             "professional-ethics-199"
           ],
           "sample_question_ids": [
-            "financial-market-078",
             "professional-ethics-199"
           ]
         }
@@ -18090,42 +18029,9 @@
       "official_reference_ranking": [
         {
           "rank": 1,
-          "reference": "金融監督管理委員會",
-          "question_count": 17,
-          "share_of_all_records_percent": 1.45,
-          "exam_session_count": 1,
-          "question_ids": [
-            "financial-market-006",
-            "financial-market-007",
-            "financial-market-008",
-            "financial-market-010",
-            "financial-market-013",
-            "financial-market-033",
-            "financial-market-060",
-            "financial-market-064",
-            "financial-market-085",
-            "financial-market-122",
-            "financial-market-124",
-            "financial-market-135",
-            "financial-market-193",
-            "financial-market-508",
-            "financial-market-509",
-            "financial-market-510",
-            "financial-market-511"
-          ],
-          "sample_question_ids": [
-            "financial-market-006",
-            "financial-market-007",
-            "financial-market-008",
-            "financial-market-010",
-            "financial-market-013"
-          ]
-        },
-        {
-          "rank": 2,
           "reference": "中央銀行",
           "question_count": 13,
-          "share_of_all_records_percent": 1.11,
+          "share_of_all_records_percent": 1.16,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-013",
@@ -18151,10 +18057,37 @@
           ]
         },
         {
+          "rank": 2,
+          "reference": "金融監督管理委員會",
+          "question_count": 11,
+          "share_of_all_records_percent": 0.98,
+          "exam_session_count": 1,
+          "question_ids": [
+            "financial-market-007",
+            "financial-market-010",
+            "financial-market-013",
+            "financial-market-033",
+            "financial-market-060",
+            "financial-market-064",
+            "financial-market-122",
+            "financial-market-124",
+            "financial-market-130",
+            "financial-market-135",
+            "financial-market-193"
+          ],
+          "sample_question_ids": [
+            "financial-market-007",
+            "financial-market-010",
+            "financial-market-013",
+            "financial-market-033",
+            "financial-market-060"
+          ]
+        },
+        {
           "rank": 3,
           "reference": "金融消費評議中心",
           "question_count": 5,
-          "share_of_all_records_percent": 0.43,
+          "share_of_all_records_percent": 0.45,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-503",
@@ -18174,36 +18107,30 @@
         {
           "rank": 4,
           "reference": "臺灣證券交易所",
-          "question_count": 4,
-          "share_of_all_records_percent": 0.34,
+          "question_count": 2,
+          "share_of_all_records_percent": 0.18,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-025",
-            "financial-market-112",
-            "financial-market-175",
-            "financial-market-527"
+            "financial-market-112"
           ],
           "sample_question_ids": [
             "financial-market-025",
-            "financial-market-112",
-            "financial-market-175",
-            "financial-market-527"
+            "financial-market-112"
           ]
         },
         {
           "rank": 5,
           "reference": "證券投資人及期貨交易人保護中心",
-          "question_count": 3,
-          "share_of_all_records_percent": 0.26,
+          "question_count": 2,
+          "share_of_all_records_percent": 0.18,
           "exam_session_count": 1,
           "question_ids": [
             "financial-market-078",
-            "financial-market-553",
             "professional-ethics-199"
           ],
           "sample_question_ids": [
             "financial-market-078",
-            "financial-market-553",
             "professional-ethics-199"
           ]
         },
@@ -18223,7 +18150,7 @@
       ],
       "law_matching_method": "以題幹及正確選項比對本程式列出的法規名稱與別名；計數為命中題數，不代表法規重要度、答案正確性或現行有效性。",
       "source_file": "教材/金融市場常識與職業道德題庫/questions.json",
-      "label": "金融市場常識與職業道德（證基會116年版）"
+      "label": "金融市場常識與職業道德（證基會113年版）"
     }
   }
 }

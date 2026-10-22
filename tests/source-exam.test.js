@@ -32,7 +32,7 @@ test('source exam metadata parses every existing course question without changin
 });
 
 test('question source metadata survives JSON sanitization', () => {
-  const sourceExam = {term:'證基會116年版（2027-01-01起適用）',subject:'金融市場常識',number:558};
+  const sourceExam = {term:'證基會113年版（2024-09-01起適用）',subject:'金融市場常識',number:504};
   const pack = parseStudyPackJson({
     id:'source-metadata',title:'來源 metadata',
     chapters:[{id:'c01',title:'第一章',sections:[]}],
@@ -43,16 +43,18 @@ test('question source metadata survives JSON sanitization', () => {
 
 test('financial market and ethics source bank preserves all official question numbers and normalized answer indexes', () => {
   const questions = JSON.parse(fs.readFileSync('教材/金融市場常識與職業道德題庫/questions.json', 'utf8')).questions;
-  assert.equal(questions.length, 1174);
+  assert.equal(questions.length, 1120);
 
-  for (const [chapterId, count] of [['financial-market', 558], ['professional-ethics', 616]]) {
+  for (const [chapterId, count] of [['financial-market', 504], ['professional-ethics', 616]]) {
     const chapterQuestions = questions.filter(question => question.chapterId === chapterId);
     assert.equal(chapterQuestions.length, count);
     assert.deepEqual(chapterQuestions.map(question => question.sourceExam.number), Array.from({length: count}, (_, index) => index + 1));
   }
 
-  assert.equal(new Set(questions.map(question => question.id)).size, 1174);
+  assert.equal(new Set(questions.map(question => question.id)).size, 1120);
   assert(questions.every(question => question.type === 'single-choice' && question.options.length === 4 && question.answer >= 0 && question.answer < 4));
+  assert.equal(questions.find(question => question.id === 'professional-ethics-279').answer, 3, 'Apply the official 113/9/23 correction: answer is option 4');
+  assert.equal(JSON.parse(fs.readFileSync('歷史資料/金融市場常識與職業道德題庫_證基會116年版/questions.json', 'utf8')).questions.length, 1174, 'Keep the 116 bank archived');
   assert(questions.every(question => [question.question, ...question.options].every(text => !/\p{Script=Han} +\p{Script=Han}/u.test(text))));
   assert(questions.every(question => !/^【(?:金融市場常識|職業道德)】/.test(question.question)));
 });

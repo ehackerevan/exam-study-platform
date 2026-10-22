@@ -184,8 +184,8 @@ COURSES = {
             ("金融消費者保護法", ["金融消費者保護法"]),
         ],
     },
-    "金融市場常識與職業道德題庫（證基會116年版）": {
-        "label": "金融市場常識與職業道德（證基會116年版）",
+    "金融市場常識與職業道德題庫（證基會113年版）": {
+        "label": "金融市場常識與職業道德（證基會113年版）",
         "folder": "教材/金融市場常識與職業道德題庫",
         "record_type": "sfi",
         "concept_mode": "official_chapter",
@@ -400,7 +400,7 @@ def record_stats(records: list[dict], config: dict) -> dict:
         "classification_method": {
             "keywords": "題幹與所有選項比對此程式列出的觀念詞；無關鍵詞命中時才使用已配置的一般教材章節備援分類。",
             "question_topic": "逐題沿用信託完整題庫既有 topic 欄位，不再另造分類。",
-            "official_chapter": "逐題依證基會116年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。",
+            "official_chapter": "逐題依證基會113年題庫既有 chapterId 對應官方兩大分類，不細分官方分類。",
         }[config.get("concept_mode", "keywords")],
         "concept_ranking": topic_rows,
         "law_ranking": law_rows,
@@ -438,7 +438,7 @@ def main() -> None:
         "scope": "六科清理後 canonical 題庫的每筆題目紀錄；信託來源為 full_exam_bank.json，其餘來源為 questions.json；重複題幹跨考期仍按各筆紀錄計數",
         "method": {
             "counting_grain": "每個 canonical source question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",
-            "concepts": "四科以題幹及選項關鍵詞分類，沒有命中時才用已配置的教材章節備援分類；信託逐題沿用來源 topic 欄；證基會116年題庫僅依官方 financial-market/professional-ethics 兩個 chapterId 分類，不自創細分類。完整 question_ids 為知識點選單及章末題目的共同依據。",
+            "concepts": "四科以題幹及選項關鍵詞分類，沒有命中時才用已配置的教材章節備援分類；信託逐題沿用來源 topic 欄；證基會113年題庫僅依官方 financial-market/professional-ethics 兩個 chapterId 分類，不自創細分類。完整 question_ids 為知識點選單及章末題目的共同依據。",
             "laws": "以題幹及正確選項比對程式列出的法規名稱與別名；只代表詞彙命中題數，不代表官方命題比例、法規重要性、答案正確性或法規現行狀態。",
             "official_references": "只對證基會題庫統計題幹及正確選項中的指定官方機關／機構名稱與別名；不是完整引註或來源效力審核。",
             "percentages": "題數除以該科 canonical 題目紀錄數；概念可能為多標籤，比例不可相加視為 100%。",
@@ -471,7 +471,7 @@ def build_report(output: dict) -> str:
         "",
         "逐筆使用清理後 canonical 題庫：信託使用 `教材/信託業務人員重點教材/full_exam_bank.json`，其他五科使用各自的 `questions.json`。每個知識點與法規／機關排名都保留完整 `question_ids` 以供追溯；排名題數按題庫紀錄計，重複題幹在不同考期仍分別計數。",
         "",
-        "四科（金融科技、消費金融、ESG、AML）延用分析器內人工整理的關鍵詞分類；信託沿用完整題庫既有 `topic` 欄；SFI 116 年版只沿用官方題庫的「金融市場常識」與「職業道德」兩類，不另造更細的出題分類。SFI 本機來源檔為 `tmp/pdfs/116-financial-market.pdf`、`tmp/pdfs/116-professional-ethics.pdf`，題庫包資料記載 558 題及 616 題。",
+        "四科（金融科技、消費金融、ESG、AML）延用分析器內人工整理的關鍵詞分類；信託沿用完整題庫既有 `topic` 欄；SFI 113 年版只沿用官方題庫的「金融市場常識」與「職業道德」兩類，不另造更細的出題分類。官方題庫下載頁公告題數為504題及616題；113/9/23修訂表已套用於職業道德第279題。",
         "",
         "法規統計以題幹加正確選項，比對分析器明列的法規名稱與別名；SFI 的官方機關／機構統計使用同樣範圍。這些是詞彙命中數，不能解讀為官方命題比例、法規重要度、答案正確性或現行效力。關鍵詞可能漏判或誤命中；本報告不等於逐題語意及法律審查。",
         "",
