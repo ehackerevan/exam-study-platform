@@ -1,3 +1,6 @@
+# 歷史工具：禁止載入或執行，以免覆寫已核對的 canonical 題庫。
+raise SystemExit("歷史腳本已停用；請使用 npm run build:ui，以教材/ 的 canonical 題庫建置。")
+
 # -*- coding: utf-8 -*-
 import sys
 import json

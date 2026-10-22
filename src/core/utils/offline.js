@@ -15,14 +15,15 @@ export function findExternalResources(html) {
   const urls = new Set();
   const document = html.replace(/(<script\b[^>]*>)[\s\S]*?<\/script\s*>/gi, '$1</script>');
   const resourceAttributes = {
+    __proto__: null,
     script: ['src'], link: ['href', 'imagesrcset'], img: ['src', 'srcset'], input: ['src'], iframe: ['src'],
     source: ['src', 'srcset'], audio: ['src'], video: ['src', 'poster'], embed: ['src'], object: ['data'],
     track: ['src'], image: ['href', 'xlink:href'], use: ['href', 'xlink:href']
   };
-  for (const tag of document.matchAll(/<(script|link|img|input|iframe|source|audio|video|embed|object|track|image|use)\b([^>]*)>/gi)) {
+  for (const tag of document.matchAll(/<([a-z][\w:-]*)\b([^>]*)>/gi)) {
     const attributes = Object.fromEntries([...tag[2].matchAll(/([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g)]
       .map(match => [match[1].toLowerCase(), match[2] ?? match[3] ?? match[4]]));
-    for (const attribute of resourceAttributes[tag[1].toLowerCase()]) {
+    for (const attribute of resourceAttributes[tag[1].toLowerCase()] || []) {
       const value = attributes[attribute];
       if (!value) continue;
       if (attribute.endsWith('srcset')) addSrcsetResources(urls, value);

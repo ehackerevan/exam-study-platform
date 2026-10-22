@@ -26,3 +26,10 @@ test('Offline checks resource URLs regardless of attribute order without rejecti
   assert.deepEqual(findExternalResources('<link href="//cdn.example/style.css" rel="stylesheet"><script src="https://example.com/app.js"></script><img src="https://example.com/p.png">'), ['//cdn.example/style.css','https://example.com/app.js','https://example.com/p.png']);
   assert.deepEqual(findExternalResources('<style>@import "https://example.com/style.css"; .a{background:url(//example.com/a.png)}</style>'), ['https://example.com/style.css','//example.com/a.png']);
 });
+
+test('Offline checks inline CSS on ordinary HTML and SVG elements', () => {
+  for (const tag of ['div', 'p', 'span', 'section', 'svg', 'rect', 'study-card', 'constructor']) {
+    assert.deepEqual(findExternalResources(`<${tag} style="background:url(https://example.com/image.png)"></${tag}>`), ['https://example.com/image.png'], tag);
+  }
+  assert.deepEqual(findExternalResources('<p style="background:url(data:image/png;base64,AA)">離線圖</p><script>const example = \'<div style="background:url(https://example.com/sample.png)">\';</script>'), []);
+});

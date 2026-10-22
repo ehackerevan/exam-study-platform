@@ -17,9 +17,9 @@ from pathlib import Path
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-ROOT = Path.cwd()
+ROOT = Path(__file__).resolve().parents[1]
 if not (ROOT / "教材").is_dir():
-    raise SystemExit("請從 Study Pack Compiler 專案根目錄執行此程式。")
+    raise SystemExit(f"專案根目錄缺少教材資料夾：{ROOT}")
 
 COURSES = {
     "金融科技力重點教材": {

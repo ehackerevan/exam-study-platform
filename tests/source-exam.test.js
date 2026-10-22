@@ -42,6 +42,11 @@ test('question source metadata survives JSON sanitization', () => {
 });
 
 test('financial market and ethics source bank preserves all official question numbers and normalized answer indexes', () => {
+  const currentPack = JSON.parse(fs.readFileSync('教材/金融市場常識與職業道德題庫/pack.json', 'utf8'));
+  const archivedPack = JSON.parse(fs.readFileSync('歷史資料/金融市場常識與職業道德題庫_證基會116年版/pack.json', 'utf8'));
+  assert.equal(currentPack.id, 'financial-market-ethics-official-bank-113');
+  assert.equal(archivedPack.id, 'financial-market-ethics-official-bank-116');
+  assert.notEqual(currentPack.id, archivedPack.id, 'Different editions must not share progress');
   const questions = JSON.parse(fs.readFileSync('教材/金融市場常識與職業道德題庫/questions.json', 'utf8')).questions;
   assert.equal(questions.length, 1120);
 

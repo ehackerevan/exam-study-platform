@@ -13,6 +13,16 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    const file=path.join('dist',course+'.html');if(!fs.existsSync(file))continue;
    await page.goto(pathToFileURL(path.resolve(file)).href);
    const pack=await page.evaluate(()=>window.__STUDY_PACK__);
+   if(quizOnly){
+    const legacyKey='study-pack.financial-market-ethics-official-bank.progress';
+    const currentKey=`study-pack.${pack.id}.progress`;
+    const legacy={format:'study-pack-progress-v1',packId:'financial-market-ethics-official-bank',schemaVersion:1,contentVersion:'2026.10.21',completedChapters:[],questionStats:{'financial-market-017':{attempts:1,wrongCount:1,correctCount:0,lastResult:false}},quizHistory:[],lastPosition:{chapterId:'',sectionId:''},settings:{theme:'system'}};
+    await page.evaluate(({legacyKey,currentKey,legacy})=>{localStorage.setItem(legacyKey,JSON.stringify(legacy));localStorage.removeItem(currentKey);},{legacyKey,currentKey,legacy});
+    await page.reload();
+    assert.deepEqual(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),legacyKey),legacy,'Preserve ambiguous legacy edition records');
+    assert.deepEqual(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).questionStats,currentKey),{},'Do not apply legacy answers to another edition');
+    assert.equal(await page.locator('#stat-wrong-questions').textContent(),'0');
+   }
    const original=course==='信託業務人員重點教材'
     ? [...new Map(Object.values(JSON.parse(fs.readFileSync(path.join('教材',course,'full_exam_bank.json'),'utf8'))).flat().map(q=>[q.id,{id:q.id,chapterId:q.chapter,type:'single-choice',question:q.stem,options:q.options,answer:q.answer}])).values()]
     : (()=>{const source=JSON.parse(fs.readFileSync(path.join('教材',course,'questions.json'),'utf8'));return Array.isArray(source)?source:source.questions;})();

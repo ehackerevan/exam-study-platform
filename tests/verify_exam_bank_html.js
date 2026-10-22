@@ -2,6 +2,13 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
+import assert from 'node:assert/strict';
+
+function parseCount(text) {
+  const count = Number(text.replaceAll(',', '').trim());
+  assert(Number.isSafeInteger(count) && count >= 0, `無效題數：${text}`);
+  return count;
+}
 
 const CHROME_PATH = process.env.CHROME_PATH || chromium.executablePath();
 const HTML_FILE = path.resolve(process.cwd(), '考古題/歷屆考古題_完整題庫大全.html');
@@ -83,7 +90,7 @@ async function main() {
     const totalCountText = await evalCode('document.getElementById("totalCount").textContent');
     console.log(`1. 頁面標題: ${title}`);
     console.log(`   全庫總題數: ${totalCountText} 題`);
-    if (parseInt(totalCountText, 10) < 5000) throw new Error('題庫總數異常不足');
+    if (parseCount(totalCountText) < 5000) throw new Error('題庫總數異常不足');
 
     // 2. 測試分類切換至「金融科技力」
     console.log('2. 測試類別切換至「金融科技力」...');
@@ -95,7 +102,7 @@ async function main() {
     await wait(300);
     const fintechCount = await evalCode('document.getElementById("displayCount").textContent');
     console.log(`   金融科技力題目數: ${fintechCount} 題`);
-    if (parseInt(fintechCount, 10) < 800) throw new Error('金融科技力題數不符');
+    if (parseCount(fintechCount) < 800) throw new Error('金融科技力題數不符');
 
     // 3. 測試搜尋關鍵字
     console.log('3. 測試即時搜尋功能（關鍵字: 鯰魚效應）...');
@@ -107,7 +114,7 @@ async function main() {
     await wait(400);
     const searchMatchCount = await evalCode('document.getElementById("displayCount").textContent');
     console.log(`   搜尋「鯰魚」匹配題數: ${searchMatchCount} 題`);
-    if (parseInt(searchMatchCount, 10) === 0) throw new Error('搜尋無結果');
+    if (parseCount(searchMatchCount) === 0) throw new Error('搜尋無結果');
 
     // 4. 測試選項點擊作答與揭曉答案
     console.log('4. 測試題目選項點擊互動與揭曉答案...');

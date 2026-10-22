@@ -1,3 +1,6 @@
+# 歷史工具：禁止載入或執行，以免覆寫已核對的 canonical 題庫。
+raise SystemExit("歷史腳本已停用；請使用 npm run build:ui，以教材/ 的 canonical 題庫建置。")
+
 # -*- coding: utf-8 -*-
 """
 全新升級版：全量考古題重新比對、複選題重新納入、單選雙答案與送分精準清洗引擎
