@@ -2,7 +2,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 (async()=>{
  const {htmlFiles}=await import('../scripts/harmonize-ui.js');
- const browser=await chromium.launch({channel:'msedge',headless:true}),context=await browser.newContext(),errors=[],results=[];
+ const browser=await chromium.launch({headless:true}),context=await browser.newContext(),errors=[],results=[];
  await context.route('https://www.google.com/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<title>Search URL verification</title>'}));
  const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));
  try{

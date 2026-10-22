@@ -4,7 +4,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const frequency=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json','utf8')).courses;
 const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*(\d+)\s*題】\s*/, (label,number)=>Number(number)===q.sourceExam?.number?'':label);
 (async()=>{
- const browser=await chromium.launch({channel:'msedge',headless:true}),context=await browser.newContext(),errors=[],external=[],results=[];
+ const browser=await chromium.launch({headless:true}),context=await browser.newContext(),errors=[],external=[],results=[];
  await context.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  try{

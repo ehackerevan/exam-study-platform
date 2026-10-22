@@ -4,14 +4,14 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 (async()=>{
  const dir=path.resolve('.qa-artifacts/standalone');fs.mkdirSync(dir,{recursive:true});
  const file=path.join(dir,'學習平台_單檔整合版.html');fs.copyFileSync('學習平台_單檔整合版.html',file);
- const browser=await chromium.launch({channel:'msedge',headless:true}),p=await browser.newPage(),errors=[],external=[];
+ const browser=await chromium.launch({headless:true}),p=await browser.newPage(),errors=[],external=[];
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  if(!process.env.SINGLE_HTML_URL)await p.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
  try {
   await p.goto(process.env.SINGLE_HTML_URL||pathToFileURL(file).href);
   const frame=p.frameLocator('#study-frame');
   assert.equal(await frame.locator('.subject-card').count(),6);
-  const pages=await p.evaluate(()=>Object.keys(JSON.parse(document.getElementById('embedded-pages').textContent)));
+  const pages=await p.evaluate(()=>JSON.parse(document.getElementById('embedded-page-list').textContent));
   assert.equal(pages.length,8);
   for(const page of pages.filter(name=>name!=='index.html')){
    await p.evaluate(name=>window.openStudyPage(name,'?view=quiz'),page);

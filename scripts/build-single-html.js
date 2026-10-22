@@ -10,21 +10,29 @@ const pages = Object.fromEntries(files.map(file => {
   html = html.replace('new URLSearchParams(location.search)', "new URLSearchParams(window.__BUNDLE_SEARCH__ || '')");
   return [file, html];
 }));
-const data = JSON.stringify(pages).replace(/</g, '\\u003c');
+const embeddedPages = files.map((file, index) =>
+  `<script id="embedded-page-${index}" type="application/json">${JSON.stringify(pages[file]).replace(/</g, '\\u003c')}</script>`
+).join('\n');
 const html = `<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>教材與題庫｜單檔整合版</title>
 <link rel="icon" href="data:,">
 <style>html,body{margin:0;height:100%;background:#F5FAEF}iframe{display:block;width:100%;height:100%;border:0}</style>
 </head><body>
-<script id="embedded-pages" type="application/json">${data}</script>
+<script id="embedded-page-list" type="application/json">${JSON.stringify(files)}</script>
+${embeddedPages}
 <script>
-const pages = JSON.parse(document.getElementById('embedded-pages').textContent);
+const fileNames = JSON.parse(document.getElementById('embedded-page-list').textContent);
 const frame = document.createElement('iframe');
 frame.id = 'study-frame'; frame.title = '教材與題庫';
+function readPage(page) {
+  const index = fileNames.indexOf(page);
+  return index < 0 ? null : JSON.parse(document.getElementById('embedded-page-' + index).textContent);
+}
 function showPage() {
   const route = new URLSearchParams(location.hash.slice(1));
-  const page = Object.hasOwn(pages, route.get('page')) ? route.get('page') : 'index.html';
+  const page = fileNames.includes(route.get('page')) ? route.get('page') : 'index.html';
   const search = route.get('query') || '';
+  const content = readPage(page);
   const bridge = '<script>window.__BUNDLE_SEARCH__=' + JSON.stringify(search).replace(/</g,'\\u003c') + ';' +
     '(' + function () {
       document.addEventListener('click', event => {
@@ -41,11 +49,11 @@ function showPage() {
         if (parent.openStudyPage(decodeURIComponent(url.pathname.split('/').pop()), url.search)) event.preventDefault();
       });
     }.toString() + ')();<\\/script>';
-  frame.srcdoc = pages[page].replace(/<head[^>]*>/i, head => head + bridge);
+  frame.srcdoc = content.replace(/<head[^>]*>/i, head => head + bridge);
   if (!frame.isConnected) document.body.append(frame);
 }
 window.openStudyPage = (page, query = '') => {
-  if (!Object.hasOwn(pages, page)) return false;
+  if (!fileNames.includes(page)) return false;
   const route = new URLSearchParams({page, query}).toString();
   if (location.hash.slice(1) === route) showPage(); else location.hash = route;
   return true;

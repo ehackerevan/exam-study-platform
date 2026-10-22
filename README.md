@@ -48,7 +48,7 @@ npm run validate:offline
 npm run verify
 ```
 
-`test:e2e` 目前使用 Windows 的 Chrome。其他瀏覽器驗收腳本位於 `tests/*-browser.cjs`，使用既有 Playwright 執行環境（可透過 `PLAYWRIGHT_MODULE` 指定）。
+首次執行瀏覽器驗收前，先執行 `npm ci`，再安裝 Playwright Chromium：`npx playwright install chromium`。`npm run verify` 會執行 `tests/*-browser.cjs` 與端對端流程；GitHub Pages 工作流程會自動安裝瀏覽器及系統相依套件。
 
 建置會先依 canonical 題庫重新產生知識點及法規名稱詞彙統計，避免新增題目後映射過期。這是機械索引，不判斷答案語意或法規效力。教材包會全部驗證與編譯成功後再寫入，避免資料錯誤留下半套輸出。
 

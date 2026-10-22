@@ -137,7 +137,9 @@ export function validateStudyPack(pack) {
       let totalKeyPointsInChapter = 0;
       let totalContentLength = 0;
 
-      if (!Array.isArray(ch.sections) || ch.sections.length === 0) {
+      if (!Array.isArray(ch.sections)) {
+        report.addError('INVALID_CHAPTER_SECTIONS', `章節 '${ch.title}' 的小節 (sections) 必須為陣列`, chLabel);
+      } else if (ch.sections.length === 0) {
         report.addWarning('EMPTY_CHAPTER_SECTIONS', `章節 '${ch.title}' 沒有任何小節 (sections)`, chLabel);
       } else {
         const sectionIdSet = new Set();
@@ -155,7 +157,7 @@ export function validateStudyPack(pack) {
           }
 
           if (typeof sec.title !== 'string' || !sec.title.trim()) {
-            report.addWarning('MISSING_SECTION_TITLE', `小節缺少標題`, secLabel);
+            report.addError('MISSING_SECTION_TITLE', `小節缺少標題`, secLabel);
           }
 
           for (const field of ['title', 'content']) if (sec[field] !== undefined) checkText(sec[field], `${secLabel} ${field}`);

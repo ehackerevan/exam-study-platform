@@ -1,9 +1,11 @@
 import { spawn } from 'node:child_process';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { chromium } from 'playwright';
 
-const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const CHROME_PATH = process.env.CHROME_PATH || chromium.executablePath();
 const HTML_FILE = path.resolve(process.cwd(), '考古題/歷屆考古題_完整題庫大全.html');
-const FILE_URL = 'file:///' + HTML_FILE.replace(/\\/g, '/');
+const FILE_URL = pathToFileURL(HTML_FILE).href;
 
 async function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

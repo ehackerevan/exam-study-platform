@@ -33,10 +33,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Build unified study packs
-        run: npm run build:ui && npm test && npm run validate:offline
+        run: npm run build:ui && npm test && npm run validate:offline && npm run test:browser && npm run test:e2e
       - name: Prepare public site
         env:
           PAGES_OUTPUT_DIR: ${{ runner.temp }}/exam-study-platform-pages-${{ github.run_id }}-${{ github.run_attempt }}

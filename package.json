@@ -12,9 +12,10 @@
     "build:examples": "node scripts/build-examples.js",
     "build:ui": "npm run analyze:exams && node scripts/build-coursepacks.js && node scripts/build-examples.js && node scripts/harmonize-ui.js && npm run build:single",
     "validate:offline": "node scripts/validate-offline.js",
-    "verify": "npm run build:ui && npm test && npm run validate:offline && npm run test:e2e",
+    "verify": "npm run build:ui && npm test && npm run validate:offline && npm run test:browser && npm run test:e2e",
     "analyze:exams": "python scripts/analyze_exam_frequency.py",
-    "build:single": "node scripts/build-single-html.js"
+    "build:single": "node scripts/build-single-html.js",
+    "test:browser": "node tests/learner-browser.cjs && node tests/coursepacks-browser.cjs && node tests/catalog-browser.cjs && node tests/quiz-quantities-browser.cjs && node tests/answer-search-browser.cjs && node tests/ui-consistency-browser.cjs && node tests/single-html-browser.cjs && node tests/verify_exam_bank_html.js"
   },
   "keywords": [
     "study-pack",
@@ -24,5 +25,8 @@
     "learning-generator"
   ],
   "author": "Antigravity Pair Programmer",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
 }

@@ -3,7 +3,7 @@ const {pathToFileURL,fileURLToPath}=require('node:url');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 (async()=>{
  const {htmlFiles}=await import('../scripts/harmonize-ui.js');
- const b=await chromium.launch({channel:'msedge',headless:true}),c=await b.newContext(),errors=[],external=[],results=[];
+ const b=await chromium.launch({headless:true}),c=await b.newContext(),errors=[],external=[],results=[];
  c.on('page',p=>{p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});});
  await c.route(/^https?:/,r=>{external.push(r.request().url());return r.abort();});
  const p=await c.newPage(),catalog=pathToFileURL(path.resolve('dist/index.html')).href;

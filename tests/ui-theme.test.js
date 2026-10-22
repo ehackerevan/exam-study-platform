@@ -38,8 +38,9 @@ test('Catalogue return link: replace path without duplicate links; catalogue has
 
 test('Single HTML: eight embedded pages keep the shared theme',()=>{
  const html=fs.readFileSync('dist/學習平台_單檔整合版.html','utf8');
- const pages=JSON.parse(html.match(/<script id="embedded-pages" type="application\/json">([\s\S]*?)<\/script>/)[1]);
- assert.equal(Object.keys(pages).length,8);
+ const names=JSON.parse(html.match(/<script id="embedded-page-list" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+ const pages=[...html.matchAll(/<script id="embedded-page-\d+" type="application\/json">([\s\S]*?)<\/script>/g)].map(([,page])=>JSON.parse(page));
+ assert.equal(names.length,8);assert.equal(pages.length,names.length);
  const css=fs.readFileSync(themePath,'utf8').trim();
- for(const page of Object.values(pages)) assert.equal(page.match(/<style id="study-ui-theme">([\s\S]*?)<\/style>/)[1].trim(),css);
+ for(const page of pages) assert.equal(page.match(/<style id="study-ui-theme">([\s\S]*?)<\/style>/)[1].trim(),css);
 });

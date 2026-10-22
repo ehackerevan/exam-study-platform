@@ -4,7 +4,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 (async()=>{
  const {htmlFiles}=await import('../scripts/harmonize-ui.js');
  const files=htmlFiles().filter(file=>file.replaceAll('\\','/')!=='src/renderer/template.html');
- const browser=await chromium.launch({channel:'msedge',headless:true}),context=await browser.newContext(),errors=[],external=[],results=[];
+ const browser=await chromium.launch({headless:true}),context=await browser.newContext(),errors=[],external=[],results=[];
  await context.route(/^https?:/,r=>{external.push(r.request().url());return r.abort();});
  try{
   for(const file of files){

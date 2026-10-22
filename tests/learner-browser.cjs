@@ -13,7 +13,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
   const fixture=path.join(evidence,'learner-fixture.html');
   fs.writeFileSync(fixture,compileStudyPackToHtml(pack).html);
   const url=pathToFileURL(fixture).href, key='study-pack.learner-qa.progress';
-  const browser=await chromium.launch({headless:true,channel:'msedge'});
+  const browser=await chromium.launch({headless:true});
   const context=await browser.newContext({acceptDownloads:true});
   await context.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
   context.on('page',page=>{page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('dialog',dialog=>dialog.accept());});
