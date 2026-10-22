@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_on": "2026-10-21",
+  "generated_on": "2026-10-22",
   "scope": "六科清理後 canonical 題庫的每筆題目紀錄；信託來源為 full_exam_bank.json，其餘來源為 questions.json；重複題幹跨考期仍按各筆紀錄計數",
   "method": {
     "counting_grain": "每個 canonical source question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",

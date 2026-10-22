@@ -2,6 +2,21 @@
 
 把教材與來源題庫編譯成單一 HTML，離線閱讀、作答並保存進度。
 
+## 資料夾用途
+
+| 想做的事 | 位置 |
+| --- | --- |
+| 直接開始讀書、練題 | [開始學習.html](開始學習.html)；`index.html` 為相容入口 |
+| 攜帶單檔離線使用 | [學習平台_單檔整合版.html](學習平台_單檔整合版.html) |
+| 修改正在使用的教材、題目與答案 | `教材/` |
+| 查找在用歷屆題庫與原始考題 | `考古題/` |
+| 查看最新建置網頁 | `dist/`（自動產出） |
+| 查舊版教材、來源及核對資料 | [歷史資料](歷史資料/歷史分類索引.md)（不參與現行建置） |
+| 查架構、決策與遷移說明 | [專案文件](專案文件/檔案分類說明.md) |
+| 維護程式／建置／測試 | `src/`、`bin/`、`scripts/`、`tests/` |
+| 查執行狀態、統計與驗收紀錄 | `tasks/`；本輪測試輸出在 `.qa-artifacts/` |
+| 維護 GitHub Pages 部署 | `.github/` |
+
 ## 開始學習
 
 開啟 [學科目錄](dist/index.html)，選擇「教材閱讀」或「題庫練習」。不需安裝程式或登入帳號。
@@ -61,7 +76,7 @@ node bin/study-pack.js build ./examples/general-exam ./dist/general-exam.html
 node bin/study-pack.js --help
 ```
 
-支援 Markdown、JSON、CSV、TXT。資料契約見 [study-pack.schema.json](src/core/schema/study-pack.schema.json)，範例見 [examples](examples)，架構說明見 [DEVELOPMENT.md](DEVELOPMENT.md)。JSON 答案使用 0 起算索引；CSV／TXT 可用 A、B 或 1、2 等來源標記。缺答案、空白選項或無法識別的答案會被擋下，不會推定成 A。
+支援 Markdown、JSON、CSV、TXT。資料契約見 [study-pack.schema.json](src/core/schema/study-pack.schema.json)，範例見 [examples](examples)，架構說明見 [架構與開發說明](專案文件/架構與開發說明.md)。JSON 答案使用 0 起算索引；CSV／TXT 可用 A、B 或 1、2 等來源標記。缺答案、空白選項或無法識別的答案會被擋下，不會推定成 A。
 
 輸入資料需為 UTF-8，可接受 BOM。題目原文、選項與答案應先對照來源；建置驗證只確認可讀取與可正確執行，不代替內容審定。
 
