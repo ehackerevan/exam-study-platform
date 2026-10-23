@@ -7,6 +7,7 @@
 - 版面：章節總覽預設收合，非流程改為條列及可展開的概念整理；桌面白話與詳細規則並排，寬表格使用整欄；手機依核心、規則條件、整理／案例順序顯示。章名不再於目錄入口重複，已讀按鈕置於教材結尾、十題練習之前；降低一般說明標色，保留法規數字／期限並避免數字與單位拆行。
 - 同步：預覽、正式六科及 116 年版、單檔已重建；選擇章節總覽可自動展開，保留鍵盤與節點互動、原題目與進度識別碼。
 - 驗收：npm run verify 全部通過（45 單元、12 支瀏覽器、E2E）；最後數字不拆行樣式之後重建並通過 37 章預覽／正式內容一致、首屏、全部章節三寬度、預覽四寬度、370 題來源答案及條號／數字／期限保留、離線檢查。
+- 發布驗收補充：首次 Actions 39944942641 在 Linux 的金融科技導讀首屏檢查失敗；縮放後等待目錄收合及版面完成兩個影格，再量測首屏，保留原 900px 驗收門檻與診斷資料。
 - 測試維護：編譯單元測試改寫 .qa-artifacts/compiler-test，避免與共用樣式測試並行改寫 dist 的偶發失敗。
 - 證據：.qa-artifacts/rules-first-verify.log、rules-first-targeted-final.log、rules-first-courses-final.log、rules-first-preview-final.log、rules-first-offline-final.log、rules-first-report.json、rules-first-final-390.png、rules-first-final-1440.png。
 - 限制：本輪為內容一致性與閱讀呈現，未重審法規現行效力或更改題庫答案；部署結果以 Actions 及正式網站驗收證據確認。
