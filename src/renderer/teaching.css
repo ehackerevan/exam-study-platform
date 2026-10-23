@@ -8,3 +8,20 @@
 #sections-container .chapter-sources{margin:1rem 0;font-size:.9rem}#sections-container summary{cursor:pointer;padding:.6rem 0}#sections-container .check-answer p{border-left:3px solid #61c8a3;padding-left:1rem}
 #sections-container .concept-map{padding:1.2rem;border:1px solid var(--border-subtle);border-radius:12px}#sections-container .map-heading{display:flex;justify-content:space-between;gap:1rem;align-items:center}#sections-container .map-heading h3{font-size:1.1rem}#sections-container .map-kind{font-size:.85rem;color:var(--text-muted)}#sections-container .map{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}#sections-container .map>li{list-style:none;min-width:0}#sections-container .map-node{width:100%;min-height:110px;border:1px solid var(--border-subtle);border-radius:8px;padding:1rem;background:var(--bg-surface-alt);color:var(--text-primary);cursor:pointer}#sections-container .map-node>*{display:block}#sections-container .map-node strong{font-size:1.05rem;margin:.5rem 0}#sections-container .map-node small{font-size:.8rem}#sections-container .map-node.is-selected{border-color:#2b878f;background:#dff1e5;color:#2f4858}#sections-container .step-index{font-size:.8rem;color:var(--text-muted)}#sections-container .step-detail{padding:1rem;border-top:1px solid var(--border-subtle)}#sections-container .step-detail>span{display:none}#sections-container .map-footer{display:flex;align-items:center;gap:1rem;justify-content:space-between}#sections-container .step-hint{font-size:.85rem;color:var(--text-muted)}#sections-container .next-step{padding:.7rem 1rem;background:#2e6677;color:white;border:0;border-radius:8px;cursor:pointer;flex-shrink:0}#sections-container button:focus-visible{outline:3px solid #2b878f;outline-offset:3px}
 @media(max-width:700px){#sections-container .topic-diagram,#sections-container .map{grid-template-columns:1fr}#sections-container .map-node{min-height:80px}#sections-container .map-heading,#sections-container .map-footer{align-items:start;flex-direction:column}}
+/* Small tables fit the reading column; comparisons retain their column width. */
+#sections-container table{width:100%;min-width:0}#sections-container table.table-wide{min-width:520px}#sections-container .law-reference{border-left:3px solid var(--border-subtle);padding-left:1rem}#sections-container .law-reference>summary{font-weight:700;min-height:44px}#sections-container .chapter-review{border-top:1px solid var(--border-subtle);padding-top:1rem}#sections-container .topic-diagram li{border:0;border-left:2px solid var(--primary-border);border-radius:0;background:transparent;padding:.5rem .8rem}#sections-container .topic-trap{background:transparent;border-left:3px solid var(--primary-border);border-radius:0;padding:.4rem .8rem}
+@media(max-width:700px){
+ #sections-container .concept-map{border:0;border-bottom:1px solid var(--border-subtle);border-radius:0;padding:0 0 1rem}
+ #sections-container .map{gap:.4rem;margin:.75rem 0}
+ #sections-container .map-node{min-height:44px;padding:.55rem .7rem;display:flex;align-items:center;gap:.6rem;text-align:left}
+ #sections-container .map-node strong{font-size:1rem;margin:0;flex:1}#sections-container .map-node small{font-size:.85rem}
+ #sections-container .step-detail{padding:.75rem 0}#sections-container .map-kind{display:none}
+ #sections-container .topic-diagram{gap:0;margin:.75rem 0}
+ #sections-container .topic-diagram li{display:grid;grid-template-columns:minmax(4.5rem,30%) minmax(0,1fr);gap:.6rem;border:0;border-bottom:1px solid var(--border-subtle);padding:.6rem 0}
+ #sections-container .topic-diagram strong{font-size:1rem}#sections-container .topic-diagram span{margin:0;font-size:1rem}
+ #sections-container .topic-flow li{display:block;padding:.6rem .7rem;border-left:2px solid var(--primary-border)}#sections-container .topic-flow span{margin-top:.3rem}
+ #sections-container .topic-core{font-size:1.05rem;line-height:1.75;margin-bottom:.75rem}
+ #sections-container .topic-example{padding-left:.75rem;margin-top:1rem}
+}
+
+#sections-container .section-block{scroll-margin-top:calc(var(--reader-top,160px) + var(--section-nav-height,115px) + 8px)}

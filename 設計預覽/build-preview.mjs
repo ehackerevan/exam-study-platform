@@ -40,7 +40,7 @@ function original(raw) {
   });
   return emphasizeHtml(globalThis.marked.parse(source, {renderer,gfm:true,breaks:true})
     .replace(/<(\/?)h([1-6])>/g, (_, close, level) => `<${close}h${Math.min(6,Number(level)+3)}>`)
-    .replace(/<table>/g,'<div class="table-scroll" tabindex="0" aria-label="比較表，可左右捲動"><table>').replace(/<\/table>/g,'</table></div>'));
+    .replace(/<table>([\s\S]*?)<\/table>/g,(_,cells)=>`<table class="${(cells.match(/<th[ >]/g)||[]).length>2?'table-wide':'table-narrow'}">${cells}</table>`).replace(/<table class="([^"]+)">/g,'<div class="table-scroll" tabindex="0" aria-label="比較表，可左右捲動"><table class="$1">').replace(/<\/table>/g,'</table></div>'));
 }
 
 const totals = {subjects:courses.length,chapters:0,questions:0,topics:0};
@@ -52,10 +52,18 @@ function topicFrom(row, title) {
  return {title:conciseText(title),core:row[0],nodes:row[1].split('|').map(part=>part.split('：')),example:row[2],trap:row[3]};
 }
 function renderTopic(topic,section,body) {
- const supplemental = !/歷屆常見易錯觀念|法規原文對照庫|常見法規數字整理|常見英文縮寫|題目判讀重點/.test(section.title || '');
+ const reference = section.title==='法規原文對照庫';
+ const summary = /歷屆常見易錯觀念|常見法規數字整理|常見英文縮寫|題目判讀重點/.test(section.title || '');
+ const supplemental = !reference && !summary;
+ const plain=value=>String(value).replace(/<[^>]*>|\s|[，。；：、]/g,'');
+ const core=plain(body).includes(plain(teach(topic.core)))?'':`<p class="topic-core">${teach(topic.core)}</p>`;
+ const diagram = supplemental ? `<ol class="topic-diagram ${topic.flow?'topic-flow':''}" style="--topic-nodes:${topic.nodes.length}" aria-label="${escape(conciseText(topic.title))}概念圖">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</ol>` : '';
+ const points=(section.keyPoints||[]).filter(point=>!plain(body).includes(plain(teach(point))));
+ const notes=(section.notes||[]).filter(note=>!plain(body).includes(plain(teach(note))));
  totals.topics++;
- return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(topic.title)}</h4><p class="topic-core">${teach(topic.core)}</p><ol class="topic-diagram ${topic.flow?'topic-flow':''}" style="--topic-nodes:${topic.nodes.length}" aria-label="${escape(conciseText(topic.title))}概念圖">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</ol><div class="rule-content">${body}</div>${section.keyPoints?.length?'<ul>'+section.keyPoints.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${section.notes?.length?'<p>'+section.notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}${supplemental && topic.example?`<div class="topic-example"><h5>情境理解</h5><p>${teach(topic.example)}</p></div>`:''}${supplemental && topic.trap?`<p class="topic-trap"><strong>容易混淆：</strong>${teach(topic.trap)}</p>`:''}</section>`;
+ return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(reference?'法規條文':topic.title)}</h4>${reference||summary?'':core+diagram}${reference?'<details class="law-reference"><summary>展開本章法規條文</summary>':''}<div class="rule-content">${body}</div>${points.length?'<ul>'+points.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${notes.length?'<p>'+notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}${reference?'</details>':''}${supplemental && topic.example?`<div class="topic-example"><p><strong>例：</strong>${teach(topic.example)}</p></div>`:''}${supplemental && topic.trap?`<p class="topic-trap"><strong>易混淆：</strong>${teach(topic.trap)}</p>`:''}</section>`;
 }
+const guideTitles={trust:['角色分工','財產與管理目的','財產、義務與救濟'],fintech:['服務需求與工具','資料、運算與連接','支付與身分驗證'],consumer:['授信流程與控制','業務、風管與稽核','消費者權益'],esg:['環境、社會與治理','排放邊界與換算','金融工具與揭露'],aml:['犯罪、審查與申報','身分、控制者與風險','申報與資料保存'],ethics:['資金供需','機構與市場','金融工具與風險'],'professional-ethics':['適合度與揭露','利益衝突','保密與誠信']};
 const navigation = [];
 const lessons = [];
 for (const course of courses) {
@@ -81,7 +89,7 @@ for (const course of courses) {
     const entry = {chapter:id,removed:[],topics:[]};
     let topicIndex=0;
     const guide = (index===0 && course.key!=='ethics') || course.key==='ethics';
-    const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,lesson.steps[i]?.[0]||'核心觀念'),body:''})) : sections.flatMap((section,i)=>{
+    const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:''})) : sections.flatMap((section,i)=>{
       if(id==='aml-aml02') {
         const topic=cddTopics[i];assert(topic,section.title);
         return [{section,topic,body:topic.overview?'':original(section.content)}];
@@ -120,10 +128,10 @@ for (const course of courses) {
 <div class="map-track" aria-hidden="true">${lesson.steps.map(()=>'<span></span>').join('')}</div>
 <div class="step-details" aria-live="polite">${lesson.steps.map((step,i)=>`<div class="step-detail" id="${id}-step-${i}"><span>${String(i+1).padStart(2,'0')}</span><p><strong>${escape(step[0])}：</strong>${teach(step[2])}</p></div>`).join('')}</div>
 <div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section>
-<aside class="important">${icon('info')}<p><strong>一起記住：</strong>${teach(lesson.limit)}</p></aside>
+
 <section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body)).join('')}</div></section>
-<section class="chapter-review"><h3>本章帶走的重點</h3><ul>${lesson.steps.map(step=>`<li><strong>${teach(step[0])}：</strong>${teach(step[2])}</li>`).join('')}</ul></section>
-<section class="understanding"><h3>如果換個情況呢？</h3><p class="question-line">${teach(lesson.check[0])}</p><details class="check-answer"><summary>看看怎麼想</summary><p>${teach(lesson.check[1])}</p></details></section>
+<section class="chapter-review"><h3>判斷界線</h3><p>${teach(lesson.limit)}</p></section>
+<section class="understanding"><h3>換個情況，怎麼判斷？</h3><p class="question-line">${teach(lesson.check[0])}</p><details class="check-answer"><summary>看看怎麼想</summary><p>${teach(lesson.check[1])}</p></details></section>
 <details class="chapter-sources"><summary>參考資料與版本</summary><p>${escape(course.name)}教材${course.key==='ethics'?'；題目依證基會 113 年版及官方勘誤整理。':'。'}</p>${references.length?'<ul>'+references.map(link=>'<li>'+link+'</li>').join('')+'</ul>':''}</details>
 <details class="practice-block"><summary>${icon('check','summary-icon')}章末練習<span class="practice-total">10 題</span><span class="chevron" aria-hidden="true">›</span></summary><p class="practice-note">核對答案後，回看不熟悉的知識點。</p>${questions.map((question,qindex)=>{
       const answer=Array.isArray(question.answer)?question.answer:[question.answer];

@@ -1,5 +1,5 @@
 (function () {
-  const teachingClasses = new Set('knowledge-topic topic-core topic-diagram topic-flow rule-content topic-example topic-trap legal-value table-compact source-excerpt chapter-review chapter-sources understanding question-line check-answer concept-map map-heading map-kind map compare map-node step-index map-track step-details step-detail map-footer step-hint next-step is-selected'.split(' '));
+  const teachingClasses = new Set('law-reference table-wide table-narrow knowledge-topic topic-core topic-diagram topic-flow rule-content topic-example topic-trap legal-value table-compact source-excerpt chapter-review chapter-sources understanding question-line check-answer concept-map map-heading map-kind map compare map-node step-index map-track step-details step-detail map-footer step-hint next-step is-selected'.split(' '));
   const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function diagram(source) {
     const labels = new Map();
@@ -56,6 +56,8 @@
       }
     }
     for (const table of template.content.querySelectorAll('table')) {
+      if(!table.classList.contains('table-wide')&&!table.classList.contains('table-narrow'))table.classList.add(table.rows[0]?.cells.length>2?'table-wide':'table-narrow');
+      if(table.parentElement?.classList.contains('table-scroll'))continue;
       const wrapper = document.createElement('div'); wrapper.className = 'table-scroll'; wrapper.tabIndex = 0;
       wrapper.setAttribute('aria-label', '表格，可左右捲動'); table.replaceWith(wrapper); wrapper.append(table);
     }

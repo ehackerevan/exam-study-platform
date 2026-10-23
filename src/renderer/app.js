@@ -148,8 +148,8 @@
   }
   function initQuestionManager(){
     const panel=document.createElement('section');panel.id='personal-question-panel';
-    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的精選（可搭配下方章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的精選</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
-    document.getElementById('quiz-setup-panel').prepend(panel);
+    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的精選（可搭配章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的精選</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
+    document.querySelector('#quiz-setup-panel .quiz-config-card').append(panel);
     panel.querySelector('#btn-personal-favorites').onclick=()=>startQuiz('random','','all',pack.questions.filter(q=>progress.favoriteQuestionIds.includes(q.id)));
     panel.querySelector('#hidden-question-search').addEventListener('input',renderQuestionManager);renderQuestionManager();
   }
@@ -379,6 +379,17 @@
   }
 
   // ===== 2. 教材閱讀 Reader 渲染 =====
+  function setTocOpen(open){
+    document.getElementById('reader-toc-list').hidden=!open;
+    const button=document.getElementById('btn-toggle-sidebar');
+    button.textContent=open?'收合目錄':'展開目錄';button.setAttribute('aria-expanded',String(open));
+  }
+  function updateSectionNavigation(id){
+    const select=document.getElementById('reader-section-select');
+    if([...select.options].some(option=>option.value===id))select.value=id;
+    document.getElementById('btn-prev-section').disabled=select.selectedIndex<=0;
+    document.getElementById('btn-next-section').disabled=select.selectedIndex<0||select.selectedIndex>=select.options.length-1;
+  }
   function renderReader() {
     const ch = pack.chapters.find(c => c.id === currentChapterId) || pack.chapters[0];
     if (!ch) return;
@@ -400,6 +411,7 @@
       li.onclick = () => {
         currentChapterId = c.id;
         renderReader();
+        if(matchMedia('(max-width:768px)').matches){setTocOpen(false);document.getElementById('chapter-heading').scrollIntoView({block:'start'});}
       };
       li.onkeydown = event => {if (event.key === 'Enter' || event.key === ' ') {event.preventDefault();li.click();}};
       tocList.appendChild(li);
@@ -407,6 +419,7 @@
 
     // 標題與摘要
     document.getElementById('chapter-heading').textContent = ch.title;
+    document.querySelector('.sidebar-title').textContent=ch.title;
     document.getElementById('chapter-summary-text').textContent = ch.teachingSummary || ch.summary || '';
 
     // 完成狀態按鈕
@@ -447,7 +460,7 @@
       }
 
       secDiv.innerHTML = `
-        <h3 class="section-title">${escapeHtml(sec.title)}</h3>
+        <h3 class="section-title" tabindex="-1">${escapeHtml(sec.title)}</h3>
         ${sec.content ? `<div class="section-body">${window.StudyContent.render(sec.content)}</div>` : ''}
         ${keyPointsHtml}
         ${notesHtml}
@@ -459,6 +472,9 @@
     goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
     if(!ch.teachingSections)container.prepend(goals);
     window.StudyContent.initTeaching(container);
+    const sectionSelect=document.getElementById('reader-section-select');
+    sectionSelect.replaceChildren(...readingSections(ch).map(sec=>{const option=document.createElement('option');option.value=sec.id;option.textContent=sec.title;return option;}));
+    updateSectionNavigation(progress.lastPosition.sectionId || readingSections(ch)[0]?.id);
     const practice = document.getElementById('chapter-practice-panel');
     const hasTeachingContent = pack.chapters.some(chapter => chapter.sections.some(section => section.content));
     const hasPracticeQuestions = pack.chapters.some(chapter => (chapter.practiceQuestionIds || pack.questions.filter(question => question.chapterId === chapter.id).slice(0, 10).map(question => question.id)).length > 0);
@@ -468,7 +484,7 @@
       const preferred=(ch.practiceQuestionIds || []).map(id=>questionById.get(id)).filter(Boolean);
       const practiceQuestions=[...new Map([...preferred,...pack.questions.filter(q=>q.chapterId===ch.id)].filter(q=>!isQuestionHidden(q)).map(q=>[q.id,q])).values()].slice(0,10);
       document.getElementById('chapter-practice-title').textContent = /00$/.test(ch.id) ? `全科暖身練習（${practiceQuestions.length} 題）` : `本章練習（${practiceQuestions.length} 題）`;
-      document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `本次涵蓋：${ch.practiceConcepts.join('、')}。直接作答並查看答案。` : '依本章歷屆題目直接作答並查看答案。';
+      document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `涵蓋：${ch.practiceConcepts.join('、')}。` : '';
       if(practiceQuestions.length<10)document.getElementById('chapter-practice-scope').textContent+=` 已排除隱藏題目，目前可練 ${practiceQuestions.length} 題。`;
       renderChapterPractice(document.getElementById('chapter-practice-preview'), practiceQuestions);
     }
@@ -955,13 +971,25 @@
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');
     sidebarToggle.setAttribute('aria-controls','reader-toc-list');
-    sidebarToggle.setAttribute('aria-expanded','true');
-    sidebarToggle.onclick = () => {
-      const list = document.getElementById('reader-toc-list');
-      list.hidden = !list.hidden;
-      sidebarToggle.textContent = list.hidden ? '展開目錄' : '收合目錄';
-      sidebarToggle.setAttribute('aria-expanded',String(!list.hidden));
+    const mobileReader=matchMedia('(max-width:768px)');
+    const header=document.querySelector('.app-header'),catalog=document.getElementById('study-catalog-nav');
+    const sectionNavigation=document.querySelector('.section-navigation');
+    const headerSize=new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-top',`${header.offsetHeight+(catalog?.offsetHeight||0)}px`);document.documentElement.style.setProperty('--section-nav-height',`${sectionNavigation.offsetHeight}px`);});
+    headerSize.observe(header);if(catalog)headerSize.observe(catalog);headerSize.observe(sectionNavigation);
+    setTocOpen(!mobileReader.matches);
+    mobileReader.addEventListener('change',event=>setTocOpen(!event.matches));
+    sidebarToggle.onclick=()=>setTocOpen(document.getElementById('reader-toc-list').hidden);
+    const sectionSelect=document.getElementById('reader-section-select');
+    const goToSection=()=>{
+      const target=document.getElementById('sec-'+sectionSelect.value);
+      if(!target)return;
+      updateSectionNavigation(sectionSelect.value);
+      progress.lastPosition.sectionId=sectionSelect.value;saveProgress();
+      target.querySelector('.section-title').focus({preventScroll:true});target.querySelector('.section-title').scrollIntoView({block:'start',behavior:'instant'});
     };
+    sectionSelect.onchange=goToSection;
+    for(const [id,offset] of [['btn-prev-section',-1],['btn-next-section',1]])document.getElementById(id).onclick=()=>{sectionSelect.selectedIndex+=offset;goToSection();};
+    document.getElementById('btn-section-toc').onclick=()=>{setTocOpen(true);document.getElementById('reader-sidebar').scrollIntoView({block:'start'});sidebarToggle.focus({preventScroll:true});};
     document.getElementById('sections-container').addEventListener('click', event => {
       const link = event.target.closest('a[data-chapter]');
       if (!link) return;
@@ -978,9 +1006,10 @@
         readingFrame = 0;
         if (currentView !== 'reader') return;
         const sections = [...document.querySelectorAll('#sections-container .section-block')];
-        const visible = sections.filter(section => section.getBoundingClientRect().top <= 180).at(-1) || sections[0];
+        const visible = sections.filter(section => section.getBoundingClientRect().top <= header.getBoundingClientRect().bottom+document.querySelector('.section-navigation').offsetHeight+20).at(-1) || sections[0];
         if (visible && progress.lastPosition.sectionId !== visible.id.slice(4)) {
           progress.lastPosition.sectionId = visible.id.slice(4);
+          updateSectionNavigation(progress.lastPosition.sectionId);
           saveProgress();
         }
       });

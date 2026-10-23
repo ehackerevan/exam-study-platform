@@ -23,6 +23,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    const before=await p.locator('#chapter-heading').innerText();assert(before);
    let marked=false;
    for(let i=0;i<await p.locator('#reader-toc-list li').count();i++){
+    if(await p.locator('#reader-toc-list').isHidden())await p.locator('#btn-toggle-sidebar').click();
     await p.locator('#reader-toc-list li').nth(i).click();
     await p.waitForTimeout(30);
     if(await p.locator('#sections-container mark.legal-term').count()){marked=true;break;}

@@ -127,6 +127,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       }
     }
     await page.setViewportSize({width:390,height:844});await page.locator('[data-view="reader"]').click();
+    if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
     await page.locator('#btn-toggle-sidebar').click();assert(await page.locator('#reader-toc-list').isHidden());
     await page.locator('#chapter-practice-panel').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(evidence,'learner-mobile.png'),fullPage:false});

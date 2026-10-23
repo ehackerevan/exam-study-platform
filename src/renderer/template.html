@@ -472,7 +472,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
         <aside class="reader-sidebar" id="reader-sidebar">
           <div class="sidebar-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
             <span class="sidebar-title" style="margin-bottom:0;">章節目錄</span>
-            <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="收合目錄" title="收合或展開目錄">收合 ◀</button>
+            <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="章節目錄" title="收合或展開目錄">收合 ◀</button>
           </div>
           <ul class="toc-list" id="reader-toc-list"></ul>
         </aside>
@@ -489,6 +489,11 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
             </div>
           </header>
 
+          <nav class="section-navigation" aria-label="小節導覽">
+            <label class="sr-only" for="reader-section-select">目前小節</label>
+            <select id="reader-section-select"></select>
+            <div><button type="button" class="btn btn-secondary" id="btn-prev-section" aria-label="上一節" title="上一節">←<span class="section-nav-label"> 上一節</span></button><button type="button" class="btn btn-secondary" id="btn-next-section" aria-label="下一節" title="下一節"><span class="section-nav-label">下一節 </span>→</button><button type="button" class="btn btn-secondary" id="btn-section-toc" aria-label="章節目錄">目錄</button></div>
+          </nav>
           <!-- 小節列表容器 -->
           <div id="sections-container"></div>
 

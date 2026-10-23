@@ -71,6 +71,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    for(const width of [320,768,1440]){
     await page.setViewportSize({width,height:900});await page.locator('[data-view="reader"]').click();
    for(let i=0;i<pack.chapters.length;i++){
+     if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
      await page.locator('#reader-toc-list li').nth(i).click();
      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,`${course} chapter ${i} at ${width}`);
      {
@@ -80,7 +81,8 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
       assert.equal(await page.locator('#btn-chapter-practice').count(),0,'Chapter practice has no separate quiz-mode button');
      }
      assert(pack.chapters[i].teachingSections?.length>2,'Integrated teaching sections exist');
-     assert.equal(await page.locator('#sections-container .topic-core').count(),pack.chapters[i].teachingSections.length-2,'Each topic renders its explanation');
+     assert.equal(await page.locator('#sections-container .knowledge-topic').count(),pack.chapters[i].teachingSections.length-2,'Each topic remains available');
+     assert(await page.locator('#sections-container .knowledge-topic').evaluateAll(nodes=>nodes.every(node=>node.textContent.trim().length>20)),'Every topic retains readable content');
      if(width===1440){
       const nodes=page.locator('#sections-container .map-node');await nodes.last().click();
       assert.equal(await nodes.last().getAttribute('aria-pressed'),'true');
