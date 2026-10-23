@@ -73,12 +73,20 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    for(let i=0;i<pack.chapters.length;i++){
      await page.locator('#reader-toc-list li').nth(i).click();
      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,`${course} chapter ${i} at ${width}`);
-     if(quizOnly)assert(await page.locator('#chapter-practice-panel').isHidden(),`${course} is a standalone bank, not a reading chapter`);
-     else {
+     {
       const expected=pack.chapters[i].practiceQuestionIds||[];
       assert.equal(expected.length,10,`${course} chapter ${i} should retain 10 relevant practice questions`);
       assert.equal(await page.locator('#chapter-practice-preview .chapter-practice-question').count(),expected.length,`${course} chapter ${i} practice count`);
       assert.equal(await page.locator('#btn-chapter-practice').count(),0,'Chapter practice has no separate quiz-mode button');
+     }
+     assert(pack.chapters[i].teachingSections?.length>2,'Integrated teaching sections exist');
+     assert.equal(await page.locator('#sections-container .topic-core').count(),pack.chapters[i].teachingSections.length-2,'Each topic renders its explanation');
+     if(width===1440){
+      const nodes=page.locator('#sections-container .map-node');await nodes.last().click();
+      assert.equal(await nodes.last().getAttribute('aria-pressed'),'true');
+      assert.equal(await page.locator('#sections-container .step-detail:visible').count(),1);
+      await page.locator('#sections-container .next-step').click();
+      assert.equal(await nodes.first().getAttribute('aria-pressed'),'true');
      }
      inlineDiagramCount+=await page.locator('.section-body img').count();
      assert.equal(await page.locator('.section-body img:not([src^="data:image/svg+xml;base64,"])').count(),0,'Offline diagram images: '+course);
@@ -105,7 +113,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    if(quizOnly){
     const question=pack.questions.find(q=>visibleQuestion(q)===knowledgePointStem);
     await page.locator(`[data-option="${question.answer}"]`).click();await page.locator('#btn-quiz-submit').click();
-    assert.equal(await page.locator('#btn-answer-reader').count(),0,'Question-only banks have no empty reader link');
+    assert.equal(await page.locator('#btn-answer-reader').count(),1,'SFI questions link to the integrated guide');
    }
    await page.reload();
    const exam=pack.questions.find(q=>q.sourceExam);

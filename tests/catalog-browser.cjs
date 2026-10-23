@@ -14,7 +14,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   assert((await p.locator('.catalog-header').innerText()).includes(`5 科教材 · ${total.toLocaleString('zh-TW')} 題練習 · 1 個獨立題庫`));
   assert.equal(await p.locator('.subject-card').count(),6);
   assert((await p.locator('[data-action=quiz]').first().boundingBox()).height<80,'catalogue actions are compact');
-  assert.equal(await p.locator('[data-action=reader]').count(),5);
+  assert.equal(await p.locator('[data-action=reader]').count(),6);
   assert.equal(await p.locator('[data-action=quiz]').count(),6);
   const readerLinks=await p.locator('[data-action=reader]').evaluateAll(nodes=>nodes.map(a=>a.href));
   const quizLinks=await p.locator('[data-action=quiz]').evaluateAll(nodes=>nodes.map(a=>a.href));

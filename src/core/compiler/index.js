@@ -47,8 +47,9 @@ export function compileStudyPackToHtml(studyPack, options = {}) {
 
   // 2. 讀取模板、樣式與腳本
   const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
-  const stylesCss = fs.readFileSync(STYLES_PATH, 'utf-8');
-  const appJs = ['../../renderer/vendor/marked.umd.js', '../../renderer/content.js', '../../renderer/app.js']
+  const stylesCss = fs.readFileSync(STYLES_PATH, 'utf-8')+'\n'+fs.readFileSync(path.resolve(__dirname,'../../renderer/teaching.css'),'utf8');
+  const typography = fs.readFileSync(path.resolve(__dirname,'../../../設計預覽/text-format.mjs'),'utf8').split('export function conciseText')[0].replace('export function readableText','function readableText');
+  const appJs = '(function(){'+typography+';window.StudyTypography={readableText};})();\n'+ ['../../renderer/vendor/marked.umd.js', '../../renderer/content.js', '../../renderer/app.js']
     .map(file => fs.readFileSync(path.resolve(__dirname, file), 'utf-8')).join('\n');
 
   // 3. 安全序列化 Study Pack JSON 資料

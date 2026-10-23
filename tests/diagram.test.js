@@ -5,7 +5,7 @@ import vm from 'node:vm';
 test('Concept relations use grouped lists without repeated source columns',()=>{
  const source=fs.readFileSync(new URL('../src/renderer/content.js',import.meta.url),'utf8');
  const context={window:{}};
- vm.runInNewContext(source.replace('window.StudyContent = {render};','window.StudyContent = {render,diagram};'),context);
+ vm.runInNewContext(source.replace('window.StudyContent = {render,initTeaching};','window.StudyContent = {render,initTeaching,diagram};'),context);
  const diagram=context.window.StudyContent.diagram;
  for(const edge of ['A[來源] --> B[結果]','A[來源] -->|條件成立| B[結果]']){
   const html=diagram('graph TD\n'+edge);

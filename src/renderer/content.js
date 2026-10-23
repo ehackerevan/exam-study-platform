@@ -1,4 +1,5 @@
 (function () {
+  const teachingClasses = new Set('knowledge-topic topic-core topic-diagram topic-flow rule-content topic-example topic-trap legal-value table-compact source-excerpt chapter-review chapter-sources understanding question-line check-answer concept-map map-heading map-kind map compare map-node step-index map-track step-details step-detail map-footer step-hint next-step is-selected'.split(' '));
   const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function diagram(source) {
     const labels = new Map();
@@ -19,19 +20,26 @@
     return rows.length ? `<div class="table-scroll" tabindex="0" aria-label="關係圖文字對照"><table><caption>概念關係對照</caption><tbody>${rows.join('')}</tbody></table></div>` : `<details><summary>概念圖文字版</summary><pre>${escape(source)}</pre></details>`;
   }
   function render(raw) {
-    const source = String(raw || '').replace(/```mermaid\s*\n([\s\S]*?)```/g, (_, body) => '\n\n' + diagram(body) + '\n\n');
+    const source = window.StudyTypography.readableText(raw).replace(/```mermaid\s*\n([\s\S]*?)```/g, (_, body) => '\n\n' + diagram(body) + '\n\n');
     const template = document.createElement('template');
     template.innerHTML = window.marked.parse(source, {gfm:true, breaks:true});
-    const allowed = new Set('P BR STRONG EM DEL S UL OL LI BLOCKQUOTE PRE CODE H1 H2 H3 H4 H5 H6 HR TABLE CAPTION THEAD TBODY TR TH TD A IMG DIV DETAILS SUMMARY SPAN SUP SUB'.split(' '));
+    const allowed = new Set('P BR STRONG EM DEL S UL OL LI BLOCKQUOTE PRE CODE H1 H2 H3 H4 H5 H6 HR TABLE CAPTION THEAD TBODY TR TH TD A IMG DIV DETAILS SUMMARY SPAN SUP SUB SECTION BUTTON'.split(' '));
     for (const element of [...template.content.querySelectorAll('*')]) {
       if (!allowed.has(element.tagName)) { element.remove(); continue; }
       for (const attr of [...element.attributes]) {
-        if (element.tagName === 'A' && attr.name === 'href') {
+        if(attr.name==='class'){const classes=attr.value.split(/\s+/).filter(name=>teachingClasses.has(name));if(classes.length)element.className=classes.join(' ');else element.removeAttribute('class');}
+        else if(element.tagName==='BUTTON' && attr.name==='type')element.type='button';
+        else if(attr.name==='aria-label'){}
+        else if(element.tagName==='BUTTON' && attr.name==='aria-pressed' && /^(true|false)$/.test(attr.value)){}
+        else if(attr.name==='id' && element.classList.contains('step-detail') && /^[a-z][\w-]*-step-\d+$/.test(attr.value)){}
+        else if(element.tagName==='BUTTON' && attr.name==='aria-controls' && /^[a-z][\w-]*-step-\d+$/.test(attr.value)){}
+        else if (element.tagName === 'A' && attr.name === 'href') {
           if (!/^(https?:\/\/|#|[^:/?#]+\.md(?:#.*)?$)/i.test(attr.value.trim())) element.removeAttribute('href');
         } else if (element.tagName === 'IMG' && ['src','alt'].includes(attr.name)) {
           if (attr.name === 'src' && !/^data:image\/svg\+xml;base64,[A-Za-z0-9+/=]+$/.test(attr.value)) element.removeAttribute(attr.name);
         } else if (!['colspan','rowspan'].includes(attr.name)) element.removeAttribute(attr.name);
       }
+      if(element.tagName==='BUTTON')element.type='button';
       if (element.tagName === 'IMG' && (!element.hasAttribute('src') || !element.getAttribute('alt')?.trim())) element.remove();
       else if (element.tagName === 'IMG') { element.loading = 'lazy'; element.decoding = 'async'; }
       if (element.tagName === 'A') {
@@ -53,5 +61,15 @@
     }
     return template.innerHTML;
   }
-  window.StudyContent = {render};
+  function initTeaching(container){
+    for(const map of container.querySelectorAll('.concept-map')){
+      const buttons=[...map.querySelectorAll('.map-node')],details=[...map.querySelectorAll('.step-detail')],next=map.querySelector('.next-step');
+      if(!buttons.length||!next)continue;
+      let selected=0;
+      const select=index=>{selected=index;buttons.forEach((button,i)=>{button.classList.toggle('is-selected',i===index);button.setAttribute('aria-pressed',String(i===index));});details.forEach((detail,i)=>detail.hidden=i!==index);next.textContent=index===buttons.length-1?'再看一次 ↺':'下一步 →';};
+      buttons.forEach((button,i)=>button.addEventListener('click',()=>select(i)));
+      next.addEventListener('click',()=>select((selected+1)%buttons.length));select(0);
+    }
+  }
+  window.StudyContent = {render,initTeaching};
 })();

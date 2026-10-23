@@ -14,7 +14,13 @@
 
   // 常數與門檻設定
   const questionIds = new Set(pack.questions.map(question => question.id));
-  const hasTeachingChapter = id => pack.chapters.find(chapter => chapter.id === id)?.sections.some(section => !section.id.endsWith('-source-note') && (section.content || section.keyPoints?.length || section.notes?.length));
+  const readingSections = chapter => chapter.teachingSections || chapter.sections;
+  const sectionText = new WeakMap();
+  const searchableContent = section => {
+    if(!sectionText.has(section)){const template=document.createElement('template');template.innerHTML=window.StudyContent.render(section.content || '');sectionText.set(section,template.content.textContent || '');}
+    return sectionText.get(section);
+  };
+  const hasTeachingChapter = id => readingSections(pack.chapters.find(chapter => chapter.id === id)||{sections:[]}).some(section => !section.id.endsWith('-source-note') && (section.content || section.keyPoints?.length || section.notes?.length));
   const STORAGE_KEY = `study-pack.${pack.id}.progress`;
   const THRESHOLDS = {
     WEAK: 60,     // < 60% 需要加強
@@ -344,7 +350,7 @@
 
     // 標題與摘要
     document.getElementById('chapter-heading').textContent = ch.title;
-    document.getElementById('chapter-summary-text').textContent = ch.summary || '';
+    document.getElementById('chapter-summary-text').textContent = ch.teachingSummary || ch.summary || '';
 
     // 完成狀態按鈕
     const isCompleted = progress.completedChapters.includes(ch.id);
@@ -356,7 +362,7 @@
     const container = document.getElementById('sections-container');
     container.innerHTML = '';
 
-    ch.sections.forEach(sec => {
+    readingSections(ch).forEach(sec => {
       const secDiv = document.createElement('div');
       secDiv.className = 'section-block';
       secDiv.id = `sec-${sec.id}`;
@@ -394,7 +400,8 @@
     const goals = document.createElement('aside');
     goals.className = 'learning-goals';
     goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
-    container.prepend(goals);
+    if(!ch.teachingSections)container.prepend(goals);
+    window.StudyContent.initTeaching(container);
     const practice = document.getElementById('chapter-practice-panel');
     const hasTeachingContent = pack.chapters.some(chapter => chapter.sections.some(section => section.content));
     const hasPracticeQuestions = pack.chapters.some(chapter => (chapter.practiceQuestionIds || pack.questions.filter(question => question.chapterId === chapter.id).slice(0, 10).map(question => question.id)).length > 0);
@@ -464,12 +471,12 @@
         if (ch.title.toLowerCase().includes(q)) {
           matches.push({
             chapter: ch,
-            section: ch.sections[0],
+            section: readingSections(ch)[0],
             snippet: `章節標題：${highlight(ch.title, q)}`,
             type: '章節'
           });
         }
-        for (const sec of ch.sections) {
+        for (const sec of readingSections(ch)) {
           if (sec.title.toLowerCase().includes(q)) {
             matches.push({
               chapter: ch,
@@ -478,11 +485,12 @@
               type: '小節'
             });
           }
-          if (sec.content && sec.content.toLowerCase().includes(q)) {
-            const idx = sec.content.toLowerCase().indexOf(q);
+          const contentText = searchableContent(sec);
+          if (contentText.toLowerCase().includes(q)) {
+            const idx = contentText.toLowerCase().indexOf(q);
             const start = Math.max(0, idx - 40);
-            const end = Math.min(sec.content.length, idx + q.length + 40);
-            const preview = sec.content.slice(start, end);
+            const end = Math.min(contentText.length, idx + q.length + 40);
+            const preview = contentText.slice(start, end);
             matches.push({
               chapter: ch,
               section: sec,
@@ -743,7 +751,7 @@
   function openRelatedChapter(question) {
     currentChapterId = question.chapterId;
     const chapter = pack.chapters.find(ch => ch.id === question.chapterId);
-    progress.lastPosition = {chapterId:question.chapterId, sectionId:chapter?.sections.some(s => s.id === question.sectionId) ? question.sectionId : ''};
+    progress.lastPosition = {chapterId:question.chapterId, sectionId:chapter && readingSections(chapter).some(s => s.id === question.sectionId) ? question.sectionId : ''};
     switchView('reader');
   }
   function showQuizSummary() {

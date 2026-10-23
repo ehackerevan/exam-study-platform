@@ -109,6 +109,16 @@
             "type": "string"
           },
           "description": "本章練習涵蓋的知識點"
+        },
+        "teachingSections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Section"
+          },
+          "description": "整合後的教學段落；保留 sections 作來源與統計對照"
+        },
+        "teachingSummary": {
+          "type": "string"
         }
       }
     },
