@@ -40,6 +40,7 @@ const coursePages = [
   '永續發展基礎能力重點教材.html',
   '防制洗錢與打擊資恐重點教材.html',
   '金融市場常識與職業道德題庫.html',
+  '金融市場常識與職業道德題庫_116年版.html',
 ];
 const publicPages = ['index.html', ...coursePages, '歷屆考古題_完整題庫大全.html'];
 copyFile('dist/index.html', 'index.html');
@@ -61,5 +62,5 @@ const localHtmlLinks = [...index.matchAll(/href=["']([^"']+\.html)(?:[?#][^"']*)
 for (const href of localHtmlLinks) {
   if (!existsSync(path.join(output, href))) throw new Error(`Catalog page is missing: ${href}`);
 }
-if (coursePages.length !== 6) throw new Error('Expected six unified course and bank pages');
+if (coursePages.length !== 7) throw new Error('Expected five course pages and two bank editions');
 process.stdout.write(`Prepared ${publicPages.length} pages from the unified offline build.\n`);

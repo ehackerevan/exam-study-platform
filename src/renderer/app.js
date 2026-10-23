@@ -967,6 +967,14 @@
   function init() {
     loadProgress();
     initQuestionManager();
+    if(pack.editions){
+      const picker=document.createElement('nav');picker.className='edition-picker';picker.setAttribute('aria-label','題庫版本');
+      const label=document.createElement('label');label.htmlFor='edition-select';label.textContent='題庫版本';
+      const select=document.createElement('select');select.id='edition-select';
+      for(const edition of pack.editions){const option=document.createElement('option');option.value=edition.file;option.textContent=`${edition.label}（${edition.period}）`;option.selected=edition.id===pack.id;select.append(option);}
+      select.onchange=()=>{const link=document.createElement('a');link.href=select.value+'?view='+currentView;link.hidden=true;picker.append(link);link.click();link.remove();};
+      picker.append(label,select);document.querySelector('.app-container').before(picker);
+    }
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');

@@ -4,7 +4,7 @@ import path from 'node:path';
 const outputName = '學習平台_單檔整合版.html';
 const files = ['index.html', '信託業務人員重點教材.html', '金融科技力重點教材.html',
   '消費金融內部控制與稽核重點教材.html', '永續發展基礎能力重點教材.html',
-  '防制洗錢與打擊資恐重點教材.html', '歷屆考古題_完整題庫大全.html', '金融市場常識與職業道德題庫.html'];
+  '防制洗錢與打擊資恐重點教材.html', '歷屆考古題_完整題庫大全.html', '金融市場常識與職業道德題庫.html', '金融市場常識與職業道德題庫_116年版.html'];
 const pages = Object.fromEntries(files.map(file => {
   let html = fs.readFileSync(path.join('dist', file), 'utf8');
   html = html.replace('new URLSearchParams(location.search)', "new URLSearchParams(window.__BUNDLE_SEARCH__ || '')");
