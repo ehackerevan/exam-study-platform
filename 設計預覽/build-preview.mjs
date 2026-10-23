@@ -52,9 +52,9 @@ function topicFrom(row, title) {
  return {title:conciseText(title),core:row[0],nodes:row[1].split('|').map(part=>part.split('：')),example:row[2],trap:row[3]};
 }
 function renderTopic(topic,section,body) {
- assert(topic.example && topic.trap,topic.title+' teaching example and limit');
+ const supplemental = !/歷屆常見易錯觀念|法規原文對照庫|常見法規數字整理|常見英文縮寫|題目判讀重點/.test(section.title || '');
  totals.topics++;
- return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(topic.title)}</h4><p class="topic-core">${teach(topic.core)}</p><ol class="topic-diagram ${topic.flow?'topic-flow':''}" style="--topic-nodes:${topic.nodes.length}" aria-label="${escape(conciseText(topic.title))}概念圖">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</ol><div class="rule-content">${body}</div>${section.keyPoints?.length?'<ul>'+section.keyPoints.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${section.notes?.length?'<p>'+section.notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}<div class="topic-example"><h5>情境理解</h5><p>${teach(topic.example||topic.core)}</p></div><p class="topic-trap"><strong>容易混淆：</strong>${teach(topic.trap||'先確認適用對象，再核對條件與例外。')}</p></section>`;
+ return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(topic.title)}</h4><p class="topic-core">${teach(topic.core)}</p><ol class="topic-diagram ${topic.flow?'topic-flow':''}" style="--topic-nodes:${topic.nodes.length}" aria-label="${escape(conciseText(topic.title))}概念圖">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</ol><div class="rule-content">${body}</div>${section.keyPoints?.length?'<ul>'+section.keyPoints.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${section.notes?.length?'<p>'+section.notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}${supplemental && topic.example?`<div class="topic-example"><h5>情境理解</h5><p>${teach(topic.example)}</p></div>`:''}${supplemental && topic.trap?`<p class="topic-trap"><strong>容易混淆：</strong>${teach(topic.trap)}</p>`:''}</section>`;
 }
 const navigation = [];
 const lessons = [];
@@ -112,14 +112,14 @@ for (const course of courses) {
     const next = course.chapters[index+1] || course.chapters[0];
     lessons.push(`<article class="lesson" id="${id}" data-course="${course.key}" data-short-title="${escape(shortTitle(chapter))}" aria-labelledby="${id}-title">
 <div class="breadcrumb"><span>${escape(course.name)}</span><span aria-hidden="true">/</span><span>${escape(shortTitle(chapter))}</span></div>
-<p class="lesson-kicker">${course.key==='ethics'?'題庫導讀':'CHAPTER '+String(index).padStart(2,'0')} · 先看懂，再深入</p>
+<p class="lesson-kicker">${course.key==='ethics'?'題庫導讀':'CHAPTER '+String(index).padStart(2,'0')}</p>
 <h2 id="${id}-title" tabindex="-1">${escape(lesson.headline)}</h2><p class="intro">${teach(lesson.intro)}</p>
 
 <section class="concept-map" aria-labelledby="${id}-map-title"><div class="map-heading"><h3 id="${id}-map-title">${icon('map')}先看這張圖</h3><span class="map-kind">${type}</span></div>
 <ol class="map ${lesson.kind==='compare'?'compare':''}" style="--nodes:${lesson.steps.length}">${lesson.steps.map((step,i)=>`<li><button type="button" class="map-node" aria-pressed="false" aria-controls="${id}-step-${i}"><span class="step-index">${String(i+1).padStart(2,'0')}</span><strong>${escape(step[1])}</strong><small>${escape(step[0])}</small></button></li>`).join('')}</ol>
 <div class="map-track" aria-hidden="true">${lesson.steps.map(()=>'<span></span>').join('')}</div>
 <div class="step-details" aria-live="polite">${lesson.steps.map((step,i)=>`<div class="step-detail" id="${id}-step-${i}"><span>${String(i+1).padStart(2,'0')}</span><p><strong>${escape(step[0])}：</strong>${teach(step[2])}</p></div>`).join('')}</div>
-<div class="map-footer"><p class="step-hint">不用背圖形，試著說出每一段在做什麼。</p><button class="next-step" type="button" data-step="1">下一步 →</button></div></section>
+<div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section>
 <aside class="important">${icon('info')}<p><strong>一起記住：</strong>${teach(lesson.limit)}</p></aside>
 <section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body)).join('')}</div></section>
 <section class="chapter-review"><h3>本章帶走的重點</h3><ul>${lesson.steps.map(step=>`<li><strong>${teach(step[0])}：</strong>${teach(step[2])}</li>`).join('')}</ul></section>

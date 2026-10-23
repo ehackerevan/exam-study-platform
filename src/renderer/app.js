@@ -34,6 +34,8 @@
     schemaVersion: pack.schemaVersion || 1,
     contentVersion: pack.contentVersion || '1.0.0',
     completedChapters: [],
+    hiddenQuestionIds: [],
+    favoriteQuestionIds: [],
     questionStats: Object.create(null), // { [id]: { attempts, wrongCount, correctCount, lastResult, lastAnsweredAt } }
     quizHistory: [],
     lastPosition: { chapterId: '', sectionId: '' },
@@ -63,11 +65,12 @@
         (item.subject !== undefined && typeof item.subject !== 'string') ||
         (item.knowledgePoint !== undefined && (typeof item.knowledgePoint !== 'string' || !item.knowledgePoint.trim())) ||
         (item.featuredGroup !== undefined && typeof item.featuredGroup !== 'string'))))) throw Error('進度結構不正確');
+    for(const field of ['hiddenQuestionIds','favoriteQuestionIds'])if(data[field]!==undefined&&(!Array.isArray(data[field])||!data[field].every(id=>typeof id==='string')))throw Error('題目標記格式不正確');
     for (const record of Object.values(data.questionStats)) {
       if (!record || !['attempts','wrongCount','correctCount'].every(key => Number.isSafeInteger(record[key]) && record[key] >= 0) ||
         record.attempts !== record.wrongCount + record.correctCount || typeof record.lastResult !== 'boolean') throw Error('作答紀錄不正確');
     }
-    return {...progress, ...data, questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:[...new Set(data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)))],
+    return {...progress, ...data, hiddenQuestionIds:[...new Set((data.hiddenQuestionIds||[]).filter(id=>questionIds.has(id)))], favoriteQuestionIds:[...new Set((data.favoriteQuestionIds||[]).filter(id=>questionIds.has(id)))], questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:[...new Set(data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)))],
       settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system'},
       lastPosition:{chapterId:data.lastPosition.chapterId,sectionId:data.lastPosition.sectionId || ''},
       quizHistory:(data.quizHistory || []).slice(0,20)};
@@ -96,6 +99,59 @@
       showStorageWarning('目前無法保存進度，本次作答只暫存於頁面，關閉或重新整理會消失。請匯出備份。');
       return false;
     }
+  }
+
+  const isQuestionHidden = question => progress.hiddenQuestionIds.includes(question.id);
+  function setQuestionMark(field,id,enabled){
+    if(!questionIds.has(id))return;
+    progress[field]=enabled?[...new Set([...progress[field],id])]:progress[field].filter(value=>value!==id);
+    saveProgress();
+    for(const button of document.querySelectorAll('.question-favorite')){
+      const selected=progress.favoriteQuestionIds.includes(button.dataset.questionId);
+      button.textContent=selected?'★ 已精選':'☆ 加入精選';button.setAttribute('aria-pressed',String(selected));
+    }
+    renderQuestionManager();
+  }
+  function createQuestionActions(question,onHide){
+    const bar=document.createElement('div');bar.className='question-actions';
+    const favorite=document.createElement('button');favorite.type='button';favorite.className='btn btn-secondary question-favorite';favorite.dataset.questionId=question.id;
+    const selected=progress.favoriteQuestionIds.includes(question.id);favorite.textContent=selected?'★ 已精選':'☆ 加入精選';favorite.setAttribute('aria-pressed',String(selected));
+    favorite.onclick=()=>setQuestionMark('favoriteQuestionIds',question.id,!progress.favoriteQuestionIds.includes(question.id));
+    const hide=document.createElement('button');hide.type='button';hide.className='btn btn-secondary question-hide';hide.textContent='隱藏題目';
+    hide.onclick=()=>{
+      setQuestionMark('hiddenQuestionIds',question.id,true);
+      let notice=document.getElementById('question-mark-notice');
+      if(!notice){notice=document.createElement('div');notice.id='question-mark-notice';notice.setAttribute('role','status');document.body.append(notice);}
+      notice.replaceChildren(document.createTextNode('已隱藏，之後不再出題。 '));
+      const undo=document.createElement('button');undo.type='button';undo.className='btn btn-secondary';undo.textContent='復原';
+      undo.onclick=()=>{setQuestionMark('hiddenQuestionIds',question.id,false);notice.textContent='已恢復，可再次出題。';};notice.append(undo);
+      const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='btn btn-secondary';dismiss.textContent='關閉';dismiss.onclick=()=>notice.remove();notice.append(dismiss);
+      onHide();undo.focus();
+    };
+    bar.append(favorite,hide);return bar;
+  }
+  function renderQuestionManager(){
+    const panel=document.getElementById('personal-question-panel');if(!panel)return;
+    const available=progress.favoriteQuestionIds.filter(id=>!progress.hiddenQuestionIds.includes(id)).length;
+    panel.querySelector('#btn-personal-favorites').textContent=`練習我的精選（${available}）`;
+    panel.querySelector('#btn-personal-favorites').disabled=available===0;
+    panel.querySelector('#hidden-question-heading').textContent=`已隱藏題目（${progress.hiddenQuestionIds.length}）`;
+    const query=panel.querySelector('#hidden-question-search').value.trim().toLowerCase();
+    const matches=pack.questions.filter(q=>isQuestionHidden(q)&&q.question.toLowerCase().includes(query));
+    const list=panel.querySelector('#hidden-question-list');list.replaceChildren();
+    for(const question of matches.slice(0,50)){
+      const item=document.createElement('li'),label=document.createElement('span');label.textContent=question.question;
+      const restore=document.createElement('button');restore.type='button';restore.className='btn btn-secondary';restore.textContent='恢復出題';
+      restore.onclick=()=>{setQuestionMark('hiddenQuestionIds',question.id,false);panel.querySelector('#hidden-question-search').focus();};item.append(label,restore);list.append(item);
+    }
+    panel.querySelector('#hidden-question-count').textContent=matches.length?`符合 ${matches.length} 題${matches.length>50?'，顯示前 50 題；可搜尋縮小範圍。':''}`:'沒有符合的隱藏題目。';
+  }
+  function initQuestionManager(){
+    const panel=document.createElement('section');panel.id='personal-question-panel';
+    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的精選（可搭配下方章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的精選</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
+    document.getElementById('quiz-setup-panel').prepend(panel);
+    panel.querySelector('#btn-personal-favorites').onclick=()=>startQuiz('random','','all',pack.questions.filter(q=>progress.favoriteQuestionIds.includes(q.id)));
+    panel.querySelector('#hidden-question-search').addEventListener('input',renderQuestionManager);renderQuestionManager();
   }
 
   // 主題管理
@@ -145,7 +201,7 @@
     });
 
     if (viewName === 'dashboard') renderDashboard();
-    if (viewName === 'quiz') renderQuizHistory();
+    if (viewName === 'quiz') {renderQuizHistory();renderQuestionManager();}
     if (viewName === 'reader') renderReader();
     if (viewName === 'search') document.getElementById('search-input')?.focus();
   }
@@ -275,6 +331,7 @@
           <span>${String.fromCharCode(65 + optionIndex)}. ${escapeHtml(option)}</span></label>`).join('')}</div></fieldset>
         <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}` : ''}</p>
         <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
+      form.prepend(createQuestionActions(question,()=>renderReader()));
       form.onchange = () => {
         const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
         chapterPracticeAnswers.set(question.id, {selected:multiple ? values : values[0], submitted:false});
@@ -408,10 +465,11 @@
     practice.hidden = !hasTeachingContent || !hasPracticeQuestions;
     if (!practice.hidden) {
       const questionById = new Map(pack.questions.map(question => [question.id, question]));
-      const practiceQuestions = (ch.practiceQuestionIds || pack.questions.filter(question => question.chapterId === ch.id).slice(0, 10).map(question => question.id))
-        .map(id => questionById.get(id)).filter(Boolean);
+      const preferred=(ch.practiceQuestionIds || []).map(id=>questionById.get(id)).filter(Boolean);
+      const practiceQuestions=[...new Map([...preferred,...pack.questions.filter(q=>q.chapterId===ch.id)].filter(q=>!isQuestionHidden(q)).map(q=>[q.id,q])).values()].slice(0,10);
       document.getElementById('chapter-practice-title').textContent = /00$/.test(ch.id) ? `全科暖身練習（${practiceQuestions.length} 題）` : `本章練習（${practiceQuestions.length} 題）`;
       document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `本次涵蓋：${ch.practiceConcepts.join('、')}。直接作答並查看答案。` : '依本章歷屆題目直接作答並查看答案。';
+      if(practiceQuestions.length<10)document.getElementById('chapter-practice-scope').textContent+=` 已排除隱藏題目，目前可練 ${practiceQuestions.length} 題。`;
       renderChapterPractice(document.getElementById('chapter-practice-preview'), practiceQuestions);
     }
     const resume = progress.lastPosition.sectionId;
@@ -573,6 +631,7 @@
       pool = [...pack.questions];
     }
 
+    pool=pool.filter(question=>!isQuestionHidden(question)&&(!document.getElementById('only-personal-favorites')?.checked||progress.favoriteQuestionIds.includes(question.id)));
     // 洗牌
     if (mode === 'exam') pool.sort((a, b) => a.sourceExam.number - b.sourceExam.number);
     else if (mode !== 'featured') for (let i = pool.length - 1; i > 0; i--) {
@@ -587,8 +646,11 @@
     quizState.pool = pool;
 
     if (pool.length === 0) {
-      alert('所選範圍目前沒有可出題目的項目！');
+      alert('此範圍沒有可出題目，請調整精選篩選或恢復隱藏題目。');
       quizState.active = false;
+      document.getElementById('quiz-running-panel').style.display='none';
+      document.getElementById('quiz-summary-panel').style.display='none';
+      document.getElementById('quiz-setup-panel').style.display='block';
       return;
     }
 
@@ -604,6 +666,13 @@
     const q = quizState.pool[quizState.currentIndex];
     if (!q) return;
 
+    let actions=document.getElementById('quiz-question-actions');
+    if(!actions){actions=document.createElement('div');actions.id='quiz-question-actions';document.getElementById('quiz-stem').before(actions);}
+    actions.replaceChildren(createQuestionActions(q,()=>{
+      if(!quizState.submitted[q.id]){quizState.pool.splice(quizState.currentIndex,1);delete quizState.answers[q.id];}
+      else quizState.currentIndex++;
+      if(quizState.currentIndex>=quizState.pool.length)showQuizSummary();else renderQuizCard();
+    }));
     const total = quizState.pool.length;
     const currentNum = quizState.currentIndex + 1;
 
@@ -763,7 +832,7 @@
     const oneExam = examSource && quizState.pool.every(q => q.sourceExam?.term === examSource.term && q.sourceExam.subject === examSource.subject);
     const featuredGroup = quizState.pool[0]?.featuredGroup;
     const oneFeaturedGroup = featuredGroup && quizState.pool.every(q => q.featuredGroup === featuredGroup);
-    progress.quizHistory.unshift({
+    if(answered.length)progress.quizHistory.unshift({
       completedAt: new Date().toISOString(), mode: quizState.mode, questionCount: answered.length,
       correctCount, wrongCount: wrong.length, accuracy: answered.length ? Math.round(correctCount / answered.length * 100) : 0,
       ...(oneExam ? {term: examSource.term, subject: examSource.subject} : {}),
@@ -881,6 +950,7 @@
   // ===== 初始化事件綁定 =====
   function init() {
     loadProgress();
+    initQuestionManager();
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');

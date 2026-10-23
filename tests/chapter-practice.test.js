@@ -8,7 +8,7 @@ function practice(question) {
   const progress = {questionStats: {}};
   let saves = 0;
   const container = {children: [], replaceChildren() {this.children = [];}, appendChild(form) {this.children.push(form);}};
-  const context = vm.createContext({pack: {chapters: []}, currentChapterId: "", progress, saveProgress() {saves++;}, escapeHtml: value => value, window: {StudyContent: {render: value => value}}, document: {createElement() {return {selectedValues: [], nodes: {}, querySelectorAll() {return this.selectedValues.map(value => ({value}));}, querySelector(selector) {return this.nodes[selector] ||= {focus() {}};}};}}});
+  const context = vm.createContext({createQuestionActions(){return {};},pack: {chapters: []}, currentChapterId: "", progress, saveProgress() {saves++;}, escapeHtml: value => value, window: {StudyContent: {render: value => value}}, document: {createElement() {return {prepend(){},selectedValues: [], nodes: {}, querySelectorAll() {return this.selectedValues.map(value => ({value}));}, querySelector(selector) {return this.nodes[selector] ||= {focus() {}};}};}}});
   vm.runInContext(code, context);
   context.container = container;context.questions = [question];
   vm.runInContext('renderChapterPractice(container, questions)', context);

@@ -29,7 +29,7 @@ const url=pathToFileURL(isolated).href;
   assert.equal(await page.locator('.reading-aid').count(),0);
   assert.equal(await page.locator('#aml-aml02 .topic-diagram').count(),8);
   assert.equal(await page.locator('.knowledge-topic').count(),manifest.reduce((sum,chapter)=>sum+chapter.topics.length,0));
-  for(const selector of ['.topic-core','.topic-diagram','.topic-example','.topic-trap'])assert.equal(await page.locator('.knowledge-topic '+selector).count(),await page.locator('.knowledge-topic').count());
+  for(const selector of ['.topic-core','.topic-diagram'])assert.equal(await page.locator('.knowledge-topic '+selector).count(),await page.locator('.knowledge-topic').count());
   assert.equal(await page.locator('details.source-block').count(),0);
   await page.screenshot({path:path.join(evidence,'desktop.png')});
   await page.locator('.skip-link').focus();await page.keyboard.press('Enter');
