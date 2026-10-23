@@ -75,7 +75,7 @@ test('Compiler: 成功編譯三組 Example Packs 與 Migration Pack', () => {
     const dir = path.resolve(process.cwd(), 'examples', ex);
     const sources = loadSourcesFromDirectory(dir);
     const pack = buildNormalizedStudyPack(sources);
-    const outPath = path.resolve(process.cwd(), 'dist', `${ex}.html`);
+    const outPath = path.resolve(process.cwd(), '.qa-artifacts', 'compiler-test', `${ex}.html`);
 
     const result = compileAndWriteToFile(pack, outPath);
     assert.ok(fs.existsSync(outPath));

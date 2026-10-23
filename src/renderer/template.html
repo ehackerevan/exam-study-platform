@@ -484,9 +484,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
               <h2 class="chapter-title" id="chapter-heading">章節標題</h2>
               <p class="chapter-summary" id="chapter-summary-text"></p>
             </div>
-            <div>
-              <button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button>
-            </div>
+
           </header>
 
           <nav class="section-navigation" aria-label="小節導覽">
@@ -497,6 +495,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
           <!-- 小節列表容器 -->
           <div id="sections-container"></div>
 
+          <div class="chapter-reading-end"><button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button></div>
           <section id="chapter-practice-panel" class="chapter-practice-panel" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
             <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章練習</h3>
             <p id="chapter-practice-scope" style="font-size:0.85rem;color:var(--text-muted);margin:.25rem 0 0;">依本章歷屆題目直接作答並查看答案。</p>
@@ -726,7 +725,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 <script id="study-legal-terms">
 (function () {
   const scope = '.section-body,.section-title,.chapter-title,.chapter-summary,.learning-goals,.keypoints-list,.notes-box,.explanation-text';
-  const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,.legal-value,[contenteditable]';
+  const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,.legal-value,.topic-explain,.chapter-overview,.chapter-sources,.chapter-summary,.section-title,.chapter-title,[contenteditable]';
   const words = /不可以|不得|不可|不應|禁止|必須|應當|可以|應|得|可/g;
   const number = '[0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+(?:[.,，．點][0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+)*';
   const units = '(?:個工作日|個營業日|個月|工作日|工作天|營業日|日曆日|億元|萬元|元|圓|萬|億|年|月|天|日|小時|分鐘|週|星期|%|％|倍)';

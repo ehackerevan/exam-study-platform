@@ -419,7 +419,7 @@
 
     // 標題與摘要
     document.getElementById('chapter-heading').textContent = ch.title;
-    document.querySelector('.sidebar-title').textContent=ch.title;
+    document.querySelector('.sidebar-title').textContent='章節目錄';
     document.getElementById('chapter-summary-text').textContent = ch.teachingSummary || ch.summary || '';
 
     // 完成狀態按鈕
@@ -434,7 +434,7 @@
 
     readingSections(ch).forEach(sec => {
       const secDiv = document.createElement('div');
-      secDiv.className = 'section-block';
+      secDiv.className = 'section-block'+(sec.id.endsWith('-overview')?' overview-section':'');
       secDiv.id = `sec-${sec.id}`;
 
       let keyPointsHtml = '';
@@ -991,6 +991,7 @@
     const goToSection=()=>{
       const target=document.getElementById('sec-'+sectionSelect.value);
       if(!target)return;
+      const overview=target.querySelector('.chapter-overview');if(overview)overview.open=true;
       updateSectionNavigation(sectionSelect.value);
       progress.lastPosition.sectionId=sectionSelect.value;saveProgress();
       target.querySelector('.section-title').focus({preventScroll:true});target.querySelector('.section-title').scrollIntoView({block:'start',behavior:'instant'});

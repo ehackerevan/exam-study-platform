@@ -36,7 +36,7 @@ renderer.image = ({href, text}) => {
 function original(raw) {
   const source = conciseText(raw).replace(/```mermaid\s*\n([\s\S]*?)```/g, (_, graph) => {
     const labels = [...graph.matchAll(/(?:\["([^"]+)"\]|\[([^\]]+)\]|\{"([^"]+)"\})/g)].map(match => match.slice(1).find(Boolean).replace(/<br\s*\/?>/gi,'；'));
-    return '\n\n' + [...new Set(labels)].map(label => '- ' + label.replace(/^\s*\d+[.、]\s*/, '').replace(/；{2,}/g,'；')).join('\n') + '\n\n';
+    return '\n\n' + [...new Set(labels)].filter(label=>label.trim()!=='CDD 強制發動時機').map(label => '- ' + label.replace(/^\s*\d+[.、]\s*/, '').replace(/；{2,}/g,'；')).join('\n') + '\n\n';
   });
   return emphasizeHtml(globalThis.marked.parse(source, {renderer,gfm:true,breaks:true})
     .replace(/<(\/?)h([1-6])>/g, (_, close, level) => `<${close}h${Math.min(6,Number(level)+3)}>`)
@@ -57,11 +57,19 @@ function renderTopic(topic,section,body) {
  const supplemental = !reference && !summary;
  const plain=value=>String(value).replace(/<[^>]*>|\s|[，。；：、]/g,'');
  const core=plain(body).includes(plain(teach(topic.core)))?'':`<p class="topic-core">${teach(topic.core)}</p>`;
- const diagram = supplemental ? `<ol class="topic-diagram ${topic.flow?'topic-flow':''}" style="--topic-nodes:${topic.nodes.length}" aria-label="${escape(conciseText(topic.title))}概念圖">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</ol>` : '';
+ const tag=topic.flow?'ol':'ul';
+ const structure=`<${tag} class="${topic.flow?'topic-diagram topic-flow':'topic-list'}" aria-label="${escape(conciseText(topic.title))}概念整理">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</${tag}>`;
+ const diagram=supplemental&&!topic.overview&&!body.includes('<table')?(body&&!topic.flow?`<details class="topic-structure"><summary>概念整理</summary>${structure}</details>`:structure):'';
  const points=(section.keyPoints||[]).filter(point=>!plain(body).includes(plain(teach(point))));
  const notes=(section.notes||[]).filter(note=>!plain(body).includes(plain(teach(note))));
+ const hasExample=/實例說明|案例[：:]|例[：:]/.test(body.replace(/<[^>]*>/g,''));
+ const example=supplemental&&!topic.overview&&!hasExample&&topic.example?`<div class="topic-example"><p><strong>例：</strong>${teach(topic.example)}</p></div>`:'';
+ const trap=supplemental&&!topic.overview&&topic.trap?`<p class="topic-trap"><strong>易混淆：</strong>${teach(topic.trap)}</p>`:'';
+ const explanation=supplemental?`<div class="topic-explain">${core}</div>`:'';
+ const application=diagram||example||trap?`<div class="topic-application">${diagram}${example}${trap}</div>`:'';
+ const rules=body||points.length||notes.length?`<div class="topic-rules"><div class="rule-content">${body}</div>${points.length?'<ul>'+points.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${notes.length?'<p>'+notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}</div>`:'';
  totals.topics++;
- return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(reference?'法規條文':topic.title)}</h4>${reference||summary?'':core+diagram}${reference?'<details class="law-reference"><summary>展開本章法規條文</summary>':''}<div class="rule-content">${body}</div>${points.length?'<ul>'+points.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${notes.length?'<p>'+notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}${reference?'</details>':''}${supplemental && topic.example?`<div class="topic-example"><p><strong>例：</strong>${teach(topic.example)}</p></div>`:''}${supplemental && topic.trap?`<p class="topic-trap"><strong>易混淆：</strong>${teach(topic.trap)}</p>`:''}</section>`;
+ return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(reference?'法規條文':topic.title)}</h4>${reference?'<details class="law-reference"><summary>展開本章法規條文</summary>':''}<div class="${explanation&&rules?'topic-reading':'topic-single'}">${explanation}${rules}${application}</div>${reference?'</details>':''}</section>`;
 }
 const guideTitles={trust:['角色分工','財產與管理目的','財產、義務與救濟'],fintech:['服務需求與工具','資料、運算與連接','支付與身分驗證'],consumer:['授信流程與控制','業務、風管與稽核','消費者權益'],esg:['環境、社會與治理','排放邊界與換算','金融工具與揭露'],aml:['犯罪、審查與申報','身分、控制者與風險','申報與資料保存'],ethics:['資金供需','機構與市場','金融工具與風險'],'professional-ethics':['適合度與揭露','利益衝突','保密與誠信']};
 const navigation = [];
@@ -92,6 +100,7 @@ for (const course of courses) {
     const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:''})) : sections.flatMap((section,i)=>{
       if(id==='aml-aml02') {
         const topic=cddTopics[i];assert(topic,section.title);
+        if(topic.overview){entry.removed.push({id:section.id,reason:'重複章首摘要，保留於章首與章節總覽'});return [];}
         return [{section,topic,body:topic.overview?'':original(section.content)}];
       }
       if(/本章學習導航與核心地圖|本章使用說明/.test(section.title)) {entry.removed.push({id:section.id,reason:'重複章首導讀'});return [];}
@@ -119,15 +128,15 @@ for (const course of courses) {
     const prev = course.chapters[Math.max(0,index-1)];
     const next = course.chapters[index+1] || course.chapters[0];
     lessons.push(`<article class="lesson" id="${id}" data-course="${course.key}" data-short-title="${escape(shortTitle(chapter))}" aria-labelledby="${id}-title">
-<div class="breadcrumb"><span>${escape(course.name)}</span><span aria-hidden="true">/</span><span>${escape(shortTitle(chapter))}</span></div>
+<div class="breadcrumb"><span>${escape(course.name)}</span></div>
 <p class="lesson-kicker">${course.key==='ethics'?'題庫導讀':'CHAPTER '+String(index).padStart(2,'0')}</p>
 <h2 id="${id}-title" tabindex="-1">${escape(lesson.headline)}</h2><p class="intro">${teach(lesson.intro)}</p>
 
-<section class="concept-map" aria-labelledby="${id}-map-title"><div class="map-heading"><h3 id="${id}-map-title">${icon('map')}先看這張圖</h3><span class="map-kind">${type}</span></div>
-<ol class="map ${lesson.kind==='compare'?'compare':''}" style="--nodes:${lesson.steps.length}">${lesson.steps.map((step,i)=>`<li><button type="button" class="map-node" aria-pressed="false" aria-controls="${id}-step-${i}"><span class="step-index">${String(i+1).padStart(2,'0')}</span><strong>${escape(step[1])}</strong><small>${escape(step[0])}</small></button></li>`).join('')}</ol>
+<details class="chapter-overview"><summary>章節總覽</summary><section class="concept-map" aria-labelledby="${id}-map-title"><div class="map-heading"><h3 id="${id}-map-title">${icon('map')}角色與關係</h3><span class="map-kind">${type}</span></div>
+<ol class="map ${lesson.kind==='compare'||lesson.kind==='roles'?'map-parallel':'map-flow'}" style="--nodes:${lesson.steps.length}">${lesson.steps.map((step,i)=>`<li><button type="button" class="map-node" aria-pressed="false" aria-controls="${id}-step-${i}"><span class="step-index">${String(i+1).padStart(2,'0')}</span><strong>${escape(step[1])}</strong><small>${escape(step[0])}</small></button></li>`).join('')}</ol>
 <div class="map-track" aria-hidden="true">${lesson.steps.map(()=>'<span></span>').join('')}</div>
 <div class="step-details" aria-live="polite">${lesson.steps.map((step,i)=>`<div class="step-detail" id="${id}-step-${i}"><span>${String(i+1).padStart(2,'0')}</span><p><strong>${escape(step[0])}：</strong>${teach(step[2])}</p></div>`).join('')}</div>
-<div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section>
+<div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section></details>
 
 <section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body)).join('')}</div></section>
 <section class="chapter-review"><h3>判斷界線</h3><p>${teach(lesson.limit)}</p></section>
@@ -148,7 +157,7 @@ const js = fs.readFileSync(path.join(dir,'preview.js'),'utf8').replace(/<\/scrip
 const html = `<!doctype html><html lang="zh-Hant" class="without-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="六科37章教材白話圖解：先看角色與關係，依知識點讀懂規定與情境，再以十題練習核對理解。獨立設計預覽。"><title>各科教材・白話圖解｜設計預覽</title><link rel="icon" href="data:,"><style>${css}</style></head><body>
 <a class="skip-link" href="#main-content">跳到教材內容</a><header class="site-header"><div class="brand">${icon('map','brand-mark')}<div><h1>各科教材・白話圖解</h1><small>LEARNING NOTES / 2026</small></div></div><span class="preview-tag">設計預覽</span></header>
 <noscript><p class="noscript">目前未啟用 JavaScript，所有章節仍可依序閱讀，教材直接顯示，理解答案可展開；選答核對需要啟用 JavaScript。</p></noscript>
-<div class="workspace"><aside class="sidebar" aria-label="選科與章節目錄"><div class="subject-field"><label class="field-label" for="subject-select">選擇科目</label><select id="subject-select">${courses.map(course=>`<option value="${course.key}">${escape(course.name)}</option>`).join('')}</select></div><details class="chapter-picker" open><summary>章節目錄</summary>${navigation.join('')}</details><div class="sidebar-note"><strong>先看關係，再讀細節。</strong>每個知識點串起圖解、規定與例子；條件和例外一起記。<div class="swatches" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></aside><main id="main-content" tabindex="-1">${lessons.join('\n')}</main></div>
+<div class="workspace"><aside class="sidebar" aria-label="選科與章節目錄"><div class="subject-field"><label class="field-label" for="subject-select">選擇科目</label><select id="subject-select">${courses.map(course=>`<option value="${course.key}">${escape(course.name)}</option>`).join('')}</select></div><details class="chapter-picker" open><summary>章節目錄</summary>${navigation.join('')}</details></aside><main id="main-content" tabindex="-1">${lessons.join('\n')}</main></div>
 <footer class="site-footer"><span> ${totals.subjects} 科 / ${totals.chapters} 章 / ${totals.questions} 道章末練習</span></footer><script>${js}</script></body></html>`;
 assert.deepEqual(findExternalResources(html),[],'Preview has no external resources');
 const output = path.join(dir,'各科教材_ELI5_獨立預覽.html');

@@ -26,10 +26,10 @@ for(const course of courses){
    const heading=html.match(/^<h4>([\s\S]*?)<\/h4>/);assert(heading,id+' heading');
    return {id:sectionId,title:text(heading[1]),content:'<div class="knowledge-topic">'+html.slice(heading[0].length)+'</div>',keyPoints:[],notes:[]};
   });
-  const graphStart=article.indexOf('<section class="concept-map"');
-  const graphEnd=article.indexOf('</section>',graphStart)+10;
+  const graphStart=article.indexOf('<details class="chapter-overview"');
+  const graphEnd=article.indexOf('</section></details>',graphStart)+'</section></details>'.length;
   assert(graphStart>=0&&graphEnd>graphStart,id+' overview');
-  sections.unshift({id:chapter.id+'-overview',title:'本章概念圖',content:article.slice(graphStart,graphEnd),keyPoints:[],notes:[]});
+  sections.unshift({id:chapter.id+'-overview',title:'章節總覽',content:article.slice(graphStart,graphEnd),keyPoints:[],notes:[]});
   const reviewStart=article.indexOf('<section class="chapter-review">');
   const reviewEnd=article.indexOf('<details class="practice-block">',reviewStart);
   assert(reviewStart>=0&&reviewEnd>reviewStart,id+' review');
@@ -43,5 +43,5 @@ for(const course of courses){
  assert.equal(JSON.stringify(pack.questions),questionSnapshot,course.key+' source questions unchanged');
  fs.writeFileSync(file,compileStudyPackToHtml(pack).html);
 }
-assert.equal(chapters,37);assert.equal(topics,163);
+assert.equal(chapters,37);assert.equal(topics,162);
 console.log(`Integrated teaching: ${chapters} chapters, ${topics} topics; source questions unchanged`);

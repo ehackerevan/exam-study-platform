@@ -84,6 +84,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
      assert.equal(await page.locator('#sections-container .knowledge-topic').count(),pack.chapters[i].teachingSections.length-2,'Each topic remains available');
      assert(await page.locator('#sections-container .knowledge-topic').evaluateAll(nodes=>nodes.every(node=>node.textContent.trim().length>20)),'Every topic retains readable content');
      if(width===1440){
+      await page.locator('#sections-container .chapter-overview').evaluate(node=>node.open=true);
       const nodes=page.locator('#sections-container .map-node');await nodes.last().click();
       assert.equal(await nodes.last().getAttribute('aria-pressed'),'true');
       assert.equal(await page.locator('#sections-container .step-detail:visible').count(),1);

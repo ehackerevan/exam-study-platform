@@ -1,6 +1,6 @@
 (function () {
   const scope = '.section-body,.section-title,.chapter-title,.chapter-summary,.learning-goals,.keypoints-list,.notes-box,.explanation-text';
-  const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,.legal-value,[contenteditable]';
+  const excluded = 'script,style,textarea,input,select,option,code,pre,mark.legal-term,.legal-value,.topic-explain,.chapter-overview,.chapter-sources,.chapter-summary,.section-title,.chapter-title,[contenteditable]';
   const words = /不可以|不得|不可|不應|禁止|必須|應當|可以|應|得|可/g;
   const number = '[0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+(?:[.,，．點][0-9０-９零〇一二三四五六七八九十百千萬億兆兩半]+)*';
   const units = '(?:個工作日|個營業日|個月|工作日|工作天|營業日|日曆日|億元|萬元|元|圓|萬|億|年|月|天|日|小時|分鐘|週|星期|%|％|倍)';

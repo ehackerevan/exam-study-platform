@@ -27,9 +27,9 @@ const url=pathToFileURL(isolated).href;
   assert.equal(await page.locator('.lesson').count(),37);
   assert.equal(await page.locator('.practice-form').count(),370);
   assert.equal(await page.locator('.reading-aid').count(),0);
-  assert.equal(await page.locator('#aml-aml02 .topic-diagram').count(),7);
+  assert.equal(await page.locator('#aml-aml02 .topic-diagram').count(),1);
   assert.equal(await page.locator('.knowledge-topic').count(),manifest.reduce((sum,chapter)=>sum+chapter.topics.length,0));
-  assert(await page.locator('.topic-core').count()>80);assert(await page.locator('.topic-diagram').count()>80);assert.equal(await page.locator('.chapter-review ul').count(),0);
+  assert(await page.locator('.topic-core').count()>80);assert(await page.locator('.topic-list').count()>50);assert.equal(await page.locator('.chapter-review ul').count(),0);
   assert.equal(await page.locator('details.source-block').count(),0);
   await page.screenshot({path:path.join(evidence,'desktop.png')});
   await page.locator('.skip-link').focus();await page.keyboard.press('Enter');
@@ -54,6 +54,7 @@ const url=pathToFileURL(isolated).href;
   for(const id of ids){
    await page.evaluate(id=>location.hash=id,id);
    await page.waitForFunction(id=>document.querySelector('.lesson.is-active')?.id===id,id);
+   await page.locator('.lesson.is-active .chapter-overview').evaluate(node=>node.open=true);
    const nodes=page.locator('.lesson.is-active .map-node');
    await nodes.last().focus();await page.keyboard.press('Enter');
    assert.equal(await nodes.last().getAttribute('aria-pressed'),'true',id);
@@ -109,7 +110,7 @@ const url=pathToFileURL(isolated).href;
      assert(kept!==removed,course.key+'/'+section.id+' exactly one kept/removal record');
      if(removed&&!chapter.id.endsWith('00')&&course.key!=='ethics')assert(/本章學習導航與核心地圖|本章使用說明/.test(section.title));
     }
-    const bodies=await page.locator(`#${course.key}-${chapter.id} .knowledge-topic`).evaluateAll(nodes=>nodes.map(node=>({id:node.dataset.sourceId,text:node.querySelector('.rule-content').textContent.replace(/\s/g,'')})));
+    const bodies=await page.locator(`#${course.key}-${chapter.id} .knowledge-topic`).evaluateAll(nodes=>nodes.map(node=>({id:node.dataset.sourceId,text:(node.querySelector('.rule-content')?.textContent||'').replace(/\s/g,'')})));
     for(const topic of expected){
      const sourceSection=originalSections.find(section=>section.id===topic.id);
      if(!sourceSection||sourceSection.title==='本章學習導航與核心地圖')continue;
