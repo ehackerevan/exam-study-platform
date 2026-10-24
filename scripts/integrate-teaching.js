@@ -41,7 +41,7 @@ for(const course of courses){
   chapters++;topics+=pieces.length;
  }
  assert.equal(JSON.stringify(pack.questions),questionSnapshot,course.key+' source questions unchanged');
- fs.writeFileSync(file,compileStudyPackToHtml(pack).html);
+ fs.writeFileSync(file,compileStudyPackToHtml(pack,{includeExplanations:course.key==='esg'}).html);
 }
-assert.equal(chapters,37);assert.equal(topics,162);
+assert.equal(chapters,38);assert.equal(topics,167);
 console.log(`Integrated teaching: ${chapters} chapters, ${topics} topics; source questions unchanged`);

@@ -11,7 +11,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
 (async()=>{
   const {compileStudyPackToHtml}=await import('../src/core/compiler/index.js');
   const fixture=path.join(evidence,'learner-fixture.html');
-  fs.writeFileSync(fixture,compileStudyPackToHtml(pack).html);
+  fs.writeFileSync(fixture,compileStudyPackToHtml(pack,{includeExplanations:true}).html);
   const url=pathToFileURL(fixture).href, key='study-pack.learner-qa.progress';
   const browser=await chromium.launch({headless:true});
   const context=await browser.newContext({acceptDownloads:true});
@@ -38,7 +38,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     assert.equal(await page.locator('#btn-chapter-practice').count(),0,'章末題目直接作答，不顯示額外測驗模式入口');
     await page.locator('#chapter-practice-preview .chapter-practice-question').first().locator('input[value="0"]').check();
     await page.locator('#chapter-practice-preview .chapter-practice-question').first().locator('button[type="submit"]').click();
-    assert((await page.locator('#chapter-practice-preview .chapter-inline-feedback').first().innerText()).includes('作答正確'));
+    assert((await page.locator('#chapter-practice-preview .chapter-inline-feedback').first().innerText()).includes('歷屆官方正確解答'));
     for(let i=1;i<6;i++) {
       const form=page.locator('#chapter-practice-preview .chapter-practice-question').nth(i);
       await form.locator('input[value="0"]').check();
@@ -74,7 +74,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       else {await page.locator('#quiz-options-container .option-item').nth(0).click();if(multiple)await page.locator('#quiz-options-container .option-item').nth(2).click();}
       await page.locator('#btn-quiz-submit').click();
       if(!i){
-        assert((await page.locator('#quiz-feedback-box').innerText()).includes('正確答案'));
+        assert((await page.locator('#quiz-feedback-box').innerText()).includes('歷屆官方正確解答'));
         await page.evaluate(()=>document.getElementById('btn-quiz-submit').click());
         const attempts=await page.evaluate(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0),key);
         assert.equal(attempts,9,'章末練習與獨立測驗皆更新同一題目進度');

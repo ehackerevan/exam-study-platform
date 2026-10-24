@@ -57,7 +57,7 @@ export function compileStudyPackToHtml(studyPack, options = {}) {
   const { questions = [], ...packData } = studyPack;
   const serializedData = JSON.stringify({
     ...packData,
-    questions: questions.map(({ explanation, ...question }) => question)
+    questions: questions.map(({ explanation, ...question }) => options.includeExplanations && explanation ? {...question, explanation} : question)
   }).replace(/</g, '\\u003c');
 
   // 4. 合併替換

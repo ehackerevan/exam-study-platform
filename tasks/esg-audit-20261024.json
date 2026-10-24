@@ -1,0 +1,92 @@
+{
+  "bank_count": 1307,
+  "official_papers": 17,
+  "coverage": {
+    "113-1/main": {
+      "bank": 74,
+      "matched": 74,
+      "missing": 0
+    },
+    "113-2/main": {
+      "bank": 76,
+      "matched": 76,
+      "missing": 0
+    },
+    "113-3/main": {
+      "bank": 74,
+      "matched": 74,
+      "missing": 0
+    },
+    "113-4/main": {
+      "bank": 75,
+      "matched": 75,
+      "missing": 0
+    },
+    "113-5/main": {
+      "bank": 74,
+      "matched": 74,
+      "missing": 0
+    },
+    "114-1/main": {
+      "bank": 75,
+      "matched": 75,
+      "missing": 0
+    },
+    "114-2/main": {
+      "bank": 71,
+      "matched": 71,
+      "missing": 0
+    },
+    "114-3/main": {
+      "bank": 77,
+      "matched": 77,
+      "missing": 0
+    },
+    "114-4/main": {
+      "bank": 77,
+      "matched": 77,
+      "missing": 0
+    },
+    "114-4/kaohsiung": {
+      "bank": 76,
+      "matched": 76,
+      "missing": 0
+    },
+    "114-5/main": {
+      "bank": 72,
+      "matched": 72,
+      "missing": 0
+    },
+    "114-6/main": {
+      "bank": 79,
+      "matched": 79,
+      "missing": 0
+    },
+    "115-1/main": {
+      "bank": 77,
+      "matched": 77,
+      "missing": 0
+    },
+    "115-2/main": {
+      "bank": 79,
+      "matched": 79,
+      "missing": 0
+    },
+    "115-3/main": {
+      "bank": 80,
+      "matched": 80,
+      "missing": 0
+    },
+    "115-4/main": {
+      "bank": 71,
+      "matched": 71,
+      "missing": 0
+    },
+    "115-5/main": {
+      "bank": 80,
+      "matched": 80,
+      "missing": 0
+    }
+  },
+  "issues": []
+}

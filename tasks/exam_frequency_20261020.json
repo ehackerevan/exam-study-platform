@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_on": "2026-10-23",
+  "generated_on": "2026-10-24",
   "scope": "六科清理後 canonical 題庫的每筆題目紀錄；信託來源為 full_exam_bank.json，其餘來源為 questions.json；重複題幹跨考期仍按各筆紀錄計數",
   "method": {
     "counting_grain": "每個 canonical source question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",
@@ -5693,12 +5693,12 @@
       "label": "消費金融內部控制與稽核"
     },
     "永續發展基礎能力重點教材": {
-      "question_record_count": 1207,
-      "unique_question_id_count": 1207,
+      "question_record_count": 1307,
+      "unique_question_id_count": 1307,
       "duplicate_question_id_count": 0,
-      "parsed_exam_metadata_count": 1207,
+      "parsed_exam_metadata_count": 1307,
       "unparsed_exam_metadata_count": 0,
-      "exam_session_count": 15,
+      "exam_session_count": 17,
       "invalid_answer_index_count": 0,
       "short_stem_at_most_10_characters_count": 1,
       "short_stem_sample_ids": [
@@ -5799,10 +5799,10 @@
           ]
         }
       ],
-      "repeated_stem_across_exam_terms_group_count": 249,
-      "topic_classified_unique_question_count": 769,
-      "topic_classification_coverage_percent": 63.71,
-      "unclassified_question_count": 438,
+      "repeated_stem_across_exam_terms_group_count": 259,
+      "topic_classified_unique_question_count": 840,
+      "topic_classification_coverage_percent": 64.27,
+      "unclassified_question_count": 467,
       "unclassified_sample_ids": [
         "esg-113-1-7",
         "esg-113-1-8",
@@ -6253,7 +6253,36 @@
         "esg-115-4-73",
         "esg-115-4-77",
         "esg-115-4-78",
-        "esg-115-4-80"
+        "esg-115-4-80",
+        "esg-115-5-6",
+        "esg-115-5-9",
+        "esg-115-5-10",
+        "esg-115-5-11",
+        "esg-115-5-14",
+        "esg-115-5-17",
+        "esg-115-5-18",
+        "esg-115-5-22",
+        "esg-115-5-24",
+        "esg-115-5-29",
+        "esg-115-5-32",
+        "esg-115-5-37",
+        "esg-115-5-49",
+        "esg-115-5-50",
+        "esg-115-5-52",
+        "esg-115-5-53",
+        "esg-115-5-54",
+        "esg-115-5-56",
+        "esg-115-5-57",
+        "esg-115-5-58",
+        "esg-115-5-60",
+        "esg-115-5-61",
+        "esg-115-5-62",
+        "esg-115-5-69",
+        "esg-115-5-70",
+        "esg-115-5-72",
+        "esg-115-5-75",
+        "esg-115-5-76",
+        "esg-115-5-77"
       ],
       "unclassified_knowledge_point": "其他／未分類",
       "classification_method": "題幹與所有選項比對此程式列出的觀念詞；無關鍵詞命中時才使用已配置的一般教材章節備援分類。",
@@ -6261,9 +6290,9 @@
         {
           "rank": 1,
           "concept": "永續資訊揭露準則與反漂綠",
-          "question_count": 302,
-          "share_of_all_records_percent": 25.02,
-          "exam_session_count": 15,
+          "question_count": 326,
+          "share_of_all_records_percent": 24.94,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-14",
             "esg-113-1-22",
@@ -6566,7 +6595,31 @@
             "esg-115-4-56",
             "esg-115-4-68",
             "esg-115-4-70",
-            "esg-115-4-74"
+            "esg-115-4-74",
+            "esg-original-2026-07",
+            "esg-original-2026-12",
+            "esg-original-2026-17",
+            "esg-115-5-4",
+            "esg-115-5-20",
+            "esg-115-5-25",
+            "esg-115-5-26",
+            "esg-115-5-27",
+            "esg-115-5-28",
+            "esg-115-5-30",
+            "esg-115-5-31",
+            "esg-115-5-33",
+            "esg-115-5-36",
+            "esg-115-5-39",
+            "esg-115-5-40",
+            "esg-115-5-41",
+            "esg-115-5-43",
+            "esg-115-5-44",
+            "esg-115-5-45",
+            "esg-115-5-46",
+            "esg-115-5-47",
+            "esg-115-5-48",
+            "esg-115-5-65",
+            "esg-115-5-68"
           ],
           "sample_question_ids": [
             "esg-113-1-14",
@@ -6579,9 +6632,9 @@
         {
           "rank": 2,
           "concept": "ESG與永續治理",
-          "question_count": 286,
-          "share_of_all_records_percent": 23.7,
-          "exam_session_count": 15,
+          "question_count": 312,
+          "share_of_all_records_percent": 23.87,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-1",
             "esg-113-1-2",
@@ -6868,7 +6921,33 @@
             "esg-115-4-69",
             "esg-115-4-75",
             "esg-115-4-76",
-            "esg-115-4-79"
+            "esg-115-4-79",
+            "esg-original-2026-02",
+            "esg-original-2026-08",
+            "esg-original-2026-10",
+            "esg-original-2026-14",
+            "esg-original-2026-15",
+            "esg-original-2026-20",
+            "esg-115-5-2",
+            "esg-115-5-3",
+            "esg-115-5-12",
+            "esg-115-5-13",
+            "esg-115-5-19",
+            "esg-115-5-21",
+            "esg-115-5-23",
+            "esg-115-5-28",
+            "esg-115-5-34",
+            "esg-115-5-35",
+            "esg-115-5-36",
+            "esg-115-5-39",
+            "esg-115-5-42",
+            "esg-115-5-47",
+            "esg-115-5-64",
+            "esg-115-5-65",
+            "esg-115-5-71",
+            "esg-115-5-73",
+            "esg-115-5-78",
+            "esg-115-5-80"
           ],
           "sample_question_ids": [
             "esg-113-1-1",
@@ -6881,9 +6960,9 @@
         {
           "rank": 3,
           "concept": "溫室氣體盤查、查驗與確信",
-          "question_count": 181,
-          "share_of_all_records_percent": 15.0,
-          "exam_session_count": 15,
+          "question_count": 199,
+          "share_of_all_records_percent": 15.23,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-6",
             "esg-113-1-17",
@@ -7065,7 +7144,25 @@
             "esg-115-4-41",
             "esg-115-4-47",
             "esg-115-4-56",
-            "esg-115-4-62"
+            "esg-115-4-62",
+            "esg-original-2026-02",
+            "esg-original-2026-09",
+            "esg-original-2026-11",
+            "esg-original-2026-12",
+            "esg-original-2026-13",
+            "esg-original-2026-19",
+            "esg-115-5-5",
+            "esg-115-5-7",
+            "esg-115-5-15",
+            "esg-115-5-21",
+            "esg-115-5-34",
+            "esg-115-5-36",
+            "esg-115-5-38",
+            "esg-115-5-41",
+            "esg-115-5-45",
+            "esg-115-5-51",
+            "esg-115-5-55",
+            "esg-115-5-59"
           ],
           "sample_question_ids": [
             "esg-113-1-6",
@@ -7078,9 +7175,9 @@
         {
           "rank": 4,
           "concept": "永續金融、債券與責任投資",
-          "question_count": 132,
-          "share_of_all_records_percent": 10.94,
-          "exam_session_count": 15,
+          "question_count": 141,
+          "share_of_all_records_percent": 10.79,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-22",
             "esg-113-1-24",
@@ -7213,7 +7310,16 @@
             "esg-115-4-56",
             "esg-115-4-60",
             "esg-115-4-62",
-            "esg-115-4-69"
+            "esg-115-4-69",
+            "esg-original-2026-05",
+            "esg-original-2026-15",
+            "esg-115-5-3",
+            "esg-115-5-4",
+            "esg-115-5-63",
+            "esg-115-5-66",
+            "esg-115-5-67",
+            "esg-115-5-74",
+            "esg-115-5-79"
           ],
           "sample_question_ids": [
             "esg-113-1-22",
@@ -7226,9 +7332,9 @@
         {
           "rank": 5,
           "concept": "氣候公約與轉型政策",
-          "question_count": 64,
-          "share_of_all_records_percent": 5.3,
-          "exam_session_count": 15,
+          "question_count": 67,
+          "share_of_all_records_percent": 5.13,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-6",
             "esg-113-1-12",
@@ -7293,7 +7399,10 @@
             "esg-115-3-20",
             "esg-115-3-24",
             "esg-115-3-79",
-            "esg-115-4-23"
+            "esg-115-4-23",
+            "esg-original-2026-01",
+            "esg-115-5-1",
+            "esg-115-5-16"
           ],
           "sample_question_ids": [
             "esg-113-1-6",
@@ -7306,9 +7415,9 @@
         {
           "rank": 6,
           "concept": "碳定價、碳費與碳交易",
-          "question_count": 53,
-          "share_of_all_records_percent": 4.39,
-          "exam_session_count": 15,
+          "question_count": 61,
+          "share_of_all_records_percent": 4.67,
+          "exam_session_count": 17,
           "question_ids": [
             "esg-113-1-10",
             "esg-113-1-28",
@@ -7362,7 +7471,15 @@
             "esg-115-3-75",
             "esg-115-4-6",
             "esg-115-4-8",
-            "esg-115-4-24"
+            "esg-115-4-24",
+            "esg-original-2026-01",
+            "esg-original-2026-03",
+            "esg-original-2026-06",
+            "esg-original-2026-07",
+            "esg-115-5-5",
+            "esg-115-5-8",
+            "esg-115-5-15",
+            "esg-115-5-73"
           ],
           "sample_question_ids": [
             "esg-113-1-10",
@@ -7375,18 +7492,35 @@
         {
           "rank": 7,
           "concept": "溫室氣體盤查與碳定價（章節未細分）",
-          "question_count": 3,
-          "share_of_all_records_percent": 0.25,
-          "exam_session_count": 3,
+          "question_count": 4,
+          "share_of_all_records_percent": 0.31,
+          "exam_session_count": 4,
           "question_ids": [
             "esg-113-4-74",
             "esg-113-5-56",
-            "esg-114-6-75"
+            "esg-114-6-75",
+            "esg-original-2026-04"
           ],
           "sample_question_ids": [
             "esg-113-4-74",
             "esg-113-5-56",
-            "esg-114-6-75"
+            "esg-114-6-75",
+            "esg-original-2026-04"
+          ]
+        },
+        {
+          "rank": 8,
+          "concept": "社會與治理風險、第三方確信及永續保險",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.15,
+          "exam_session_count": 1,
+          "question_ids": [
+            "esg-original-2026-16",
+            "esg-original-2026-18"
+          ],
+          "sample_question_ids": [
+            "esg-original-2026-16",
+            "esg-original-2026-18"
           ]
         }
       ],
@@ -7394,9 +7528,9 @@
         {
           "rank": 1,
           "law_or_rule": "上市櫃公司永續發展實務守則",
-          "question_count": 31,
-          "share_of_all_records_percent": 2.57,
-          "exam_session_count": 15,
+          "question_count": 32,
+          "share_of_all_records_percent": 2.45,
+          "exam_session_count": 16,
           "question_ids": [
             "esg-113-1-3",
             "esg-113-1-17",
@@ -7428,7 +7562,8 @@
             "esg-115-2-17",
             "esg-115-3-22",
             "esg-115-4-14",
-            "esg-115-4-19"
+            "esg-115-4-19",
+            "esg-115-5-35"
           ],
           "sample_question_ids": [
             "esg-113-1-3",
@@ -7441,9 +7576,9 @@
         {
           "rank": 2,
           "law_or_rule": "上市公司編製與申報永續報告書作業辦法",
-          "question_count": 24,
+          "question_count": 26,
           "share_of_all_records_percent": 1.99,
-          "exam_session_count": 11,
+          "exam_session_count": 12,
           "question_ids": [
             "esg-113-1-26",
             "esg-113-1-45",
@@ -7468,7 +7603,9 @@
             "esg-115-1-31",
             "esg-115-2-38",
             "esg-115-4-26",
-            "esg-115-4-29"
+            "esg-115-4-29",
+            "esg-115-5-31",
+            "esg-115-5-41"
           ],
           "sample_question_ids": [
             "esg-113-1-26",
@@ -7482,7 +7619,7 @@
           "rank": 3,
           "law_or_rule": "永續金融揭露規範（SFDR）",
           "question_count": 18,
-          "share_of_all_records_percent": 1.49,
+          "share_of_all_records_percent": 1.38,
           "exam_session_count": 13,
           "question_ids": [
             "esg-113-1-22",
@@ -7515,9 +7652,9 @@
         {
           "rank": 4,
           "law_or_rule": "巴黎協定",
-          "question_count": 16,
-          "share_of_all_records_percent": 1.33,
-          "exam_session_count": 11,
+          "question_count": 17,
+          "share_of_all_records_percent": 1.3,
+          "exam_session_count": 12,
           "question_ids": [
             "esg-113-2-79",
             "esg-113-3-14",
@@ -7534,7 +7671,8 @@
             "esg-115-1-80",
             "esg-115-2-19",
             "esg-115-3-4",
-            "esg-115-3-20"
+            "esg-115-3-20",
+            "esg-original-2026-01"
           ],
           "sample_question_ids": [
             "esg-113-2-79",
@@ -7548,7 +7686,7 @@
           "rank": 5,
           "law_or_rule": "氣候變遷因應法（含舊稱溫室氣體減量及管理法）",
           "question_count": 14,
-          "share_of_all_records_percent": 1.16,
+          "share_of_all_records_percent": 1.07,
           "exam_session_count": 11,
           "question_ids": [
             "esg-113-1-6",
@@ -7577,9 +7715,9 @@
         {
           "rank": 6,
           "law_or_rule": "聯合國氣候變化綱要公約",
-          "question_count": 13,
-          "share_of_all_records_percent": 1.08,
-          "exam_session_count": 9,
+          "question_count": 14,
+          "share_of_all_records_percent": 1.07,
+          "exam_session_count": 10,
           "question_ids": [
             "esg-113-2-1",
             "esg-113-2-22",
@@ -7593,7 +7731,8 @@
             "esg-114-6-6",
             "esg-114-6-23",
             "esg-115-1-8",
-            "esg-115-3-24"
+            "esg-115-3-24",
+            "esg-115-5-1"
           ],
           "sample_question_ids": [
             "esg-113-2-1",
@@ -7607,7 +7746,7 @@
           "rank": 7,
           "law_or_rule": "公開發行公司年報應行記載事項準則",
           "question_count": 6,
-          "share_of_all_records_percent": 0.5,
+          "share_of_all_records_percent": 0.46,
           "exam_session_count": 5,
           "question_ids": [
             "esg-113-1-33",
@@ -7629,7 +7768,7 @@
           "rank": 8,
           "law_or_rule": "再生能源發展條例",
           "question_count": 5,
-          "share_of_all_records_percent": 0.41,
+          "share_of_all_records_percent": 0.38,
           "exam_session_count": 5,
           "question_ids": [
             "esg-114-3-13",
@@ -7650,7 +7789,7 @@
           "rank": 9,
           "law_or_rule": "公開發行公司建立內部控制制度處理準則",
           "question_count": 3,
-          "share_of_all_records_percent": 0.25,
+          "share_of_all_records_percent": 0.23,
           "exam_session_count": 3,
           "question_ids": [
             "esg-114-4-10-717",
@@ -7667,7 +7806,7 @@
           "rank": 10,
           "law_or_rule": "歐洲氣候法",
           "question_count": 2,
-          "share_of_all_records_percent": 0.17,
+          "share_of_all_records_percent": 0.15,
           "exam_session_count": 2,
           "question_ids": [
             "esg-113-4-5",

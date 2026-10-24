@@ -329,7 +329,7 @@
         <div class="chapter-inline-options">${question.options.map((option, optionIndex) => `<label class="option-item ${submitted && answers.includes(optionIndex) ? 'correct' : submitted && selected.includes(optionIndex) ? 'wrong' : ''}">
           <input type="${multiple ? 'checkbox' : 'radio'}" name="answer" value="${optionIndex}" ${selected.includes(optionIndex) ? 'checked' : ''} ${submitted ? 'disabled' : ''}>
           <span>${String.fromCharCode(65 + optionIndex)}. ${escapeHtml(option)}</span></label>`).join('')}</div></fieldset>
-        <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}` : ''}</p>
+        <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}${question.explanation ? '。解析：' + escapeHtml(question.explanation) : ''}` : ''}</p>
         <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
       form.prepend(createQuestionActions(question,()=>renderReader()));
       form.onchange = () => {
@@ -795,6 +795,7 @@
         <div style="font-weight:800;font-size:1.05rem;">
           ${isCorrect ? '✓ 作答正確！' : '✕ 作答錯誤！'} (正確答案：${ansLabel})
         </div>
+        ${q.explanation ? `<p>解析：${escapeHtml(q.explanation)}</p>` : ''}
         ${hasTeachingChapter(q.chapterId) ? '<button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>' : ''}
       `;
       const readerButton = document.getElementById('btn-answer-reader');

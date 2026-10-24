@@ -100,7 +100,7 @@ for (const c of courses) {
   pack.description = c.quizOnly ? pack.description : `收錄 ${pack.questions.length} 題。先讀概念，再練本章與複習待加強題；進度可匯出備份。`;
   for (const question of pack.questions) {
     question.sourceExam ||= parseSourceExam(question, c.name.replace(/重點教材$/, ''));
-    delete question.explanation;
+    if (c.name !== '永續發展基礎能力重點教材') delete question.explanation;
   }
   attachKnowledgePoints(pack, c);
   if (pack.questions.some(question => !question.knowledgePoints.length || question.knowledgePoints.some(label => typeof label !== 'string' || !label.trim()))) {
@@ -157,7 +157,7 @@ for (const c of courses) {
     process.exit(1);
   }
 
-  const res = compileStudyPackToHtml(pack);
+  const res = compileStudyPackToHtml(pack, {includeExplanations:c.name === '永續發展基礎能力重點教材'});
   outputs.push({path: outPath, html: res.html});
   c.questionCount = pack.questions.length;
   c.chapterCount = pack.chapters.length;

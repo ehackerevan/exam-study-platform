@@ -59,6 +59,9 @@ test('Compiler: 能將合法的 Study Pack 編譯為單一 HTML 並包含必要�
   assert.equal(serializedPack.questions[0].question, '編譯是否成功？');
   assert.equal(serializedPack.questions[0].answer, 0);
   assert.ok(!Object.hasOwn(serializedPack.questions[0], 'explanation'));
+  const withExplanations = compileStudyPackToHtml(pack, {includeExplanations:true});
+  const explainedPack = JSON.parse(withExplanations.html.match(/window\.__STUDY_PACK__ = ([\s\S]*?);\s*<\/script>/)[1]);
+  assert.equal(explainedPack.questions[0].explanation, '必定成功');
   assert.ok(result.html.includes('/* Study Pack Compiler - 現代化無外部依賴設計系統 */'));
   assert.ok(result.html.includes('Study Pack Client-side Application Core'));
 });

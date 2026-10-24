@@ -24,8 +24,8 @@ const url=pathToFileURL(isolated).href;
   assert.equal(await page.locator('.lesson.is-active').count(),1);
   assert.equal(await page.locator('.lesson.is-active').getAttribute('id'),'aml-aml02');
   assert.equal(await page.locator('#subject-select option').count(),6);
-  assert.equal(await page.locator('.lesson').count(),37);
-  assert.equal(await page.locator('.practice-form').count(),370);
+  assert.equal(await page.locator('.lesson').count(),38);
+  assert.equal(await page.locator('.practice-form').count(),380);
   assert.equal(await page.locator('.reading-aid').count(),0);
   assert.equal(await page.locator('#aml-aml02 .topic-diagram').count(),1);
   assert.equal(await page.locator('.knowledge-topic').count(),manifest.reduce((sum,chapter)=>sum+chapter.topics.length,0));
@@ -70,7 +70,7 @@ const url=pathToFileURL(isolated).href;
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),320,id+' expanded original and practice');
    await page.locator('.lesson.is-active .practice-block summary').click();
   }
-  results.push('All 37 chapters: step selection, restart and 320/768/1024/1440 widths');
+  results.push('All 38 chapters: step selection, restart and 320/768/1024/1440 widths');
 
   await page.evaluate(()=>location.hash='aml-aml02');
   await page.waitForFunction(()=>document.querySelector('.lesson.is-active')?.id==='aml-aml02');
@@ -130,7 +130,7 @@ const url=pathToFileURL(isolated).href;
     assert.deepEqual(row.answer,Array.isArray(original.answer)?original.answer:[original.answer],row.id);
    }
   }
-  results.push('All 370 questions/options match source after typography normalization; answer indexes unchanged');
+  results.push('All 380 questions/options match source after typography normalization; answer indexes unchanged');
 
   const brokenImages=await page.locator('.knowledge-topic img').evaluateAll(async nodes=>{const failed=[];for(const node of nodes){try{const copy=new Image();copy.src=node.src;await copy.decode();}catch{failed.push(node.alt);}}return failed;});
   assert.deepEqual(brokenImages,[],'All embedded source diagrams decode');

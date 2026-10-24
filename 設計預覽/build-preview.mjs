@@ -97,7 +97,7 @@ for (const course of courses) {
     const entry = {chapter:id,removed:[],topics:[]};
     let topicIndex=0;
     const guide = (index===0 && course.key!=='ethics') || course.key==='ethics';
-    const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:''})) : sections.flatMap((section,i)=>{
+    const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:course.key==='esg'&&i===0?original(sections.find(section=>section.title.includes('每天 2 小時'))?.content||''):''})) : sections.flatMap((section,i)=>{
       if(id==='aml-aml02') {
         const topic=cddTopics[i];assert(topic,section.title);
         if(topic.overview){entry.removed.push({id:section.id,reason:'重複章首摘要，保留於章首與章節總覽'});return [];}
@@ -154,7 +154,7 @@ for (const course of courses) {
 
 const css = fs.readFileSync(path.join(dir,'preview.css'),'utf8');
 const js = fs.readFileSync(path.join(dir,'preview.js'),'utf8').replace(/<\/script/gi,'<\\/script');
-const html = `<!doctype html><html lang="zh-Hant" class="without-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="六科37章教材白話圖解：先看角色與關係，依知識點讀懂規定與情境，再以十題練習核對理解。獨立設計預覽。"><title>各科教材・白話圖解｜設計預覽</title><link rel="icon" href="data:,"><style>${css}</style></head><body>
+const html = `<!doctype html><html lang="zh-Hant" class="without-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="六科38章教材白話圖解：先看角色與關係，依知識點讀懂規定與情境，再以十題練習核對理解。獨立設計預覽。"><title>各科教材・白話圖解｜設計預覽</title><link rel="icon" href="data:,"><style>${css}</style></head><body>
 <a class="skip-link" href="#main-content">跳到教材內容</a><header class="site-header"><div class="brand">${icon('map','brand-mark')}<div><h1>各科教材・白話圖解</h1><small>LEARNING NOTES / 2026</small></div></div><span class="preview-tag">設計預覽</span></header>
 <noscript><p class="noscript">目前未啟用 JavaScript，所有章節仍可依序閱讀，教材直接顯示，理解答案可展開；選答核對需要啟用 JavaScript。</p></noscript>
 <div class="workspace"><aside class="sidebar" aria-label="選科與章節目錄"><div class="subject-field"><label class="field-label" for="subject-select">選擇科目</label><select id="subject-select">${courses.map(course=>`<option value="${course.key}">${escape(course.name)}</option>`).join('')}</select></div><details class="chapter-picker" open><summary>章節目錄</summary>${navigation.join('')}</details></aside><main id="main-content" tabindex="-1">${lessons.join('\n')}</main></div>
