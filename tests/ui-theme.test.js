@@ -36,11 +36,11 @@ test('Catalogue return link: replace path without duplicate links; catalogue has
  assert.throws(()=>applySharedUi(html,'javascript:bad'));
 });
 
-test('Single HTML: nine embedded pages keep the shared theme',()=>{
+test('Single HTML: eleven embedded pages keep the shared theme',()=>{
  const html=fs.readFileSync('dist/學習平台_單檔整合版.html','utf8');
  const names=JSON.parse(html.match(/<script id="embedded-page-list" type="application\/json">([\s\S]*?)<\/script>/)[1]);
  const pages=[...html.matchAll(/<script id="embedded-page-\d+" type="application\/json">([\s\S]*?)<\/script>/g)].map(([,page])=>JSON.parse(page));
- assert.equal(names.length,9);assert.equal(pages.length,names.length);
+ assert.equal(names.length,11);assert.equal(pages.length,names.length);
  const css=fs.readFileSync(themePath,'utf8').trim();
  for(const page of pages) assert.equal(page.match(/<style id="study-ui-theme">([\s\S]*?)<\/style>/)[1].trim(),css);
 });

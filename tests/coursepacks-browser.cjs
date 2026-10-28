@@ -54,7 +54,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    if(course==='信託業務人員重點教材'){
     const bank=JSON.parse(fs.readFileSync(path.join('教材',course,'full_exam_bank.json'),'utf8'));
     const topics=new Map(Object.values(bank).flat().map(q=>[q.id,q.topic]));
-    assert.equal(new Set(topics.values()).size,stats.concept_ranking.length,'Trust uses the complete existing topic taxonomy');
+    assert.equal(new Set([...topics.values()].filter(Boolean)).size,stats.concept_ranking.length,'Trust uses the complete existing topic taxonomy');
     for(const row of stats.concept_ranking)for(const id of row.question_ids)assert.equal(topics.get(id),row.concept,`Trust topic source mapping: ${id}`);
    }
    if(course==='金融市場常識與職業道德題庫'){

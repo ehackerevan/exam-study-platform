@@ -1,0 +1,3265 @@
+{
+  "id": "derivatives-sales-exam",
+  "title": "衍生性金融商品：官方歷屆試題",
+  "description": "依官方公布的試題與答案整理，適用考試當時法規。",
+  "language": "zh-TW",
+  "chapters": [
+    {
+      "id": "exam",
+      "title": "官方歷屆試題",
+      "summary": "官方歷屆試題與答案依考期整理。",
+      "sections": [
+        {
+          "id": "exam-source",
+          "title": "來源說明",
+          "content": "試題與答案依考試機構公布資料整理；後續法規可能有所變更，請以現行規定為準。",
+          "keyPoints": [],
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "derivatives-第18期-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行辦理外匯衍生性金融商品業務，下列何項交易得逕行辦理毋須向央行申請？",
+      "options": [
+        "以期貨交易人身分辦理未涉及新臺幣匯率之國內外期貨交易契約",
+        "國內指定銀行間涉及新臺幣匯率之外匯衍生性交易",
+        "無本金交割涉及新臺幣匯率之遠期外匯交易",
+        "不涉及新臺幣匯率之代客操作外幣保證金交易"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 1
+      }
+    },
+    {
+      "id": "derivatives-第18期-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "向專業機構投資人及高淨值投資法人以外客戶宣讀或以電子設備說明客戶須知之重要內容，其內容應載事項有結構 商品之名稱及警語及連結標的類別或資產外，包括下列何者？ A.未來的績效 B.市場的走勢及經濟的看法 C.投 資風險之說明",
+      "options": [
+        "僅A",
+        "僅B",
+        "僅C",
+        "ABC"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 2
+      }
+    },
+    {
+      "id": "derivatives-第18期-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業控制及程序管理辦法規定，銀行應每年重新檢視客戶屬性評估及分級結果 之辦理時點，對於既有客戶得予延長至交易額度評估作業同時辦理，並經客戶確認，但最多不得超過幾個月？",
+      "options": [
+        "1 個月",
+        "2 個月",
+        "3 個月",
+        "6 個月"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 3
+      }
+    },
+    {
+      "id": "derivatives-第18期-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，銀行應於結構型商品交易文件中提醒客戶承作本商品之重要注意事 項，下列敘述何者錯誤？",
+      "options": [
+        "商品設計或條件不同客戶所暴露之風險程度可能不同",
+        "現金交割可能發生部分或全部利息、本金減損之風險",
+        "非現金交割可能發生本金將依約定轉換成標的資產之情事",
+        "現金交割可能必須承擔再投資風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 4
+      }
+    },
+    {
+      "id": "derivatives-第18期-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業控制及程序管理辦法規定，下列敘述何者錯誤？ A.應至少區分二個等級， 評估非專業客戶商品風險承受程度 B.對於交易條件標準化且存續期限超過6 個月之商品，若為專業客戶，除客戶 明確表示已充分審閱並簽名者外，審閱期間不得低於七日 C.結構型商品限於專業客戶交易者，不得為一般性廣告",
+      "options": [
+        "僅AB",
+        "僅AC",
+        "僅BC",
+        "ABC"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 5
+      }
+    },
+    {
+      "id": "derivatives-第18期-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關銀行向金融監督管理委員會申請核准辦理衍生性金融商品業務時所需符合之規定，下列敘述何者錯誤？",
+      "options": [
+        "銀行自有資本與風險性資產比率符合銀行法規定標準",
+        "備抵呆帳提列不足之比率低於應提列總額3%",
+        "申請日上一季底逾放比率為3%以下",
+        "申請日上一年度無因違反銀行法令而遭罰鍰處分情事，或其違法情事已具體改善，經金管會認可"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 6
+      }
+    },
+    {
+      "id": "derivatives-第18期-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法規定，所稱之專業客戶，不包括下列何者？",
+      "options": [
+        "專業機構投資人",
+        "高淨值投資法人",
+        "最近一期經會計師查核之財務報告總資產超過等值新臺幣五千萬元之境外法人",
+        "簽訂信託契約之信託業，其委託人為專業客戶之自然人"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 7
+      }
+    },
+    {
+      "id": "derivatives-第18期-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行與一般客戶之交易糾紛，無法依照銀行內部申訴處理程序完成和解者，客戶得向下列何者申請評議？",
+      "options": [
+        "財團法人金融消費評議中心",
+        "金管會銀行局",
+        "財團法人保險事業發展中心",
+        "財團法人證券投資人及期貨交易人保護中心"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 8
+      }
+    },
+    {
+      "id": "derivatives-第18期-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行不得與下列何類客戶辦理複雜性高風險商品？",
+      "options": [
+        "自然人客戶",
+        "以避險為目的之一般法人客戶",
+        "專業機構投資人",
+        "高淨值投資法人"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 9
+      }
+    },
+    {
+      "id": "derivatives-第18期-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於衍生性金融商品部位之評價頻率，其為銀行本身業務需要辦理之避險性交易者，應：",
+      "options": [
+        "至少每週評估一次",
+        "至少每月評估一次",
+        "應即時評估",
+        "應每日以市價評估"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 10
+      }
+    },
+    {
+      "id": "derivatives-第18期-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理衍生性金融商品業務之經辦及相關管理人員，應具備之資格條件，下列何者非屬之？",
+      "options": [
+        "參加國內金融訓練機構舉辦之衍生性金融商品及風險管理課程時數達六十小時以上且取得合格證書",
+        "通過國內金融訓練機構舉辦之衍生性金融商品銷售人員資格測驗並取得合格證書",
+        "在國內外金融機構相關衍生性金融商品業務實習一年",
+        "曾在國內外金融機構有半年以上衍生性金融商品業務之實際經驗"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 11
+      }
+    },
+    {
+      "id": "derivatives-第18期-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品自律規範規定，銀行對屬自然人之一般客戶，提供單項衍生性金融商品，如涉及大陸地 區商品或契約，下列何者非屬之？",
+      "options": [
+        "不涉及新臺幣匯率之外匯保證金交易",
+        "陽春型遠期外匯",
+        "買入陽春型匯率選擇權",
+        "買入轉換／交換公司債資產交換選擇權"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 12
+      }
+    },
+    {
+      "id": "derivatives-第18期-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，結構型商品於到期或依合約條件提前到期時，客戶若可取回原計價 幣別本金之多少比率，係屬保本型結構型商品？",
+      "options": [
+        "70%",
+        "80%",
+        "90%",
+        "100%"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 13
+      }
+    },
+    {
+      "id": "derivatives-第18期-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行擬辦理「外幣保證金代客操作業務」，向中央銀行申辦之程序為何？",
+      "options": [
+        "得不經申請逕行辦理",
+        "開辦前申請許可",
+        "開辦前函報備查",
+        "開辦後函報備查"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 14
+      }
+    },
+    {
+      "id": "derivatives-第18期-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業控制及程序管理辦法」規定，下列何者屬於複雜性高風險商品？",
+      "options": [
+        "交換契約",
+        "結構型商品",
+        "12 期歐式觸及出場遠期合約",
+        "3 筆交易一次簽約之一系列陽春型選擇權"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 15
+      }
+    },
+    {
+      "id": "derivatives-第18期-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "衡量流動性風險的最佳指標為：",
+      "options": [
+        "風險值",
+        "Beta 係數",
+        "買賣價差",
+        "Sharpe 指標"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 16
+      }
+    },
+    {
+      "id": "derivatives-第18期-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "δ(Delta)變動所引發選擇權價值變動的風險，係指下列何者？",
+      "options": [
+        "θ(Theta)風險",
+        "δ(Delta)風險",
+        "γ(Gamma)風險",
+        "ρ(Rho)風險"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 17
+      }
+    },
+    {
+      "id": "derivatives-第18期-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "結算前風險可以區分為現有違約風險及潛在違約風險，關於違約風險，下列敘述何者錯誤？",
+      "options": [
+        "客戶違約風險只有在市場走勢不利於客戶時，方可能存在",
+        "潛在的違約風險，主要是因為未來的市場風險所造成的",
+        "潛在的違約風險可以沖抵",
+        "應該使用保守穩健的方式求出潛在的違約風險"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 18
+      }
+    },
+    {
+      "id": "derivatives-第18期-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關避險會計現金流量避險之公允價值變動數，應作如何處理？",
+      "options": [
+        "列為當期損益",
+        "列為其他綜合損益",
+        "列為當期損益或其他綜合損益",
+        "不需認列損益"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 19
+      }
+    },
+    {
+      "id": "derivatives-第18期-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何項非屬第二層級公允價值衡量資訊？",
+      "options": [
+        "相同資產負債之非活絡市場公開報價",
+        "類似資產負債之非活絡市場公開報價",
+        "資產負債具可觀察輸入值，且由可觀察市場資料導出或證實之輸入值",
+        "採評價方法，且不反應市場參與者使用之假設"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 20
+      }
+    },
+    {
+      "id": "derivatives-第18期-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於衍生性商品會計處理之敘述，下列何者正確？",
+      "options": [
+        "承作期貨交易所繳之保證金，係代表該筆期貨交易承作時之公允價值",
+        "遠期外匯合約若以公允匯率成交，該契約於承作當時之公允價值應為零",
+        "遠期外匯若被指定為避險工具即可不需按公允價值評價",
+        "衍生性商品若採用避險會計處理，則不須再以公允價值衡量入帳"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 21
+      }
+    },
+    {
+      "id": "derivatives-第18期-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "臺灣市場上所稱之「連動債」或「結構債」，其本質係屬於下列何者？",
+      "options": [
+        "外幣存款",
+        "外幣債券",
+        "衍生性證券",
+        "固定收益證券"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 22
+      }
+    },
+    {
+      "id": "derivatives-第18期-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "貨幣相同，浮動利率對浮動利率的交換稱為下列何者？",
+      "options": [
+        "基本換匯換利",
+        "普通利率交換",
+        "基差利率交換",
+        "不需交換"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 23
+      }
+    },
+    {
+      "id": "derivatives-第18期-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "台灣的某家進口廠商預期在3 個月後須支付一筆歐元100,000，在無做任何避險交易下，廠商所擔心的是，屆時台幣 將會作何變化？",
+      "options": [
+        "升值",
+        "貶值",
+        "升值或貶值都沒關係",
+        "升值或貶值都擔心"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 24
+      }
+    },
+    {
+      "id": "derivatives-第18期-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "「利率上限」(interest rate cap)簡稱為Cap，以下敘述何者為正確？",
+      "options": [
+        "利率買權",
+        "利率賣權",
+        "利率交換",
+        "利率期貨"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 25
+      }
+    },
+    {
+      "id": "derivatives-第18期-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券商與銀行可以利用「資產交換」的方式，將可轉換公司債分解成哪兩大部分？",
+      "options": [
+        "普通公司債和股票買權",
+        "普通公司債和股票賣權",
+        "可提前贖回公司債和股票買權",
+        "可提前贖回公司債和股票賣權"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 26
+      }
+    },
+    {
+      "id": "derivatives-第18期-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保本型外幣組合式商品結構為：",
+      "options": [
+        "外幣定期存款＋賣出外幣期貨",
+        "外幣定期存款＋賣出外幣遠期契約",
+        "外幣定期存款＋賣出外幣選擇權",
+        "外幣定期存款＋買入外幣選擇權"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 27
+      }
+    },
+    {
+      "id": "derivatives-第18期-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "選擇權的避險參數 Theta 是描述何種參數變動對於選擇權價值的影響？",
+      "options": [
+        "利率",
+        "波動度",
+        "存續時間",
+        "標的資產價格"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 28
+      }
+    },
+    {
+      "id": "derivatives-第18期-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某一股票基金與股票指數期貨的相關係數為0.825，股票基金的標準差為0.4，股票指數期貨的標準差為0.3，請問 在風險最小化之避險比率為何？",
+      "options": [
+        "0.9",
+        "1",
+        "1.1",
+        "1.2"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 29
+      }
+    },
+    {
+      "id": "derivatives-第18期-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "20X1 年12 月20 日，甲公司向乙公司買入乙公司發行之 C 公司認購權證1,000 單位，可以每股$ 70 認購C 公司股 票1,000 股(每單位認購1 股)，付出權利金$3,500，當時C 公司股票每股市價為$71。試問買入時，該認購權證每單 位之時間價值為何？",
+      "options": [
+        "$0",
+        "$1",
+        "$2.50",
+        "$3.50"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 30
+      }
+    },
+    {
+      "id": "derivatives-第18期-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "選擇權之類型中，下列何者係指「買方有以特定價格賣出特定數量商品之權利，而賣方有應買的義務」？",
+      "options": [
+        "買權(Call Option)",
+        "賣權(Put Option)",
+        "交換選擇權(Swaption)",
+        "交換契約(Swap Contract)"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 31
+      }
+    },
+    {
+      "id": "derivatives-第18期-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "交易標的為利率之遠期契約(Forward Contract)係指下列何項衍生性金融商品？",
+      "options": [
+        "利率交換",
+        "遠期外匯",
+        "利率選擇權",
+        "遠期利率協定"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 32
+      }
+    },
+    {
+      "id": "derivatives-第18期-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "為了獲得高於相同天期債券的報酬，下列何者是設計「優利型」結構型商品所採取的策略？",
+      "options": [
+        "買入選擇權",
+        "賣出選擇權",
+        "連結交換契約",
+        "連結遠期契約"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 33
+      }
+    },
+    {
+      "id": "derivatives-第18期-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "對於「以信用交換合成的CDOs」、「以現貨資產合成的CDOs」進行比較，下列敘述何者正確？",
+      "options": [
+        "「以信用交換合成的CDOs」相對收益較低",
+        "「以信用交換合成的CDOs」到期日通常較長",
+        "「以信用交換合成的CDOs」累積投資組合的時間較短",
+        "「以現貨資產合成的CDOs」在契約條件的設計上較有彈性"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 34
+      }
+    },
+    {
+      "id": "derivatives-第18期-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不屬於信用衍生性商品？",
+      "options": [
+        "總報酬交換",
+        "信用價差交換",
+        "違約選擇權",
+        "信用狀押匯"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 35
+      }
+    },
+    {
+      "id": "derivatives-第18期-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行間報價USD：CHF 即期匯率1.1856-66，兩個月期換匯點0.0015-0.0022，若以直接匯率報價法，兩個月遠期匯 率應為：",
+      "options": [
+        "1.1871-1.1888",
+        "1.1841-1.1844",
+        "1.1834-1.1851",
+        "1.1871-1.1881"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 36
+      }
+    },
+    {
+      "id": "derivatives-第18期-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "請問下列何種因素改變將使外匯選擇權之賣權市價（權利金）上升？",
+      "options": [
+        "標的物市價上升",
+        "市場標的物價格波動程度上升",
+        "履約價格降低",
+        "契約期間縮短"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 37
+      }
+    },
+    {
+      "id": "derivatives-第18期-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設某投資人有歐元定存，欲敘作連結至美元的雙元組合式商品，請問本商品所連結的外幣選擇權為何？",
+      "options": [
+        "賣出歐元買權美元賣權",
+        "賣出歐元賣權美元買權",
+        "買入歐元買權美元賣權",
+        "買入歐元賣權美元買權"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 38
+      }
+    },
+    {
+      "id": "derivatives-第18期-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "平均選擇權又被稱為下列何者？",
+      "options": [
+        "美式選擇權",
+        "亞洲式選擇權",
+        "障礙選擇權",
+        "上限選擇權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 39
+      }
+    },
+    {
+      "id": "derivatives-第18期-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若一債息連動台灣加權股價指數的債券，其票面利率=3.5%+ [(付息前一日收盤股價指數-8500 點)/10] bp，若付息前 一日收盤股價指數為8630 時，當期利率會是多少？",
+      "options": [
+        "3.63%",
+        "3.53%",
+        "3.51%",
+        "3.50%"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 40
+      }
+    },
+    {
+      "id": "derivatives-第18期-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行對屬自然人之一般客戶得提供之單項衍生性金融商品交易服務（如未涉及大陸地區商品或契約），下列何者非 屬之？",
+      "options": [
+        "信用違約交換(CDS)",
+        "外匯保證金交易",
+        "買入陽春型外幣匯率選擇權",
+        "買入轉換／交換公司債資產交換選擇權"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 41
+      }
+    },
+    {
+      "id": "derivatives-第18期-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行已取得辦理衍生性金融商品業務之核准者，擬開辦各種衍生性金融商品及其商品之組合，其申請程序，下列敘 述何者錯誤？",
+      "options": [
+        "原則採事後備查制度",
+        "例外以負面表列方式明定應事前核准之商品項目",
+        "非新種臺股股權衍生性金融商品於申請書件送達金管會之次日起十日內，金管會未表示反對意見者，即可逕行辦理",
+        "涉及應向中央銀行申請許可之外匯衍生性金融商品，則逕向中央銀行申請"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 42
+      }
+    },
+    {
+      "id": "derivatives-第18期-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行國際金融業務分行辦理衍生性金融商品業務，下列敘述何者錯誤？",
+      "options": [
+        "交易幣別包括外幣以及新臺幣",
+        "交易對象以中華民國境外客戶及OBU 條例所稱之中華民國境內金融機構為限",
+        "經核准辦理衍生性金融商品業務後，無須再逐案申請核准",
+        "原則上得自訂專業客戶之定義"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 43
+      }
+    },
+    {
+      "id": "derivatives-第18期-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依金管會訂定之期初保證金之最低標準，複雜性高風險商品每筆交易之期初保證金不得低於契約總名目本金之多少 比率？",
+      "options": [
+        "1%",
+        "2%",
+        "5%",
+        "10%"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 44
+      }
+    },
+    {
+      "id": "derivatives-第18期-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行與客戶承作複雜性高風險商品交易應告知交易條件重要內容，下列事項何者不屬之？",
+      "options": [
+        "計價幣別",
+        "契約審閱期間",
+        "交易日/生效日/到期日",
+        "收益計算給付及其計算方式"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 45
+      }
+    },
+    {
+      "id": "derivatives-第18期-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行向客戶提供結構型商品交易服務時， 不得以下列何者名義為之？",
+      "options": [
+        "附條件美元優利投資組合",
+        "黃金外幣組合",
+        "雙元貨幣組合",
+        "結構型優利存款"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 46
+      }
+    },
+    {
+      "id": "derivatives-第18期-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法規定，銀行辦理信用衍生性金融商品交易，如為信用 風險承擔者，且合約信用實體為銀行之利害關係人，下列敘述何者錯誤？",
+      "options": [
+        "交易條件不得優於其他同類對象",
+        "擔保品條件應配合交易契約存續期間及合約信用資產 (Reference Asset)之流動性",
+        "應依據信用風險預估之潛在損失額度部分，徵提十足擔保",
+        "應經董事會四分之三以上董事出席及出席董事三分之二以上決議，並比照利害關係人授信，列入授信額度控管"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 47
+      }
+    },
+    {
+      "id": "derivatives-第18期-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理新種衍生性金融商品，下列敘述何者錯誤？",
+      "options": [
+        "應訂定內部審查作業規範",
+        "新種商品之審查小組應包括各相關部門之權責，並依審查作業規範審查",
+        "新種複雜性高風險商品，經審查小組審查通過後即可辦理",
+        "新種複雜性高風險商品，經審查小組審查後，應提報董（理）事會或常務董（理）事會通過"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 48
+      }
+    },
+    {
+      "id": "derivatives-第18期-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "信用風險的監控必須包含的資訊內容，不包括下列何者？",
+      "options": [
+        "交易集中度",
+        "額度外的例外管理案件",
+        "交易對手使用額度的情形",
+        "主要客戶首年度手續費收入"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 49
+      }
+    },
+    {
+      "id": "derivatives-第18期-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "選擇權的Vega 風險是指下列何者？",
+      "options": [
+        "選擇權標的物變動一單位時，選擇權權利金將會變動的幅度",
+        "因選擇權的 Delta 變動所形成的風險",
+        "選擇權標的物的現貨價格波動程度1%時，選擇權權利金變動的幅度",
+        "當到期日逐日逼近時，選擇權權利金降低的幅度"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 50
+      }
+    },
+    {
+      "id": "derivatives-第18期-51",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於衍生性金融商品流動性風險，下列敘述何者錯誤？",
+      "options": [
+        "流動性風險又可分為市場或商品的流動性風險及現金流量風險",
+        "造成現金流量風險的主要因素為複雜的評價模式",
+        "維持一定水準的高流動性資產，以備不時之需",
+        "金融機構本身信用不佳也可能會遭遇到流動性風險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 51
+      }
+    },
+    {
+      "id": "derivatives-第18期-52",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "A 金融機構向B 金融機構買進一個台股指數買權，在交易日當天A 金融機構已經將權利金匯入B 金融機構，請問 下列敘述何者正確？",
+      "options": [
+        "在交易日後B 金融機構承擔了A 公司的信用風險",
+        "在交易日後A 金融機構承擔了B 公司的信用風險",
+        "在交易日後A 和B 金融機構皆承擔了對方的信用風險",
+        "在交易日後A 和B 金融機構皆未承擔對方的任何信用風險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 52
+      }
+    },
+    {
+      "id": "derivatives-第18期-53",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以收到固定利率交換浮動利率之利率交換交易（非避險交易），每月月底評估，並於次月迴轉。若在資產負債表日 產生評價損失時，則分錄之借方應為何？",
+      "options": [
+        "透過損益按公允價值衡量之金融資產評價損失",
+        "透過其他綜合損益按公允價值衡量之金融資產評價損失",
+        "透過損益按公允價值衡量之金融負債評價損失",
+        "透過其他綜合損益按公允價值衡量之金融負債評價損失"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 53
+      }
+    },
+    {
+      "id": "derivatives-第18期-54",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於衍生性工具適用之基本會計原則「一致性」，下列述敘何者正確？",
+      "options": [
+        "會計政策應一致採用，使不同年度之財務報表具有可比性",
+        "係指於不確定情況下之估計判斷必須注意之程度",
+        "交易事項之經濟實質與形式不一致時，應按經濟實質處理",
+        "應依相關規定於財務報表附註揭露相關資訊"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 54
+      }
+    },
+    {
+      "id": "derivatives-第18期-55",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關衍生工具有關之會計項目，下列何者屬資產類之會計項目？",
+      "options": [
+        "避險之金融負債",
+        "備供出售金融資產未實現損益",
+        "依避險會計指定且為有效避險工具之金融資產",
+        "透過損益按公允價值衡量之金融資產處分利益"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 55
+      }
+    },
+    {
+      "id": "derivatives-第18期-56",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲公司產銷黃豆油，預計20X1 年10 月30 日需進貨黃豆1,000 噸。該公司為規避黃豆價格上漲風險，乃於20X1 年 4 月30 日簽訂遠期購買合約，購買六個月期黃豆1,000 噸，每噸遠期價格為$5,200，到期以現金淨額交割。20X1 年 4 月30 日的黃豆現貨價格為每噸$5,000，甲公司將遠期合約的即期價格及利息部分分開，並對即期價格的公允價值 變動指定避險關係。假設20X1 年10 月30 日的黃豆現貨價格為每噸$5,600，請問甲公司20X1 年此項避險為：",
+      "options": [
+        "無效之公允價值避險",
+        "有效之公允價值避險",
+        "無效之現金流量避險",
+        "有效之現金流量避險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 56
+      }
+    },
+    {
+      "id": "derivatives-第18期-57",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依據公報規定，混合商品在符合三項條件之情況下，須將主契約與嵌入式衍生工具拆分處理，不包括：",
+      "options": [
+        "兩者經濟特性及風險並非緊密關聯",
+        "與嵌入式衍生工具相同條件之單獨工具符合衍生工具之定義",
+        "混合工具非按公允價值衡量且公允價值變動認列於損益",
+        "嵌入式衍生工具所佔比重未達30%以上"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 57
+      }
+    },
+    {
+      "id": "derivatives-第18期-58",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "企業進行非屬避險之匯率遠期交易，公允價值於第1 年年底為1,000 元、第2 年年底負1,200 元，第3 年年底800 元，請問此一交易對企業第3 年本期損益之影響為何？",
+      "options": [
+        "增加800 元",
+        "增加2,000 元",
+        "減少200 元",
+        "減少400 元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 58
+      }
+    },
+    {
+      "id": "derivatives-第18期-59",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一檔1×4 的遠期利率契約，其約定利率為7%，名目金額為100 萬元。假設在契約到期時，市場利率為8%。在一年 360 天、每月為30 天的條件下，則該遠期利率契約的交割金額約為何？",
+      "options": [
+        "2,300 元",
+        "2,451 元",
+        "2,500 元",
+        "2,751 元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 59
+      }
+    },
+    {
+      "id": "derivatives-第18期-60",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一投資者買進區間2%~6%的3 年期區間計息債券(指標利率落入該區間才計息)共500 萬，票面年利率5%，若本期 指標利率半年內(180 天)有45 天未落入該區間，請問投資者本期可收到多少票息？",
+      "options": [
+        "$250,000",
+        "$187,500",
+        "$125,000",
+        "$93,750"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 18 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 60
+      }
+    },
+    {
+      "id": "derivatives-第19期-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行業辦理外匯業務管理辦法規定，有關外匯衍生性金融商品相關規範，下列何者非屬其適用對象？",
+      "options": [
+        "指定銀行 (DBU)",
+        "農業金庫",
+        "本國銀行之海外分行",
+        "外商銀行之在台分行"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 1
+      }
+    },
+    {
+      "id": "derivatives-第19期-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法所稱複雜性高風險商品，係指具有結算或比價期數超過 多少期且隱含賣出選擇權特性之衍生性金融商品？",
+      "options": [
+        "1 期",
+        "2 期",
+        "3 期",
+        "4 期"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 2
+      }
+    },
+    {
+      "id": "derivatives-第19期-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理信用衍生性金融商品交易，如為信用風險承擔者，且合約信用實體為銀行之利害關係人，其交易條件不得 優於其他同類對象，並應經本國銀行應經董事會多少以上的董事出席及出席董事四分之三以上決議規定辦理？",
+      "options": [
+        "三分之二",
+        "二分之一",
+        "四分之一",
+        "四分之三"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 3
+      }
+    },
+    {
+      "id": "derivatives-第19期-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行已取得辦理衍生性金融商品業務之核准者（其中屬辦理期貨商業務者，並應依期貨交易法之規定取得許可）， 除負面表列之商品外，原則得開辦各種衍生性金融商品及其商品之組合，並於開辦後幾日內檢附商品特性說明書、 法規遵循聲明書及風險預告書報金管會備查？",
+      "options": [
+        "10 日",
+        "15 日",
+        "20 日",
+        "7 日"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 4
+      }
+    },
+    {
+      "id": "derivatives-第19期-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，受託或銷售機構應提供非專業投資人（非 投資型保單之要保人）不低於幾日之審閱期間審閱相關契約？",
+      "options": [
+        "七日",
+        "五日",
+        "三日",
+        "一日"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 5
+      }
+    },
+    {
+      "id": "derivatives-第19期-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行之董（理）事會應適時檢討銀行辦理衍生性金融商品業務之經營策略及作業準則，並應評估績效及風險，且除 外國銀行在臺分行依總行規定定期辦理檢討者外，應至少多久檢討一次？",
+      "options": [
+        "每月",
+        "每季",
+        "每半年",
+        "每年"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 6
+      }
+    },
+    {
+      "id": "derivatives-第19期-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行擬開辦衍生性金融商品業務，應符合之資格條件，下列何者錯誤？",
+      "options": [
+        "銀行自有資本與風險性資產比率符合銀行法規定標準",
+        "無備抵呆帳提列不足情事",
+        "申請日上一季底逾放比率為百分之五以下",
+        "申請日上一年度無因違反銀行法令而遭罰鍰處分情事"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 7
+      }
+    },
+    {
+      "id": "derivatives-第19期-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行向專業機構投資人及高淨值投資法人以外之客戶，辦理複雜性高風險商品，徵提期初保證金之最低標準，不得 低於契約總名目本金之多少百分比？",
+      "options": [
+        "2%",
+        "3%",
+        "5%",
+        "8%"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 8
+      }
+    },
+    {
+      "id": "derivatives-第19期-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行業申請辦理外匯業務，經發給指定證書或許可函後多久內仍未開辦，中央銀行得按情節輕重，命其於一定期間 內停辦、廢止或撤銷許可內容之一部或全部？",
+      "options": [
+        "二個月",
+        "三個月",
+        "六個月",
+        "一年"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 9
+      }
+    },
+    {
+      "id": "derivatives-第19期-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行向屬法人之專業客戶提供結構型商品交易服務前，應辦理風險揭露之程序為：",
+      "options": [
+        "應提供風險預告書",
+        "應提供風險警語",
+        "應提供商品風險說明",
+        "得依銀行內部作業程序辦理"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 10
+      }
+    },
+    {
+      "id": "derivatives-第19期-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行辦理衍生性金融商品業務，對風險容 忍度及業務承作限額，應由下列何單位審定？",
+      "options": [
+        "董（理）事會",
+        "高階管理階層",
+        "風險管理單位",
+        "財務會計單位"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 11
+      }
+    },
+    {
+      "id": "derivatives-第19期-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行向下列何類客戶提供衍生性金融商品 交易服務，在完成交易前，應派專人解說並請客戶確認？",
+      "options": [
+        "高淨值投資法人",
+        "屬自然人之一般客戶",
+        "屬自然人之專業客戶",
+        "屬法人之一般客戶"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 12
+      }
+    },
+    {
+      "id": "derivatives-第19期-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行前經許可或備查之外幣衍生性商品業務，擬擴增辦理涉及人民幣或大陸地區標的者，其向中央銀行申辦之 程序為何？",
+      "options": [
+        "逕行辦理",
+        "開辦前申請許可",
+        "開辦前函報備查",
+        "開辦後函報備查"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 13
+      }
+    },
+    {
+      "id": "derivatives-第19期-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，所稱高淨值投資法人應符合之條件，包括 最近一期經會計師查核或核閱之財務報告持有有價證券部位或衍生性金融商品投資組合達新臺幣多少元以上？",
+      "options": [
+        "5 億元",
+        "10 億元",
+        "15 億元",
+        "20 億元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 14
+      }
+    },
+    {
+      "id": "derivatives-第19期-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，有關銀行對屬自然人之一般客戶提供外匯保證金交易之槓桿倍數， 下列何者正確？",
+      "options": [
+        "以一倍為限",
+        "以二倍為限",
+        "以三倍為限",
+        "由各銀行於評估風險後自行訂定"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 15
+      }
+    },
+    {
+      "id": "derivatives-第19期-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於市場風險管理，下列敘述何者正確？",
+      "options": [
+        "停損限額不屬於量的控制",
+        "衍生性商品交易量限額是以名目本金為準",
+        "風險評估資訊品質與限額設定無關",
+        "複雜交易策略已考慮避險需要，因此不須進行限額管理"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 16
+      }
+    },
+    {
+      "id": "derivatives-第19期-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "市場利率變動所引發選擇權價值變動的風險是指：",
+      "options": [
+        "θ(Theta)風險",
+        "δ(Delta)風險",
+        "γ(Gamma)風險",
+        "ρ(Rho)風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 17
+      }
+    },
+    {
+      "id": "derivatives-第19期-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在信用風險監控管理上，監控單位應適時將正確的信用風險資訊提供給相關單位，下列何者非屬重要的考量因素？",
+      "options": [
+        "交易對手使用額度的情形",
+        "交易集中度",
+        "主要客戶信用狀況",
+        "額度內的交易契約"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 18
+      }
+    },
+    {
+      "id": "derivatives-第19期-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關非避險衍生工具之衡量與分類，下列何者正確？",
+      "options": [
+        "透過損益按公允價值衡量",
+        "透過其他綜合損益按公允價值衡量",
+        "後續按攤銷後成本衡量",
+        "權益法投資"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 19
+      }
+    },
+    {
+      "id": "derivatives-第19期-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非屬衍生性商品適用之基本會計原則？",
+      "options": [
+        "審慎性",
+        "一致性",
+        "現金基礎",
+        "經濟實質重於法律形式"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 20
+      }
+    },
+    {
+      "id": "derivatives-第19期-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依IFRS 7 金融工具揭露之規定，應量化揭露金融工具產生之哪些風險？",
+      "options": [
+        "僅信用風險、市場風險",
+        "僅市場風險、流動性風險",
+        "僅流動性風險、信用風險",
+        "信用風險、市場風險、流動性風險皆應揭露"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 21
+      }
+    },
+    {
+      "id": "derivatives-第19期-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以類似資產活絡市場公開報價所決定之公允價值，依據公報規定，係屬於何層級？",
+      "options": [
+        "第1 級",
+        "第2 級",
+        "第3 級",
+        "第4 級"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 22
+      }
+    },
+    {
+      "id": "derivatives-第19期-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "就期貨價格和現貨價格的變動而言，下列何者具有領先變動的特性？",
+      "options": [
+        "期貨價格",
+        "現貨價格",
+        "同時變動",
+        "視情形而定"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 23
+      }
+    },
+    {
+      "id": "derivatives-第19期-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種契約在交易上具有「風險與報酬不對稱」的特性？",
+      "options": [
+        "遠期契約",
+        "期貨契約",
+        "選擇權契約",
+        "交換契約"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 24
+      }
+    },
+    {
+      "id": "derivatives-第19期-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關遠期利率協定(FRA)的敘述，下列何者錯誤？",
+      "options": [
+        "FRA 是一種以「利率」為交易標的的遠期契約",
+        "遠期利率協定的主要功能係可規避利率風險",
+        "FRA 可改善遠期性存款(Forward Deposit)資產負債表膨脹的問題",
+        "遠期性存款(Forward Deposit)的信用風險較FRA 低"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 25
+      }
+    },
+    {
+      "id": "derivatives-第19期-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某一檔結構型債券的到期支付金額如下列公式：債券面額×〔0.9+0.5×選擇權價值〕。請問，此結構型債券為：",
+      "options": [
+        "80%保本型",
+        "90%保本型",
+        "100%保本型",
+        "優利型"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 26
+      }
+    },
+    {
+      "id": "derivatives-第19期-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲銀行發行以S&P 500 股價指數為連結標的之4 年期結構商品，票面利率2%，每半年付息一次，到期償還金額公 式： 面額×〔1 + 92.2%×Max (0, 8.5% - S&P 500 股價指數成長率)〕。到期償還金額公式可以看出，此商品連結的選 擇權為：",
+      "options": [
+        "買權",
+        "賣權",
+        "放棄權",
+        "轉換權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 27
+      }
+    },
+    {
+      "id": "derivatives-第19期-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "衍生性商品之交易對手在履行交割義務前違約而造成的損失，可稱為：",
+      "options": [
+        "結算前風險",
+        "結算後風險",
+        "法律前風險",
+        "法律後風險"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 28
+      }
+    },
+    {
+      "id": "derivatives-第19期-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於結構型商品風險，下列敘述何者錯誤？",
+      "options": [
+        "投資人必須承擔發行機構的信用風險，也就是可能會面臨本金無法回收的風險",
+        "一般而言信用評等為S&P AAA 的債券，違約風險較BBB 的低",
+        "結構型商品的市場風險，最主要來自於選擇權端",
+        "結構型商品中的固定收益端，從發行到到期前並沒有市場風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 29
+      }
+    },
+    {
+      "id": "derivatives-第19期-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列四種債券的票息的計息方式，何者為反浮動計息商品？",
+      "options": [
+        "SOFR+0.60% p.a.",
+        "Max〔10%-2*(SOFR), 0%〕",
+        "6% p.a.",
+        "2*SOFR–2%, floor at 1%"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 30
+      }
+    },
+    {
+      "id": "derivatives-第19期-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關金融期貨之信用風險，下列敘述何者正確？",
+      "options": [
+        "買方須負擔賣方之信用風險，但賣方不須負擔買方之信用風險",
+        "賣方須負擔買方之信用風險，但買方不須負擔賣方之信用風險",
+        "買賣雙方皆須負擔對方之信用風險",
+        "信用風險由清算所負擔"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 31
+      }
+    },
+    {
+      "id": "derivatives-第19期-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "衍生性金融商品依契約區分的基本類型契約，不包括下列何者？",
+      "options": [
+        "股票契約",
+        "期貨契約",
+        "遠期契約",
+        "交換契約"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 32
+      }
+    },
+    {
+      "id": "derivatives-第19期-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非為利率型相關衍生性金融商品？",
+      "options": [
+        "美國國庫券期貨契約",
+        "資產交換合約",
+        "英鎊期貨合約",
+        "負債交換合約"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 33
+      }
+    },
+    {
+      "id": "derivatives-第19期-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "如預期市場利率即將走升，應該如何操作？",
+      "options": [
+        "賣出利率上限選擇權(Cap)",
+        "買入利率下限選擇權(Floor)",
+        "買入利率上限選擇權(Cap)",
+        "賣出利率下限選擇權(Floor)"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 34
+      }
+    },
+    {
+      "id": "derivatives-第19期-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不是利率選擇權之形式？",
+      "options": [
+        "利率上限契約",
+        "利率交換契約",
+        "利率下限契約",
+        "利率上下限契約"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 35
+      }
+    },
+    {
+      "id": "derivatives-第19期-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "反向浮動債券在下列何種情況下能獲利？",
+      "options": [
+        "利率下跌",
+        "利率上漲",
+        "利率波動大",
+        "利率波動小"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 36
+      }
+    },
+    {
+      "id": "derivatives-第19期-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關匯率區間變動外幣保本型組合式商品，下列敘述何者正確？",
+      "options": [
+        "結合「外幣定存」及「外幣選擇權」之外幣理財商品，其中「外幣定存」（投資本金）屬於存款保險保障範圍",
+        "投資人預估所連結指標匯率其市場行情未來將呈區間整理",
+        "所連結指標匯率設定區間愈小，收益率愈低",
+        "若所連結指標匯率未來市場行情波動愈大，投資人到期時愈有機會取得較高的商品收益"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 37
+      }
+    },
+    {
+      "id": "derivatives-第19期-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設某100%保本型外幣組合式商品交易條件如下，90 天期美金存款利率=3.60%，本金=USD500,000，買入選擇權 支出=USD2,500，銀行手續費=USD500，請問該商品最低收益率為何？",
+      "options": [
+        "1.20%",
+        "1.60%",
+        "2%",
+        "2.10%"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 38
+      }
+    },
+    {
+      "id": "derivatives-第19期-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "CBOT 之美國長天期中央政府公債期貨每口契約10 萬美元，最小價格跳動點為1/32(%)，請問某投資人於市價105-24 買入美國政府長期債券期貨，三個月後並於105-28 賣出，其損益狀況為何？",
+      "options": [
+        "獲利31.25 美元",
+        "獲利62.5 美元",
+        "獲利125.0 美元",
+        "損失125.0 美元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 39
+      }
+    },
+    {
+      "id": "derivatives-第19期-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資人承做雙元組合式商品（Dual Currency Investment），本金日圓1,000 萬，連結貨幣為澳幣，轉換匯率為80.00， 到期匯率如低於80.00，本金需轉換為澳幣。到期匯率為77.00，請問到期時投資人取回本金之幣別及金額為何？",
+      "options": [
+        "日圓1,000 萬",
+        "澳幣125,000",
+        "澳幣129,870.13",
+        "日圓129,870.13"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 40
+      }
+    },
+    {
+      "id": "derivatives-第19期-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行辦理外幣保證金交易代客操作業務管理辦法規定，下列敘述何者錯誤？",
+      "options": [
+        "為委任人之利益，全權代委任人從事外幣保證金交易",
+        "委任人的同一交易帳戶得同時作為不同委任操作契約或其他交易收付結算之用",
+        "應設代客操作專責單位",
+        "代客操作專責單位，應獨立於信託業務專責部門之外"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 41
+      }
+    },
+    {
+      "id": "derivatives-第19期-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品自律規範規定，有關「結構型商品有直接導致本金損失或超過當初本金損失之虞」的情 況，下列敘述何者錯誤？",
+      "options": [
+        "因利率、匯率、有價證券市價或其他指標之變動",
+        "因銀行或他人之業務或財產狀況之變化",
+        "因足以影響投資人判斷之重要事項",
+        "因投資人對產品認知及瞭解產生之變化"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 42
+      }
+    },
+    {
+      "id": "derivatives-第19期-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行辦理外匯衍生性商品業務之交易部門經辦人員，其須具備之資格條件，不包括下列何者？",
+      "options": [
+        "參加國內金融訓練機構舉辦之衍生性商品及風險管理課程時數達六十小時以上且取得合格證書",
+        "通過國內金融訓練機構舉辦之衍生性金融商品銷售人員資格測驗並取得合格證書",
+        "在國內外金融機構相關外匯衍生性商品業務實習一年",
+        "曾在國內外金融機構有半年以上外匯衍生性商品業務之實際經驗"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 43
+      }
+    },
+    {
+      "id": "derivatives-第19期-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行與特定類別客戶之交易糾紛，無法依 照銀行內部申訴處理程序完成和解者，該客戶得向財團法人金融消費評議中心申請評議。下列敘述何者正確？",
+      "options": [
+        "僅適用於屬自然人之一般客戶",
+        "適用於一般客戶",
+        "適用於屬自然人之專業客戶",
+        "僅適用於屬法人之一般客戶"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 44
+      }
+    },
+    {
+      "id": "derivatives-第19期-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，有關銀行對屬自然人之一般客戶提供單項衍生性金融商品（非屬結 構型商品之衍生性金融商品），其得交易服務之項目，下列何者非屬之？",
+      "options": [
+        "買入轉換／交換公司債資產交換選擇權",
+        "賣出陽春型外幣匯率選擇權",
+        "陽春型遠期外匯",
+        "外匯保證金交易"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 45
+      }
+    },
+    {
+      "id": "derivatives-第19期-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，經核准辦理衍生性金融商品業務之銀行， 有下列哪一情形時，其辦理之衍生性金融商品以避險為限？",
+      "options": [
+        "最近一季底逾期放款比率為百分之五",
+        "備抵呆帳提列充足",
+        "資本適足率為百分之十點五",
+        "長期信用評等達Standard & Poor’s Rating Service BBB+級"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 46
+      }
+    },
+    {
+      "id": "derivatives-第19期-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依金管會訂定之銀行核給客戶非屬結構型商品之衍生性金融商品交易額度上限規定，所稱客戶可驗證往來資力，不 包括下列何者？",
+      "options": [
+        "客戶辦理衍生性金融商品已繳交之保證金",
+        "客戶之連帶保證人於該銀行之存款",
+        "客戶之連帶保證人於該銀行之有價證券",
+        "客戶於該銀行已設定首順位抵押權之不動產"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 47
+      }
+    },
+    {
+      "id": "derivatives-第19期-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行向專業機構投資人及高淨值投資法人 以外客戶提供非以避險為目的之非屬匯率類複雜性高風險商品交易，其比價或結算期數12 期以下（含）者，個別 交易損失上限不得超過平均單期名目本金之幾倍？",
+      "options": [
+        "3.6 倍",
+        "6 倍",
+        "9.6 倍",
+        "10.6 倍"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 48
+      }
+    },
+    {
+      "id": "derivatives-第19期-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於投資信用結構型商品(Collateralized Debt Obligation,CDO)，下列敘述何者錯誤？",
+      "options": [
+        "信用評等代表信評機構對該CDO 信用品質的意見，並非對其信用品質的保證",
+        "信用評等不能完全反映 CDO 的真實風險",
+        "信評機構會評估CDO 市場價值波動的風險",
+        "信評機構授予每檔CDO 信評後，會持續監控表現"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 49
+      }
+    },
+    {
+      "id": "derivatives-第19期-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關衍生性商品法律風險，下列敘述何者錯誤？",
+      "options": [
+        "雙邊淨額清算可以降低信用風險及流動性風險",
+        "法律風險和信用風險一樣，需注意事前的審核工作",
+        "金融交換普遍使用的契約格式為ISDA 主契約",
+        "多邊淨額清算會提高對手的信用風險及流動性風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 50
+      }
+    },
+    {
+      "id": "derivatives-第19期-51",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於風險值(Value at Risk)的敘述，下列何者正確？",
+      "options": [
+        "在某一信賴水準下，持有某一投資組合，經過一特定期間後，因為市場價格變動的因素，所可能發生的平均損失 期望值",
+        "在某一信賴水準下，持有某一投資組合，經過一特定期間後，因為市場價格變動的因素，所可能發生的最大損失 期望值",
+        "在某一信賴水準下，持有某一投資組合，經過一特定期間後，因為流動性風險變動的因素，所可能發生的最大損 失期望值",
+        "在某一信賴水準下，持有某一投資組合，經過一特定期間後，因為流動性風險變動的因素，所可能發生的最大損 失金額"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 51
+      }
+    },
+    {
+      "id": "derivatives-第19期-52",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "殖利率曲線形狀改變的風險歸屬於下列何種風險？",
+      "options": [
+        "期間結構風險(Term Structures Exposures)",
+        "殖利率曲線風險(Yield Curve Exposures)",
+        "基差風險(Basis Risk)",
+        "匯率風險(Foreign Exchange Risk)"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 52
+      }
+    },
+    {
+      "id": "derivatives-第19期-53",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲公司於X1 年6 月1 日以$20,000 購入乙公司上市股票之賣權，此賣權持有人可於X2 年6 月1 日以每股$50 賣出 乙公司股票30,000 股，甲公司並未指定此衍生性商品作為避險工具，X1 年6 月1 日乙公司股票之市價為$50，X1 年底乙公司股票之市價為$42。假設此賣權於X1 年12 月31 日之價值為$60,000。甲公司X1 年底應認列該金融資產 之損益為何？",
+      "options": [
+        "利益$40,000",
+        "損失$40,000",
+        "利益$150,000",
+        "損失$150,000"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 53
+      }
+    },
+    {
+      "id": "derivatives-第19期-54",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關避險會計，下列敘述何者正確？",
+      "options": [
+        "係以互抵之方式認列避險工具及被避險項目之公允價值變動所產生之損益影響數",
+        "避險工具及被避險項目之公允價值變動所產生之損益影響數應各自採總額表達",
+        "避險工具之公允價值變動所產生之損益影響數應列入損益科目，而被避險項目之公允價值變動影響數應列入權益 科目",
+        "避險工具之公允價值變動所產生之損益影響數應列入權益科目，而被避險項目之公允價值變動影響數應列入損益 科目"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 54
+      }
+    },
+    {
+      "id": "derivatives-第19期-55",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "X1 年1 月1 日，乙公司以$2,000,000 發行轉換公司債，支付手續費2,000。該轉換公司債之持有人可以$1,000 債券 轉換為50 股之乙公司普通股。經估計公司債與認股權個別公允價值分別為$1,920,000 與$100,000，乙公司應認列「手 續費」之金額為何？",
+      "options": [
+        "$0",
+        "$20",
+        "$22",
+        "$2,000"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 55
+      }
+    },
+    {
+      "id": "derivatives-第19期-56",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "嵌入式衍生工具於符合特定條件時，應與主契約拆解分別認列，下列何者不屬於前述條件？",
+      "options": [
+        "經濟特性及風險與主契約之經濟特性、風險並非緊密關聯",
+        "經濟特性及風險與主契約之經濟特性、風險緊密關聯",
+        "相同條件之單獨工具符合衍生工具之定義",
+        "混合工具非按公允價值衡量且公允價值變動認列於損益者"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 56
+      }
+    },
+    {
+      "id": "derivatives-第19期-57",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行出售結構型商品予客戶，該商品為本金連結個股選擇權，則當銀行收到本金時，會計上應列為下列何者？",
+      "options": [
+        "股票投資",
+        "債券投資",
+        "備供出售金融資產",
+        "金融負債"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 57
+      }
+    },
+    {
+      "id": "derivatives-第19期-58",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲銀行以5 元的權利金賣出一檔台積電的歐式買權給投資人，其履約價格為120 元，買權到期時，台積電股價為123 元，在不考慮貨幣的時間價值下，請問甲銀行在此檔買權的損益為何？",
+      "options": [
+        "賠2 元",
+        "賠5 元",
+        "賺2 元",
+        "賺5 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 58
+      }
+    },
+    {
+      "id": "derivatives-第19期-59",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若A 公司發行一種浮動利率債券，並向銀行買進「利率上限」(interest rate cap)合約以保護未來利率上漲的風險。已 知名目本金是2,000 萬元，1 年後到期，標的利率是3M TAIBOR，每3 個月結算一次，上限利率(cap rate)為3%。 假設3 個月後，3M TAIBOR 為3.2%，則銀行應支付多少金額給A 公司？",
+      "options": [
+        "0.8 萬元",
+        "1 萬元",
+        "1.2 萬元",
+        "1.3 萬元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 59
+      }
+    },
+    {
+      "id": "derivatives-第19期-60",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設目前股價指數為7200，一檔與股價指數連結的半年期優利型結構債券，其發行價格為$94.32。如果到期當天股 價指數不超過8000，此債券償還面額為$100，否則償還金額等於$100 × (8000/到期股價指數)。若到期時指數為8,200， 則投資人的年報酬率大約為多少？",
+      "options": [
+        "0.87%",
+        "2.87%",
+        "4.87%",
+        "6.87%"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 19 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 60
+      }
+    },
+    {
+      "id": "derivatives-第20期-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理衍生性金融商品業務，應檢具金管會規定之申請書件，向金管會申請核准，並符合哪些規定？",
+      "options": [
+        "申請日上一季底逾放比率為百分之三以下",
+        "EPS 達3 元以上",
+        "ROE 達5%",
+        "市值達新臺幣100 億"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 1
+      }
+    },
+    {
+      "id": "derivatives-第20期-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "向專業機構投資人及高淨值投資法人以外客戶宣讀或以電子設備說明客戶須知之重要內容，其內容應載事項有結構 商品之名稱及警語及連結標的類別或資產外，包括下列何者？ A.未來的績效 B.市場的走勢及經濟的看法 C.投 資風險之說明",
+      "options": [
+        "僅A",
+        "僅B",
+        "僅C",
+        "ABC"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 2
+      }
+    },
+    {
+      "id": "derivatives-第20期-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理衍生性金融商品業務之交易、交割、推介、風險管理之經辦及相關管理人員，每年應參加國內金融訓練機 構所舉辦或銀行自行舉辦之衍生性金融商品教育訓練課程時數至少達多少小時以上？",
+      "options": [
+        "6 小時",
+        "12 小時",
+        "20 小時",
+        "16 小時"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 3
+      }
+    },
+    {
+      "id": "derivatives-第20期-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，銀行應於結構型商品交易文件中提醒客戶承作本商品之重要注意事 項，下列敘述何者錯誤？",
+      "options": [
+        "商品設計或條件不同客戶所暴露之風險程度可能不同",
+        "現金交割可能發生部分或全部利息、本金減損之風險",
+        "非現金交割可能發生本金將依約定轉換成標的資產之情事",
+        "現金交割可能必須承擔再投資風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 4
+      }
+    },
+    {
+      "id": "derivatives-第20期-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業控制及程序管理辦法規定，下列敘述何者錯誤？ A.應至少區分二個等級， 評估非專業客戶商品風險承受程度 B.對於交易條件標準化且存續期限超過6 個月之商品，若為專業客戶，除客戶 明確表示已充分審閱並簽名者外，審閱期間不得低於七日 C.結構型商品限於專業客戶交易者，不得為一般性廣告",
+      "options": [
+        "僅AB",
+        "僅AC",
+        "僅BC",
+        "ABC"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 5
+      }
+    },
+    {
+      "id": "derivatives-第20期-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行向客戶提供結構型商品交易服務時， 不得以下列何者名義為之？",
+      "options": [
+        "附條件美元優利投資組合",
+        "黃金外幣組合",
+        "雙元貨幣組合",
+        "結構型優利存款"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 6
+      }
+    },
+    {
+      "id": "derivatives-第20期-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行向專業機構投資人及高淨值投資法人以外之客戶，辦理商品期限超過一年且隱含賣出選擇權之匯率類衍生性金 融商品，徵提期初保證金之最低標準，不得低於契約總名目本金之多少百分比？",
+      "options": [
+        "2%",
+        "3%",
+        "5%",
+        "8%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 7
+      }
+    },
+    {
+      "id": "derivatives-第20期-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行應定期評估檢討有價證券抵繳期初保證金之標的範圍、評價價值計算方式與折扣比率之妥適性與合理性，至少 多久評估檢討一次？",
+      "options": [
+        "每週",
+        "每月",
+        "每季",
+        "每年"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 8
+      }
+    },
+    {
+      "id": "derivatives-第20期-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行受理個人或團體辦理金額價值多少以上之結購、結售外匯，應於確認交易相關證明文件無誤後，於訂約日 立即將相關資料傳送中央銀行外匯局？",
+      "options": [
+        "等值十萬美元",
+        "等值五十萬美元",
+        "等值一百萬美元",
+        "等值新臺幣三千萬元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 9
+      },
+      "explanation": "官方答案表註記：114/7/15 法規修改。"
+    },
+    {
+      "id": "derivatives-第20期-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行業辦理外匯業務管理辦法所稱外匯衍生性商品，係指涉及外匯，且其價值由利率、匯率、股權、指數、商品、 信用事件或其他利益等所衍生之交易契約。下列何者屬上述所稱「涉及外匯」？ A.以外幣計價者 B.以外幣交割 者 C.連結國外風險標的者",
+      "options": [
+        "僅AB",
+        "僅AC",
+        "僅BC",
+        "ABC"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 10
+      }
+    },
+    {
+      "id": "derivatives-第20期-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行與特定類別客戶之交易糾紛，無法依 照銀行內部申訴處理程序完成和解者，該客戶得向財團法人金融消費評議中心申請評議。下列敘述何者正確？",
+      "options": [
+        "僅適用於屬自然人之一般客戶",
+        "適用於一般客戶",
+        "適用於屬自然人之專業客戶",
+        "僅適用於屬法人之一般客戶"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 11
+      }
+    },
+    {
+      "id": "derivatives-第20期-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，提供結構型商品予何種類別客戶，銀行應 提供客戶市價評估資訊？",
+      "options": [
+        "屬自然人之一般客戶",
+        "一般客戶",
+        "屬自然人之專業客戶",
+        "屬法人之一般客戶"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 12
+      }
+    },
+    {
+      "id": "derivatives-第20期-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品自律規範」規定，有關銀行對屬自然人之一般客戶提供不保本型結構型商品業務，本 金連結黃金選擇權之結構型商品，產品期限不得超過多久？",
+      "options": [
+        "三個月",
+        "四個月",
+        "六個月",
+        "一年"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 13
+      }
+    },
+    {
+      "id": "derivatives-第20期-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依「銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法」規定，銀行辦理信用衍生性金融商品交易，如為 信用風險承擔者，且合約信用實體為銀行之利害關係人，下列敘述何者錯誤？",
+      "options": [
+        "交易條件不得優於其他同類對象",
+        "擔保品條件應配合交易契約存續期間及合約信用資產(Reference Asset)之流動性",
+        "應依據信用風險預估之潛在損失額度部分，徵提十足擔保",
+        "應經董事會四分之三以上董事出席及出席董事三分之二以上決議，並比照利害關係人授信，列入授信額度控管"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 14
+      }
+    },
+    {
+      "id": "derivatives-第20期-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "外匯指定銀行擬辦理「對專業機構投資人辦理尚未開放或開放未滿半年，且未涉及新臺幣匯率之外匯衍生性商品業 務，並符合其主管機關相關規定」之申辦程序為何？",
+      "options": [
+        "開辦前申請許可",
+        "開辦前函報備查",
+        "開辦後函報備查",
+        "得不經申請逕行辦理"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 15
+      }
+    },
+    {
+      "id": "derivatives-第20期-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不屬於利率風險？",
+      "options": [
+        "殖利率曲線平行移動所引發的債券價格波動",
+        "殖利率曲線形狀改變所引發的債券價格波動",
+        "指標利率與基本放款利率之間的利差關係改變所引發的基差風險",
+        "股票無法即時賣出所造成的價格損失"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 16
+      }
+    },
+    {
+      "id": "derivatives-第20期-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "衡量流動性風險的最佳指標為：",
+      "options": [
+        "風險值",
+        "Beta 係數",
+        "買賣價差",
+        "Sharpe 指標"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 17
+      }
+    },
+    {
+      "id": "derivatives-第20期-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行與客戶簽訂美元兌新臺幣遠期外匯合約，約定6 個月後客戶可以匯率$33 買進100 萬美元，客戶繳了新臺幣75 萬元保證金，如果美元兌臺幣匯率升到$34.5，則銀行面對之當期暴險額(current exposure)為何？",
+      "options": [
+        "新臺幣3,450 萬元",
+        "新臺幣150 萬元",
+        "新臺幣75 萬元",
+        "0"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 18
+      }
+    },
+    {
+      "id": "derivatives-第20期-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非為金融資產及金融負債互抵之條件？",
+      "options": [
+        "有法律上可執行之權利將所認列之金額互抵",
+        "企業意圖以淨額基礎交割",
+        "抵銷權須取決於未來事項",
+        "企業意圖同時實現金融資產及清償負債"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 19
+      }
+    },
+    {
+      "id": "derivatives-第20期-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "衍生工具於財務報表附註揭露時應包括質性及量化揭露，下列何者非屬質性揭露？",
+      "options": [
+        "每一類型風險及其如何產生",
+        "到期分析",
+        "管理風險之目的、政策與程序",
+        "用以衡量風險之方法"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 20
+      }
+    },
+    {
+      "id": "derivatives-第20期-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關公允價值衡量之揭露，下列敘述何者正確？",
+      "options": [
+        "公允價值衡量應分為4 項層級",
+        "第1 層級係指採不可觀察輸入值，惟須反應市場參與者於資產或負債訂價時會使用之假設",
+        "第2 層級包括類似資產負債之活絡市場公開報價",
+        "第3 層級係指相同資產或負債於活絡市場之未調整公開報價"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 21
+      }
+    },
+    {
+      "id": "derivatives-第20期-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某公司為避免價格變動而對公司績效有不利影響，擬對下列項目進行避險。請問下列項目何者不適用公允價值避險 之會計處理？",
+      "options": [
+        "預期採購之原料",
+        "已簽訂合約購買原料之確定承諾",
+        "該公司持有至到期日之政府公債",
+        "已入庫之製成品存貨"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 22
+      }
+    },
+    {
+      "id": "derivatives-第20期-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "貨幣相同，浮動利率對浮動利率的交換稱為下列何者？",
+      "options": [
+        "基本換匯換利",
+        "普通利率交換",
+        "基差利率交換",
+        "不需交換"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 23
+      }
+    },
+    {
+      "id": "derivatives-第20期-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關遠期利率協定(FRA)的敘述，下列何者錯誤？",
+      "options": [
+        "FRA 是由遠期性存款改良而來的",
+        "FRA 的結算期間通常是一季一次",
+        "FRA 的交易只有買方而無賣方",
+        "FRA 在報價時通常有買入價(bid rate)及賣出價(offer rate)"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 24
+      }
+    },
+    {
+      "id": "derivatives-第20期-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "買進利率上下限(interest rate collar)，下列敘述何者正確？",
+      "options": [
+        "同時買進一個「利率上限」，以及買進一個「利率下限」",
+        "同時賣出一個「利率上限」，以及賣出一個「利率下限」",
+        "同時買進一個「利率上限」，以及賣出一個「利率下限」",
+        "同時賣出一個「利率上限」，以及買進一個「利率下限」"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 25
+      }
+    },
+    {
+      "id": "derivatives-第20期-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "「鎖住利差交換」(Spread-lock Swap)之「利差」係指下列何項？",
+      "options": [
+        "期間溢酬",
+        "交換溢酬",
+        "市場風險溢酬",
+        "違約風險溢酬"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 26
+      }
+    },
+    {
+      "id": "derivatives-第20期-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是各類型之選擇權其權利金由低至高的排列順序？",
+      "options": [
+        "亞洲式、歐式、美式",
+        "歐式、亞洲式、美式",
+        "美式、歐式、亞洲式",
+        "歐式、美式、亞洲式"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 27
+      }
+    },
+    {
+      "id": "derivatives-第20期-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關遠期外匯交易之報價方式的敘述，下列何者正確？",
+      "options": [
+        "銀行同業間和外匯指定銀行對一般出口廠商之報價方式皆以換匯點(swap point)為基礎",
+        "銀行同業間和外匯指定銀行對一般出口廠商之報價皆採直接遠匯價格(forward outright rate)方式",
+        "銀行同業間之報價方式以換匯點為基礎，而外匯指定銀行對一般出口廠商則採直接遠匯價格方式",
+        "銀行同業間之報價方式以直接遠匯價格為基礎，而外匯指定銀行對一般出口廠商則採換匯點方式"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 28
+      }
+    },
+    {
+      "id": "derivatives-第20期-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "根據交換(Swap)市場的慣例，「支付固定利率，收取浮動利率」的投資人係指利率交換的：",
+      "options": [
+        "買方",
+        "賣方",
+        "造市者",
+        "承銷者"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 29
+      }
+    },
+    {
+      "id": "derivatives-第20期-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某一檔債券的利息為每年支付一次，利息支付的金額為根據下列公式：3 個月TAIBOR + 2.15%，則此債券為：",
+      "options": [
+        "固定收益債券",
+        "浮動利率債券",
+        "反浮動利率債券",
+        "可轉換債券"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 30
+      }
+    },
+    {
+      "id": "derivatives-第20期-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "王小明期初花了5 元的權利金買入一檔台積電的歐式買權，其履約價格為120 元，買權到期時，台積電股價為130 元，在不考慮時間價值下，請問王小明在此檔買權的投資損益為何？",
+      "options": [
+        "賠5 元",
+        "賠10 元",
+        "賺5 元",
+        "賺10 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 31
+      }
+    },
+    {
+      "id": "derivatives-第20期-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於期貨與選擇權契約，下列敘述何者錯誤？",
+      "options": [
+        "-買權+期貨 = -賣權",
+        "+期貨+賣權 = +買權",
+        "-買權+賣權 = +期貨",
+        "+買權-期貨 =+賣權"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 32
+      }
+    },
+    {
+      "id": "derivatives-第20期-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關遠期契約之信用風險，下列敘述何者正確？",
+      "options": [
+        "買方須負擔賣方之信用風險，但賣方不須負擔買方之信用風險",
+        "賣方須負擔買方之信用風險，但買方不須負擔賣方之信用風險",
+        "買賣雙方皆須負擔對方之信用風險",
+        "信用風險由清算所負擔"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 33
+      }
+    },
+    {
+      "id": "derivatives-第20期-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "優利型外匯結構型產品是透過外幣定期存款與何種匯率選擇權之組合，又，若到期為價內，投資人最可能會遇到下 列何種情境？",
+      "options": [
+        "與買進選擇權之組合、需轉換成另一種貨幣",
+        "與賣出選擇權之組合、需轉換成另一種貨幣",
+        "與買進選擇權之組合、不用轉換成另一種貨幣",
+        "與賣出選擇權之組合、不用轉換成另一種貨幣"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 34
+      }
+    },
+    {
+      "id": "derivatives-第20期-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "期貨交易中，市價申報與限價申報二者以何種優先撮合？",
+      "options": [
+        "市價優先",
+        "限價優先",
+        "優先順序一樣",
+        "依輸入時間的先後決定"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 35
+      }
+    },
+    {
+      "id": "derivatives-第20期-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若買進一口台指選擇權賣權，並同時賣出一口相同到期日、相同履約價的台指選擇權買權，該組合部位的到期損益 型態近似於下列何種交易部位？",
+      "options": [
+        "買進期貨",
+        "賣出期貨",
+        "多頭價差",
+        "空頭價差"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 36
+      }
+    },
+    {
+      "id": "derivatives-第20期-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種市場行情的變動會使投資人產生或有損失？",
+      "options": [
+        "賣出買權，現貨價格下跌",
+        "賣出賣權，現貨價格下跌",
+        "買入買權，現貨價格上升",
+        "賣出賣權，波動率下降"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 37
+      }
+    },
+    {
+      "id": "derivatives-第20期-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當投資人買入股價選擇權之賣權時，股價變動的方向何者對其有利？",
+      "options": [
+        "股價大漲",
+        "股價下跌",
+        "股價持平",
+        "不一定"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 38
+      }
+    },
+    {
+      "id": "derivatives-第20期-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於選擇權，下列敘述何者正確？",
+      "options": [
+        "價外選擇權含有時間價值及內含價值",
+        "價外選擇權含有時間價值並無內含價值",
+        "價內選擇權含有時間價值並無內含價值",
+        "價內選擇權無時間價值亦無內含價值"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 39
+      }
+    },
+    {
+      "id": "derivatives-第20期-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某券商發行了一個1 年期結構型債券，發行價為94%，該債券到期償還金額 = 面額 × [1+95% × Max(0,台灣加權 指數年成長率-20%)]，若投資人購買上述債券，1 年後的年報酬率至少會是多少？",
+      "options": [
+        "6.00%",
+        "5.00%",
+        "6.38%",
+        "5.26%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 40
+      }
+    },
+    {
+      "id": "derivatives-第20期-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依銀行辦理衍生性金融商品業務內部作業制度及程序管理辦法規定，下列何者屬於所稱複雜性高風險商品？",
+      "options": [
+        "銀行以交易相對人身份與客戶承作固定收益商品",
+        "客戶承作為期半年每月比價之隱含賣出選擇權商品",
+        "一次簽約之多筆交易，客戶隨時可就其中特定交易解約之一系列陽春選擇權",
+        "一次簽約之多筆交易，客戶隨時可就其中特定交易解約之一系列遠期外匯"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 41
+      }
+    },
+    {
+      "id": "derivatives-第20期-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "央行訂定之「銀行業辦理外匯業務管理辦法」規定，有關應接受衍商在職訓練之法遵人員及稽核人員的規範，下列 敘述何者錯誤？",
+      "options": [
+        "辦法中所稱法遵人員，得不包括法遵部門主管",
+        "分行人員兼任分行法遵主管者，屬於辦法中所稱法遵人員",
+        "辦法中所稱稽核人員，得不含總稽核",
+        "分行人員辦理自行查核者，非屬辦法中所稱稽核人員"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 42
+      }
+    },
+    {
+      "id": "derivatives-第20期-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理涉及新臺幣匯率之有本金交割遠匯(DF)與無本金交割遠匯(NDF)之規範，下列敘述何者錯誤？",
+      "options": [
+        "DF 交易要查核實際外匯收支文件，NDF 交易無須文件",
+        "NDF 交易對象以國內指定銀行及指定銀行本身之海外分行、總（母）行及其分行為限",
+        "DF 交易可以展期，NDF 交易不得展期",
+        "到期結算時，DF 須全額交割，NDF 可選擇全額或差額交割"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 43
+      }
+    },
+    {
+      "id": "derivatives-第20期-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行向專業機構投資人(PII)、高淨值投資法人(HWII) 以外其他客戶辦理複雜性高風險商品業務，客戶應承作衍生 性金融商品交易經驗應達幾年以上？",
+      "options": [
+        "1 年",
+        "1.5 年",
+        "2 年",
+        "不需要經驗"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 44
+      }
+    },
+    {
+      "id": "derivatives-第20期-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "最近一期經會計師查核或核閱之財務報告持有有價證券部位或衍生性金融商品投資組合達新臺幣多少元以上者，並 同時符合其他法定條件後，得以書面向銀行申請為高淨值投資法人？",
+      "options": [
+        "一億元",
+        "十億元",
+        "一百億元",
+        "二百億元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 45
+      }
+    },
+    {
+      "id": "derivatives-第20期-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行已取得辦理衍生性金融商品業務之核准者，擬開辦下列何種衍生性金融商品及其商品之組合，於申請書件送達 金管會之次日起十日內，金管會未表示反對意見者，即可逕行辦理？",
+      "options": [
+        "新種臺股股權衍生性金融商品",
+        "非新種臺股股權衍生性金融商品",
+        "第一家銀行申請臺股股權衍生性金融商品外之其他涉及從事衍生自國內股價及期貨交易所有關之現貨商品及指 數等契約",
+        "第一家銀行核准辦理後，其他銀行申請臺股股權衍生性金融商品外之其他涉及從事衍生自國內股價及期貨交易所 有關之現貨商品及指數等契約"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 46
+      }
+    },
+    {
+      "id": "derivatives-第20期-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行辦理衍生性金融商品業務，應建立風險管理制度，下列敘述何者錯誤？",
+      "options": [
+        "關於衍生性金融商品部位之評價頻率，其為交易部位者，至少每月評估一次",
+        "風險容忍度及業務承作限額，應定期檢討提報董（理）事會審定",
+        "辦理衍生性金融商品業務之交易及交割人員不得互相兼任",
+        "應設立獨立於交易部門以外之風險管理單位"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 47
+      }
+    },
+    {
+      "id": "derivatives-第20期-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "指定銀行辦理未涉及新臺幣匯率之外匯衍生性商品業務，下列敘述何者錯誤？",
+      "options": [
+        "外幣保證金交易業務不得以外幣貸款為之",
+        "非經中央銀行許可不得代客操作或以「聯名帳戶」方式辦理外幣保證金交易業務",
+        "不得收受以非本人所有之定存或其他擔保品設定質權作為外幣保證金",
+        "辦理外幣間遠期外匯及換匯交易業務，展期時應依原價格展期"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 48
+      }
+    },
+    {
+      "id": "derivatives-第20期-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "選擇權的Delta 風險係指下列何者？",
+      "options": [
+        "選擇權標的物價格變動一單位時，選擇權權利金將會變動的幅度",
+        "因選擇權的 Delta 變動所形成的風險",
+        "選擇權標的現貨價格波動程度1%時，選擇權權利金變動的幅度",
+        "當到期日逐日逼近時，選擇權權利金降低的幅度"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 49
+      }
+    },
+    {
+      "id": "derivatives-第20期-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不屬於選擇權風險的衡量方法？",
+      "options": [
+        "Delta 法",
+        "敏感度分析法",
+        "共變異數法",
+        "模擬法"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 50
+      }
+    },
+    {
+      "id": "derivatives-第20期-51",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一般金融機構對於市場風險所採行限額控制方式，下列何者不在其中？",
+      "options": [
+        "交易量限額",
+        "選擇權限額",
+        "交割限額",
+        "缺口限額"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 51
+      }
+    },
+    {
+      "id": "derivatives-第20期-52",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "信用風險的控制可採質與量的控制，其中量的控制著重於事後風險暴露程度的管理，而監控的單位是負責適時將正 確的信用風險資訊提供給高級主管及相關單位，下列何者不是監控單位應提供的資訊內容？",
+      "options": [
+        "交易對手信用條件的審核",
+        "交易集中度",
+        "主要客戶信用狀況",
+        "交易對手使用額度的情形"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 52
+      }
+    },
+    {
+      "id": "derivatives-第20期-53",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "結算前風險係屬於何種風險？",
+      "options": [
+        "市場風險",
+        "信用風險",
+        "流動性風險",
+        "作業風險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 53
+      }
+    },
+    {
+      "id": "derivatives-第20期-54",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關避險關係之避險有效性規定，下列敘述何者正確？",
+      "options": [
+        "被避險項目與避險工具間未必要具有經濟關係",
+        "信用風險之影響並未支配該經濟關係所產生之價值變動",
+        "避險關係之避險比率未必要相等",
+        "避險有效性不考慮避險關係之經濟價值"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 54
+      }
+    },
+    {
+      "id": "derivatives-第20期-55",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "針對僅為收取合約現金流量之經營模式，下列敘述何者錯誤？",
+      "options": [
+        "企業持有該金融資產僅為收取資產存續期間之現金流量",
+        "此模式要求必須持有該金融資產至到期日",
+        "雖未至到期日，該資產信用風險增加時出售，仍可符合此模式",
+        "雖未至到期日，因其他理由出售該資產且該等出售不頻繁，仍可符合此模式"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 55
+      }
+    },
+    {
+      "id": "derivatives-第20期-56",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲公司有一透過損益按公允價值衡量之股票投資，其原始成本為$65,000，持有第一年年底之市價為$63,000，第二 年年底之市價為$70,000，則第二年年底應作之調整分錄為何？",
+      "options": [
+        "借：透過損益按公允價值衡量股票投資評價調整5,000",
+        "貸：透過損益按公允價值衡量股票投資之未實現利益5,000",
+        "借：透過損益按公允價值衡量股票投資評價調整7,000",
+        "貸：透過損益按公允價值衡量股票投資之未實現利益7,000"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 56
+      }
+    },
+    {
+      "id": "derivatives-第20期-57",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲公司於X1 年2 月1 日賣出本身普通股1,000 股之歐式買權給乙公司，每股履約價格為$100，到期日為X2 年2 月1 日採現金淨額交割，收取權利金$6,000。甲公司普通股每股市價，於X1 年2 月1 日為$100，X1 年12 月31 日 為$102，X2 年2 月1 日為$104，假設X1 年12 月31 日該買權之時間價值為$1,000，則甲公司X1 年度應認列有關 上述交易之損益為：",
+      "options": [
+        "利益$1,000",
+        "利益$3,000",
+        "利益$5,000",
+        "利益$6,000"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 57
+      }
+    },
+    {
+      "id": "derivatives-第20期-58",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某一檔債券允許發行銀行於債券發行滿一年之後，可以隨時將債券買回，向投資人買回的金額訂為：債券面額× 〔1+4.5%〕。此債券相當於提供給發行銀行一個：",
+      "options": [
+        "歐式買權",
+        "美式買權",
+        "歐式賣權",
+        "美式賣權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 58
+      }
+    },
+    {
+      "id": "derivatives-第20期-59",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "已知目前美元的即期匯率為33.00 新臺幣，3 個月期的美元利率為1.2%，3 個月期的新臺幣利率為1.0%，則3 個月 期的美元遠期匯率為多少？",
+      "options": [
+        "32.8825",
+        "32.9835",
+        "32.9925",
+        "33.0125"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 59
+      }
+    },
+    {
+      "id": "derivatives-第20期-60",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一檔兩年期之保本零息債券以100 元名目本金發行，到期時的本金償還計算公式如下︰本金償還金額 ＝ 面額 × 〔1＋75% ×Max（0,股價指數成長率）〕。若這兩年期間，標的股價指數由發行當時的450 點上升至600 點，則投 資人損益為何？",
+      "options": [
+        "$0",
+        "$25",
+        "$75",
+        "$125"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "第 20 期",
+        "subject": "衍生性金融商品概論與實務",
+        "number": 60
+      }
+    }
+  ]
+}

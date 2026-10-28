@@ -28,7 +28,9 @@ const courses = [
   { name: '消費金融內部控制與稽核重點教材', dir: '教材/消費金融內部控制與稽核重點教材', out: 'dist/消費金融內部控制與稽核重點教材.html' },
   { name: '永續發展基礎能力重點教材', dir: '教材/永續發展基礎能力重點教材', out: 'dist/永續發展基礎能力重點教材.html' },
   { name: '防制洗錢與打擊資恐重點教材', dir: '教材/防制洗錢與打擊資恐重點教材', out: 'dist/防制洗錢與打擊資恐重點教材.html' },
-  { name: '金融市場常識與職業道德題庫（證基會113年版）', dir: '教材/金融市場常識與職業道德題庫', out: 'dist/金融市場常識與職業道德題庫.html', quizOnly: true }
+  { name: '金融市場常識與職業道德題庫（證基會113年版）', dir: '教材/金融市場常識與職業道德題庫', out: 'dist/金融市場常識與職業道德題庫.html', quizOnly: true, ethics: true },
+  { name: '投資型保險', dir: '考古題/新增題庫/投資型保險/study-pack.json', out: 'dist/投資型保險題庫.html', quizOnly: true, officialBank: true },
+  { name: '衍生性金融商品', dir: '考古題/新增題庫/衍生性金融商品/study-pack.json', out: 'dist/衍生性金融商品題庫.html', quizOnly: true, officialBank: true }
 ];
 const chapterPracticeIds = (pack, course) => {
   const concepts = (frequency[course.name]?.concept_ranking || []).map((concept, rank) => ({
@@ -100,9 +102,10 @@ for (const c of courses) {
   pack.description = c.quizOnly ? pack.description : `收錄 ${pack.questions.length} 題。先讀概念，再練本章與複習待加強題；進度可匯出備份。`;
   for (const question of pack.questions) {
     question.sourceExam ||= parseSourceExam(question, c.name.replace(/重點教材$/, ''));
-    if (c.name !== '永續發展基礎能力重點教材') delete question.explanation;
+    if (c.name !== '永續發展基礎能力重點教材' && !c.officialBank) delete question.explanation;
   }
-  attachKnowledgePoints(pack, c);
+  if (c.officialBank) for (const question of pack.questions) question.knowledgePoints = ['其他／未分類'];
+  else attachKnowledgePoints(pack, c);
   if (pack.questions.some(question => !question.knowledgePoints.length || question.knowledgePoints.some(label => typeof label !== 'string' || !label.trim()))) {
     throw new Error(`${c.name} 題目知識點分類不完整`);
   }
@@ -157,10 +160,11 @@ for (const c of courses) {
     process.exit(1);
   }
 
-  const res = compileStudyPackToHtml(pack, {includeExplanations:c.name === '永續發展基礎能力重點教材'});
+  const res = compileStudyPackToHtml(pack, {includeExplanations:c.name === '永續發展基礎能力重點教材' || c.officialBank});
   outputs.push({path: outPath, html: res.html});
   c.questionCount = pack.questions.length;
   c.chapterCount = pack.chapters.length;
+  c.packId = pack.id;
   const sizeKb = (res.sizeBytes / 1024).toFixed(1);
   const multiCount = pack.questions.filter(q => q.type === 'multiple-choice').length;
   console.log(`[OK] ${c.name} -> ${c.out} (${sizeKb} KB, ${res.chaptersCount} 章節, ${res.questionsCount} 題目，其中複選題 ${multiCount} 題)`);
@@ -170,8 +174,8 @@ console.log(`\n=== ${courses.length} 個 Study Pack 全部編譯完成！ ===`);
 const escape = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const total = courses.filter(c=>!c.quizOnly).reduce((sum,c)=>sum+c.questionCount,0);
-const cards = courses.map(c => `<article class="subject-card" style="padding:1.25rem;background:var(--bg-surface-alt);border-radius:16px;"><h2 class="subject-name">${escape(c.quizOnly?'金融市場常識與職業道德題庫':c.name.replace(/重點教材$/,''))}</h2><p class="subject-meta">${c.questionCount.toLocaleString('zh-TW')} 題${c.quizOnly ? ' · 113年版｜2026-12-31止適用' : ' · '+c.chapterCount+' 章教材'}</p>${c.quizOnly?'<label for="catalog-edition">題庫版本</label><select class="catalog-edition-select" id="catalog-edition"><option value="金融市場常識與職業道德題庫.html" data-summary="1,120 題 · 113 年版｜適用至 2026-12-31">113 年版（舊版）</option><option value="金融市場常識與職業道德題庫_116年版.html" data-summary="1,174 題 · 116 年版｜2027-01-01 起適用">116 年版（新版）</option></select>':''}<div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">${`<a class="subject-link" data-action="reader" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=reader">繼續學習</a>`}<a class="subject-link" data-action="quiz" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=quiz">開始練題</a></div></article>`).join('');
-const catalogue = `<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜重點教材跟歷屆考題</title></head><body><main class="catalog-main"><header class="catalog-header"><div><h1>學科目錄</h1><p>5 科教材 · ${total.toLocaleString('zh-TW')} 題練習 · 1 個獨立題庫 · 離線使用</p></div></header><section class="catalog-section"><p>選科後繼續閱讀，或直接開始十題練習。</p><div class="subject-grid">${cards}</div></section><footer class="catalog-footer"><p>進度保存在目前瀏覽器，請定期在科目「設定」匯出備份。歷屆答案與現行規定須分別核對。</p></footer></main><script>document.getElementById('catalog-edition').addEventListener('change',event=>{const select=event.target,card=select.closest('.subject-card');card.querySelector('.subject-meta').textContent=select.selectedOptions[0].dataset.summary;for(const link of card.querySelectorAll('[data-action]'))link.setAttribute('href',select.value+'?view='+link.dataset.action);});</script></body></html>`;
+const cards = courses.map(c => `<article class="subject-card" data-metrics-course="${escape(c.packId)}" style="padding:1.25rem;background:var(--bg-surface-alt);border-radius:16px;"><h2 class="subject-name">${escape(c.ethics?'金融市場常識與職業道德題庫':c.name.replace(/重點教材$/,''))}</h2><p class="subject-meta">${c.questionCount.toLocaleString('zh-TW')} 題${c.ethics ? ' · 113年版｜2026-12-31止適用' : c.quizOnly ? ' · 官方歷屆試題' : ' · '+c.chapterCount+' 章教材'}</p>${c.ethics?'<label for="catalog-edition">題庫版本</label><select class="catalog-edition-select" id="catalog-edition"><option value="金融市場常識與職業道德題庫.html" data-summary="1,120 題 · 113 年版｜適用至 2026-12-31">113 年版（舊版）</option><option value="金融市場常識與職業道德題庫_116年版.html" data-summary="1,174 題 · 116 年版｜2027-01-01 起適用">116 年版（新版）</option></select>':''}<div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">${c.officialBank ? '' : `<a class="subject-link" data-action="reader" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=reader">繼續學習</a>`}<a class="subject-link" data-action="quiz" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=quiz">開始練題</a></div></article>`).join('');
+const catalogue = `<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學科目錄｜重點教材跟歷屆考題</title></head><body><main class="catalog-main"><header class="catalog-header"><div><h1>學科目錄</h1><p>5 科教材 · ${total.toLocaleString('zh-TW')} 題練習 · 3 個獨立題庫 · 離線使用</p></div></header><section class="catalog-section"><p>選科後繼續閱讀，或直接開始十題練習。</p><div class="subject-grid">${cards}</div></section><footer class="catalog-footer"><p>進度保存在目前瀏覽器，請定期在科目「設定」匯出備份。歷屆答案與現行規定須分別核對。</p></footer></main><script>document.getElementById('catalog-edition').addEventListener('change',event=>{const select=event.target,card=select.closest('.subject-card');card.querySelector('.subject-meta').textContent=select.selectedOptions[0].dataset.summary;card.dataset.metricsCourse=select.value.includes('_116年版')?'financial-market-ethics-official-bank-116':'financial-market-ethics-official-bank-113';window.StudyMetrics?.update();for(const link of card.querySelectorAll('[data-action]'))link.setAttribute('href',select.value+'?view='+link.dataset.action);});</script></body></html>`;
 outputs.push({path: 'dist/index.html', html: applySharedUi(catalogue, null)});
 fs.mkdirSync('dist', {recursive: true});
 for (const output of outputs) fs.writeFileSync(output.path, output.html, 'utf8');

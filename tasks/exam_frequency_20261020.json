@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_on": "2026-10-24",
+  "generated_on": "2026-10-28",
   "scope": "六科清理後 canonical 題庫的每筆題目紀錄；信託來源為 full_exam_bank.json，其餘來源為 questions.json；重複題幹跨考期仍按各筆紀錄計數",
   "method": {
     "counting_grain": "每個 canonical source question ID；同一題幹若在不同考期重現，按每筆歷屆紀錄計數",
@@ -12,30 +12,33 @@
   },
   "courses": {
     "金融科技力重點教材": {
-      "question_record_count": 839,
-      "unique_question_id_count": 839,
+      "question_record_count": 899,
+      "unique_question_id_count": 899,
       "duplicate_question_id_count": 0,
-      "parsed_exam_metadata_count": 839,
+      "parsed_exam_metadata_count": 899,
       "unparsed_exam_metadata_count": 0,
-      "exam_session_count": 14,
+      "exam_session_count": 15,
       "invalid_answer_index_count": 0,
-      "short_stem_at_most_10_characters_count": 6,
+      "short_stem_at_most_10_characters_count": 9,
       "short_stem_sample_ids": [
         "ft-11-16",
         "ft-12-34",
         "ft-15-60",
         "ft-17-2",
         "ft-19-27",
-        "ft-20-2"
+        "ft-20-2",
+        "ft-22-26",
+        "ft-22-45",
+        "ft-22-55"
       ],
       "same_exam_subject_number_collision_group_count": 0,
       "records_in_collision_groups": 0,
       "extra_records_in_collision_groups": 0,
       "collision_samples": [],
-      "repeated_stem_across_exam_terms_group_count": 134,
-      "topic_classified_unique_question_count": 547,
-      "topic_classification_coverage_percent": 65.2,
-      "unclassified_question_count": 292,
+      "repeated_stem_across_exam_terms_group_count": 138,
+      "topic_classified_unique_question_count": 575,
+      "topic_classification_coverage_percent": 63.96,
+      "unclassified_question_count": 324,
       "unclassified_sample_ids": [
         "ft-8-5",
         "ft-8-20",
@@ -340,7 +343,39 @@
         "ft-21-49",
         "ft-21-51",
         "ft-21-52",
-        "ft-21-56"
+        "ft-21-56",
+        "ft-22-4",
+        "ft-22-5",
+        "ft-22-11",
+        "ft-22-14",
+        "ft-22-15",
+        "ft-22-16",
+        "ft-22-17",
+        "ft-22-18",
+        "ft-22-19",
+        "ft-22-20",
+        "ft-22-21",
+        "ft-22-22",
+        "ft-22-23",
+        "ft-22-25",
+        "ft-22-26",
+        "ft-22-27",
+        "ft-22-28",
+        "ft-22-29",
+        "ft-22-31",
+        "ft-22-32",
+        "ft-22-33",
+        "ft-22-39",
+        "ft-22-40",
+        "ft-22-41",
+        "ft-22-43",
+        "ft-22-45",
+        "ft-22-50",
+        "ft-22-51",
+        "ft-22-52",
+        "ft-22-55",
+        "ft-22-56",
+        "ft-22-58"
       ],
       "unclassified_knowledge_point": "其他／未分類",
       "classification_method": "題幹與所有選項比對此程式列出的觀念詞；無關鍵詞命中時才使用已配置的一般教材章節備援分類。",
@@ -348,9 +383,9 @@
         {
           "rank": 1,
           "concept": "大數據與人工智慧",
-          "question_count": 163,
-          "share_of_all_records_percent": 19.43,
-          "exam_session_count": 14,
+          "question_count": 173,
+          "share_of_all_records_percent": 19.24,
+          "exam_session_count": 15,
           "question_ids": [
             "ft-8-6",
             "ft-8-8",
@@ -514,7 +549,17 @@
             "ft-21-43",
             "ft-21-44",
             "ft-21-57",
-            "ft-21-58"
+            "ft-21-58",
+            "ft-22-1",
+            "ft-22-6",
+            "ft-22-7",
+            "ft-22-8",
+            "ft-22-35",
+            "ft-22-36",
+            "ft-22-37",
+            "ft-22-44",
+            "ft-22-54",
+            "ft-22-57"
           ],
           "sample_question_ids": [
             "ft-8-6",
@@ -527,9 +572,9 @@
         {
           "rank": 2,
           "concept": "區塊鏈、分散式帳本與虛擬資產",
-          "question_count": 103,
-          "share_of_all_records_percent": 12.28,
-          "exam_session_count": 14,
+          "question_count": 110,
+          "share_of_all_records_percent": 12.24,
+          "exam_session_count": 15,
           "question_ids": [
             "ft-8-11",
             "ft-8-12",
@@ -633,7 +678,14 @@
             "ft-21-41",
             "ft-21-45",
             "ft-21-46",
-            "ft-21-60"
+            "ft-21-60",
+            "ft-22-6",
+            "ft-22-9",
+            "ft-22-10",
+            "ft-22-12",
+            "ft-22-13",
+            "ft-22-46",
+            "ft-22-54"
           ],
           "sample_question_ids": [
             "ft-8-11",
@@ -646,9 +698,9 @@
         {
           "rank": 3,
           "concept": "雲端運算",
-          "question_count": 84,
-          "share_of_all_records_percent": 10.01,
-          "exam_session_count": 14,
+          "question_count": 88,
+          "share_of_all_records_percent": 9.79,
+          "exam_session_count": 15,
           "question_ids": [
             "ft-8-2",
             "ft-8-3",
@@ -733,7 +785,11 @@
             "ft-21-3",
             "ft-21-42",
             "ft-21-54",
-            "ft-21-55"
+            "ft-21-55",
+            "ft-22-2",
+            "ft-22-3",
+            "ft-22-38",
+            "ft-22-42"
           ],
           "sample_question_ids": [
             "ft-8-2",
@@ -746,9 +802,9 @@
         {
           "rank": 4,
           "concept": "純網銀、開放銀行與API",
-          "question_count": 81,
-          "share_of_all_records_percent": 9.65,
-          "exam_session_count": 14,
+          "question_count": 87,
+          "share_of_all_records_percent": 9.68,
+          "exam_session_count": 15,
           "question_ids": [
             "ft-8-1",
             "ft-8-19",
@@ -830,7 +886,13 @@
             "ft-20-32",
             "ft-21-25",
             "ft-21-34",
-            "ft-21-53"
+            "ft-21-53",
+            "ft-22-1",
+            "ft-22-24",
+            "ft-22-30",
+            "ft-22-34",
+            "ft-22-53",
+            "ft-22-59"
           ],
           "sample_question_ids": [
             "ft-8-1",
@@ -843,9 +905,9 @@
         {
           "rank": 5,
           "concept": "RegTech、SupTech與監理沙盒",
-          "question_count": 65,
-          "share_of_all_records_percent": 7.75,
-          "exam_session_count": 14,
+          "question_count": 66,
+          "share_of_all_records_percent": 7.34,
+          "exam_session_count": 15,
           "question_ids": [
             "ft-8-34",
             "ft-8-35",
@@ -911,7 +973,8 @@
             "ft-21-1",
             "ft-21-26",
             "ft-21-27",
-            "ft-21-50"
+            "ft-21-50",
+            "ft-22-44"
           ],
           "sample_question_ids": [
             "ft-8-34",
@@ -924,9 +987,9 @@
         {
           "rank": 6,
           "concept": "數位身分與生物辨識",
-          "question_count": 55,
+          "question_count": 59,
           "share_of_all_records_percent": 6.56,
-          "exam_session_count": 13,
+          "exam_session_count": 14,
           "question_ids": [
             "ft-8-14",
             "ft-8-15",
@@ -982,7 +1045,11 @@
             "ft-21-13",
             "ft-21-15",
             "ft-21-35",
-            "ft-21-59"
+            "ft-21-59",
+            "ft-22-6",
+            "ft-22-10",
+            "ft-22-47",
+            "ft-22-60"
           ],
           "sample_question_ids": [
             "ft-8-14",
@@ -995,9 +1062,9 @@
         {
           "rank": 7,
           "concept": "行動支付、電子支付與第三方支付",
-          "question_count": 35,
-          "share_of_all_records_percent": 4.17,
-          "exam_session_count": 12,
+          "question_count": 38,
+          "share_of_all_records_percent": 4.23,
+          "exam_session_count": 13,
           "question_ids": [
             "ft-8-17",
             "ft-8-18",
@@ -1033,7 +1100,10 @@
             "ft-20-40",
             "ft-21-35",
             "ft-21-47",
-            "ft-21-48"
+            "ft-21-48",
+            "ft-22-9",
+            "ft-22-12",
+            "ft-22-48"
           ],
           "sample_question_ids": [
             "ft-8-17",
@@ -1047,7 +1117,7 @@
           "rank": 8,
           "concept": "金融資安與零信任",
           "question_count": 34,
-          "share_of_all_records_percent": 4.05,
+          "share_of_all_records_percent": 3.78,
           "exam_session_count": 13,
           "question_ids": [
             "ft-8-55",
@@ -1096,9 +1166,9 @@
         {
           "rank": 9,
           "concept": "金融科技發展與數位轉型",
-          "question_count": 22,
-          "share_of_all_records_percent": 2.62,
-          "exam_session_count": 13,
+          "question_count": 24,
+          "share_of_all_records_percent": 2.67,
+          "exam_session_count": 14,
           "question_ids": [
             "ft-8-1",
             "ft-9-34",
@@ -1121,7 +1191,9 @@
             "ft-20-31",
             "ft-20-34",
             "ft-20-56",
-            "ft-21-30"
+            "ft-21-30",
+            "ft-22-49",
+            "ft-22-59"
           ],
           "sample_question_ids": [
             "ft-8-1",
@@ -1135,7 +1207,7 @@
           "rank": 10,
           "concept": "支付、數位身分與金融資安",
           "question_count": 18,
-          "share_of_all_records_percent": 2.15,
+          "share_of_all_records_percent": 2.0,
           "exam_session_count": 11,
           "question_ids": [
             "ft-9-14",
@@ -1169,7 +1241,7 @@
           "rank": 11,
           "concept": "雲端運算、大數據與AI應用",
           "question_count": 6,
-          "share_of_all_records_percent": 0.72,
+          "share_of_all_records_percent": 0.67,
           "exam_session_count": 6,
           "question_ids": [
             "ft-9-28",
@@ -1193,7 +1265,7 @@
           "rank": 1,
           "law_or_rule": "個人資料保護法",
           "question_count": 3,
-          "share_of_all_records_percent": 0.36,
+          "share_of_all_records_percent": 0.33,
           "exam_session_count": 3,
           "question_ids": [
             "ft-9-5",
@@ -1209,23 +1281,40 @@
         {
           "rank": 2,
           "law_or_rule": "金融機構使用物聯網設備安全控管規範",
-          "question_count": 2,
-          "share_of_all_records_percent": 0.24,
-          "exam_session_count": 2,
+          "question_count": 3,
+          "share_of_all_records_percent": 0.33,
+          "exam_session_count": 3,
           "question_ids": [
             "ft-19-58",
-            "ft-21-59"
+            "ft-21-59",
+            "ft-22-58"
           ],
           "sample_question_ids": [
             "ft-19-58",
-            "ft-21-59"
+            "ft-21-59",
+            "ft-22-58"
           ]
         },
         {
           "rank": 3,
+          "law_or_rule": "金融服務業辦理數位身分驗證指引",
+          "question_count": 2,
+          "share_of_all_records_percent": 0.22,
+          "exam_session_count": 2,
+          "question_ids": [
+            "ft-20-37",
+            "ft-22-60"
+          ],
+          "sample_question_ids": [
+            "ft-20-37",
+            "ft-22-60"
+          ]
+        },
+        {
+          "rank": 4,
           "law_or_rule": "金融科技發展與創新實驗條例",
           "question_count": 2,
-          "share_of_all_records_percent": 0.24,
+          "share_of_all_records_percent": 0.22,
           "exam_session_count": 2,
           "question_ids": [
             "ft-18-41",
@@ -1234,26 +1323,13 @@
           "sample_question_ids": [
             "ft-18-41",
             "ft-19-41"
-          ]
-        },
-        {
-          "rank": 4,
-          "law_or_rule": "金融服務業辦理數位身分驗證指引",
-          "question_count": 1,
-          "share_of_all_records_percent": 0.12,
-          "exam_session_count": 1,
-          "question_ids": [
-            "ft-20-37"
-          ],
-          "sample_question_ids": [
-            "ft-20-37"
           ]
         },
         {
           "rank": 5,
           "law_or_rule": "金融機構運用新興科技作業規範",
           "question_count": 1,
-          "share_of_all_records_percent": 0.12,
+          "share_of_all_records_percent": 0.11,
           "exam_session_count": 1,
           "question_ids": [
             "ft-17-59"
@@ -11960,12 +12036,12 @@
       "label": "防制洗錢與打擊資恐"
     },
     "信託業務人員重點教材": {
-      "question_record_count": 2724,
-      "unique_question_id_count": 2724,
+      "question_record_count": 2854,
+      "unique_question_id_count": 2854,
       "duplicate_question_id_count": 0,
-      "parsed_exam_metadata_count": 2724,
+      "parsed_exam_metadata_count": 2854,
       "unparsed_exam_metadata_count": 0,
-      "exam_session_count": 21,
+      "exam_session_count": 22,
       "invalid_answer_index_count": 0,
       "short_stem_at_most_10_characters_count": 8,
       "short_stem_sample_ids": [
@@ -11982,12 +12058,154 @@
       "records_in_collision_groups": 0,
       "extra_records_in_collision_groups": 0,
       "collision_samples": [],
-      "repeated_stem_across_exam_terms_group_count": 492,
+      "repeated_stem_across_exam_terms_group_count": 535,
       "topic_classified_unique_question_count": 2724,
-      "topic_classification_coverage_percent": 100.0,
-      "unclassified_question_count": 0,
-      "unclassified_sample_ids": [],
-      "unclassified_question_ids": [],
+      "topic_classification_coverage_percent": 95.44,
+      "unclassified_question_count": 130,
+      "unclassified_sample_ids": [
+        "past-63-practice-1",
+        "past-63-practice-2",
+        "past-63-practice-3",
+        "past-63-practice-4",
+        "past-63-practice-5",
+        "past-63-practice-6",
+        "past-63-practice-7",
+        "past-63-practice-8",
+        "past-63-practice-9",
+        "past-63-practice-10"
+      ],
+      "unclassified_question_ids": [
+        "past-63-practice-1",
+        "past-63-practice-2",
+        "past-63-practice-3",
+        "past-63-practice-4",
+        "past-63-practice-5",
+        "past-63-practice-6",
+        "past-63-practice-7",
+        "past-63-practice-8",
+        "past-63-practice-9",
+        "past-63-practice-10",
+        "past-63-practice-11",
+        "past-63-practice-12",
+        "past-63-practice-13",
+        "past-63-practice-14",
+        "past-63-practice-15",
+        "past-63-practice-16",
+        "past-63-practice-17",
+        "past-63-practice-18",
+        "past-63-practice-19",
+        "past-63-practice-20",
+        "past-63-practice-21",
+        "past-63-practice-22",
+        "past-63-practice-23",
+        "past-63-practice-24",
+        "past-63-practice-25",
+        "past-63-practice-26",
+        "past-63-practice-27",
+        "past-63-practice-28",
+        "past-63-practice-29",
+        "past-63-practice-30",
+        "past-63-practice-31",
+        "past-63-practice-32",
+        "past-63-practice-33",
+        "past-63-practice-34",
+        "past-63-practice-35",
+        "past-63-practice-36",
+        "past-63-practice-37",
+        "past-63-practice-38",
+        "past-63-practice-39",
+        "past-63-practice-40",
+        "past-63-practice-41",
+        "past-63-practice-42",
+        "past-63-practice-43",
+        "past-63-practice-44",
+        "past-63-practice-45",
+        "past-63-practice-46",
+        "past-63-practice-47",
+        "past-63-practice-48",
+        "past-63-practice-49",
+        "past-63-practice-50",
+        "past-63-practice-51",
+        "past-63-practice-52",
+        "past-63-practice-53",
+        "past-63-practice-54",
+        "past-63-practice-55",
+        "past-63-practice-56",
+        "past-63-practice-57",
+        "past-63-practice-58",
+        "past-63-practice-59",
+        "past-63-practice-60",
+        "past-63-practice-61",
+        "past-63-practice-62",
+        "past-63-practice-63",
+        "past-63-practice-64",
+        "past-63-practice-65",
+        "past-63-practice-66",
+        "past-63-practice-67",
+        "past-63-practice-68",
+        "past-63-practice-69",
+        "past-63-practice-70",
+        "past-63-practice-71",
+        "past-63-practice-72",
+        "past-63-practice-73",
+        "past-63-practice-74",
+        "past-63-practice-75",
+        "past-63-practice-76",
+        "past-63-practice-77",
+        "past-63-practice-78",
+        "past-63-practice-79",
+        "past-63-practice-80",
+        "past-63-law-1",
+        "past-63-law-2",
+        "past-63-law-3",
+        "past-63-law-4",
+        "past-63-law-5",
+        "past-63-law-6",
+        "past-63-law-7",
+        "past-63-law-8",
+        "past-63-law-9",
+        "past-63-law-10",
+        "past-63-law-11",
+        "past-63-law-12",
+        "past-63-law-13",
+        "past-63-law-14",
+        "past-63-law-15",
+        "past-63-law-16",
+        "past-63-law-17",
+        "past-63-law-18",
+        "past-63-law-19",
+        "past-63-law-20",
+        "past-63-law-21",
+        "past-63-law-22",
+        "past-63-law-23",
+        "past-63-law-24",
+        "past-63-law-25",
+        "past-63-law-26",
+        "past-63-law-27",
+        "past-63-law-28",
+        "past-63-law-29",
+        "past-63-law-30",
+        "past-63-law-31",
+        "past-63-law-32",
+        "past-63-law-33",
+        "past-63-law-34",
+        "past-63-law-35",
+        "past-63-law-36",
+        "past-63-law-37",
+        "past-63-law-38",
+        "past-63-law-39",
+        "past-63-law-40",
+        "past-63-law-41",
+        "past-63-law-42",
+        "past-63-law-43",
+        "past-63-law-44",
+        "past-63-law-45",
+        "past-63-law-46",
+        "past-63-law-47",
+        "past-63-law-48",
+        "past-63-law-49",
+        "past-63-law-50"
+      ],
       "unclassified_knowledge_point": "其他／未分類",
       "classification_method": "逐題沿用信託完整題庫既有 topic 欄位，不再另造分類。",
       "concept_ranking": [
@@ -11995,7 +12213,7 @@
           "rank": 1,
           "concept": "境外基金與國外證券投資",
           "question_count": 230,
-          "share_of_all_records_percent": 8.44,
+          "share_of_all_records_percent": 8.06,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-3",
@@ -12241,7 +12459,7 @@
           "rank": 2,
           "concept": "成立方式與信託分類",
           "question_count": 154,
-          "share_of_all_records_percent": 5.65,
+          "share_of_all_records_percent": 5.4,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-law-2",
@@ -12411,7 +12629,7 @@
           "rank": 3,
           "concept": "基金保管交割與監督責任",
           "question_count": 142,
-          "share_of_all_records_percent": 5.21,
+          "share_of_all_records_percent": 4.98,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-57",
@@ -12569,7 +12787,7 @@
           "rank": 4,
           "concept": "業務範圍與禁止保本保息",
           "question_count": 115,
-          "share_of_all_records_percent": 4.22,
+          "share_of_all_records_percent": 4.03,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-law-23",
@@ -12700,7 +12918,7 @@
           "rank": 5,
           "concept": "金錢信託分類權限與運用",
           "question_count": 112,
-          "share_of_all_records_percent": 4.11,
+          "share_of_all_records_percent": 3.92,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-8",
@@ -12828,7 +13046,7 @@
           "rank": 6,
           "concept": "全權委託保管與越權交易",
           "question_count": 100,
-          "share_of_all_records_percent": 3.67,
+          "share_of_all_records_percent": 3.5,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-59",
@@ -12944,7 +13162,7 @@
           "rank": 7,
           "concept": "特殊目的信託公司與參與機構",
           "question_count": 89,
-          "share_of_all_records_percent": 3.27,
+          "share_of_all_records_percent": 3.12,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-48",
@@ -13049,7 +13267,7 @@
           "rank": 8,
           "concept": "REIT募集投資標的與限制",
           "question_count": 87,
-          "share_of_all_records_percent": 3.19,
+          "share_of_all_records_percent": 3.05,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-40",
@@ -13152,7 +13370,7 @@
           "rank": 9,
           "concept": "員工福利信託特性與制度",
           "question_count": 69,
-          "share_of_all_records_percent": 2.53,
+          "share_of_all_records_percent": 2.42,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-23",
@@ -13237,7 +13455,7 @@
           "rank": 10,
           "concept": "受託人義務報酬與責任",
           "question_count": 61,
-          "share_of_all_records_percent": 2.24,
+          "share_of_all_records_percent": 2.14,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-law-8",
@@ -13314,7 +13532,7 @@
           "rank": 11,
           "concept": "單獨及集合管理分類與權限",
           "question_count": 59,
-          "share_of_all_records_percent": 2.17,
+          "share_of_all_records_percent": 2.07,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-law-27",
@@ -13389,7 +13607,7 @@
           "rank": 12,
           "concept": "財產評審報告與會計公告",
           "question_count": 59,
-          "share_of_all_records_percent": 2.17,
+          "share_of_all_records_percent": 2.07,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-law-38",
@@ -13464,7 +13682,7 @@
           "rank": 13,
           "concept": "持股會組織協議與當事人",
           "question_count": 58,
-          "share_of_all_records_percent": 2.13,
+          "share_of_all_records_percent": 2.03,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-27",
@@ -13538,7 +13756,7 @@
           "rank": 14,
           "concept": "所得稅與扣繳",
           "question_count": 55,
-          "share_of_all_records_percent": 2.02,
+          "share_of_all_records_percent": 1.93,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-law-47",
@@ -13609,7 +13827,7 @@
           "rank": 15,
           "concept": "證券信託種類與保管差異",
           "question_count": 51,
-          "share_of_all_records_percent": 1.87,
+          "share_of_all_records_percent": 1.79,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-practice-38",
@@ -13676,7 +13894,7 @@
           "rank": 16,
           "concept": "經營組織與兼營獨立",
           "question_count": 50,
-          "share_of_all_records_percent": 1.84,
+          "share_of_all_records_percent": 1.75,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-law-36",
@@ -13742,7 +13960,7 @@
           "rank": 17,
           "concept": "集合帳戶投資限制與流動性",
           "question_count": 50,
-          "share_of_all_records_percent": 1.84,
+          "share_of_all_records_percent": 1.75,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-73",
@@ -13808,7 +14026,7 @@
           "rank": 18,
           "concept": "不動產證券化共通規定",
           "question_count": 49,
-          "share_of_all_records_percent": 1.8,
+          "share_of_all_records_percent": 1.72,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-practice-44",
@@ -13873,7 +14091,7 @@
           "rank": 19,
           "concept": "監理處分罰則與損害賠償",
           "question_count": 47,
-          "share_of_all_records_percent": 1.73,
+          "share_of_all_records_percent": 1.65,
           "exam_session_count": 19,
           "question_ids": [
             "past-41-law-30",
@@ -13936,7 +14154,7 @@
           "rank": 20,
           "concept": "設立標準與分支機構",
           "question_count": 47,
-          "share_of_all_records_percent": 1.73,
+          "share_of_all_records_percent": 1.65,
           "exam_session_count": 18,
           "question_ids": [
             "past-41-law-21",
@@ -13999,7 +14217,7 @@
           "rank": 21,
           "concept": "公益信託與監督機關",
           "question_count": 46,
-          "share_of_all_records_percent": 1.69,
+          "share_of_all_records_percent": 1.61,
           "exam_session_count": 21,
           "question_ids": [
             "past-41-law-14",
@@ -14061,7 +14279,7 @@
           "rank": 22,
           "concept": "利害關係人與利益衝突",
           "question_count": 43,
-          "share_of_all_records_percent": 1.58,
+          "share_of_all_records_percent": 1.51,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-law-29",
@@ -14120,7 +14338,7 @@
           "rank": 23,
           "concept": "有價證券借貸交易與擔保",
           "question_count": 43,
-          "share_of_all_records_percent": 1.58,
+          "share_of_all_records_percent": 1.51,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-practice-34",
@@ -14179,7 +14397,7 @@
           "rank": 24,
           "concept": "投資運用與分別管理",
           "question_count": 39,
-          "share_of_all_records_percent": 1.43,
+          "share_of_all_records_percent": 1.37,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-practice-26",
@@ -14234,7 +14452,7 @@
           "rank": 25,
           "concept": "內部人持股申報與權益行使",
           "question_count": 38,
-          "share_of_all_records_percent": 1.4,
+          "share_of_all_records_percent": 1.33,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-practice-32",
@@ -14288,7 +14506,7 @@
           "rank": 26,
           "concept": "集合帳戶申請設置與合併",
           "question_count": 34,
-          "share_of_all_records_percent": 1.25,
+          "share_of_all_records_percent": 1.19,
           "exam_session_count": 17,
           "question_ids": [
             "past-41-practice-70",
@@ -14338,7 +14556,7 @@
           "rank": 27,
           "concept": "登記公示與對抗效力",
           "question_count": 33,
-          "share_of_all_records_percent": 1.21,
+          "share_of_all_records_percent": 1.16,
           "exam_session_count": 20,
           "question_ids": [
             "past-41-law-1",
@@ -14387,7 +14605,7 @@
           "rank": 28,
           "concept": "賠償準備金與盈餘分配",
           "question_count": 33,
-          "share_of_all_records_percent": 1.21,
+          "share_of_all_records_percent": 1.16,
           "exam_session_count": 17,
           "question_ids": [
             "past-41-law-34",
@@ -14436,7 +14654,7 @@
           "rank": 29,
           "concept": "委託人權利與信託標的",
           "question_count": 30,
-          "share_of_all_records_percent": 1.1,
+          "share_of_all_records_percent": 1.05,
           "exam_session_count": 15,
           "question_ids": [
             "past-42-law-5",
@@ -14482,7 +14700,7 @@
           "rank": 30,
           "concept": "終止變更與剩餘財產歸屬",
           "question_count": 30,
-          "share_of_all_records_percent": 1.1,
+          "share_of_all_records_percent": 1.05,
           "exam_session_count": 19,
           "question_ids": [
             "past-41-law-13",
@@ -14528,7 +14746,7 @@
           "rank": 31,
           "concept": "受益人權利與撤銷救濟",
           "question_count": 29,
-          "share_of_all_records_percent": 1.06,
+          "share_of_all_records_percent": 1.02,
           "exam_session_count": 19,
           "question_ids": [
             "past-41-law-7",
@@ -14573,7 +14791,7 @@
           "rank": 32,
           "concept": "外資全球保管與代理登記",
           "question_count": 29,
-          "share_of_all_records_percent": 1.06,
+          "share_of_all_records_percent": 1.02,
           "exam_session_count": 18,
           "question_ids": [
             "past-41-practice-56",
@@ -14618,7 +14836,7 @@
           "rank": 33,
           "concept": "基本義務與契約記載事項",
           "question_count": 28,
-          "share_of_all_records_percent": 1.03,
+          "share_of_all_records_percent": 0.98,
           "exam_session_count": 18,
           "question_ids": [
             "past-41-law-25",
@@ -14662,7 +14880,7 @@
           "rank": 34,
           "concept": "信託監察人",
           "question_count": 26,
-          "share_of_all_records_percent": 0.95,
+          "share_of_all_records_percent": 0.91,
           "exam_session_count": 18,
           "question_ids": [
             "past-41-law-17",
@@ -14704,7 +14922,7 @@
           "rank": 35,
           "concept": "共同信託基金募集與運用",
           "question_count": 26,
-          "share_of_all_records_percent": 0.95,
+          "share_of_all_records_percent": 0.91,
           "exam_session_count": 18,
           "question_ids": [
             "past-42-law-22",
@@ -14746,7 +14964,7 @@
           "rank": 36,
           "concept": "受益證券募集發行與受益人會議",
           "question_count": 26,
-          "share_of_all_records_percent": 0.95,
+          "share_of_all_records_percent": 0.91,
           "exam_session_count": 15,
           "question_ids": [
             "past-41-practice-50",
@@ -14788,7 +15006,7 @@
           "rank": 37,
           "concept": "證券化特性與經濟效益",
           "question_count": 26,
-          "share_of_all_records_percent": 0.95,
+          "share_of_all_records_percent": 0.91,
           "exam_session_count": 16,
           "question_ids": [
             "past-41-practice-53",
@@ -14830,7 +15048,7 @@
           "rank": 38,
           "concept": "財產獨立性與強制執行",
           "question_count": 26,
-          "share_of_all_records_percent": 0.95,
+          "share_of_all_records_percent": 0.91,
           "exam_session_count": 19,
           "question_ids": [
             "past-41-law-5",
@@ -14872,7 +15090,7 @@
           "rank": 39,
           "concept": "客戶認識商品適合度與投資人分類",
           "question_count": 25,
-          "share_of_all_records_percent": 0.92,
+          "share_of_all_records_percent": 0.88,
           "exam_session_count": 15,
           "question_ids": [
             "past-42-practice-2",
@@ -14913,7 +15131,7 @@
           "rank": 40,
           "concept": "行銷訂約與風險揭露",
           "question_count": 24,
-          "share_of_all_records_percent": 0.88,
+          "share_of_all_records_percent": 0.84,
           "exam_session_count": 13,
           "question_ids": [
             "past-42-law-40",
@@ -14953,7 +15171,7 @@
           "rank": 41,
           "concept": "預收款禮券與履約保障",
           "question_count": 24,
-          "share_of_all_records_percent": 0.88,
+          "share_of_all_records_percent": 0.84,
           "exam_session_count": 18,
           "question_ids": [
             "past-41-practice-1",
@@ -14993,7 +15211,7 @@
           "rank": 42,
           "concept": "人員資格訓練與利益限制",
           "question_count": 23,
-          "share_of_all_records_percent": 0.84,
+          "share_of_all_records_percent": 0.81,
           "exam_session_count": 17,
           "question_ids": [
             "past-42-law-26",
@@ -15032,7 +15250,7 @@
           "rank": 43,
           "concept": "信託課稅原則與形式移轉",
           "question_count": 22,
-          "share_of_all_records_percent": 0.81,
+          "share_of_all_records_percent": 0.77,
           "exam_session_count": 15,
           "question_ids": [
             "past-41-law-46",
@@ -15070,7 +15288,7 @@
           "rank": 44,
           "concept": "外匯結匯與國際金融業務",
           "question_count": 22,
-          "share_of_all_records_percent": 0.81,
+          "share_of_all_records_percent": 0.77,
           "exam_session_count": 14,
           "question_ids": [
             "past-42-practice-21",
@@ -15108,7 +15326,7 @@
           "rank": 45,
           "concept": "內控稽核與風險管理",
           "question_count": 21,
-          "share_of_all_records_percent": 0.77,
+          "share_of_all_records_percent": 0.74,
           "exam_session_count": 16,
           "question_ids": [
             "past-41-law-41",
@@ -15145,7 +15363,7 @@
           "rank": 46,
           "concept": "土地開發與不動產管理信託",
           "question_count": 21,
-          "share_of_all_records_percent": 0.77,
+          "share_of_all_records_percent": 0.74,
           "exam_session_count": 14,
           "question_ids": [
             "past-41-practice-42",
@@ -15182,7 +15400,7 @@
           "rank": 47,
           "concept": "遺產及贈與稅",
           "question_count": 21,
-          "share_of_all_records_percent": 0.77,
+          "share_of_all_records_percent": 0.74,
           "exam_session_count": 14,
           "question_ids": [
             "past-41-law-48",
@@ -15219,7 +15437,7 @@
           "rank": 48,
           "concept": "其他資產保管與營業保證金",
           "question_count": 20,
-          "share_of_all_records_percent": 0.73,
+          "share_of_all_records_percent": 0.7,
           "exam_session_count": 16,
           "question_ids": [
             "past-41-practice-58",
@@ -15255,7 +15473,7 @@
           "rank": 49,
           "concept": "設立能力與監督管轄",
           "question_count": 20,
-          "share_of_all_records_percent": 0.73,
+          "share_of_all_records_percent": 0.7,
           "exam_session_count": 17,
           "question_ids": [
             "past-41-law-15",
@@ -15291,7 +15509,7 @@
           "rank": 50,
           "concept": "土地稅與土地增值稅",
           "question_count": 19,
-          "share_of_all_records_percent": 0.7,
+          "share_of_all_records_percent": 0.67,
           "exam_session_count": 14,
           "question_ids": [
             "past-41-law-49",
@@ -15326,7 +15544,7 @@
           "rank": 51,
           "concept": "資產移轉債權與債務人通知",
           "question_count": 18,
-          "share_of_all_records_percent": 0.66,
+          "share_of_all_records_percent": 0.63,
           "exam_session_count": 13,
           "question_ids": [
             "past-41-practice-41",
@@ -15360,7 +15578,7 @@
           "rank": 52,
           "concept": "公會自律與行為規範",
           "question_count": 16,
-          "share_of_all_records_percent": 0.59,
+          "share_of_all_records_percent": 0.56,
           "exam_session_count": 11,
           "question_ids": [
             "past-42-law-42",
@@ -15392,7 +15610,7 @@
           "rank": 53,
           "concept": "信用增強評等與風險分散",
           "question_count": 15,
-          "share_of_all_records_percent": 0.55,
+          "share_of_all_records_percent": 0.53,
           "exam_session_count": 15,
           "question_ids": [
             "past-41-practice-46",
@@ -15423,7 +15641,7 @@
           "rank": 54,
           "concept": "REAT資產信託與證券發行",
           "question_count": 14,
-          "share_of_all_records_percent": 0.51,
+          "share_of_all_records_percent": 0.49,
           "exam_session_count": 8,
           "question_ids": [
             "past-43-practice-43",
@@ -15453,7 +15671,7 @@
           "rank": 55,
           "concept": "結構型商品與衍生性金融商品",
           "question_count": 14,
-          "share_of_all_records_percent": 0.51,
+          "share_of_all_records_percent": 0.49,
           "exam_session_count": 9,
           "question_ids": [
             "past-46-practice-20",
@@ -15483,7 +15701,7 @@
           "rank": 56,
           "concept": "員工持股信託的課稅與返還",
           "question_count": 12,
-          "share_of_all_records_percent": 0.44,
+          "share_of_all_records_percent": 0.42,
           "exam_session_count": 11,
           "question_ids": [
             "past-43-practice-28",
@@ -15511,7 +15729,7 @@
           "rank": 57,
           "concept": "房屋稅與契稅",
           "question_count": 12,
-          "share_of_all_records_percent": 0.44,
+          "share_of_all_records_percent": 0.42,
           "exam_session_count": 9,
           "question_ids": [
             "past-43-law-49",
@@ -15539,7 +15757,7 @@
           "rank": 58,
           "concept": "贈與權利價值與折現計算",
           "question_count": 10,
-          "share_of_all_records_percent": 0.37,
+          "share_of_all_records_percent": 0.35,
           "exam_session_count": 9,
           "question_ids": [
             "past-41-practice-33",
@@ -15565,7 +15783,7 @@
           "rank": 59,
           "concept": "退出終止與財產返還",
           "question_count": 10,
-          "share_of_all_records_percent": 0.37,
+          "share_of_all_records_percent": 0.35,
           "exam_session_count": 9,
           "question_ids": [
             "past-41-practice-25",
@@ -15591,7 +15809,7 @@
           "rank": 60,
           "concept": "證券化商品分離課稅與交易稅",
           "question_count": 9,
-          "share_of_all_records_percent": 0.33,
+          "share_of_all_records_percent": 0.32,
           "exam_session_count": 8,
           "question_ids": [
             "past-45-practice-40",
@@ -15616,7 +15834,7 @@
           "rank": 61,
           "concept": "資金提撥與公司獎勵",
           "question_count": 9,
-          "share_of_all_records_percent": 0.33,
+          "share_of_all_records_percent": 0.32,
           "exam_session_count": 7,
           "question_ids": [
             "past-42-practice-26",
@@ -15641,7 +15859,7 @@
           "rank": 62,
           "concept": "集合帳戶受益權淨值與退出",
           "question_count": 9,
-          "share_of_all_records_percent": 0.33,
+          "share_of_all_records_percent": 0.32,
           "exam_session_count": 9,
           "question_ids": [
             "past-42-practice-72",
@@ -15666,7 +15884,7 @@
           "rank": 63,
           "concept": "營業稅與印花稅",
           "question_count": 8,
-          "share_of_all_records_percent": 0.29,
+          "share_of_all_records_percent": 0.28,
           "exam_session_count": 8,
           "question_ids": [
             "past-42-law-49",
@@ -15690,7 +15908,7 @@
           "rank": 64,
           "concept": "證券交易稅",
           "question_count": 8,
-          "share_of_all_records_percent": 0.29,
+          "share_of_all_records_percent": 0.28,
           "exam_session_count": 7,
           "question_ids": [
             "past-41-practice-35",
@@ -15714,7 +15932,7 @@
           "rank": 65,
           "concept": "證券化計畫與其他制度",
           "question_count": 8,
-          "share_of_all_records_percent": 0.29,
+          "share_of_all_records_percent": 0.28,
           "exam_session_count": 6,
           "question_ids": [
             "past-44-practice-48",
@@ -15738,7 +15956,7 @@
           "rank": 66,
           "concept": "評審委員會與內部職責",
           "question_count": 7,
-          "share_of_all_records_percent": 0.26,
+          "share_of_all_records_percent": 0.25,
           "exam_session_count": 6,
           "question_ids": [
             "past-41-law-32",
@@ -15761,7 +15979,7 @@
           "rank": 67,
           "concept": "安養退休與保險金信託",
           "question_count": 4,
-          "share_of_all_records_percent": 0.15,
+          "share_of_all_records_percent": 0.14,
           "exam_session_count": 4,
           "question_ids": [
             "past-42-practice-39",
@@ -15867,9 +16085,9 @@
         {
           "rank": 1,
           "law_or_rule": "信託業法",
-          "question_count": 173,
-          "share_of_all_records_percent": 6.35,
-          "exam_session_count": 21,
+          "question_count": 181,
+          "share_of_all_records_percent": 6.34,
+          "exam_session_count": 22,
           "question_ids": [
             "past-44-law-38",
             "past-44-practice-38",
@@ -16043,7 +16261,15 @@
             "past-46-practice-77",
             "past-55-practice-78",
             "past-58-law-45",
-            "past-62-practice-72"
+            "past-62-practice-72",
+            "past-63-practice-80",
+            "past-63-law-3",
+            "past-63-law-23",
+            "past-63-law-25",
+            "past-63-law-27",
+            "past-63-law-30",
+            "past-63-law-38",
+            "past-63-law-44"
           ],
           "sample_question_ids": [
             "past-44-law-38",
@@ -16056,9 +16282,9 @@
         {
           "rank": 2,
           "law_or_rule": "信託法",
-          "question_count": 108,
-          "share_of_all_records_percent": 3.96,
-          "exam_session_count": 21,
+          "question_count": 114,
+          "share_of_all_records_percent": 3.99,
+          "exam_session_count": 22,
           "question_ids": [
             "past-41-law-7",
             "past-41-law-9",
@@ -16167,7 +16393,13 @@
             "past-55-law-44",
             "past-56-practice-20",
             "past-58-law-44",
-            "past-57-practice-51"
+            "past-57-practice-51",
+            "past-63-law-3",
+            "past-63-law-4",
+            "past-63-law-8",
+            "past-63-law-9",
+            "past-63-law-10",
+            "past-63-law-14"
           ],
           "sample_question_ids": [
             "past-41-law-7",
@@ -16180,9 +16412,9 @@
         {
           "rank": 3,
           "law_or_rule": "金融資產證券化條例",
-          "question_count": 75,
-          "share_of_all_records_percent": 2.75,
-          "exam_session_count": 21,
+          "question_count": 80,
+          "share_of_all_records_percent": 2.8,
+          "exam_session_count": 22,
           "question_ids": [
             "past-44-law-19",
             "past-57-law-20",
@@ -16258,7 +16490,12 @@
             "past-62-practice-47",
             "past-62-practice-52",
             "past-62-practice-53",
-            "past-62-practice-55"
+            "past-62-practice-55",
+            "past-63-practice-47",
+            "past-63-practice-49",
+            "past-63-practice-50",
+            "past-63-practice-54",
+            "past-63-practice-55"
           ],
           "sample_question_ids": [
             "past-44-law-19",
@@ -16271,9 +16508,9 @@
         {
           "rank": 4,
           "law_or_rule": "不動產證券化條例",
-          "question_count": 45,
-          "share_of_all_records_percent": 1.65,
-          "exam_session_count": 19,
+          "question_count": 48,
+          "share_of_all_records_percent": 1.68,
+          "exam_session_count": 20,
           "question_ids": [
             "past-43-law-23",
             "past-55-law-22",
@@ -16319,7 +16556,10 @@
             "past-61-practice-45",
             "past-62-practice-38",
             "past-62-practice-40",
-            "past-62-practice-42"
+            "past-62-practice-42",
+            "past-63-practice-41",
+            "past-63-practice-42",
+            "past-63-practice-43"
           ],
           "sample_question_ids": [
             "past-43-law-23",
@@ -16332,9 +16572,9 @@
         {
           "rank": 5,
           "law_or_rule": "信託資金集合管理運用管理辦法",
-          "question_count": 33,
-          "share_of_all_records_percent": 1.21,
-          "exam_session_count": 15,
+          "question_count": 34,
+          "share_of_all_records_percent": 1.19,
+          "exam_session_count": 16,
           "question_ids": [
             "past-52-practice-78",
             "past-41-practice-70",
@@ -16368,7 +16608,8 @@
             "past-60-practice-70",
             "past-60-practice-71",
             "past-60-practice-72",
-            "past-60-practice-74"
+            "past-60-practice-74",
+            "past-63-practice-70"
           ],
           "sample_question_ids": [
             "past-52-practice-78",
@@ -16381,9 +16622,9 @@
         {
           "rank": 6,
           "law_or_rule": "境外基金管理辦法",
-          "question_count": 32,
-          "share_of_all_records_percent": 1.17,
-          "exam_session_count": 16,
+          "question_count": 33,
+          "share_of_all_records_percent": 1.16,
+          "exam_session_count": 17,
           "question_ids": [
             "past-56-practice-20",
             "past-61-practice-9",
@@ -16416,7 +16657,8 @@
             "past-60-practice-76",
             "past-61-practice-4",
             "past-61-practice-10",
-            "past-61-practice-11"
+            "past-61-practice-11",
+            "past-63-practice-1"
           ],
           "sample_question_ids": [
             "past-56-practice-20",
@@ -16429,9 +16671,9 @@
         {
           "rank": 7,
           "law_or_rule": "有價證券借貸辦法",
-          "question_count": 21,
+          "question_count": 22,
           "share_of_all_records_percent": 0.77,
-          "exam_session_count": 15,
+          "exam_session_count": 16,
           "question_ids": [
             "past-41-practice-34",
             "past-42-practice-37",
@@ -16453,7 +16695,8 @@
             "past-60-practice-35",
             "past-60-practice-37",
             "past-62-practice-34",
-            "past-62-practice-35"
+            "past-62-practice-35",
+            "past-63-practice-37"
           ],
           "sample_question_ids": [
             "past-41-practice-34",
@@ -16465,10 +16708,44 @@
         },
         {
           "rank": 8,
-          "law_or_rule": "信託業設立標準",
-          "question_count": 16,
-          "share_of_all_records_percent": 0.59,
+          "law_or_rule": "銀行法",
+          "question_count": 18,
+          "share_of_all_records_percent": 0.63,
           "exam_session_count": 10,
+          "question_ids": [
+            "past-42-law-38",
+            "past-44-law-24",
+            "past-46-law-20",
+            "past-48-law-41",
+            "past-50-law-38",
+            "past-51-law-22",
+            "past-51-law-25",
+            "past-52-law-21",
+            "past-52-law-25",
+            "past-56-law-23",
+            "past-56-law-25",
+            "past-46-practice-54",
+            "past-51-practice-47",
+            "past-46-practice-77",
+            "past-55-practice-78",
+            "past-63-practice-53",
+            "past-63-law-21",
+            "past-63-law-26"
+          ],
+          "sample_question_ids": [
+            "past-42-law-38",
+            "past-44-law-24",
+            "past-46-law-20",
+            "past-48-law-41",
+            "past-50-law-38"
+          ]
+        },
+        {
+          "rank": 9,
+          "law_or_rule": "信託業設立標準",
+          "question_count": 17,
+          "share_of_all_records_percent": 0.6,
+          "exam_session_count": 11,
           "question_ids": [
             "past-41-law-21",
             "past-44-law-21",
@@ -16485,7 +16762,8 @@
             "past-57-law-21",
             "past-57-law-36",
             "past-58-law-23",
-            "past-60-practice-40"
+            "past-60-practice-40",
+            "past-63-law-22"
           ],
           "sample_question_ids": [
             "past-41-law-21",
@@ -16496,10 +16774,42 @@
           ]
         },
         {
-          "rank": 9,
+          "rank": 10,
+          "law_or_rule": "所得稅法",
+          "question_count": 16,
+          "share_of_all_records_percent": 0.56,
+          "exam_session_count": 11,
+          "question_ids": [
+            "past-41-law-47",
+            "past-44-law-47",
+            "past-44-law-50",
+            "past-46-law-48",
+            "past-50-law-50",
+            "past-50-practice-18",
+            "past-53-practice-35",
+            "past-56-practice-10",
+            "past-58-law-50",
+            "past-58-practice-13",
+            "past-60-law-47",
+            "past-61-law-47",
+            "past-61-law-49",
+            "past-62-law-46",
+            "past-62-law-47",
+            "past-63-law-49"
+          ],
+          "sample_question_ids": [
+            "past-41-law-47",
+            "past-44-law-47",
+            "past-44-law-50",
+            "past-46-law-48",
+            "past-50-law-50"
+          ]
+        },
+        {
+          "rank": 11,
           "law_or_rule": "證券交易法",
           "question_count": 16,
-          "share_of_all_records_percent": 0.59,
+          "share_of_all_records_percent": 0.56,
           "exam_session_count": 10,
           "question_ids": [
             "past-49-law-39",
@@ -16528,73 +16838,11 @@
           ]
         },
         {
-          "rank": 10,
-          "law_or_rule": "所得稅法",
-          "question_count": 15,
-          "share_of_all_records_percent": 0.55,
-          "exam_session_count": 10,
-          "question_ids": [
-            "past-41-law-47",
-            "past-44-law-47",
-            "past-44-law-50",
-            "past-46-law-48",
-            "past-50-law-50",
-            "past-50-practice-18",
-            "past-53-practice-35",
-            "past-56-practice-10",
-            "past-58-law-50",
-            "past-58-practice-13",
-            "past-60-law-47",
-            "past-61-law-47",
-            "past-61-law-49",
-            "past-62-law-46",
-            "past-62-law-47"
-          ],
-          "sample_question_ids": [
-            "past-41-law-47",
-            "past-44-law-47",
-            "past-44-law-50",
-            "past-46-law-48",
-            "past-50-law-50"
-          ]
-        },
-        {
-          "rank": 11,
-          "law_or_rule": "銀行法",
-          "question_count": 15,
-          "share_of_all_records_percent": 0.55,
-          "exam_session_count": 9,
-          "question_ids": [
-            "past-42-law-38",
-            "past-44-law-24",
-            "past-46-law-20",
-            "past-48-law-41",
-            "past-50-law-38",
-            "past-51-law-22",
-            "past-51-law-25",
-            "past-52-law-21",
-            "past-52-law-25",
-            "past-56-law-23",
-            "past-56-law-25",
-            "past-46-practice-54",
-            "past-51-practice-47",
-            "past-46-practice-77",
-            "past-55-practice-78"
-          ],
-          "sample_question_ids": [
-            "past-42-law-38",
-            "past-44-law-24",
-            "past-46-law-20",
-            "past-48-law-41",
-            "past-50-law-38"
-          ]
-        },
-        {
           "rank": 12,
           "law_or_rule": "民法",
-          "question_count": 14,
-          "share_of_all_records_percent": 0.51,
-          "exam_session_count": 14,
+          "question_count": 15,
+          "share_of_all_records_percent": 0.53,
+          "exam_session_count": 15,
           "question_ids": [
             "past-44-law-49",
             "past-49-law-46",
@@ -16609,7 +16857,8 @@
             "past-53-practice-43",
             "past-57-practice-45",
             "past-58-practice-44",
-            "past-60-practice-46"
+            "past-60-practice-46",
+            "past-63-practice-38"
           ],
           "sample_question_ids": [
             "past-44-law-49",
@@ -16622,9 +16871,9 @@
         {
           "rank": 13,
           "law_or_rule": "信託業應負之義務及相關行為規範",
-          "question_count": 11,
-          "share_of_all_records_percent": 0.4,
-          "exam_session_count": 9,
+          "question_count": 12,
+          "share_of_all_records_percent": 0.42,
+          "exam_session_count": 10,
           "question_ids": [
             "past-42-law-42",
             "past-43-law-42",
@@ -16636,7 +16885,8 @@
             "past-58-law-41",
             "past-59-law-42",
             "past-62-law-25",
-            "past-45-law-40"
+            "past-45-law-40",
+            "past-63-law-40"
           ],
           "sample_question_ids": [
             "past-42-law-42",
@@ -16649,9 +16899,9 @@
         {
           "rank": 14,
           "law_or_rule": "證券投資信託事業證券投資顧問事業證券商兼營信託業務管理辦法",
-          "question_count": 11,
-          "share_of_all_records_percent": 0.4,
-          "exam_session_count": 10,
+          "question_count": 12,
+          "share_of_all_records_percent": 0.42,
+          "exam_session_count": 11,
           "question_ids": [
             "past-42-law-41",
             "past-43-law-43",
@@ -16663,7 +16913,8 @@
             "past-57-law-43",
             "past-59-law-43",
             "past-61-law-40",
-            "past-62-law-42"
+            "past-62-law-42",
+            "past-63-law-42"
           ],
           "sample_question_ids": [
             "past-42-law-41",
@@ -16677,7 +16928,7 @@
           "rank": 15,
           "law_or_rule": "證券投資信託及顧問法",
           "question_count": 9,
-          "share_of_all_records_percent": 0.33,
+          "share_of_all_records_percent": 0.32,
           "exam_session_count": 8,
           "question_ids": [
             "past-44-law-24",
@@ -16702,7 +16953,7 @@
           "rank": 16,
           "law_or_rule": "信託業負責人應具備資格條件暨經營與管理人員應具備信託專門學識或經驗準則",
           "question_count": 8,
-          "share_of_all_records_percent": 0.29,
+          "share_of_all_records_percent": 0.28,
           "exam_session_count": 8,
           "question_ids": [
             "past-42-law-26",
@@ -16726,7 +16977,7 @@
           "rank": 17,
           "law_or_rule": "境外結構型商品管理規則",
           "question_count": 8,
-          "share_of_all_records_percent": 0.29,
+          "share_of_all_records_percent": 0.28,
           "exam_session_count": 7,
           "question_ids": [
             "past-44-practice-22",
@@ -16750,7 +17001,7 @@
           "rank": 18,
           "law_or_rule": "信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法",
           "question_count": 6,
-          "share_of_all_records_percent": 0.22,
+          "share_of_all_records_percent": 0.21,
           "exam_session_count": 6,
           "question_ids": [
             "past-42-practice-20",

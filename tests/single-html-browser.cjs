@@ -10,9 +10,9 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  try {
   await p.goto(process.env.SINGLE_HTML_URL||pathToFileURL(file).href);
   const frame=p.frameLocator('#study-frame');
-  assert.equal(await frame.locator('.subject-card').count(),6);
+  assert.equal(await frame.locator('.subject-card').count(),8);
   const pages=await p.evaluate(()=>JSON.parse(document.getElementById('embedded-page-list').textContent));
-  assert.equal(pages.length,9);
+  assert.equal(pages.length,11);
   for(const page of pages.filter(name=>name!=='index.html')){
    await p.evaluate(name=>window.openStudyPage(name,'?view=quiz'),page);
    if(page==='歷屆考古題_完整題庫大全.html'){await frame.locator('.q-text').first().waitFor();continue;}
@@ -39,7 +39,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   await p.screenshot({path:'.qa-artifacts/standalone-mobile.png',animations:'disabled'});
   await p.reload();await frame.locator('#quiz-setup-panel').waitFor();
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-  fs.writeFileSync('.qa-artifacts/standalone-report.json',JSON.stringify({status:'PASS',pages:9,errors,external,isolatedFile:!process.env.SINGLE_HTML_URL},null,2));
-  console.log('PASS: isolated single HTML, nine pages, six subject quizzes, direct search, retained progress, reload and mobile layout; no JS errors or external dependencies');
+  fs.writeFileSync('.qa-artifacts/standalone-report.json',JSON.stringify({status:'PASS',pages:11,errors,external,isolatedFile:!process.env.SINGLE_HTML_URL},null,2));
+  console.log('PASS: isolated single HTML, 11 pages, eight subject quizzes, direct search, retained progress, reload and mobile layout; no JS errors or external dependencies');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

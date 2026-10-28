@@ -1,0 +1,5424 @@
+{
+  "id": "investment-insurance-exam",
+  "title": "投資型保險：官方歷屆試題",
+  "description": "依官方公布的試題與答案整理，適用考試當時法規。",
+  "language": "zh-TW",
+  "chapters": [
+    {
+      "id": "exam",
+      "title": "官方歷屆試題",
+      "summary": "官方歷屆試題與答案依考期整理。",
+      "sections": [
+        {
+          "id": "exam-source",
+          "title": "來源說明",
+          "content": "試題與答案依考試機構公布資料整理；後續法規可能有所變更，請以現行規定為準。",
+          "keyPoints": [],
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "investment-1140914-1-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保險公司在承保指數年金商品時，其投資標的呈多元化以達其所預定之目標。其中，選擇固定收入之 投資工具，主要是為了達到何種目的？",
+      "options": [
+        "支付股價指數之利率",
+        "支付指數年金之經營成本與利潤",
+        "支付指數年金保證利率",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 1
+      }
+    },
+    {
+      "id": "investment-1140914-1-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列哪一項投資型保險商品之項目不是由保戶選擇？",
+      "options": [
+        "投保金額",
+        "投資標的",
+        "資金配置方式",
+        "保管銀行"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 2
+      }
+    },
+    {
+      "id": "investment-1140914-1-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "李先生投保之保險金額為100 萬元，5 年後保單帳戶價值為20 萬元，假設當時被保險人身故時其受益 人所領死亡給付仍為100 萬元，則其所購買投資型保險是屬於哪一型？",
+      "options": [
+        "甲型",
+        "乙型",
+        "甲型或乙型",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 3
+      }
+    },
+    {
+      "id": "investment-1140914-1-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關萬能壽險商品設計的敘述，何者為誤？",
+      "options": [
+        "採彈性方式繳費",
+        "提供最低保證利率",
+        "保險金額為定額，不可調整",
+        "保單價值為所收保費扣除死亡成本、費用、加計利息後之值"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 4
+      }
+    },
+    {
+      "id": "investment-1140914-1-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者為貨幣市場的證券？(A)國庫券(B)銀行承兌匯票(C)附條件交易",
+      "options": [
+        "A 與B",
+        "B 與C",
+        "A 與C",
+        "A、B 與C"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 5
+      }
+    },
+    {
+      "id": "investment-1140914-1-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列哪一項不是投資型保險商品說明書之應揭露事項？",
+      "options": [
+        "稅賦優惠介紹",
+        "投資風險警語",
+        "相關費用",
+        "公司基本資料"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 6
+      }
+    },
+    {
+      "id": "investment-1140914-1-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當市場利率長期處於上升趨勢，且高過保單預定利率時，下列敘述何者正確？",
+      "options": [
+        "保戶可能以解約或保單貸款方式取回資金",
+        "保戶會選擇購買定期險，而將定期險與儲蓄險間的保費差額，自行去投資，以獲取高利",
+        "保險公司產生現金流量短少的問題",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 7
+      }
+    },
+    {
+      "id": "investment-1140914-1-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "金融中介機構面對其他更低成本的融資方式快速成長時，其因應之道為何？",
+      "options": [
+        "削減費用",
+        "將業務擴展至其他領域",
+        "由提供服務來收取費用",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 8
+      }
+    },
+    {
+      "id": "investment-1140914-1-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "我國保險法令規定投資型保險之保險金額須為目標保險費一定倍數，其立法目的為何？",
+      "options": [
+        "避免公司收取太高費用",
+        "避免保單失效",
+        "避免影響投資績效",
+        "避免保險金額太低"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 9
+      }
+    },
+    {
+      "id": "investment-1140914-1-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對中小企業銀行的業務說明，何者錯誤？",
+      "options": [
+        "其主要任務為供給中小企業中、長期信用",
+        "目的在協助中小企業改善生產設備及財務結構，暨健全經營管理",
+        "得直接投資中小企業，以使其順利取得營運所需資金",
+        "係屬於銀行法中之專業銀行之一"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 10
+      }
+    },
+    {
+      "id": "investment-1140914-1-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依保險法之規定，投資型保險契約之投資資產，僅得由何人主張之：",
+      "options": [
+        "各該投資型保險契約之要保人",
+        "各該投資型保險契約之受益人",
+        "各該投資型保險契約之被保險人",
+        "各該投資型保險契約之保險人"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 11
+      }
+    },
+    {
+      "id": "investment-1140914-1-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列哪一項費用是從每期保單帳戶價值中扣除？",
+      "options": [
+        "目標保險費費用",
+        "增額保險費費用",
+        "保單管理費用",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 12
+      }
+    },
+    {
+      "id": "investment-1140914-1-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "隨時間經過甲型投資型保險商品之淨危險保障部分會有何現象？",
+      "options": [
+        "維持不變",
+        "持續上升",
+        "遞減現象",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 13
+      }
+    },
+    {
+      "id": "investment-1140914-1-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "臺灣證券交易所之組織型態為：",
+      "options": [
+        "會員制",
+        "公司制",
+        "契約制",
+        "財團法人"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 14
+      }
+    },
+    {
+      "id": "investment-1140914-1-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資型保險商品的敘述，何者正確？",
+      "options": [
+        "投資報酬固定是購買此類商品最主要的考量",
+        "此類商品並不適合消費者短期的財務需求",
+        "不願接受風險的消費者最適合購買此類商品",
+        "以上皆是"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 15
+      }
+    },
+    {
+      "id": "investment-1140914-1-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列哪一種行為屬於不當的保險商品招攬行為？",
+      "options": [
+        "勸誘保戶將舊契約解約轉投保新契約",
+        "勸誘保戶將高預定利率傳統壽險保單轉換為投資型保單",
+        "提供禮券吸引保戶購買保險",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 16
+      }
+    },
+    {
+      "id": "investment-1140914-1-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託基金投資所得依證券投資信託契約之約定應分配收益，除經主管機關核准者外，應於會 計年度終了後幾個月內分配之？",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 17
+      }
+    },
+    {
+      "id": "investment-1140914-1-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "持有證券投資信託事業已發行股份總數多少比例以上之股東，於證券投資信託事業運用證券投資信託 基金買賣該發行公司所發行之證券時，不得參與買賣之決定？",
+      "options": [
+        "1%",
+        "3%",
+        "5%",
+        "10%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 18
+      }
+    },
+    {
+      "id": "investment-1140914-1-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者壽險商品並無「保單（預定）利率」之設計？",
+      "options": [
+        "變額壽險及萬能壽險",
+        "變額壽險及變額萬能壽險",
+        "萬能壽險及變額萬能壽險",
+        "利變壽險及變額萬能壽險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 19
+      }
+    },
+    {
+      "id": "investment-1140914-1-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設周先生選擇購買15,000 美元之指數年金，契約期間5 年，當時之S&P500 指數為800 點，之後每 週年之S&P500 指數分別為1000 點、1200 點、1100 點、1400 點、契約到期時之指數為1600 點，若指 數連動利率採「點對點法」、參與率95%，則契約到期時周先生可獲多少美元之利息？",
+      "options": [
+        "14,250",
+        "16,750",
+        "9,650",
+        "5,400"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 20
+      }
+    },
+    {
+      "id": "investment-1140914-1-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某變額年金1 月之單位數為200，年金單位價值為3.5 元，3 月之年金單位價值為5 元，則年金受領人 1 月與3 月之年金金額差額為多少？",
+      "options": [
+        "300 元",
+        "400 元",
+        "500 元",
+        "250 元"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 21
+      }
+    },
+    {
+      "id": "investment-1140914-1-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "違反證券投資信託及顧問法之相關規定，其應負損害賠償之人，對於重大過失所致之損害，法院得因 被害人之請求，依侵害情節，酌定損害額幾倍以下之懲罰性賠償？",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 22
+      }
+    },
+    {
+      "id": "investment-1140914-1-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "初級市場指的是：",
+      "options": [
+        "發行市場",
+        "流通市場",
+        "外匯市場",
+        "拆款市場"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 23
+      }
+    },
+    {
+      "id": "investment-1140914-1-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "壽險公司經營投資型保險業務應提存各種準備金，以下何種準備金係置於專設帳簿？",
+      "options": [
+        "未滿期保費準備金",
+        "賠款準備金",
+        "責任準備金",
+        "保證給付責任準備金"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 24
+      }
+    },
+    {
+      "id": "investment-1140914-1-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當保戶所選擇投資標的因淨值下跌而遭受投資損失，又稱之何種風險？",
+      "options": [
+        "價格風險",
+        "利率風險",
+        "信用風險",
+        "匯率風險"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 25
+      }
+    },
+    {
+      "id": "investment-1140914-1-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保戶在契撤期間內撤銷投資型保險契約，保險公司返還金額如何計算？",
+      "options": [
+        "退還保單帳戶價值",
+        "退還保單帳戶價值並扣除行政成本",
+        "無息退還所繳保險費",
+        "退還所繳保險費加計利息"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 26
+      }
+    },
+    {
+      "id": "investment-1140914-1-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非短期票券？",
+      "options": [
+        "國庫券",
+        "商業本票",
+        "銀行承兌匯票",
+        "支票"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 27
+      }
+    },
+    {
+      "id": "investment-1140914-1-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "萬能壽險保單須符合門檻法則規定之主要目的為何？",
+      "options": [
+        "提高公司經營效率",
+        "維持一定淨危險保額",
+        "達到最低投保金額",
+        "增加費用收取透明度"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 28
+      }
+    },
+    {
+      "id": "investment-1140914-1-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對於變額保險商品與共同基金差異處之敘述，何者為非？",
+      "options": [
+        "兩者之資金管理機構不同",
+        "共同基金是由保管銀行以專戶方式管理，變額保險商品則以分離帳戶管理",
+        "共同基金需每日計算其淨值並由獨立機構評鑑，因此專業性高",
+        "共同基金在投資上的稅負優惠較高"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 29
+      }
+    },
+    {
+      "id": "investment-1140914-1-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在投資型保險契約中，何者承擔費用風險：",
+      "options": [
+        "受益人",
+        "要保人和保險人",
+        "被保險人",
+        "保險人"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 30
+      }
+    },
+    {
+      "id": "investment-1140914-1-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以美國而言，變額壽險的死亡成本部分是從何處扣減？",
+      "options": [
+        "總保費",
+        "保單帳戶價值",
+        "責任準備金",
+        "銷售成本"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 31
+      }
+    },
+    {
+      "id": "investment-1140914-1-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "變額萬能壽險和變額壽險之相同點為？",
+      "options": [
+        "彈性繳費",
+        "可彈性調整保障金額",
+        "保證最低死亡金額",
+        "保單持有人自行承擔投資風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 32
+      }
+    },
+    {
+      "id": "investment-1140914-1-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "客戶為獲得更高的指數報酬，當預期指數行情明顯下跌後再從低點彈升時，應選擇何種指數年金？",
+      "options": [
+        "點對點法",
+        "低標法",
+        "高標法",
+        "年增法"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 33
+      }
+    },
+    {
+      "id": "investment-1140914-1-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在證券市場中經營有價證券之包銷或代銷業務的公司為？",
+      "options": [
+        "證券承銷商",
+        "證券自營商",
+        "證券經紀商",
+        "證券金融公司"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 34
+      }
+    },
+    {
+      "id": "investment-1140914-1-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託契約因存續期間屆滿而終止者，應於屆滿幾日內申報主管機關備查？",
+      "options": [
+        "2 日",
+        "4 日",
+        "5 日",
+        "10 日"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 35
+      }
+    },
+    {
+      "id": "investment-1140914-1-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不是投資型保險商品的優點？",
+      "options": [
+        "拓寬保險公司服務領域，促進業務增長",
+        "提供客戶作為短期投資的工具",
+        "保險公司可甩掉利差損的包袱",
+        "變額萬能保險的彈性繳費可以滿足保戶在各種經濟狀況下的需求"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 36
+      }
+    },
+    {
+      "id": "investment-1140914-1-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關變額保險與傳統保險的比較，何者正確？",
+      "options": [
+        "成本與費用收取的方式相同",
+        "保險費的繳付方式均可採期繳或躉繳",
+        "保單帳戶價值的計算方式相同",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 37
+      }
+    },
+    {
+      "id": "investment-1140914-1-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資顧問事業之實收資本額不得少於新臺幣多少元？",
+      "options": [
+        "1,000 萬",
+        "1,500 萬",
+        "2,000 萬",
+        "2,500 萬"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 38
+      }
+    },
+    {
+      "id": "investment-1140914-1-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資顧問事業之負責人從事業務廣告及公開舉辦證券投資分析活動，不得有下列何項行為？",
+      "options": [
+        "為保證獲利或負擔損失之表示",
+        "對證券市場之行情研判、市場分析及產業趨勢，列出合理研判依據",
+        "以證券投資顧問事業名義，舉辦證券投資分析活動、製作書面或電子文件",
+        "為推廣業務所製發之書面文件列明公司登記名稱、地址、電話及營業執照字號"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 39
+      }
+    },
+    {
+      "id": "investment-1140914-1-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不屬於工業銀行的特質？",
+      "options": [
+        "以中長期授信為主",
+        "資本額必須達到200 億元",
+        "無法發行金融債券",
+        "主要在提供工業信用"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 40
+      }
+    },
+    {
+      "id": "investment-1140914-1-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是金融消費者保護法所定義之金融服務業？",
+      "options": [
+        "期貨交易所",
+        "證券業",
+        "證券櫃檯買賣中心",
+        "證券集中保管事業"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 41
+      }
+    },
+    {
+      "id": "investment-1140914-1-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託契約終止時，清算人應於主管機關核准清算後幾個月內，完成證券投資信託基金之清算， 並將清算後之餘額，依受益權單位數之比率分派予各受益人？",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 42
+      }
+    },
+    {
+      "id": "investment-1140914-1-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資人可在集中市場買賣某上市公司股票，該市場將是屬於何種類型？",
+      "options": [
+        "初級市場",
+        "發行市場",
+        "次級市場",
+        "店頭市場"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 43
+      }
+    },
+    {
+      "id": "investment-1140914-1-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列哪一項投資標的不是全權委託型與非全權委託型投資型保險資金均可進行投資之運用範圍？",
+      "options": [
+        "銀行存款",
+        "公債",
+        "金融債券",
+        "本國無擔保公司債"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 44
+      }
+    },
+    {
+      "id": "investment-1140914-1-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何項事由不必經受益人會議決議？",
+      "options": [
+        "更換基金保管機構",
+        "僅為受益人自身利益之行為",
+        "終止證券投資信託契約",
+        "調增證券投資信託事業或基金保管機構之經理或保管費用"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 45
+      }
+    },
+    {
+      "id": "investment-1140914-1-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託事業、總代理人及基金銷售機構從事基金業務之宣導推廣活動時，得在不與基金申購結 合之前提下，提供贈品鼓勵投資人索取基金相關資料，下列與贈品活動有關之敘述何者錯誤？",
+      "options": [
+        "贈品活動不得變相誘導投資人購買基金",
+        "贈品單一成本價格上限為新臺幣200 元",
+        "贈品不得累積金額以換取其他贈品或辦理抽獎活動",
+        "金融商品得作為贈品"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 46
+      }
+    },
+    {
+      "id": "investment-1140914-1-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設胡小姐選擇購買10,000 美元之指數年金，契約期間5 年，當時之S&P500 指數為800 點，之後每 週年之S&P500 指數分別為1000 點、1200 點、1400 點、1500 點、契約到期時之指數為1400 點，若指 數連動利率採「高標法」、差額（margin）5%，則契約到期時胡小姐可獲多少美元之利息？",
+      "options": [
+        "4,250",
+        "6,750",
+        "8,250",
+        "7,000"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 47
+      }
+    },
+    {
+      "id": "investment-1140914-1-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資事業、總代理人及基金銷售機構從事基金之廣告、公開說明會及其他營業促銷活動時，不得 有下列何種行為？",
+      "options": [
+        "藉金管會對該基金之核准或申報生效，作為證實申請（報）事項或保證基金價值之宣傳",
+        "提供贈品、或定存加碼、貸款減碼等金融性產品或以其他利益或方式等，勸誘他人購買基金。但金 管會另有規定者，不在此限",
+        "為虛偽、詐欺或其他足致他人誤信之行為",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 48
+      }
+    },
+    {
+      "id": "investment-1140914-1-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對證券經紀商的敘述，何者正確？",
+      "options": [
+        "指從事有價證券買賣之行紀、居間、代理及其他經主管機關核准之相關業務",
+        "不接受客戶委託買賣",
+        "經營有價證券之自行買賣",
+        "以自有資金進行有價證券的交易，因此負有較高的風險"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 49
+      }
+    },
+    {
+      "id": "investment-1140914-1-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行業務綜合化不會產生那一項結果？",
+      "options": [
+        "綜合銀行可以充分利用經由放款等業務所取得客戶的內部訊息",
+        "綜合銀行各部門經營可能會產生利益衝突",
+        "綜合銀行可以將風險分散在各項業務之中",
+        "綜合銀行的經營風險將更小，監理工作也更加容易"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第一節",
+        "number": 50
+      }
+    },
+    {
+      "id": "investment-1140914-2-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "中央銀行提高存款準備率，股價通常會：",
+      "options": [
+        "上揚",
+        "下跌",
+        "無關",
+        "不一定"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 1
+      }
+    },
+    {
+      "id": "investment-1140914-2-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "目前我國所編製的景氣對策信號，由景氣衰退至景氣過熱依序共分那些燈號：",
+      "options": [
+        "藍、綠、紅",
+        "藍、黃藍、綠、黃紅、紅",
+        "紅、綠、藍",
+        "紅、黃紅、綠、黃藍、藍"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 2
+      }
+    },
+    {
+      "id": "investment-1140914-2-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "目前台灣證券市場上所見到的共同基金，其組成的方式大多屬於：",
+      "options": [
+        "債券基金",
+        "公司型基金",
+        "契約型基金",
+        "股票基金"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 3
+      }
+    },
+    {
+      "id": "investment-1140914-2-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "請問何種基金風險收益等級是以追求穩定收益為目標：",
+      "options": [
+        "RR1、RR2",
+        "RR2、RR3",
+        "RR4",
+        "RR5"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 4
+      }
+    },
+    {
+      "id": "investment-1140914-2-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對零息債券（Zero Coupon Bond）的敘述何者正確？",
+      "options": [
+        "投資人需要擔心再投資風險",
+        "零息債券持有到期滿的報酬率是隨市場利率而變動",
+        "零息債券不可訂有贖回條款（call provisions），故發行機構不可提前贖回",
+        "零息債券提供給投資人的報酬屬於資本利得（面額減掉售價）"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 5
+      }
+    },
+    {
+      "id": "investment-1140914-2-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金在操作上可做多、放空？(A)避險基金(B)指數股票型基金(C)組合型基金(D)保本型基金",
+      "options": [
+        "A、C",
+        "B、D",
+        "C、D",
+        "A、B"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 6
+      }
+    },
+    {
+      "id": "investment-1140914-2-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資零息債券（Zero Coupon Bond）的報酬為何？",
+      "options": [
+        "票面利息與再投資收入",
+        "票面利息",
+        "票面利息與資本利得",
+        "資本利得"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 7
+      }
+    },
+    {
+      "id": "investment-1140914-2-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於債券價格與到期日的關係（假設殖利率不變下），下列何者錯誤？",
+      "options": [
+        "當債券折價發行時，隨著債券到期日逐漸逼近，債券價格漸漸上升，直到債券到期時，債券價格會 等於面額",
+        "當債券溢價發行時，隨著債券到期日逐漸逼近，債券價格漸漸下降，直到債券到期時，債券價格會 等於面額",
+        "當債券依面額發行時，隨著債券到期日逐漸逼近，債券價格不會變動，一直維持在面額水準",
+        "當債券溢價發行時，隨著債券到期日逐漸逼近，債券價格漸漸上升，直到債券到期時，債券價格會 等於面額"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 8
+      }
+    },
+    {
+      "id": "investment-1140914-2-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金屬於RR2 風險收益等級：",
+      "options": [
+        "已開發國家政府公債債券型基金",
+        "已開發國家單一股票基金",
+        "貨幣型基金",
+        "非投資級之已開發國家公司債券基金"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 9
+      }
+    },
+    {
+      "id": "investment-1140914-2-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是本益比法的缺點？",
+      "options": [
+        "合理本益比的高低標準沒有一致性答案，常有爭議",
+        "當盈餘為負數時，本益比模式沒有意義",
+        "若盈餘很小時，本益比算出來可能很高",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 10
+      }
+    },
+    {
+      "id": "investment-1140914-2-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關公司債的敘述，何者為正確？",
+      "options": [
+        "可到期償付本金，或是到期日前分期償付本金",
+        "債權人不能要求公司設立償債基金或是流動比率的限制",
+        "付息方式僅可採1 年1 次",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 11
+      }
+    },
+    {
+      "id": "investment-1140914-2-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "隨著投資的證券種類的增加，投資組合的平均風險會：",
+      "options": [
+        "越來越高",
+        "起伏不定",
+        "越來越低",
+        "維持不變"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 12
+      }
+    },
+    {
+      "id": "investment-1140914-2-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "股利折現評價模式的實用性受到限制是因：",
+      "options": [
+        "股利水準很難預測",
+        "股利成長率很難預測",
+        "配發股票股利時無法適用",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 13
+      }
+    },
+    {
+      "id": "investment-1140914-2-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銀行為籌集短期資金所發行之證券，在到期日前，持有者可將其出售或轉讓，而在到期日時，銀行會 償還本金及利息者稱為：",
+      "options": [
+        "銀行承兌匯票",
+        "商業本票",
+        "可轉讓定期存單",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 14
+      }
+    },
+    {
+      "id": "investment-1140914-2-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金之風險最低？",
+      "options": [
+        "產業類股型基金",
+        "已開發國家政府公債債券型基金",
+        "新興市場債券基金",
+        "已開發國家之區域型股票基金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 15
+      }
+    },
+    {
+      "id": "investment-1140914-2-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非投資債券報酬的來源？",
+      "options": [
+        "資本利得",
+        "票面利息",
+        "業外收入",
+        "再投資收入"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 16
+      }
+    },
+    {
+      "id": "investment-1140914-2-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "所謂高風險高報酬，一般情形下若投資風險較高的股票時，下列敘述何者錯誤？",
+      "options": [
+        "期望報酬率較高",
+        "長期而言平均的報酬率較高",
+        "有可能損失很大",
+        "保證獲利較高"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 17
+      }
+    },
+    {
+      "id": "investment-1140914-2-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設證券A 的期望報酬率等於17%，市場投資組合的期望報酬率等於12%，證券A 的貝他係數等於 1.6，請問根據資本資產定價模型（CAPM），無風險利率等於：",
+      "options": [
+        "3.67%",
+        "4%",
+        "8%",
+        "10.67%"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 18
+      }
+    },
+    {
+      "id": "investment-1140914-2-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "2 年期，面額為1 萬元的零息公債，市價為9,612 元，求其報酬率（殖利率）為多少？（假設每年計息 1 次）",
+      "options": [
+        "4%",
+        "3%",
+        "2%",
+        "1%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 19
+      }
+    },
+    {
+      "id": "investment-1140914-2-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關期貨契約與遠期契約的比較，何者為真？",
+      "options": [
+        "期貨契約的內容並不是標準化，遠期契約則是標準化格式",
+        "期貨契約的信用風險較遠期契約低",
+        "期貨契約與遠期契約都是每天結算",
+        "期貨契約不需繳保證金，遠期契約需要繳保證金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 20
+      }
+    },
+    {
+      "id": "investment-1140914-2-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當利率為2%，10 年後的10,000 元，目前現值等於多少？（假設1 年複利1 次）",
+      "options": [
+        "7,903 元",
+        "5,242 元",
+        "8,982 元",
+        "8,203 元"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 21
+      }
+    },
+    {
+      "id": "investment-1140914-2-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資者對於承擔風險所要求的額外報酬稱為？",
+      "options": [
+        "風險預期",
+        "效率前緣",
+        "風險溢酬",
+        "效率報酬"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 22
+      }
+    },
+    {
+      "id": "investment-1140914-2-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "根據債券評價公式，在其他條件不變下，何種情況下，債券的價格會較高？",
+      "options": [
+        "票面利率越低",
+        "每年付息的次數越少",
+        "殖利率越低",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 23
+      }
+    },
+    {
+      "id": "investment-1140914-2-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "對公司而言，發行下列何種證券較不會有破產的風險？",
+      "options": [
+        "短期票券",
+        "公司債",
+        "股票",
+        "可轉換公司債"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 24
+      }
+    },
+    {
+      "id": "investment-1140914-2-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "所謂本益比是指：",
+      "options": [
+        "每股股價除以每股營業收入",
+        "每股股價除以每股股利",
+        "每股股價除以每股現金股利",
+        "每股股價除以每股盈餘"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 25
+      }
+    },
+    {
+      "id": "investment-1140914-2-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關普通股股票股利的敘述，何者為真？(A)為有償配股(B)又稱為盈餘配股(C)又稱為公積配股",
+      "options": [
+        "A 與B",
+        "B 與C",
+        "A 與C",
+        "A、B 與C"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 26
+      }
+    },
+    {
+      "id": "investment-1140914-2-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "公司債的市價主要受到下列何者之影響：",
+      "options": [
+        "市場利率",
+        "票面利率",
+        "銀行短期活存利率",
+        "銀行長期活存利率"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 27
+      }
+    },
+    {
+      "id": "investment-1140914-2-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者為半固定型收益？",
+      "options": [
+        "公司債利息",
+        "累積參加之特別股的股息",
+        "普通股的股息",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 28
+      }
+    },
+    {
+      "id": "investment-1140914-2-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "政府發行的公債，其價值隨市場利率下降而：",
+      "options": [
+        "增加",
+        "減少",
+        "不變",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 29
+      }
+    },
+    {
+      "id": "investment-1140914-2-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以下何者是用來衡量兩證券報酬率波動間的關係？",
+      "options": [
+        "變異數",
+        "標準差",
+        "相關係數",
+        "變異係數"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 30
+      }
+    },
+    {
+      "id": "investment-1140914-2-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資定義之敘述何者正確？(A)經濟學上的投資係指為了獲得證券投資上之利益所做的支出 (B)經濟學上的投資係指直接的投資(C)經濟學上的投資是屬於廣義的投資(D)投資學上的投資係指為了 資本形成所做的支出",
+      "options": [
+        "A、C",
+        "B、D",
+        "B、C",
+        "A、D"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 31
+      }
+    },
+    {
+      "id": "investment-1140914-2-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關評估共同基金表現的敘述，何者為真？(A)避免跨類比較(B)可以忽略除息因素(C)計算封閉式 基金的淨值可以反映實際報酬",
+      "options": [
+        "A 與B",
+        "B 與C",
+        "A 與C",
+        "以上皆非"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 32
+      }
+    },
+    {
+      "id": "investment-1140914-2-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在資本市場中，目前證券價格已經完全充分反映所有可取得的資訊，而且現行股價與真正的價值相差 無幾，稱這市場是：",
+      "options": [
+        "效果性",
+        "效率性",
+        "充分揭露性",
+        "穩健性"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 33
+      }
+    },
+    {
+      "id": "investment-1140914-2-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列那一評價模式，不屬於市場比較法之評價：",
+      "options": [
+        "本益比評價模式",
+        "本利比評價模式",
+        "市價淨值比評價模式",
+        "股利折現評價模式"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 34
+      }
+    },
+    {
+      "id": "investment-1140914-2-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資人應注意基金風險收益等級僅供參考，投資共同基金須考慮下列何種因素：",
+      "options": [
+        "國際金融情勢",
+        "個人風險承擔能力",
+        "個人資金可運用期間之長短",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 35
+      }
+    },
+    {
+      "id": "investment-1140914-2-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資債券所獲得的實際報酬率無法彌補通貨膨脹所引起的購買力降低，是屬投資債券的何種風險：",
+      "options": [
+        "利率風險",
+        "違約風險",
+        "通貨膨脹風險",
+        "流動性風險"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 36
+      }
+    },
+    {
+      "id": "investment-1140914-2-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是屬於歐式選擇權？",
+      "options": [
+        "在台灣證券交易所交易的認售權證",
+        "在台灣證券交易所交易的認購權證",
+        "我國股票選擇權",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 37
+      }
+    },
+    {
+      "id": "investment-1140914-2-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者並非資本市場之投資工具：",
+      "options": [
+        "可轉讓定期存單",
+        "公司債",
+        "普通股",
+        "政府債券"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 38
+      }
+    },
+    {
+      "id": "investment-1140914-2-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列交易何者須繳保證金？(A)買期貨(B)買選擇權(C)融券賣出股票",
+      "options": [
+        "A",
+        "A、C",
+        "B、C",
+        "A、B、C 均對"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 39
+      }
+    },
+    {
+      "id": "investment-1140914-2-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在CAPM 模式中，若無風險利率下降5%，則證券市場線之截距應？",
+      "options": [
+        "平行下移2.5%",
+        "平行上移2.5%",
+        "平行下移5%",
+        "平行上移5%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 40
+      }
+    },
+    {
+      "id": "investment-1140914-2-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關公司債與普通股的比較，何者有誤？",
+      "options": [
+        "公司債有到期日，普通股沒有",
+        "公司債與股票均有其面額",
+        "公司債的債權人與普通股均有投票權",
+        "公司債屬於公司的債務，普通股可表彰公司的所有權"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 41
+      }
+    },
+    {
+      "id": "investment-1140914-2-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "甲公司每年支付2 元現金股利，假設該公司永續經營但並無成長性，如果市場認為要求報酬率為6.6%， 試問該公司之合理股價為多少？",
+      "options": [
+        "25.5 元",
+        "28.8 元",
+        "30.3 元",
+        "33.3 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 42
+      }
+    },
+    {
+      "id": "investment-1140914-2-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "發行公司有權利在債券到期日前，依其條件及約定價格提前贖回稱為：",
+      "options": [
+        "可賣回債券",
+        "國庫券",
+        "垃圾債券",
+        "可贖回債券"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 43
+      }
+    },
+    {
+      "id": "investment-1140914-2-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "貝他係數大於1 的證券或投資組合，其投資報酬率的變動與市場投資組合報酬率的變動，平均來說會：",
+      "options": [
+        "同向，但幅度較小",
+        "同向，且幅度更大",
+        "反向，且幅度更大",
+        "反向，但幅度較小"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 44
+      }
+    },
+    {
+      "id": "investment-1140914-2-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關保本型債券特性，下列敘述何者正確：",
+      "options": [
+        "「看空型」保本型債券可鎖定下方風險",
+        "選擇權部位方面，投資人是賣方",
+        "可拆解為零息債券與賣出選擇權之組合",
+        "若按面額發行，在相同到期日之下，保本率越高，參與率越低"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 45
+      }
+    },
+    {
+      "id": "investment-1140914-2-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "變異係數愈大表示單位暴露風險：",
+      "options": [
+        "愈大",
+        "愈小",
+        "一樣",
+        "無法判斷"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 46
+      }
+    },
+    {
+      "id": "investment-1140914-2-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設A 公司之每股淨值為12 元，而合理市價淨值比為4.5 倍，請問該公司股票股價低於何者，即可建 議投資？",
+      "options": [
+        "57 元",
+        "55 元",
+        "54 元",
+        "56 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 47
+      }
+    },
+    {
+      "id": "investment-1140914-2-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資於股票的報酬率等於：",
+      "options": [
+        "1+（資本利得／投資金額）",
+        "股利所得／投資金額",
+        "1-（資本利得+股利所得）／投資金額",
+        "（資本利得+股利所得）／投資金額"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 48
+      }
+    },
+    {
+      "id": "investment-1140914-2-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列事件何者為非系統風險？",
+      "options": [
+        "通貨膨脹率變動",
+        "政府首長更替",
+        "新臺幣匯率變動",
+        "新產品研發"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 49
+      }
+    },
+    {
+      "id": "investment-1140914-2-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是影響公司債評等的因素？",
+      "options": [
+        "公司本身的盈餘水準及穩定性",
+        "公司會計政策是否保守",
+        "負債比率",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 50
+      }
+    },
+    {
+      "id": "investment-1140914-2-51",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當股價大幅上漲時，下列何種選擇權交易策略損失最大：",
+      "options": [
+        "買進買權",
+        "賣出買權",
+        "買進賣權",
+        "賣出賣權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 51
+      }
+    },
+    {
+      "id": "investment-1140914-2-52",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者對企業債信評等有正面影響？",
+      "options": [
+        "債券發行公司提供保證條款",
+        "債券到期時間愈長",
+        "公司可能遭反托拉斯法的控訴",
+        "應付員工的退休金較高"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 52
+      }
+    },
+    {
+      "id": "investment-1140914-2-53",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關認股權證與選擇權差異的敘述，何者為真？(A)發行單位不同(B)期限不同(C)履約價格不同",
+      "options": [
+        "僅A",
+        "B、C",
+        "A、C",
+        "A、B、C"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 53
+      }
+    },
+    {
+      "id": "investment-1140914-2-54",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者為軟性期貨？(A)黃豆(B)咖啡(C)可可",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 54
+      }
+    },
+    {
+      "id": "investment-1140914-2-55",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在公平的賭局中，小王將10,000 元賭金一次下注，小林則將10,000 元賭金分10 次下注，誰的總期望 投資報酬率較高？",
+      "options": [
+        "小王",
+        "小林",
+        "一樣",
+        "不一定"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 55
+      }
+    },
+    {
+      "id": "investment-1140914-2-56",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關選擇權之敘述，下列何者錯誤：",
+      "options": [
+        "就賣權而言，當履約價格小於標的物價格時，內含價值為零",
+        "當標的物價格越高時，買權價格越高",
+        "買權之買方預期未來行情看漲",
+        "美式選擇權之買方只能到期日當天履約"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 56
+      }
+    },
+    {
+      "id": "investment-1140914-2-57",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "中華民國銀行公會針對基金之價格波動風險程度，依基金投資標的風險屬性和投資地區市場風險狀況， 編制為幾個風險收益等級？",
+      "options": [
+        "8",
+        "7",
+        "6",
+        "5"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 57
+      }
+    },
+    {
+      "id": "investment-1140914-2-58",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "將多種投資標的集合起來，避免風險過度集中於單一投資標的，以達風險分散之目的，是為：",
+      "options": [
+        "投資學",
+        "投資組合",
+        "投資信託",
+        "避險基金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 58
+      }
+    },
+    {
+      "id": "investment-1140914-2-59",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "第一類商業本票又稱為？",
+      "options": [
+        "交易性商業本票",
+        "自償性商業本票",
+        "以上皆是",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 59
+      }
+    },
+    {
+      "id": "investment-1140914-2-60",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關債券評等之敘述何者錯誤？",
+      "options": [
+        "債信等級越高，代表違約的風險愈低，因此投資人能要求的報酬率就愈低",
+        "S&P 公司的債信評等等級在BB 以上（含）為投資等級，以下則為投機等級（如垃圾債券）",
+        "Moody's 公司債信評等等級在Baa 以上（含）為投資等級，以下則為投機等級（如垃圾債券）",
+        "其他條件相同下，債券發行公司的流動比率越高，債信評等越佳"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 60
+      }
+    },
+    {
+      "id": "investment-1140914-2-61",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "資本資產定價模型（CAPM）中，對金錢的時間價值的補償等於：",
+      "options": [
+        "無風險利率",
+        "市場投資組合的報酬率",
+        "證券本身的報酬率",
+        "證券的風險溢酬"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 61
+      }
+    },
+    {
+      "id": "investment-1140914-2-62",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是廠商取得長期性資金的管道：",
+      "options": [
+        "發行商業本票",
+        "辦理現金增資",
+        "發行金融債券",
+        "以上皆是"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 62
+      }
+    },
+    {
+      "id": "investment-1140914-2-63",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "描述期望報酬率與系統風險之間的關係直線，稱為？",
+      "options": [
+        "臨界線",
+        "資本市場線",
+        "證券市場線",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 63
+      }
+    },
+    {
+      "id": "investment-1140914-2-64",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依股利折現模式評價時，其他情況不變，降低股票的要求報酬率，將造成股票真實價值：",
+      "options": [
+        "增加",
+        "減少",
+        "不變",
+        "可能增加或減少"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 64
+      }
+    },
+    {
+      "id": "investment-1140914-2-65",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以下何者是債券投資時需要面臨的風險？",
+      "options": [
+        "利率風險",
+        "違約風險",
+        "購買力風險",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 65
+      }
+    },
+    {
+      "id": "investment-1140914-2-66",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列影響股價之項目中，那一項不屬於總體經濟因素？",
+      "options": [
+        "利率",
+        "物價",
+        "匯率",
+        "公司接單情形"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 66
+      }
+    },
+    {
+      "id": "investment-1140914-2-67",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於時間不變性投資組合保險策略（TIPP）的敘述，下列何者正確：",
+      "options": [
+        "可讓投資人依據自己對報酬的偏好程度與風險承擔能力來設定參數",
+        "風險下限為固定值",
+        "它是一種「買低賣高」的投資組合調整策略",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 67
+      }
+    },
+    {
+      "id": "investment-1140914-2-68",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若證券價格不但反映歷史資料與現有公開資訊，也充分反映所有相關的未公開消息（或稱私有資訊）， 則稱為：",
+      "options": [
+        "很強式效率市場",
+        "強式效率市場",
+        "半強式效率市場",
+        "弱式效率市場"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 68
+      }
+    },
+    {
+      "id": "investment-1140914-2-69",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關共同基金配息的敘述何者正確？(A)配息當日，投資人真正增加獲利(B)配息越多，資產就減損 得越多(C)成長型基金1 年頂多配息1 次",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "A、B、C"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 69
+      }
+    },
+    {
+      "id": "investment-1140914-2-70",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資債券的利率風險又稱為：",
+      "options": [
+        "再投資風險",
+        "價格風險",
+        "信用風險",
+        "流動性風險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 70
+      }
+    },
+    {
+      "id": "investment-1140914-2-71",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當景氣對策信號由綠燈轉為黃紅燈時，代表景氣將由：",
+      "options": [
+        "穩定轉為微熱",
+        "衰退轉為穩定",
+        "穩定轉為衰退",
+        "微熱轉為過熱"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 71
+      }
+    },
+    {
+      "id": "investment-1140914-2-72",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於基金風險收益等級與主要基金類型的關聯，下列敘述何者正確：",
+      "options": [
+        "股票型基金屬於RR1 等級",
+        "債券型基金屬於RR5 等級",
+        "平衡型基金屬於RR3 等級",
+        "貨幣型基金屬於RR2 等級"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 72
+      }
+    },
+    {
+      "id": "investment-1140914-2-73",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "對於部分擁有大量資產的公司（這類股票俗稱資產股），下列何種模式是比較有用的評價方法：",
+      "options": [
+        "本益比評價模式",
+        "資產負債表重估法",
+        "本利比評價模式",
+        "股利折現評價模式"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 73
+      }
+    },
+    {
+      "id": "investment-1140914-2-74",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一零息公債之到期殖利率為4%，面額為1,000 元，如果此債券4 年到期，目前之價格應為？",
+      "options": [
+        "924.6 元",
+        "889.00 元",
+        "854.8 元",
+        "821.9 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 74
+      }
+    },
+    {
+      "id": "investment-1140914-2-75",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "變異係數的定義是：",
+      "options": [
+        "預期報酬率／標準差",
+        "標準差／預期報酬率",
+        "變異數／預期報酬率",
+        "相關係數／預期報酬率"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 75
+      }
+    },
+    {
+      "id": "investment-1140914-2-76",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者屬於在資本市場中交易的證券？(A)附買回交易(B)可轉讓定期存單(C)政府債券(D)公司債",
+      "options": [
+        "A、B",
+        "C、D",
+        "A、B、C",
+        "B、C、D"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 76
+      }
+    },
+    {
+      "id": "investment-1140914-2-77",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設某一履約價格為37 元之股票選擇權買權，該買權權利金目前報價為10 元，同時該股票價格為40 元，請問該買權之時間價值為多少元？",
+      "options": [
+        "0 元",
+        "3 元",
+        "7 元",
+        "10 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 77
+      }
+    },
+    {
+      "id": "investment-1140914-2-78",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關選擇權特性之敘述，何者「錯誤」？",
+      "options": [
+        "買權的賣方是賣出選擇權並收取權利金",
+        "買權的賣方之獲利有限，但損失無限",
+        "賣權的買方是買進選擇權並支付權利金",
+        "賣權的買方有賣出標的資產之義務"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 78
+      }
+    },
+    {
+      "id": "investment-1140914-2-79",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "既然投資人（應）只關心市場風險，下列何者比較能適當地衡量股票的風險？(A)股票的貝他係數(B)市 場指數報酬率的標準差(C)股票投資報酬率與市場指數投資報酬率的差異(D)資產投資報酬率對市場的 敏感度",
+      "options": [
+        "A 與B",
+        "B 與C",
+        "C 與D",
+        "A 與D"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 79
+      }
+    },
+    {
+      "id": "investment-1140914-2-80",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在某段期間內，甲基金的報酬率為30%，標準差為15%；乙基金的報酬率為25%，標準差為10%，則 下列敘述何者正確？(A)甲基金的報酬優於乙基金(B)甲基金的風險大於乙基金(C)甲基金的單位風險報 酬率大於乙基金",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 80
+      }
+    },
+    {
+      "id": "investment-1140914-2-81",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何指標是分析景氣循環之主要依據？",
+      "options": [
+        "消費者物價指數",
+        "海關出口值",
+        "經濟成長率",
+        "工業生產值"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 81
+      }
+    },
+    {
+      "id": "investment-1140914-2-82",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "選擇權交易，那一方須付權利金？",
+      "options": [
+        "買方",
+        "賣方",
+        "買賣雙方",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 82
+      }
+    },
+    {
+      "id": "investment-1140914-2-83",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於共同基金與避險基金的比較，下列何者正確？",
+      "options": [
+        "共同基金的避險功能較強",
+        "避險基金的經理人不可以自行決定其投資策略",
+        "共同基金的經理人除管理費之外，可依獲利情形收取績效獎金",
+        "避險基金的變現性較差"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 83
+      }
+    },
+    {
+      "id": "investment-1140914-2-84",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於股利固定成長模式，下列何者錯誤？",
+      "options": [
+        "本模型又稱為：高登模式",
+        "當成長率（g）=0，將等於股利零成長模式",
+        "本模型的限制：必要報酬率（r）小於成長率（g）",
+        "高成長，高股價"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 84
+      }
+    },
+    {
+      "id": "investment-1140914-2-85",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一般開放型基金用來表示其資產價值，以及用來當作績效衡量或投資人申購或贖回之依據的是：",
+      "options": [
+        "基金市價",
+        "基金股本",
+        "基金淨值",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 85
+      }
+    },
+    {
+      "id": "investment-1140914-2-86",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當購買債券後一直持有至到期日，而預期獲得的報酬率稱為？",
+      "options": [
+        "贖回收益率",
+        "當期收益率（current yield）",
+        "到期殖利率（yield to maturity）",
+        "資本利得收益率"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 86
+      }
+    },
+    {
+      "id": "investment-1140914-2-87",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資人進行投資組合調整，常利用固定時間調整法。下列關於固定時間調整法之敘述，何者錯誤？",
+      "options": [
+        "調整越頻繁，越能降低投資組合價值之實際值與目標值間的誤差",
+        "當投資組合價值大幅變動的時候，投資組合價值之實際值會與目標值差距縮小",
+        "簡單易懂，且可以養成投資紀律",
+        "調整越頻繁，交易成本越高"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 87
+      }
+    },
+    {
+      "id": "investment-1140914-2-88",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "發行公司債產生折價現象的原因是：",
+      "options": [
+        "票面利率等於市場利率",
+        "票面利率低於市場利率",
+        "債券的持續時間過長",
+        "債券的利息低於股票報酬"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 88
+      }
+    },
+    {
+      "id": "investment-1140914-2-89",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設證券A 的期望報酬率等於10%，無風險利率等於5%，市場投資組合的期望報酬率等於12%，請 問根據資本資產定價模型（CAPM），證券A 的貝他係數等於：",
+      "options": [
+        "1.56",
+        "1.21",
+        "0.83",
+        "0.71"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 89
+      }
+    },
+    {
+      "id": "investment-1140914-2-90",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一般而言，當新臺幣貶值時，依賴進口原料的產業股價會：",
+      "options": [
+        "下跌",
+        "上漲",
+        "不一定上漲或下跌",
+        "先跌後漲"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 90
+      }
+    },
+    {
+      "id": "investment-1140914-2-91",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資者進行短期票券附條件交易將：",
+      "options": [
+        "產生資本利得",
+        "蒙受價格風險",
+        "得到利息收入",
+        "有公債利息收入"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 91
+      }
+    },
+    {
+      "id": "investment-1140914-2-92",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對有價證券系統風險的敘述何者正確？",
+      "options": [
+        "公司經理人的決策影響系統風險的大小",
+        "可以透過有價證券收益的標準差來衡量系統風險",
+        "系統風險無法透過分散投資而消除",
+        "在景氣復甦時，系統風險會較高"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 92
+      }
+    },
+    {
+      "id": "investment-1140914-2-93",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關封閉型基金的敘述，何者有誤？",
+      "options": [
+        "不可以贖回",
+        "在集中市場交易",
+        "國內大部分基金都是封閉型",
+        "市價常與淨值不同"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 93
+      }
+    },
+    {
+      "id": "investment-1140914-2-94",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非中央銀行降低貨幣供給的工具？",
+      "options": [
+        "調升重貼現率",
+        "提高法定存款準備率",
+        "賣出債券",
+        "買入新臺幣、賣出美元"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 94
+      }
+    },
+    {
+      "id": "investment-1140914-2-95",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有一股利零成長的股票，剛發行5 元股利，要求報酬率為0.15，下1 年的股利為多少元？",
+      "options": [
+        "5.5 元",
+        "5.75 元",
+        "5 元",
+        "6 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 95
+      }
+    },
+    {
+      "id": "investment-1140914-2-96",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設你以每股100 元買入A 公司股票，並分配到每股5 元的現金股利，3 個月後以每股130 元賣出股 票，則你的投資報酬率為多少？",
+      "options": [
+        "30%",
+        "20%",
+        "35%",
+        "25%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 96
+      }
+    },
+    {
+      "id": "investment-1140914-2-97",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "根據資本資產定價模型（CAPM），如果無風險利率為3%，C 公司的期望報酬率為10%。若無風險利 率下降為2%，其他條件不變下，請問該公司的期望報酬率：",
+      "options": [
+        "上升1%",
+        "上升2%",
+        "下降1%",
+        "下降2%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 97
+      }
+    },
+    {
+      "id": "investment-1140914-2-98",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "期貨交易成立時，投資人必須支付何種保證金？",
+      "options": [
+        "原始保證金",
+        "維持保證金",
+        "變動保證金",
+        "結算保證金"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 98
+      }
+    },
+    {
+      "id": "investment-1140914-2-99",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "參加特別股指的是可參加：",
+      "options": [
+        "超額盈餘分配的特別股",
+        "董監事選舉投票的特別股",
+        "股東大會議案表決的特別股",
+        "現金增資認股的特別股"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 99
+      }
+    },
+    {
+      "id": "investment-1140914-2-100",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "影響證券選擇的因素，一般的考量有：",
+      "options": [
+        "市場性",
+        "流動性",
+        "風險性",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "114/09/14",
+        "subject": "第二節",
+        "number": 100
+      }
+    },
+    {
+      "id": "investment-1150111-1-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "銷售連結結構型商品之投資型保險時，銷售人員應確定客戶類型，下列何者屬「積極型客戶」之定義？",
+      "options": [
+        "個別保單躉繳保費達新臺幣60 萬元",
+        "個別保單躉繳保費達新臺幣80 萬元",
+        "年繳化保費達3 萬元",
+        "年繳化保費達6 萬元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 1
+      }
+    },
+    {
+      "id": "investment-1150111-1-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關投資型保險商品的敘述，下列何者錯誤？",
+      "options": [
+        "指由消費者承擔投資風險的保險商品",
+        "美國常見的此類商品包括變額壽險及萬能壽險",
+        "商品設計結合保險與基金、債券等投資理財工具",
+        "不提供保證利率及最低保單帳戶價值"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 2
+      }
+    },
+    {
+      "id": "investment-1150111-1-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保戶採定期定額方式交付投資型保險之保險費，有何優點之處？",
+      "options": [
+        "持有成本攤平",
+        "增加投資收益",
+        "享受增值利益",
+        "規避信用風險"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 3
+      }
+    },
+    {
+      "id": "investment-1150111-1-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "所謂附保證給付投資型保險商品，是將原由保戶所承擔的何種風險轉由公司負責？",
+      "options": [
+        "匯率風險",
+        "信用風險",
+        "投資風險",
+        "解約風險"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 4
+      }
+    },
+    {
+      "id": "investment-1150111-1-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對公司組織的說明，何者錯誤？",
+      "options": [
+        "保險業之組織以股份有限公司或相互保險公司為限",
+        "銀行為法人，其組織除法律另有規定或銀行法修正施行前經專案核准者外，以股份有限公司為限",
+        "票券金融公司須為股份有限公司",
+        "證券商須為股份有限公司"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 5
+      }
+    },
+    {
+      "id": "investment-1150111-1-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "壽險顧問假借投資商品或退休金商品之名而行販售保險之實，稱為：",
+      "options": [
+        "揩油行銷",
+        "不當的將保單置換",
+        "掩護行銷",
+        "保單費用說明不詳盡"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 6
+      }
+    },
+    {
+      "id": "investment-1150111-1-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "隨時間經過甲（A）型投資型保險商品之淨危險保障部分會有何現象？",
+      "options": [
+        "維持不變",
+        "持續上升",
+        "遞減現象",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 7
+      }
+    },
+    {
+      "id": "investment-1150111-1-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列那一機構依規定應分區經營，在同一地區內以設立一家為原則？",
+      "options": [
+        "國民銀行",
+        "不動產信用銀行",
+        "商業銀行",
+        "工業銀行"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 8
+      }
+    },
+    {
+      "id": "investment-1150111-1-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若指數年金有設計利息給付不得超過一定額度，此設計稱為何種型態？",
+      "options": [
+        "Level 型",
+        "Cap 型",
+        "Floor 型",
+        "Reset 型"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 9
+      }
+    },
+    {
+      "id": "investment-1150111-1-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對我國工業銀行的資金來源的說明，何者錯誤？",
+      "options": [
+        "收受保險業的存款",
+        "發行金融債券",
+        "收受商業銀行之轉存款",
+        "收受財團法人的存款"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 10
+      }
+    },
+    {
+      "id": "investment-1150111-1-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資型保險商品的推出，保險公司在整體經營理念上應採取何種方式？",
+      "options": [
+        "向客戶提供保險和投資理財綜合性的金融服務",
+        "建立科學的投資決策運作和風險控制系統",
+        "加強成本控制",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 11
+      }
+    },
+    {
+      "id": "investment-1150111-1-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設10,000 美元之指數年金，契約期間5 年、指數連動利率採「點對點法」、參與率90%，購買時之 S&P500 指數為1000 點。在5 年契約期間，若每週年之S&P500 指數分別為900、1000、950、1200， 契約到期時之指數則為1500 點。請問此契約的指數連動利率為多少？",
+      "options": [
+        "18%",
+        "20%",
+        "45%",
+        "50%"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 12
+      }
+    },
+    {
+      "id": "investment-1150111-1-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在與傳統型保險商品比較，下列哪一項是投資型保險商品之優點？",
+      "options": [
+        "利率風險由公司承擔",
+        "保險費繳納有彈性",
+        "可養成儲蓄習慣",
+        "保險給付金額確定"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 13
+      }
+    },
+    {
+      "id": "investment-1150111-1-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列那一種金融商品不屬於衍生性金融商品？",
+      "options": [
+        "銀行承兌匯票",
+        "遠期契約",
+        "選擇權",
+        "金融交換"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 14
+      }
+    },
+    {
+      "id": "investment-1150111-1-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列敘述何者錯誤?",
+      "options": [
+        "被保險人在投資型保險契約期間內，且在保單帳戶價值運用起始日之前死亡，其身故保險金之給付 得低於保險金額",
+        "我國對於投資型保險之投資資產採取特別的監理，使保戶得以免受保險公司一般債權人之追償",
+        "在投資型保險契約中，保險人承擔費用風險",
+        "投資型保險資金單獨設立帳戶，管理透明"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 15
+      }
+    },
+    {
+      "id": "investment-1150111-1-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保戶在契撤期間內撤銷投資型保險契約，保險公司返還金額如何計算？",
+      "options": [
+        "退還保單帳戶價值",
+        "退還保單帳戶價值並扣除行政成本",
+        "無息退還所繳保險費",
+        "退還所繳保險費加計利息"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 16
+      }
+    },
+    {
+      "id": "investment-1150111-1-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "受益人買回受益憑證之價金給付請求權，自價金給付期限屆滿日起，幾年間不行使而消滅？",
+      "options": [
+        "1 年",
+        "5 年",
+        "10 年",
+        "15 年"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 17
+      }
+    },
+    {
+      "id": "investment-1150111-1-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依據證券投資信託及顧問法規定，違反本法第16 條第1 項規定，在中華民國境內從事或代理投資顧問 境外基金，應負下列何項刑責？",
+      "options": [
+        "處1 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金",
+        "處2 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金",
+        "處3 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金",
+        "處5 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 18
+      }
+    },
+    {
+      "id": "investment-1150111-1-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "將不同的資產混合以增加安全性的投資計畫叫做：",
+      "options": [
+        "資本維護",
+        "資產分散",
+        "資本增值",
+        "保存"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 19
+      }
+    },
+    {
+      "id": "investment-1150111-1-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若保戶開立美元帳戶購買美元投資型保險，且投資標的選擇美元計價結構型債券商品，則保戶不會面 臨下列何種風險？",
+      "options": [
+        "價格風險",
+        "贖回風險",
+        "信用風險",
+        "匯率風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 20
+      }
+    },
+    {
+      "id": "investment-1150111-1-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若W 基金在7 月1 日的價值為700,000 元，在外的發行單位數為350,000，某保單所有人在此之前已 擁有50 單位，再加上7 月1 日購進200 單位數，則7 月1 日此保單價值為何？",
+      "options": [
+        "500 元",
+        "750 元",
+        "1,050 元",
+        "1,250 元"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 21
+      }
+    },
+    {
+      "id": "investment-1150111-1-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託及顧問法未規定者，應適用下列何項法律？",
+      "options": [
+        "公司法",
+        "信託法",
+        "證券交易法",
+        "信託業法"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 22
+      }
+    },
+    {
+      "id": "investment-1150111-1-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種金融機構並非屬於存款貨幣機構？",
+      "options": [
+        "中小企業銀行",
+        "信用合作社",
+        "商業銀行",
+        "保險公司"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 23
+      }
+    },
+    {
+      "id": "investment-1150111-1-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者並非變額萬能壽險的特點？",
+      "options": [
+        "保戶可任意選擇調高或降低保額",
+        "保戶自行承擔風險",
+        "保單帳戶價值不會降於零之情況",
+        "亦有分離帳戶與一般帳戶"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 24
+      }
+    },
+    {
+      "id": "investment-1150111-1-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關各公司連結全權委託型投資標的之投資型保險商品審查方式之敘述，何者正確？",
+      "options": [
+        "每一張商品都需經核准",
+        "每一張商品都需經核備",
+        "可直接備查毋須核准",
+        "第一張商品才須核准"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 25
+      }
+    },
+    {
+      "id": "investment-1150111-1-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不是金融消費者保護法所定義之金融服務業？",
+      "options": [
+        "保險業",
+        "電子票證業",
+        "期貨業",
+        "期貨交易所"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 26
+      }
+    },
+    {
+      "id": "investment-1150111-1-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者為貨幣市場的證券？(A)國庫券(B)銀行承兌匯票(C)附條件交易",
+      "options": [
+        "A 與B",
+        "B 與C",
+        "A 與C",
+        "A、B 與C"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 27
+      }
+    },
+    {
+      "id": "investment-1150111-1-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若投資型保險商品保證保戶在10 年提領期間內每年保證可領10%保單帳戶價值，此設計是何種保證給 付商品？",
+      "options": [
+        "GMDB",
+        "GMMB",
+        "GMWB",
+        "GMAB"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 28
+      }
+    },
+    {
+      "id": "investment-1150111-1-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "壽險公司經營投資型保險業務應提存各種準備金，以下何種準備金係置於專設帳簿？",
+      "options": [
+        "未滿期保費準備金",
+        "賠款準備金",
+        "重大事故特別準備金",
+        "以上皆非"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 29
+      }
+    },
+    {
+      "id": "investment-1150111-1-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資型保險商品的敘述，何者正確？",
+      "options": [
+        "投資報酬固定是購買此類商品最主要的考量",
+        "此類商品並不適合消費者短期的財務需求",
+        "不願接受風險的消費者最適合購買此類商品",
+        "以上皆是"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 30
+      }
+    },
+    {
+      "id": "investment-1150111-1-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "胡小姐購買100,000 元之指數年金，契約期間10 年，指數連動率採用『高標法』，參與率100%，購買 當時之指數為2000 點，契約期間指數最高點為3000 點，契約期間指數最低點為1000 點，契約終止日 指數2500 點，則胡小姐在契約終止日可得之利息為？",
+      "options": [
+        "100,000 元x(3000－2000)／2000x100%＝50,000 元",
+        "100,000 元x(2500－2000)／2000x100%＝25,000 元",
+        "100,000 元x(2500－1000)／1000x100%＝150,000 元",
+        "100,000 元x(3000－1000)／1000x100%＝200,000 元"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 31
+      }
+    },
+    {
+      "id": "investment-1150111-1-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依據投資型保險投資管理辦法之規定，保險人應為要保人或受益人之利益管理專設帳簿之資產，保險 人應將專設帳簿之資產交由誰保管？",
+      "options": [
+        "保管機構",
+        "保險公司",
+        "主管機關",
+        "受益人"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 32
+      }
+    },
+    {
+      "id": "investment-1150111-1-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當保戶所選擇投資標的因淨值下跌而遭受投資損失，又稱之何種風險？",
+      "options": [
+        "價格風險",
+        "利率風險",
+        "信用風險",
+        "匯率風險"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 33
+      }
+    },
+    {
+      "id": "investment-1150111-1-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列證券金融事業的業務範圍敘述，何者為非？",
+      "options": [
+        "有價證券買賣之融資融券",
+        "對證券商或其他證券金融事業之轉融通",
+        "現金增資及承銷認股之融資",
+        "接受客戶委託投資業務"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 34
+      }
+    },
+    {
+      "id": "investment-1150111-1-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "中華民國證券投資信託暨顧問商業同業公會投信基金廣告規範要點規定，某基金成立迄今滿4 年，如 欲以基金績效為廣告內容應以何期間之績效為表示？",
+      "options": [
+        "最近1 年之全部績效",
+        "最近2 年之全部績效",
+        "最近3 年之全部績效",
+        "最近4 年之全部績效"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 35
+      }
+    },
+    {
+      "id": "investment-1150111-1-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不是投資型保險商品所帶來的變化？",
+      "options": [
+        "行銷手法方面的轉變",
+        "壽險業經營者之間競爭模式的轉變",
+        "保戶所承擔的風險降低",
+        "培育健康、穩定的消費市場，將成為各家壽險公司面臨的話題"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 36
+      }
+    },
+    {
+      "id": "investment-1150111-1-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "通常那些保險相關費用是直接由保單帳戶價值中每月扣繳之？(A)保單附加費用(B)保險成本(C)保單維 持費(D)經理人管理費",
+      "options": [
+        "A",
+        "B 與C",
+        "A 與B",
+        "B 與D"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 37
+      }
+    },
+    {
+      "id": "investment-1150111-1-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非屬保險人銷售由其全權決定運用標的之投資型保險時，應符合之資格條件？",
+      "options": [
+        "最近一年之自有資本與風險資本之比率符合本法第一百四十三條之四第一項之適足比率",
+        "最近一年內未有遭主管機關重大裁罰及處分者，或受處分情事已獲具體改善經主管機關認可者",
+        "國外投資部分已採用計算風險值評估風險，並每半年至少控管乙次",
+        "董事會中設有風險控管委員會或於公司內部設置風險控管部門及風控長或職務相當之人，並實際負 責公司整體風險控管"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 38
+      }
+    },
+    {
+      "id": "investment-1150111-1-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依據證券投資信託及顧問法規定，證券投資信託事業對於主管機關命令提出之帳簿、表冊、文件或其 他參考或報告資料之內容為虛偽或隱匿之記載，應負下列何項刑責？",
+      "options": [
+        "1 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金",
+        "1 年以上7 年以下有期徒刑，得併科新臺幣5000 萬元以下罰金",
+        "2 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金",
+        "5 年以下有期徒刑、拘役或科或併科新臺幣180 萬元以下罰金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 39
+      }
+    },
+    {
+      "id": "investment-1150111-1-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "人壽保險公司發行壽險保單，將是屬於何種證券？",
+      "options": [
+        "初級證券",
+        "次級證券",
+        "債務憑證",
+        "直接證券"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 40
+      }
+    },
+    {
+      "id": "investment-1150111-1-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保險業從事保險商品銷售招攬廣告（如文宣、廣告、簡介、商品說明書及建議書等），不得出現哪些內 容？(A)勸誘保戶提前解約或贖回(B)故意截取報章雜誌不實之報導作為廣告內容(C)對同業為攻訐、損 害同業或他人營業信譽之廣告(D)冒用或使用相同或近似於他人之註冊商標",
+      "options": [
+        "A、B、C",
+        "A、B、D",
+        "A、C、D",
+        "A、B、C、D"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 41
+      }
+    },
+    {
+      "id": "investment-1150111-1-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資顧問事業對其潛在客戶當面洽談時，不得為下列何種行為？",
+      "options": [
+        "藉證期局核准作為保證全權委託投資資產價值",
+        "提供贈品或其他利益以加強促銷",
+        "保證本金安全無虞",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 42
+      }
+    },
+    {
+      "id": "investment-1150111-1-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列說明何者正確？",
+      "options": [
+        "金融中介機構同時監督許多資金需求者的營業，對節省監督成本可產生範疇經濟",
+        "金融中介機構的業務綜合化可產生規模經濟",
+        "金融中介機構有較強的動機去監督資金需求者的營業，可避免搭便車的問題",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 43
+      }
+    },
+    {
+      "id": "investment-1150111-1-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資保險商品之投資連結標的為結構型商品者，因含有保本特色，廣告內容須如何揭露才符合法令規 定？",
+      "options": [
+        "揭露最高獲利金額",
+        "揭露投資本金安全性",
+        "揭露成就保本之條件",
+        "明顯字體強調保本"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 44
+      }
+    },
+    {
+      "id": "investment-1150111-1-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託基金之清算人應自清算終結申報主管機關之日起，就各項帳簿、表冊保存幾年以上？",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "10"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 45
+      }
+    },
+    {
+      "id": "investment-1150111-1-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "證券投資信託事業運用每一證券投資信託基金，應依金管會規定之格式及內容於每會計年度終了後幾 個月內，編具年度財務報告？",
+      "options": [
+        "1 個月",
+        "2 個月",
+        "3 個月",
+        "6 個月"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 46
+      }
+    },
+    {
+      "id": "investment-1150111-1-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "業務員犯有下列哪一種行為將負起侵占罪之刑事責任？",
+      "options": [
+        "代要保人簽章",
+        "誇大不實之宣傳",
+        "挪用保險費",
+        "擾亂金融秩序"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 47
+      }
+    },
+    {
+      "id": "investment-1150111-1-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "保險人銷售由其全權決定運用標的之投資型保險時，須最近一年公平待客原則評核結果為人身保險業 前百分之多少比率？",
+      "options": [
+        "30%",
+        "80%",
+        "60%",
+        "40%"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 48
+      }
+    },
+    {
+      "id": "investment-1150111-1-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "何種指數年金之指數連動利率計算方式在指數忽高忽低、變動劇烈時之獲利最高？",
+      "options": [
+        "高標法",
+        "數位法",
+        "點對點法",
+        "年增法"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 49
+      }
+    },
+    {
+      "id": "investment-1150111-1-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關保險業的描述，何者錯誤？",
+      "options": [
+        "財產保險業亦得經主管機關核准，經營傷害保險及健康保險",
+        "非保險業不得兼營保險或類似保險之業務",
+        "保險業的組織以股份有限公司或合作社為限",
+        "保險經紀人即是被保險人"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第一節",
+        "number": 50
+      }
+    },
+    {
+      "id": "investment-1150111-2-1",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "中央銀行提高存款準備率，股價通常會：",
+      "options": [
+        "上揚",
+        "下跌",
+        "無關",
+        "不一定"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 1
+      }
+    },
+    {
+      "id": "investment-1150111-2-2",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當景氣對策信號由黃紅燈轉成紅燈時：",
+      "options": [
+        "代表景氣過熱",
+        "表示目前經濟景氣十分穩定",
+        "表示目前經濟景氣已衰退",
+        "顯示目前尚穩，但有過熱或趨穩的可能"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 2
+      }
+    },
+    {
+      "id": "investment-1150111-2-3",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者是基金投資人支付給保管機構的費用？",
+      "options": [
+        "銷售費",
+        "管理費",
+        "保管費",
+        "贖回費"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 3
+      }
+    },
+    {
+      "id": "investment-1150111-2-4",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金之風險最低？",
+      "options": [
+        "產業類股型基金",
+        "已開發國家政府公債債券型基金",
+        "新興市場債券基金",
+        "已開發國家之區域型股票基金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 4
+      }
+    },
+    {
+      "id": "investment-1150111-2-5",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "市場上已流通的固定票息債券的價格會因市場利率的下降而？",
+      "options": [
+        "不變",
+        "上升",
+        "下降",
+        "以上皆有可能"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 5
+      }
+    },
+    {
+      "id": "investment-1150111-2-6",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種共同基金，在契約中通常訂有存續期間？",
+      "options": [
+        "指數股票型基金",
+        "保本型基金",
+        "避險基金",
+        "組合型基金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 6
+      }
+    },
+    {
+      "id": "investment-1150111-2-7",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一零息公債的殖利率為6%，面額為10,000 元，如果此債券7 年後到期，則目前的價格應為多少？",
+      "options": [
+        "6,651 元",
+        "8,548 元",
+        "8,219 元",
+        "7,462 元"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 7
+      }
+    },
+    {
+      "id": "investment-1150111-2-8",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "王五向銀行借錢50 萬元，年利率9%，每年計息1 次，分5 年償還，試問王五每年應還多少錢？",
+      "options": [
+        "100,609 元",
+        "115,462 元",
+        "128,546 元",
+        "136,249 元"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 8
+      }
+    },
+    {
+      "id": "investment-1150111-2-9",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關指數股票型基金的敘述何者錯誤？",
+      "options": [
+        "實物買回與實物申購機制，以解決基金折溢價的問題",
+        "鼓勵投資人進行套利，以降低折溢價的程度",
+        "投資組合透明度較高",
+        "被動式管理有效降低成本"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 9
+      }
+    },
+    {
+      "id": "investment-1150111-2-10",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在股票市場上，常以P／B Ratio 作為衡量股票值不值得投資的指標之一，請問分母“B”代表何種涵義：",
+      "options": [
+        "股利",
+        "面額",
+        "帳面價值或淨值",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 10
+      }
+    },
+    {
+      "id": "investment-1150111-2-11",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "資本利得係指：",
+      "options": [
+        "實際股利",
+        "現金股利",
+        "股票股利",
+        "賣價超過買價之利潤"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 11
+      }
+    },
+    {
+      "id": "investment-1150111-2-12",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "將多種投資標的集合起來，避免風險過度集中於單一投資標的，以達風險分散之目的，是為：",
+      "options": [
+        "投資學",
+        "投資組合",
+        "投資信託",
+        "避險基金"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 12
+      }
+    },
+    {
+      "id": "investment-1150111-2-13",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者對企業債信評等有負面影響？",
+      "options": [
+        "債券發行公司提供保證條款",
+        "債券發行公司提供償債基金",
+        "債券發行公司提供抵押品",
+        "應付員工的退休金較高"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 13
+      }
+    },
+    {
+      "id": "investment-1150111-2-14",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "商業銀行及其他金融機構為了在市場吸收短期閒置資金而發行的一種憑證稱為：",
+      "options": [
+        "銀行承兌匯票",
+        "商業本票",
+        "可轉讓定期存單",
+        "國庫券"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 14
+      }
+    },
+    {
+      "id": "investment-1150111-2-15",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金可利用衍生性金融商品、財務槓桿等方式，進行投資？",
+      "options": [
+        "組合型基金",
+        "指數股票型基金",
+        "平衡型基金",
+        "避險基金"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 15
+      }
+    },
+    {
+      "id": "investment-1150111-2-16",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "零息債券沒有何種風險？",
+      "options": [
+        "違約風險",
+        "購買力風險",
+        "資本利得風險",
+        "再投資風險"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 16
+      }
+    },
+    {
+      "id": "investment-1150111-2-17",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "股票報酬率標準差愈大，則其風險：",
+      "options": [
+        "愈大",
+        "愈小",
+        "不一定",
+        "不變"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 17
+      }
+    },
+    {
+      "id": "investment-1150111-2-18",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "資本資產定價模型認為下列哪一項不是證券預期投資報酬率的決定因素？",
+      "options": [
+        "無風險投資報酬率（Rf）",
+        "市場期望投資報酬率（Rm）",
+        "證券的貝他係數（β）",
+        "證券投資報酬率的標準差"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 18
+      }
+    },
+    {
+      "id": "investment-1150111-2-19",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關零息債券的敘述何者正確？(A)沒有票面利率(B)按照市場利率折價發行(C)定期支付利息",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 19
+      }
+    },
+    {
+      "id": "investment-1150111-2-20",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當期貨交易成交時，買方必須支付一筆保證金給經紀商，作為履約的保證，此項保證金稱之為？",
+      "options": [
+        "原始保證金",
+        "維持保證金",
+        "變動保證金",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 20
+      }
+    },
+    {
+      "id": "investment-1150111-2-21",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若其他條件固定，利率水準下降，則年金的現值？",
+      "options": [
+        "不變",
+        "上升",
+        "下降",
+        "以上皆有可能"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 21
+      }
+    },
+    {
+      "id": "investment-1150111-2-22",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資報酬不確定性的敘述何者正確：(A)實際報酬率的分散程度(B)預期報酬率的平均水準 (C)實際報酬率與預期報酬率間之差異的程度(D)實際報酬率的平均水準",
+      "options": [
+        "A 與C",
+        "B 與D",
+        "C 與D",
+        "四者皆對"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 22
+      }
+    },
+    {
+      "id": "investment-1150111-2-23",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "如果債券是折價發行，隨著債券到期日逐漸逼近，在假設殖利率不變下，債券價格會有何影響？",
+      "options": [
+        "債券價格漸漸上升，直到債券到期時，債券價格會等於面額",
+        "債券價格漸漸下降，直到債券到期時，債券價格會等於面額",
+        "債券價格維持不變，一直會等於面額",
+        "債券價格可能上升、可能下降、也可能維持不變"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 23
+      }
+    },
+    {
+      "id": "investment-1150111-2-24",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種證券無擔保品？(A)公司債(B)特別股(C)普通股",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 24
+      }
+    },
+    {
+      "id": "investment-1150111-2-25",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關債券評等之敘述何者錯誤？",
+      "options": [
+        "債信等級越高，代表違約的風險愈低，因此投資人能要求的報酬率就愈低",
+        "Moody's 公司債信評等等級在Baa 以上（含）為投資等級，以下則為投機等級（如垃圾債券）",
+        "S&P 公司的債信評等等級在BB 以上（含）為投資等級，以下則為投機等級（如垃圾債券）",
+        "其他條件相同下，債券發行公司的流動比率越高，債信評等越佳"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 25
+      }
+    },
+    {
+      "id": "investment-1150111-2-26",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關共同基金的敘述，何者為真？(A)又稱為信託基金(B)契約型共同基金投資人，就是基金的股東 (C)出資的投資人，則是共同基金的受益人",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "A、B、C"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 26
+      }
+    },
+    {
+      "id": "investment-1150111-2-27",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資債券報酬計算方法的敘述何者正確？",
+      "options": [
+        "當期獲利率（current yield）定義為每年的票面利息除以債券價格",
+        "當期獲利率（current yield）定義為每年的票面利率除以債券價格",
+        "殖利率（YTM）定義為投資人購買債券後，中途出售時，預期所能獲得的年報酬率",
+        "殖利率（YTM）定義為每年的票面利息除以債券價格"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 27
+      }
+    },
+    {
+      "id": "investment-1150111-2-28",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者並非資本市場之投資工具：",
+      "options": [
+        "可轉讓定期存單",
+        "公司債",
+        "普通股",
+        "政府債券"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 28
+      }
+    },
+    {
+      "id": "investment-1150111-2-29",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "根據債券評價公式，在其他條件不變下，何種情況下，債券的價格會較高？",
+      "options": [
+        "票面利率越低",
+        "每年付息的次數越少",
+        "殖利率越低",
+        "以上皆是"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 29
+      }
+    },
+    {
+      "id": "investment-1150111-2-30",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "由甲和乙兩股票構成的投資組合，其中甲占40%，乙占60%。甲股票報酬率的變異數為0.3，乙股票報 酬率的變異數為0.5，假設甲和乙股票的共變數為0.3，則此投資組合報酬率之變異數為？",
+      "options": [
+        "0.420",
+        "0.720",
+        "0.372",
+        "0.492"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 30
+      }
+    },
+    {
+      "id": "investment-1150111-2-31",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者屬於金融資產？(A)黃金(B)定期存單(C)債券(D)證券",
+      "options": [
+        "B",
+        "僅B、D",
+        "A、B、C",
+        "B、C、D"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 31
+      }
+    },
+    {
+      "id": "investment-1150111-2-32",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於保本型基金，下列何者錯誤？",
+      "options": [
+        "保本型基金是指將一部分的資金投資在股票工具上，以保證到期時，投資人能取回投資本金的一定 比例",
+        "保本型基金適合較保守的投資人",
+        "只有在到期日贖回才有保本",
+        "相較於連動型債券，通常保本型基金的契約存續期間較短，而且也較透明"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 32
+      }
+    },
+    {
+      "id": "investment-1150111-2-33",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在其他條件不變的情形下，下列有關評估基金績效之敘述何者錯誤？",
+      "options": [
+        "夏普指標較高的共同基金較值得購買",
+        "資訊比例較高的共同基金較值得購買",
+        "崔諾指標較高的共同基金較值得購買",
+        "貝他指標較高的共同基金較值得購買"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 33
+      }
+    },
+    {
+      "id": "investment-1150111-2-34",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "公司股利成長率之值有下列何種情形時，就不可以應用股利成長模式來估計股價？",
+      "options": [
+        "低於股票要求報酬率",
+        "高於股票要求報酬率",
+        "大於0",
+        "不管公司股利成長率的值是多少，都可以使用股利成長模式估計股價"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 34
+      }
+    },
+    {
+      "id": "investment-1150111-2-35",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金屬於RR5 風險收益等級：",
+      "options": [
+        "產業類股型基金",
+        "全球型股票基金",
+        "新興市場債券基金",
+        "平衡型基金"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 35
+      }
+    },
+    {
+      "id": "investment-1150111-2-36",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資公司債應考慮那些因素：",
+      "options": [
+        "信用評等",
+        "利率走勢",
+        "發行期限",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 36
+      }
+    },
+    {
+      "id": "investment-1150111-2-37",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "我國台指選擇權履約型態為：",
+      "options": [
+        "美式選擇權",
+        "歐式選擇權",
+        "英式選擇權",
+        "近月契約是美式選擇權，遠月契約是歐式選擇權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 37
+      }
+    },
+    {
+      "id": "investment-1150111-2-38",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "國庫券為金融工具之一，其最初賣出單位為？",
+      "options": [
+        "商業銀行",
+        "中央政府",
+        "大企業",
+        "市政府"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 38
+      }
+    },
+    {
+      "id": "investment-1150111-2-39",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "期貨具有哪些功能？(A)投機(B)避險(C)價格指標",
+      "options": [
+        "僅A、B 對",
+        "僅B、C 對",
+        "僅A、C 對",
+        "A、B、C 均對"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 39
+      }
+    },
+    {
+      "id": "investment-1150111-2-40",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "根據資本資產定價模型（CAPM），如果D 公司的貝他值為0.85，市場風險溢酬為5%，無風險利率為 2.5%。若無風險利率上升為3%，其他條件不變下，請問該公司的期望報酬率：",
+      "options": [
+        "增加",
+        "減少",
+        "不變",
+        "無法判斷"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 40
+      }
+    },
+    {
+      "id": "investment-1150111-2-41",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "開放型基金之受益憑證買賣，其買賣價格以下列那一方式來計算？",
+      "options": [
+        "帳面價值",
+        "淨資產價值",
+        "市場價格",
+        "成本"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 41
+      }
+    },
+    {
+      "id": "investment-1150111-2-42",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "依股利折現評價模式，若現金股利已知，投資人要求報酬率愈高，則投資人所評估股票的價格：",
+      "options": [
+        "愈高",
+        "愈低",
+        "不變",
+        "視折現期數而定"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 42
+      }
+    },
+    {
+      "id": "investment-1150111-2-43",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者求償權順位最高？",
+      "options": [
+        "附屬信用債券",
+        "特別股",
+        "普通股",
+        "抵押債券"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 43
+      }
+    },
+    {
+      "id": "investment-1150111-2-44",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列那一項對投資人來說屬於不可分散的風險？",
+      "options": [
+        "公司新產品研發的成功與否",
+        "公司外銷所得美元的匯率",
+        "公司經營團隊的效率",
+        "公司火災"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 44
+      }
+    },
+    {
+      "id": "investment-1150111-2-45",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "如果投資人預期標的資產未來價格會下跌或認為走勢悲觀，但又想鎖定「上漲風險」，則應該購買何 種結構型債券最佳：",
+      "options": [
+        "浮動利率債券",
+        "利率區間型債券",
+        "「看多型」保本型債券",
+        "「看空型」保本型債券"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 45
+      }
+    },
+    {
+      "id": "investment-1150111-2-46",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "投資於股票的報酬率等於：",
+      "options": [
+        "資本利得／投資金額",
+        "股利所得／投資金額",
+        "（資本利得－股利所得）／投資金額",
+        "（資本利得＋股利所得）／投資金額"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 46
+      }
+    },
+    {
+      "id": "investment-1150111-2-47",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若A 公司去年的EPS 為2 元，目前每股市價為45 元。根據該公司的財務預測，今年度的EPS 將可達 2.5 元，若該產業合理的本益比為21 倍，請問A 公司合理的股價應為多少？",
+      "options": [
+        "55.00 元",
+        "52.50 元",
+        "45.00 元",
+        "42.00 元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 47
+      }
+    },
+    {
+      "id": "investment-1150111-2-48",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於時間不變性投資組合保險策略（TIPP）的敘述，下列何者正確：",
+      "options": [
+        "TIPP 是比CPPI（固定比例投資組合保險策略）更為保守的投資組合策略",
+        "當股價下跌（或空頭市場時），TIPP 的抗跌能力優於CPPI（固定比例投資組合保險策略）",
+        "當股價上漲（或多頭市場）時，TIPP 參與上方增值獲利的能力也較CPPI（固定比例投資組合保險策 略）為低",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 48
+      }
+    },
+    {
+      "id": "investment-1150111-2-49",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "無風險資產的報酬率標準差為：",
+      "options": [
+        "1",
+        "－1",
+        "0",
+        "2"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 49
+      }
+    },
+    {
+      "id": "investment-1150111-2-50",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當某一公司流通在外債券的評等由BBB 升為A，此一公司債券價格因而上漲，則此舉最可能的現象為 何？",
+      "options": [
+        "違約風險減少、票面利率下降",
+        "流動性減少、殖利率下降",
+        "違約風險減少、殖利率下降",
+        "通貨膨脹風險減少、票面利率下降"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 50
+      }
+    },
+    {
+      "id": "investment-1150111-2-51",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "某一連動型債券契約，投資本金為1 萬元，7 年到期，契約結束時保本率為100%。假設目前7 年期零 息公債殖利率為3%，請問該連動型債券投資多少金額於選擇權？",
+      "options": [
+        "1,625 元",
+        "1,869 元",
+        "2,097 元",
+        "2,401 元"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 51
+      }
+    },
+    {
+      "id": "investment-1150111-2-52",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關投資債券流動性風險的敘述何者錯誤？",
+      "options": [
+        "若債券次級市場的交易量愈大，則投資人流動性風險愈大",
+        "若債券次級市場愈不發達，則投資人的流動性風險愈大",
+        "若買賣價差愈大，流動性風險愈大",
+        "若參與市場的交易廠商愈多，買賣價差就會愈小"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 52
+      }
+    },
+    {
+      "id": "investment-1150111-2-53",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "買進賣權（Long a put option）具有：",
+      "options": [
+        "依履約價格買進標的物之權利",
+        "依履約價格賣出標的物之權利",
+        "依履約價格買進標的物之義務",
+        "依履約價格賣出標的物之義務"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 53
+      }
+    },
+    {
+      "id": "investment-1150111-2-54",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種參與者具有充分交易資訊，因此可以隨時得知各地的期貨市場行情，可在無風險的狀況之下， 買進賣出期貨，進而賺取利潤？",
+      "options": [
+        "避險者",
+        "投機者",
+        "搶帽客",
+        "套利者"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 54
+      }
+    },
+    {
+      "id": "investment-1150111-2-55",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "欲比較兩項不同預期報酬之投資方案，用何種方式較適當？",
+      "options": [
+        "共變數",
+        "相關係數",
+        "平均數",
+        "變異係數"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 55
+      }
+    },
+    {
+      "id": "investment-1150111-2-56",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "交易所不同，但是商品數量、標的均相同的期貨價差交易係指：",
+      "options": [
+        "市場內價差交易",
+        "市場間價差交易",
+        "商品間價差交易",
+        "加工產品間的價差交易"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 56
+      }
+    },
+    {
+      "id": "investment-1150111-2-57",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於基金風險收益等級與主要基金類型的關聯，下列敘述何者正確：",
+      "options": [
+        "貨幣型基金屬於RR5 等級",
+        "債券型基金屬於RR4 等級",
+        "平衡型基金屬於RR2 等級",
+        "以上皆非"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 57
+      }
+    },
+    {
+      "id": "investment-1150111-2-58",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在投資組合中，將投資報酬率的標準差除以預期報酬率即是？",
+      "options": [
+        "變異數",
+        "相關係數",
+        "貝他值β",
+        "變異係數"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 58
+      }
+    },
+    {
+      "id": "investment-1150111-2-59",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "目前市場上的商業本票大多屬於？",
+      "options": [
+        "第一類商業本票",
+        "第二類商業本票",
+        "第三類商業本票",
+        "以上皆是"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 59
+      }
+    },
+    {
+      "id": "investment-1150111-2-60",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者可能是債券價格下跌的原因：",
+      "options": [
+        "市場資金大幅寬鬆",
+        "流動性增加",
+        "發行公司債信用評等下降",
+        "違約風險減少"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 60
+      }
+    },
+    {
+      "id": "investment-1150111-2-61",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "描述期望報酬率與系統風險之間的關係直線，稱為？",
+      "options": [
+        "臨界線",
+        "資本市場線",
+        "證券市場線",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 61
+      }
+    },
+    {
+      "id": "investment-1150111-2-62",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "小張購買以Ａ公司為資產標的物之買權，其履約價格為70 元，還有半年到期，股價為66 元，權利金 為2 元。到期日時，該買權之內含價值為6 元，請問Ａ公司股價應為多少元？",
+      "options": [
+        "76 元",
+        "64 元",
+        "72 元",
+        "78 元"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 62
+      }
+    },
+    {
+      "id": "investment-1150111-2-63",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "理論上市場投資組合中所包含之證券為：",
+      "options": [
+        "上市滿半年之證券",
+        "績優股",
+        "具代表性之證券",
+        "市場所有證券"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 63
+      }
+    },
+    {
+      "id": "investment-1150111-2-64",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者適合用來決定公司債的評等？",
+      "options": [
+        "利息保障倍數",
+        "流動比率",
+        "負債比率",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 64
+      }
+    },
+    {
+      "id": "investment-1150111-2-65",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "債券發行單位無力償還債券本金或債息的風險是屬於投資債券的何種風險：",
+      "options": [
+        "流動性風險",
+        "信用風險",
+        "利率風險",
+        "贖回風險"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 65
+      }
+    },
+    {
+      "id": "investment-1150111-2-66",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "以固定股利成長模型計算出一股票的合理股價應為50 元，如果該股票市價為40 元，則應如何操作該 股票？",
+      "options": [
+        "買進",
+        "放空",
+        "做空",
+        "不管"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 66
+      }
+    },
+    {
+      "id": "investment-1150111-2-67",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設證券A 的期望報酬率等於24%，市場投資組合的期望報酬率等於17%，證券A 的貝他係數等於 1.7，請問根據資本資產定價模型（CAPM），無風險利率等於：",
+      "options": [
+        "2.67%",
+        "4%",
+        "7%",
+        "10.67%"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 67
+      }
+    },
+    {
+      "id": "investment-1150111-2-68",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "若證券價格已經充分反映過去的價格變化、交易量以及其他的歷史資訊，則定義為：",
+      "options": [
+        "弱式效率市場",
+        "半強式效率市場",
+        "強式效率市場",
+        "很強式效率市場"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 68
+      }
+    },
+    {
+      "id": "investment-1150111-2-69",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種基金風險收益等級是以追求兼顧資本利得及固定收益為目標：",
+      "options": [
+        "RR2",
+        "RR3",
+        "RR4",
+        "RR5"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 69
+      }
+    },
+    {
+      "id": "investment-1150111-2-70",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "公司債的市價主要受到下列何者之影響：",
+      "options": [
+        "市場利率",
+        "票面利率",
+        "銀行短期活存利率",
+        "銀行長期活存利率"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 70
+      }
+    },
+    {
+      "id": "investment-1150111-2-71",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "中央銀行的政策中，下列何者會使貨幣供給減少：",
+      "options": [
+        "外匯市場上買入美元避免新臺幣過度升值",
+        "公開市場上買回國庫券",
+        "調降重貼現率",
+        "調高存款準備率"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 71
+      }
+    },
+    {
+      "id": "investment-1150111-2-72",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在某段期間內，甲基金的報酬率為30%，標準差為15%；乙基金的報酬率為25%，標準差為10%，則 下列敘述何者正確？(A)甲基金的報酬優於乙基金(B)甲基金的風險大於乙基金(C)甲基金的單位風險報 酬率大於乙基金",
+      "options": [
+        "A、B",
+        "B、C",
+        "A、C",
+        "以上皆非"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 72
+      }
+    },
+    {
+      "id": "investment-1150111-2-73",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "對於部分擁有大量資產的公司（這類股票俗稱資產股），下列何種模式是比較有用的評價方法：",
+      "options": [
+        "本益比評價模式",
+        "資產負債表重估法",
+        "本利比評價模式",
+        "股利折現評價模式"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 73
+      }
+    },
+    {
+      "id": "investment-1150111-2-74",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "殖利率等於息票利率（即票面利率）的債券稱為：",
+      "options": [
+        "折價債券",
+        "平價債券",
+        "溢價債券",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 74
+      }
+    },
+    {
+      "id": "investment-1150111-2-75",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "假設B 公司目前股價為100 元，假設當景氣好時其報酬率為30%，若景氣轉差時其報酬率為-10%，而以 上景氣好、景氣轉差所可能發生的機率各為60%、40%，請問B 公司未來1 年期望的報酬率為何？",
+      "options": [
+        "14%",
+        "15%",
+        "16%",
+        "17%"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 75
+      }
+    },
+    {
+      "id": "investment-1150111-2-76",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何種不是屬於風險性資產？",
+      "options": [
+        "股票",
+        "黃金",
+        "古董",
+        "國庫券"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 76
+      }
+    },
+    {
+      "id": "investment-1150111-2-77",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一般而言，風險性愈高之股票，不考慮其他因素，其買權價格會：",
+      "options": [
+        "愈大",
+        "愈小",
+        "不影響",
+        "看市場利率而定"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 77
+      }
+    },
+    {
+      "id": "investment-1150111-2-78",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "當股價大幅上漲時，下列何種選擇權交易策略損失最大：",
+      "options": [
+        "買進買權",
+        "賣出買權",
+        "買進賣權",
+        "賣出賣權"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 78
+      }
+    },
+    {
+      "id": "investment-1150111-2-79",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "隨著投資的證券種類的增加，投資組合的平均風險會：",
+      "options": [
+        "越來越高",
+        "起伏不定",
+        "越來越低",
+        "維持不變"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 79
+      }
+    },
+    {
+      "id": "investment-1150111-2-80",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於組合型基金，下列何者正確？",
+      "options": [
+        "組合型基金不需要專業的基金經理人負責管理",
+        "組合型基金是以股票或債券為投資標的",
+        "組合型基金是被動式管理",
+        "相較於單一共同基金，組合型基金更能達到分散風險的目的"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 80
+      }
+    },
+    {
+      "id": "investment-1150111-2-81",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "我國景氣對策信號之燈號總共有幾種？",
+      "options": [
+        "3 種",
+        "4 種",
+        "5 種",
+        "6 種"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 81
+      }
+    },
+    {
+      "id": "investment-1150111-2-82",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "有關選擇權之敘述，下列何者錯誤：",
+      "options": [
+        "權利金包含履約價值和時間價值",
+        "就賣權而言，當履約價格小於標的物價格時，稱為價外賣權",
+        "時間價值會隨時間的流逝而增加",
+        "買權之買方，其承擔風險有限，但獲利無限"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 82
+      }
+    },
+    {
+      "id": "investment-1150111-2-83",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列那一類基金在從事交易時，具有財務槓桿特性？",
+      "options": [
+        "組合型基金",
+        "指數型基金",
+        "期貨信託基金",
+        "指數股票型基金"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 83
+      }
+    },
+    {
+      "id": "investment-1150111-2-84",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "如果某公司每年固定發放4 元的現金股利，在要求報酬率等於10%的情況下，該公司的股票每股值40 元。若投資人要求報酬率下降，則該公司的每股股價：",
+      "options": [
+        "上升",
+        "下降",
+        "不變",
+        "不一定"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 84
+      }
+    },
+    {
+      "id": "investment-1150111-2-85",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列有關封閉型基金的敘述，何者有誤？",
+      "options": [
+        "不可以贖回",
+        "在集中市場交易",
+        "國內大部分基金都是封閉型",
+        "市價常與淨值不同"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 85
+      }
+    },
+    {
+      "id": "investment-1150111-2-86",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在其他條件不變下，零息債券的價格與面額間之差距會隨到期日之接近而：",
+      "options": [
+        "縮小",
+        "擴大",
+        "不變",
+        "不一定"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 86
+      }
+    },
+    {
+      "id": "investment-1150111-2-87",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在效率市場中，下列何者不是公開資訊：",
+      "options": [
+        "公司治理",
+        "公司的月營業收入",
+        "即將購併某企業",
+        "公司的管理素質"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 87
+      }
+    },
+    {
+      "id": "investment-1150111-2-88",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者不會影響債券利息的計算？",
+      "options": [
+        "面額",
+        "票面利率",
+        "付息方式",
+        "債券價格"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 88
+      }
+    },
+    {
+      "id": "investment-1150111-2-89",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於資本資產定價模型，只有一種因素會使預期報酬率不同，此為：",
+      "options": [
+        "總風險",
+        "系統風險",
+        "市場投資組合",
+        "無風險利率"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 89
+      }
+    },
+    {
+      "id": "investment-1150111-2-90",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "一般而言，當新臺幣升值時，外銷為主的產業股價會：",
+      "options": [
+        "下跌",
+        "上漲",
+        "不一定上漲或下跌",
+        "先跌後漲"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 90
+      }
+    },
+    {
+      "id": "investment-1150111-2-91",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "公債的發行機構為？",
+      "options": [
+        "大型企業",
+        "銀行",
+        "政府",
+        "票券金融公司"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 91
+      }
+    },
+    {
+      "id": "investment-1150111-2-92",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "在公平的賭局中，小王將10,000 元賭金一次下注，小林則將10,000 元賭金分10 次下注，誰的總期望 投資報酬率較高？",
+      "options": [
+        "小王",
+        "小林",
+        "一樣",
+        "不一定"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 92
+      }
+    },
+    {
+      "id": "investment-1150111-2-93",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "請問RR1 基金風險收益等級之投資風險：",
+      "options": [
+        "低",
+        "中",
+        "中高",
+        "高"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 93
+      }
+    },
+    {
+      "id": "investment-1150111-2-94",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列何者非中央銀行降低貨幣供給的工具？",
+      "options": [
+        "調升重貼現率",
+        "提高法定存款準備率",
+        "賣出債券",
+        "買入新臺幣、賣出美元"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 94
+      }
+    },
+    {
+      "id": "investment-1150111-2-95",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "關於公司債的違約風險，無法由何種機構得知？",
+      "options": [
+        "台灣銀行",
+        "中華信用評等公司",
+        "穆迪公司",
+        "標準普爾公司"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 95
+      }
+    },
+    {
+      "id": "investment-1150111-2-96",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "如果你是風險中立者，面臨下面三個投資機會，你會選擇那一個（你只能選一個）？",
+      "options": [
+        "期望報酬＝12%,風險＝6%",
+        "期望報酬＝18%,風險＝10%",
+        "期望報酬＝20%,風險＝20%",
+        "以上皆非"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 96
+      }
+    },
+    {
+      "id": "investment-1150111-2-97",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "下列對無風險投資的描述，哪一項是錯誤的？",
+      "options": [
+        "無風險投資的報酬率等於0",
+        "無風險投資報酬率的標準差等於0",
+        "無風險投資的報酬率與其他投資的報酬率不相關",
+        "無風險投資的貝他係數為0"
+      ],
+      "answer": 0,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 97
+      }
+    },
+    {
+      "id": "investment-1150111-2-98",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "那一種投資方式槓桿程度最高？",
+      "options": [
+        "買進股票",
+        "融資買進股票",
+        "買進指數期貨",
+        "以上皆同"
+      ],
+      "answer": 2,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 98
+      }
+    },
+    {
+      "id": "investment-1150111-2-99",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "公司清償時，下列三種證券的剩餘資產分配順位，何者正確（由先至後）？",
+      "options": [
+        "特別股、公司債、普通股",
+        "公司債、特別股、普通股",
+        "普通股、特別股、公司債",
+        "以上皆非"
+      ],
+      "answer": 1,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 99
+      }
+    },
+    {
+      "id": "investment-1150111-2-100",
+      "chapterId": "exam",
+      "type": "single-choice",
+      "question": "所謂固定收益證券是指證券之：",
+      "options": [
+        "到期日固定",
+        "到期償還金額固定",
+        "債權人固定",
+        "每期債息或股息固定"
+      ],
+      "answer": 3,
+      "sourceExam": {
+        "term": "115/01/11",
+        "subject": "第二節",
+        "number": 100
+      }
+    }
+  ]
+}

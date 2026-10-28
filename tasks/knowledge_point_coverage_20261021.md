@@ -1,6 +1,6 @@
 # 六科知識點與法規／官方資料覆蓋分析
 
-統計更新日：2026-10-24。資料版本：schema 2。
+統計更新日：2026-10-28。資料版本：schema 2。
 
 ## 範圍與方法
 
@@ -16,43 +16,43 @@
 
 | 科目 | 題數 | 已分類 | 覆蓋率 | 未分類 | 知識點數 | 法規命中題次 | 考期題次衝突組 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 金融科技力 | 839 | 547 | 65.20% | 292 | 11 | 9 | 0 |
+| 金融科技力 | 899 | 575 | 63.96% | 324 | 11 | 11 | 0 |
 | 消費金融內部控制與稽核 | 2989 | 1822 | 60.96% | 1167 | 7 | 540 | 0 |
 | 永續發展基礎能力 | 1307 | 840 | 64.27% | 467 | 8 | 137 | 73 |
 | 防制洗錢與打擊資恐 | 2376 | 2034 | 85.61% | 342 | 6 | 334 | 158 |
-| 信託業務人員 | 2724 | 2724 | 100.00% | 0 | 73 | 620 | 0 |
+| 信託業務人員 | 2854 | 2724 | 95.44% | 130 | 73 | 653 | 0 |
 | 金融市場常識與職業道德（證基會113年版） | 1120 | 1120 | 100.00% | 0 | 2 | 39 | 0 |
 
 ## 逐科點位、法規與官方資料命中
 
 ### 金融科技力
 
-來源：`教材/金融科技力重點教材/questions.json`。題數 839；知識點分類覆蓋 547/839（65.20%）；未分類 292。
+來源：`教材/金融科技力重點教材/questions.json`。題數 899；知識點分類覆蓋 575/899（63.96%）；未分類 324。
 分類方法：題幹與所有選項比對此程式列出的觀念詞；無關鍵詞命中時才使用已配置的一般教材章節備援分類。
 
 | 知識點 | 題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 大數據與人工智慧 | 163 | 19.43% | `ft-8-6、ft-8-8、ft-8-9、ft-8-10、ft-8-16` |
-| 區塊鏈、分散式帳本與虛擬資產 | 103 | 12.28% | `ft-8-11、ft-8-12、ft-8-13、ft-8-35、ft-8-47` |
-| 雲端運算 | 84 | 10.01% | `ft-8-2、ft-8-3、ft-8-4、ft-8-42、ft-8-43` |
-| 純網銀、開放銀行與API | 81 | 9.65% | `ft-8-1、ft-8-19、ft-8-31、ft-8-32、ft-8-33` |
-| RegTech、SupTech與監理沙盒 | 65 | 7.75% | `ft-8-34、ft-8-35、ft-8-38、ft-9-34、ft-9-35` |
-| 數位身分與生物辨識 | 55 | 6.56% | `ft-8-14、ft-8-15、ft-8-16、ft-8-34、ft-8-35` |
-| 行動支付、電子支付與第三方支付 | 35 | 4.17% | `ft-8-17、ft-8-18、ft-8-19、ft-8-50、ft-8-51` |
-| 金融資安與零信任 | 34 | 4.05% | `ft-8-55、ft-8-58、ft-9-33、ft-9-37、ft-10-36` |
-| 金融科技發展與數位轉型 | 22 | 2.62% | `ft-8-1、ft-9-34、ft-10-1、ft-10-57、ft-11-34` |
-| 支付、數位身分與金融資安 | 18 | 2.15% | `ft-9-14、ft-9-17、ft-10-16、ft-11-19、ft-11-51` |
-| 雲端運算、大數據與AI應用 | 6 | 0.72% | `ft-9-28、ft-13-28、ft-14-5、ft-17-22、ft-18-22` |
+| 大數據與人工智慧 | 173 | 19.24% | `ft-8-6、ft-8-8、ft-8-9、ft-8-10、ft-8-16` |
+| 區塊鏈、分散式帳本與虛擬資產 | 110 | 12.24% | `ft-8-11、ft-8-12、ft-8-13、ft-8-35、ft-8-47` |
+| 雲端運算 | 88 | 9.79% | `ft-8-2、ft-8-3、ft-8-4、ft-8-42、ft-8-43` |
+| 純網銀、開放銀行與API | 87 | 9.68% | `ft-8-1、ft-8-19、ft-8-31、ft-8-32、ft-8-33` |
+| RegTech、SupTech與監理沙盒 | 66 | 7.34% | `ft-8-34、ft-8-35、ft-8-38、ft-9-34、ft-9-35` |
+| 數位身分與生物辨識 | 59 | 6.56% | `ft-8-14、ft-8-15、ft-8-16、ft-8-34、ft-8-35` |
+| 行動支付、電子支付與第三方支付 | 38 | 4.23% | `ft-8-17、ft-8-18、ft-8-19、ft-8-50、ft-8-51` |
+| 金融資安與零信任 | 34 | 3.78% | `ft-8-55、ft-8-58、ft-9-33、ft-9-37、ft-10-36` |
+| 金融科技發展與數位轉型 | 24 | 2.67% | `ft-8-1、ft-9-34、ft-10-1、ft-10-57、ft-11-34` |
+| 支付、數位身分與金融資安 | 18 | 2.00% | `ft-9-14、ft-9-17、ft-10-16、ft-11-19、ft-11-51` |
+| 雲端運算、大數據與AI應用 | 6 | 0.67% | `ft-9-28、ft-13-28、ft-14-5、ft-17-22、ft-18-22` |
 
 **法規／規範名稱命中**（題幹與正確選項詞彙比對；項目可重疊）：
 
 | 法規／規範 | 命中題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 個人資料保護法 | 3 | 0.36% | `ft-9-5、ft-18-43、ft-21-34` |
-| 金融機構使用物聯網設備安全控管規範 | 2 | 0.24% | `ft-19-58、ft-21-59` |
-| 金融科技發展與創新實驗條例 | 2 | 0.24% | `ft-18-41、ft-19-41` |
-| 金融服務業辦理數位身分驗證指引 | 1 | 0.12% | `ft-20-37` |
-| 金融機構運用新興科技作業規範 | 1 | 0.12% | `ft-17-59` |
+| 個人資料保護法 | 3 | 0.33% | `ft-9-5、ft-18-43、ft-21-34` |
+| 金融機構使用物聯網設備安全控管規範 | 3 | 0.33% | `ft-19-58、ft-21-59、ft-22-58` |
+| 金融服務業辦理數位身分驗證指引 | 2 | 0.22% | `ft-20-37、ft-22-60` |
+| 金融科技發展與創新實驗條例 | 2 | 0.22% | `ft-18-41、ft-19-41` |
+| 金融機構運用新興科技作業規範 | 1 | 0.11% | `ft-17-59` |
 
 未分類樣本 ID：`ft-8-5`、`ft-8-20`、`ft-8-21`、`ft-8-22`、`ft-8-23`、`ft-8-24`、`ft-8-25`、`ft-8-26`、`ft-8-27`、`ft-8-28`。完整未分類 ID 見統計 JSON。
 
@@ -156,78 +156,78 @@
 
 ### 信託業務人員
 
-來源：`教材/信託業務人員重點教材/full_exam_bank.json`。題數 2724；知識點分類覆蓋 2724/2724（100.00%）；未分類 0。
+來源：`教材/信託業務人員重點教材/full_exam_bank.json`。題數 2854；知識點分類覆蓋 2724/2854（95.44%）；未分類 130。
 分類方法：逐題沿用信託完整題庫既有 topic 欄位，不再另造分類。
 
 | 知識點 | 題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 境外基金與國外證券投資 | 230 | 8.44% | `past-41-practice-3、past-41-practice-4、past-41-practice-5、past-41-practice-7、past-41-practice-12` |
-| 成立方式與信託分類 | 154 | 5.65% | `past-41-law-2、past-41-law-3、past-41-law-4、past-41-law-6、past-41-law-16` |
-| 基金保管交割與監督責任 | 142 | 5.21% | `past-41-practice-57、past-41-practice-62、past-41-practice-65、past-41-practice-66、past-41-practice-67` |
-| 業務範圍與禁止保本保息 | 115 | 4.22% | `past-41-law-23、past-41-law-24、past-41-law-26、past-41-law-43、past-42-law-23` |
-| 金錢信託分類權限與運用 | 112 | 4.11% | `past-41-practice-8、past-41-practice-9、past-41-practice-11、past-41-practice-18、past-41-practice-20` |
-| 全權委託保管與越權交易 | 100 | 3.67% | `past-41-practice-59、past-41-practice-60、past-41-practice-61、past-41-practice-64、past-41-practice-68` |
-| 特殊目的信託公司與參與機構 | 89 | 3.27% | `past-41-practice-48、past-41-practice-49、past-41-practice-51、past-41-practice-54、past-41-practice-55` |
-| REIT募集投資標的與限制 | 87 | 3.19% | `past-41-practice-40、past-41-practice-43、past-41-practice-45、past-42-practice-42、past-42-practice-46` |
-| 員工福利信託特性與制度 | 69 | 2.53% | `past-41-practice-23、past-41-practice-24、past-41-practice-28、past-41-practice-29、past-41-practice-30` |
-| 受託人義務報酬與責任 | 61 | 2.24% | `past-41-law-8、past-41-law-11、past-41-law-50、past-41-practice-6、past-42-law-2` |
-| 單獨及集合管理分類與權限 | 59 | 2.17% | `past-41-law-27、past-41-practice-74、past-41-practice-75、past-42-practice-69、past-42-practice-73` |
-| 財產評審報告與會計公告 | 59 | 2.17% | `past-41-law-38、past-41-law-42、past-41-practice-10、past-42-law-36、past-42-law-43` |
-| 持股會組織協議與當事人 | 58 | 2.13% | `past-41-practice-27、past-42-practice-24、past-42-practice-27、past-42-practice-31、past-43-practice-24` |
-| 所得稅與扣繳 | 55 | 2.02% | `past-41-law-47、past-42-law-48、past-42-practice-35、past-42-practice-52、past-43-law-50` |
-| 證券信託種類與保管差異 | 51 | 1.87% | `past-41-practice-38、past-42-practice-38、past-43-practice-37、past-43-practice-39、past-44-practice-12` |
-| 經營組織與兼營獨立 | 50 | 1.84% | `past-41-law-36、past-41-law-39、past-41-law-40、past-42-law-21、past-42-law-39` |
-| 集合帳戶投資限制與流動性 | 50 | 1.84% | `past-41-practice-73、past-41-practice-77、past-42-practice-76、past-43-practice-71、past-44-law-33` |
-| 不動產證券化共通規定 | 49 | 1.80% | `past-41-practice-44、past-41-practice-47、past-42-practice-43、past-42-practice-44、past-42-practice-45` |
-| 監理處分罰則與損害賠償 | 47 | 1.73% | `past-41-law-30、past-41-law-31、past-41-law-33、past-41-law-35、past-41-law-37` |
-| 設立標準與分支機構 | 47 | 1.73% | `past-41-law-21、past-41-law-22、past-42-law-24、past-44-law-21、past-44-law-22` |
-| 公益信託與監督機關 | 46 | 1.69% | `past-41-law-14、past-41-law-18、past-41-law-20、past-42-law-15、past-42-law-18` |
-| 利害關係人與利益衝突 | 43 | 1.58% | `past-41-law-29、past-41-law-45、past-42-law-27、past-42-law-30、past-42-law-37` |
-| 有價證券借貸交易與擔保 | 43 | 1.58% | `past-41-practice-34、past-42-practice-32、past-42-practice-37、past-43-practice-33、past-43-practice-40` |
-| 投資運用與分別管理 | 39 | 1.43% | `past-41-practice-26、past-42-practice-80、past-43-practice-30、past-44-practice-28、past-44-practice-30` |
-| 內部人持股申報與權益行使 | 38 | 1.40% | `past-41-practice-32、past-41-practice-36、past-41-practice-37、past-41-practice-39、past-42-practice-33` |
-| 集合帳戶申請設置與合併 | 34 | 1.25% | `past-41-practice-70、past-41-practice-71、past-41-practice-72、past-41-practice-76、past-42-practice-70` |
-| 登記公示與對抗效力 | 33 | 1.21% | `past-41-law-1、past-42-law-1、past-42-practice-34、past-43-law-1、past-43-law-19` |
-| 賠償準備金與盈餘分配 | 33 | 1.21% | `past-41-law-34、past-42-law-25、past-42-law-31、past-43-law-35、past-44-law-28` |
-| 委託人權利與信託標的 | 30 | 1.10% | `past-42-law-5、past-42-law-7、past-42-law-9、past-43-law-5、past-45-law-3` |
-| 終止變更與剩餘財產歸屬 | 30 | 1.10% | `past-41-law-13、past-42-law-20、past-44-law-45、past-45-law-6、past-46-law-17` |
-| 受益人權利與撤銷救濟 | 29 | 1.06% | `past-41-law-7、past-41-law-10、past-41-law-12、past-42-law-11、past-42-law-12` |
-| 外資全球保管與代理登記 | 29 | 1.06% | `past-41-practice-56、past-41-practice-63、past-41-practice-79、past-43-practice-60、past-44-practice-56` |
-| 基本義務與契約記載事項 | 28 | 1.03% | `past-41-law-25、past-41-law-28、past-42-law-32、past-43-law-26、past-44-law-19` |
-| 信託監察人 | 26 | 0.95% | `past-41-law-17、past-42-law-14、past-43-law-15、past-43-law-17、past-44-law-9` |
-| 共同信託基金募集與運用 | 26 | 0.95% | `past-42-law-22、past-43-law-36、past-44-law-42、past-45-law-20、past-46-law-24` |
-| 受益證券募集發行與受益人會議 | 26 | 0.95% | `past-41-practice-50、past-42-practice-48、past-42-practice-50、past-42-practice-55、past-45-practice-44` |
-| 證券化特性與經濟效益 | 26 | 0.95% | `past-41-practice-53、past-43-practice-53、past-43-practice-56、past-44-practice-49、past-45-practice-52` |
-| 財產獨立性與強制執行 | 26 | 0.95% | `past-41-law-5、past-41-law-9、past-42-law-10、past-44-law-4、past-45-law-5` |
-| 客戶認識商品適合度與投資人分類 | 25 | 0.92% | `past-42-practice-2、past-42-practice-16、past-43-practice-4、past-43-practice-5、past-44-practice-11` |
-| 行銷訂約與風險揭露 | 24 | 0.88% | `past-42-law-40、past-42-practice-20、past-43-law-41、past-43-practice-12、past-45-law-42` |
-| 預收款禮券與履約保障 | 24 | 0.88% | `past-41-practice-1、past-41-practice-2、past-41-practice-14、past-42-practice-1、past-42-practice-14` |
-| 人員資格訓練與利益限制 | 23 | 0.84% | `past-42-law-26、past-42-law-44、past-43-law-40、past-44-law-26、past-44-law-27` |
-| 信託課稅原則與形式移轉 | 22 | 0.81% | `past-41-law-46、past-43-law-48、past-45-practice-77、past-49-law-49、past-50-law-48` |
-| 外匯結匯與國際金融業務 | 22 | 0.81% | `past-42-practice-21、past-44-practice-9、past-48-practice-18、past-50-practice-5、past-50-practice-7` |
-| 內控稽核與風險管理 | 21 | 0.77% | `past-41-law-41、past-42-law-33、past-43-law-33、past-44-law-40、past-45-practice-19` |
-| 土地開發與不動產管理信託 | 21 | 0.77% | `past-41-practice-42、past-42-practice-40、past-42-practice-41、past-43-practice-80、past-44-practice-40` |
-| 遺產及贈與稅 | 21 | 0.77% | `past-41-law-48、past-42-law-50、past-43-law-47、past-45-law-46、past-46-law-49` |
-| 其他資產保管與營業保證金 | 20 | 0.73% | `past-41-practice-58、past-42-practice-62、past-43-practice-59、past-45-practice-61、past-46-practice-63` |
-| 設立能力與監督管轄 | 20 | 0.73% | `past-41-law-15、past-42-law-17、past-43-law-16、past-44-law-13、past-45-law-12` |
-| 土地稅與土地增值稅 | 19 | 0.70% | `past-41-law-49、past-42-law-46、past-46-law-46、past-46-practice-41、past-46-practice-45` |
-| 資產移轉債權與債務人通知 | 18 | 0.66% | `past-41-practice-41、past-41-practice-52、past-42-practice-53、past-43-practice-45、past-43-practice-54` |
-| 公會自律與行為規範 | 16 | 0.59% | `past-42-law-42、past-43-law-42、past-46-law-40、past-46-law-41、past-46-practice-78` |
-| 信用增強評等與風險分散 | 15 | 0.55% | `past-41-practice-46、past-43-practice-55、past-44-practice-53、past-46-practice-50、past-48-practice-56` |
-| REAT資產信託與證券發行 | 14 | 0.51% | `past-43-practice-43、past-45-practice-42、past-45-practice-43、past-45-practice-46、past-46-practice-44` |
-| 結構型商品與衍生性金融商品 | 14 | 0.51% | `past-46-practice-20、past-49-practice-1、past-49-practice-2、past-51-practice-4、past-51-practice-5` |
-| 員工持股信託的課稅與返還 | 12 | 0.44% | `past-43-practice-28、past-44-practice-23、past-45-practice-24、past-46-practice-24、past-49-practice-23` |
-| 房屋稅與契稅 | 12 | 0.44% | `past-43-law-49、past-45-law-47、past-46-law-50、past-49-law-19、past-52-law-46` |
-| 贈與權利價值與折現計算 | 10 | 0.37% | `past-41-practice-33、past-42-law-47、past-53-law-48、past-54-law-47、past-55-law-50` |
-| 退出終止與財產返還 | 10 | 0.37% | `past-41-practice-25、past-43-practice-31、past-46-practice-80、past-54-practice-30、past-55-practice-30` |
-| 證券化商品分離課稅與交易稅 | 9 | 0.33% | `past-45-practice-40、past-45-practice-79、past-48-practice-3、past-51-practice-78、past-56-practice-45` |
-| 資金提撥與公司獎勵 | 9 | 0.33% | `past-42-practice-26、past-46-practice-27、past-52-practice-25、past-52-practice-28、past-53-practice-30` |
-| 集合帳戶受益權淨值與退出 | 9 | 0.33% | `past-42-practice-72、past-43-practice-79、past-50-practice-71、past-51-practice-71、past-53-practice-71` |
-| 營業稅與印花稅 | 8 | 0.29% | `past-42-law-49、past-44-practice-18、past-51-practice-15、past-52-practice-20、past-53-practice-17` |
-| 證券交易稅 | 8 | 0.29% | `past-41-practice-35、past-44-practice-33、past-44-practice-54、past-45-practice-33、past-49-practice-35` |
-| 證券化計畫與其他制度 | 8 | 0.29% | `past-44-practice-48、past-44-practice-55、past-48-practice-4、past-50-practice-50、past-54-practice-47` |
-| 評審委員會與內部職責 | 7 | 0.26% | `past-41-law-32、past-52-law-19、past-57-law-32、past-59-law-31、past-61-law-34` |
-| 安養退休與保險金信託 | 4 | 0.15% | `past-42-practice-39、past-45-law-29、past-50-practice-17、past-53-practice-18` |
+| 境外基金與國外證券投資 | 230 | 8.06% | `past-41-practice-3、past-41-practice-4、past-41-practice-5、past-41-practice-7、past-41-practice-12` |
+| 成立方式與信託分類 | 154 | 5.40% | `past-41-law-2、past-41-law-3、past-41-law-4、past-41-law-6、past-41-law-16` |
+| 基金保管交割與監督責任 | 142 | 4.98% | `past-41-practice-57、past-41-practice-62、past-41-practice-65、past-41-practice-66、past-41-practice-67` |
+| 業務範圍與禁止保本保息 | 115 | 4.03% | `past-41-law-23、past-41-law-24、past-41-law-26、past-41-law-43、past-42-law-23` |
+| 金錢信託分類權限與運用 | 112 | 3.92% | `past-41-practice-8、past-41-practice-9、past-41-practice-11、past-41-practice-18、past-41-practice-20` |
+| 全權委託保管與越權交易 | 100 | 3.50% | `past-41-practice-59、past-41-practice-60、past-41-practice-61、past-41-practice-64、past-41-practice-68` |
+| 特殊目的信託公司與參與機構 | 89 | 3.12% | `past-41-practice-48、past-41-practice-49、past-41-practice-51、past-41-practice-54、past-41-practice-55` |
+| REIT募集投資標的與限制 | 87 | 3.05% | `past-41-practice-40、past-41-practice-43、past-41-practice-45、past-42-practice-42、past-42-practice-46` |
+| 員工福利信託特性與制度 | 69 | 2.42% | `past-41-practice-23、past-41-practice-24、past-41-practice-28、past-41-practice-29、past-41-practice-30` |
+| 受託人義務報酬與責任 | 61 | 2.14% | `past-41-law-8、past-41-law-11、past-41-law-50、past-41-practice-6、past-42-law-2` |
+| 單獨及集合管理分類與權限 | 59 | 2.07% | `past-41-law-27、past-41-practice-74、past-41-practice-75、past-42-practice-69、past-42-practice-73` |
+| 財產評審報告與會計公告 | 59 | 2.07% | `past-41-law-38、past-41-law-42、past-41-practice-10、past-42-law-36、past-42-law-43` |
+| 持股會組織協議與當事人 | 58 | 2.03% | `past-41-practice-27、past-42-practice-24、past-42-practice-27、past-42-practice-31、past-43-practice-24` |
+| 所得稅與扣繳 | 55 | 1.93% | `past-41-law-47、past-42-law-48、past-42-practice-35、past-42-practice-52、past-43-law-50` |
+| 證券信託種類與保管差異 | 51 | 1.79% | `past-41-practice-38、past-42-practice-38、past-43-practice-37、past-43-practice-39、past-44-practice-12` |
+| 經營組織與兼營獨立 | 50 | 1.75% | `past-41-law-36、past-41-law-39、past-41-law-40、past-42-law-21、past-42-law-39` |
+| 集合帳戶投資限制與流動性 | 50 | 1.75% | `past-41-practice-73、past-41-practice-77、past-42-practice-76、past-43-practice-71、past-44-law-33` |
+| 不動產證券化共通規定 | 49 | 1.72% | `past-41-practice-44、past-41-practice-47、past-42-practice-43、past-42-practice-44、past-42-practice-45` |
+| 監理處分罰則與損害賠償 | 47 | 1.65% | `past-41-law-30、past-41-law-31、past-41-law-33、past-41-law-35、past-41-law-37` |
+| 設立標準與分支機構 | 47 | 1.65% | `past-41-law-21、past-41-law-22、past-42-law-24、past-44-law-21、past-44-law-22` |
+| 公益信託與監督機關 | 46 | 1.61% | `past-41-law-14、past-41-law-18、past-41-law-20、past-42-law-15、past-42-law-18` |
+| 利害關係人與利益衝突 | 43 | 1.51% | `past-41-law-29、past-41-law-45、past-42-law-27、past-42-law-30、past-42-law-37` |
+| 有價證券借貸交易與擔保 | 43 | 1.51% | `past-41-practice-34、past-42-practice-32、past-42-practice-37、past-43-practice-33、past-43-practice-40` |
+| 投資運用與分別管理 | 39 | 1.37% | `past-41-practice-26、past-42-practice-80、past-43-practice-30、past-44-practice-28、past-44-practice-30` |
+| 內部人持股申報與權益行使 | 38 | 1.33% | `past-41-practice-32、past-41-practice-36、past-41-practice-37、past-41-practice-39、past-42-practice-33` |
+| 集合帳戶申請設置與合併 | 34 | 1.19% | `past-41-practice-70、past-41-practice-71、past-41-practice-72、past-41-practice-76、past-42-practice-70` |
+| 登記公示與對抗效力 | 33 | 1.16% | `past-41-law-1、past-42-law-1、past-42-practice-34、past-43-law-1、past-43-law-19` |
+| 賠償準備金與盈餘分配 | 33 | 1.16% | `past-41-law-34、past-42-law-25、past-42-law-31、past-43-law-35、past-44-law-28` |
+| 委託人權利與信託標的 | 30 | 1.05% | `past-42-law-5、past-42-law-7、past-42-law-9、past-43-law-5、past-45-law-3` |
+| 終止變更與剩餘財產歸屬 | 30 | 1.05% | `past-41-law-13、past-42-law-20、past-44-law-45、past-45-law-6、past-46-law-17` |
+| 受益人權利與撤銷救濟 | 29 | 1.02% | `past-41-law-7、past-41-law-10、past-41-law-12、past-42-law-11、past-42-law-12` |
+| 外資全球保管與代理登記 | 29 | 1.02% | `past-41-practice-56、past-41-practice-63、past-41-practice-79、past-43-practice-60、past-44-practice-56` |
+| 基本義務與契約記載事項 | 28 | 0.98% | `past-41-law-25、past-41-law-28、past-42-law-32、past-43-law-26、past-44-law-19` |
+| 信託監察人 | 26 | 0.91% | `past-41-law-17、past-42-law-14、past-43-law-15、past-43-law-17、past-44-law-9` |
+| 共同信託基金募集與運用 | 26 | 0.91% | `past-42-law-22、past-43-law-36、past-44-law-42、past-45-law-20、past-46-law-24` |
+| 受益證券募集發行與受益人會議 | 26 | 0.91% | `past-41-practice-50、past-42-practice-48、past-42-practice-50、past-42-practice-55、past-45-practice-44` |
+| 證券化特性與經濟效益 | 26 | 0.91% | `past-41-practice-53、past-43-practice-53、past-43-practice-56、past-44-practice-49、past-45-practice-52` |
+| 財產獨立性與強制執行 | 26 | 0.91% | `past-41-law-5、past-41-law-9、past-42-law-10、past-44-law-4、past-45-law-5` |
+| 客戶認識商品適合度與投資人分類 | 25 | 0.88% | `past-42-practice-2、past-42-practice-16、past-43-practice-4、past-43-practice-5、past-44-practice-11` |
+| 行銷訂約與風險揭露 | 24 | 0.84% | `past-42-law-40、past-42-practice-20、past-43-law-41、past-43-practice-12、past-45-law-42` |
+| 預收款禮券與履約保障 | 24 | 0.84% | `past-41-practice-1、past-41-practice-2、past-41-practice-14、past-42-practice-1、past-42-practice-14` |
+| 人員資格訓練與利益限制 | 23 | 0.81% | `past-42-law-26、past-42-law-44、past-43-law-40、past-44-law-26、past-44-law-27` |
+| 信託課稅原則與形式移轉 | 22 | 0.77% | `past-41-law-46、past-43-law-48、past-45-practice-77、past-49-law-49、past-50-law-48` |
+| 外匯結匯與國際金融業務 | 22 | 0.77% | `past-42-practice-21、past-44-practice-9、past-48-practice-18、past-50-practice-5、past-50-practice-7` |
+| 內控稽核與風險管理 | 21 | 0.74% | `past-41-law-41、past-42-law-33、past-43-law-33、past-44-law-40、past-45-practice-19` |
+| 土地開發與不動產管理信託 | 21 | 0.74% | `past-41-practice-42、past-42-practice-40、past-42-practice-41、past-43-practice-80、past-44-practice-40` |
+| 遺產及贈與稅 | 21 | 0.74% | `past-41-law-48、past-42-law-50、past-43-law-47、past-45-law-46、past-46-law-49` |
+| 其他資產保管與營業保證金 | 20 | 0.70% | `past-41-practice-58、past-42-practice-62、past-43-practice-59、past-45-practice-61、past-46-practice-63` |
+| 設立能力與監督管轄 | 20 | 0.70% | `past-41-law-15、past-42-law-17、past-43-law-16、past-44-law-13、past-45-law-12` |
+| 土地稅與土地增值稅 | 19 | 0.67% | `past-41-law-49、past-42-law-46、past-46-law-46、past-46-practice-41、past-46-practice-45` |
+| 資產移轉債權與債務人通知 | 18 | 0.63% | `past-41-practice-41、past-41-practice-52、past-42-practice-53、past-43-practice-45、past-43-practice-54` |
+| 公會自律與行為規範 | 16 | 0.56% | `past-42-law-42、past-43-law-42、past-46-law-40、past-46-law-41、past-46-practice-78` |
+| 信用增強評等與風險分散 | 15 | 0.53% | `past-41-practice-46、past-43-practice-55、past-44-practice-53、past-46-practice-50、past-48-practice-56` |
+| REAT資產信託與證券發行 | 14 | 0.49% | `past-43-practice-43、past-45-practice-42、past-45-practice-43、past-45-practice-46、past-46-practice-44` |
+| 結構型商品與衍生性金融商品 | 14 | 0.49% | `past-46-practice-20、past-49-practice-1、past-49-practice-2、past-51-practice-4、past-51-practice-5` |
+| 員工持股信託的課稅與返還 | 12 | 0.42% | `past-43-practice-28、past-44-practice-23、past-45-practice-24、past-46-practice-24、past-49-practice-23` |
+| 房屋稅與契稅 | 12 | 0.42% | `past-43-law-49、past-45-law-47、past-46-law-50、past-49-law-19、past-52-law-46` |
+| 贈與權利價值與折現計算 | 10 | 0.35% | `past-41-practice-33、past-42-law-47、past-53-law-48、past-54-law-47、past-55-law-50` |
+| 退出終止與財產返還 | 10 | 0.35% | `past-41-practice-25、past-43-practice-31、past-46-practice-80、past-54-practice-30、past-55-practice-30` |
+| 證券化商品分離課稅與交易稅 | 9 | 0.32% | `past-45-practice-40、past-45-practice-79、past-48-practice-3、past-51-practice-78、past-56-practice-45` |
+| 資金提撥與公司獎勵 | 9 | 0.32% | `past-42-practice-26、past-46-practice-27、past-52-practice-25、past-52-practice-28、past-53-practice-30` |
+| 集合帳戶受益權淨值與退出 | 9 | 0.32% | `past-42-practice-72、past-43-practice-79、past-50-practice-71、past-51-practice-71、past-53-practice-71` |
+| 營業稅與印花稅 | 8 | 0.28% | `past-42-law-49、past-44-practice-18、past-51-practice-15、past-52-practice-20、past-53-practice-17` |
+| 證券交易稅 | 8 | 0.28% | `past-41-practice-35、past-44-practice-33、past-44-practice-54、past-45-practice-33、past-49-practice-35` |
+| 證券化計畫與其他制度 | 8 | 0.28% | `past-44-practice-48、past-44-practice-55、past-48-practice-4、past-50-practice-50、past-54-practice-47` |
+| 評審委員會與內部職責 | 7 | 0.25% | `past-41-law-32、past-52-law-19、past-57-law-32、past-59-law-31、past-61-law-34` |
+| 安養退休與保險金信託 | 4 | 0.14% | `past-42-practice-39、past-45-law-29、past-50-practice-17、past-53-practice-18` |
 | 信託稅務綜合比較 | 3 | 0.11% | `past-43-law-46、past-45-law-50、past-53-law-49` |
 | 子女教育與保險信託應用 | 2 | 0.07% | `past-46-practice-47、past-46-practice-62` |
 | 特定指定不指定信託分類 | 2 | 0.07% | `past-46-law-25、past-55-law-38` |
@@ -239,26 +239,28 @@
 
 | 法規／規範 | 命中題數 | 題庫占比 | 樣本題目 ID |
 | --- | ---: | ---: | --- |
-| 信託業法 | 173 | 6.35% | `past-44-law-38、past-44-practice-38、past-46-law-43、past-49-practice-36、past-55-practice-80` |
-| 信託法 | 108 | 3.96% | `past-41-law-7、past-41-law-9、past-41-practice-6、past-42-law-3、past-42-law-11` |
-| 金融資產證券化條例 | 75 | 2.75% | `past-44-law-19、past-57-law-20、past-61-law-28、past-43-practice-50、past-51-practice-54` |
-| 不動產證券化條例 | 45 | 1.65% | `past-43-law-23、past-55-law-22、past-55-practice-48、past-56-law-22、past-57-law-21` |
-| 信託資金集合管理運用管理辦法 | 33 | 1.21% | `past-52-practice-78、past-41-practice-70、past-41-practice-72、past-41-practice-75、past-42-practice-70` |
-| 境外基金管理辦法 | 32 | 1.17% | `past-56-practice-20、past-61-practice-9、past-42-practice-13、past-43-practice-11、past-43-practice-18` |
-| 有價證券借貸辦法 | 21 | 0.77% | `past-41-practice-34、past-42-practice-37、past-43-practice-33、past-43-practice-40、past-44-practice-37` |
-| 信託業設立標準 | 16 | 0.59% | `past-41-law-21、past-44-law-21、past-45-law-22、past-45-law-23、past-49-law-23` |
-| 證券交易法 | 16 | 0.59% | `past-49-law-39、past-52-law-39、past-60-law-35、past-43-practice-38、past-44-practice-34` |
-| 所得稅法 | 15 | 0.55% | `past-41-law-47、past-44-law-47、past-44-law-50、past-46-law-48、past-50-law-50` |
-| 銀行法 | 15 | 0.55% | `past-42-law-38、past-44-law-24、past-46-law-20、past-48-law-41、past-50-law-38` |
-| 民法 | 14 | 0.51% | `past-44-law-49、past-49-law-46、past-52-law-48、past-62-law-16、past-41-practice-42` |
-| 信託業應負之義務及相關行為規範 | 11 | 0.40% | `past-42-law-42、past-43-law-42、past-45-law-42、past-46-law-41、past-52-law-26` |
-| 證券投資信託事業證券投資顧問事業證券商兼營信託業務管理辦法 | 11 | 0.40% | `past-42-law-41、past-43-law-43、past-52-law-41、past-54-law-42、past-55-law-42` |
-| 證券投資信託及顧問法 | 9 | 0.33% | `past-44-law-24、past-41-practice-66、past-49-practice-58、past-50-practice-68、past-52-practice-61` |
-| 信託業負責人應具備資格條件暨經營與管理人員應具備信託專門學識或經驗準則 | 8 | 0.29% | `past-42-law-26、past-44-law-39、past-46-law-36、past-48-law-31、past-53-law-29` |
-| 境外結構型商品管理規則 | 8 | 0.29% | `past-44-practice-22、past-45-practice-17、past-53-practice-13、past-49-practice-2、past-51-practice-5` |
-| 信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法 | 6 | 0.22% | `past-42-practice-20、past-43-practice-12、past-45-practice-10、past-51-practice-19、past-57-practice-20` |
+| 信託業法 | 181 | 6.34% | `past-44-law-38、past-44-practice-38、past-46-law-43、past-49-practice-36、past-55-practice-80` |
+| 信託法 | 114 | 3.99% | `past-41-law-7、past-41-law-9、past-41-practice-6、past-42-law-3、past-42-law-11` |
+| 金融資產證券化條例 | 80 | 2.80% | `past-44-law-19、past-57-law-20、past-61-law-28、past-43-practice-50、past-51-practice-54` |
+| 不動產證券化條例 | 48 | 1.68% | `past-43-law-23、past-55-law-22、past-55-practice-48、past-56-law-22、past-57-law-21` |
+| 信託資金集合管理運用管理辦法 | 34 | 1.19% | `past-52-practice-78、past-41-practice-70、past-41-practice-72、past-41-practice-75、past-42-practice-70` |
+| 境外基金管理辦法 | 33 | 1.16% | `past-56-practice-20、past-61-practice-9、past-42-practice-13、past-43-practice-11、past-43-practice-18` |
+| 有價證券借貸辦法 | 22 | 0.77% | `past-41-practice-34、past-42-practice-37、past-43-practice-33、past-43-practice-40、past-44-practice-37` |
+| 銀行法 | 18 | 0.63% | `past-42-law-38、past-44-law-24、past-46-law-20、past-48-law-41、past-50-law-38` |
+| 信託業設立標準 | 17 | 0.60% | `past-41-law-21、past-44-law-21、past-45-law-22、past-45-law-23、past-49-law-23` |
+| 所得稅法 | 16 | 0.56% | `past-41-law-47、past-44-law-47、past-44-law-50、past-46-law-48、past-50-law-50` |
+| 證券交易法 | 16 | 0.56% | `past-49-law-39、past-52-law-39、past-60-law-35、past-43-practice-38、past-44-practice-34` |
+| 民法 | 15 | 0.53% | `past-44-law-49、past-49-law-46、past-52-law-48、past-62-law-16、past-41-practice-42` |
+| 信託業應負之義務及相關行為規範 | 12 | 0.42% | `past-42-law-42、past-43-law-42、past-45-law-42、past-46-law-41、past-52-law-26` |
+| 證券投資信託事業證券投資顧問事業證券商兼營信託業務管理辦法 | 12 | 0.42% | `past-42-law-41、past-43-law-43、past-52-law-41、past-54-law-42、past-55-law-42` |
+| 證券投資信託及顧問法 | 9 | 0.32% | `past-44-law-24、past-41-practice-66、past-49-practice-58、past-50-practice-68、past-52-practice-61` |
+| 信託業負責人應具備資格條件暨經營與管理人員應具備信託專門學識或經驗準則 | 8 | 0.28% | `past-42-law-26、past-44-law-39、past-46-law-36、past-48-law-31、past-53-law-29` |
+| 境外結構型商品管理規則 | 8 | 0.28% | `past-44-practice-22、past-45-practice-17、past-53-practice-13、past-49-practice-2、past-51-practice-5` |
+| 信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法 | 6 | 0.21% | `past-42-practice-20、past-43-practice-12、past-45-practice-10、past-51-practice-19、past-57-practice-20` |
 | 遺產及贈與稅法 | 3 | 0.11% | `past-42-law-50、past-48-law-49、past-55-law-46` |
 | 公司法 | 1 | 0.04% | `past-41-law-23` |
+
+未分類樣本 ID：`past-63-practice-1`、`past-63-practice-2`、`past-63-practice-3`、`past-63-practice-4`、`past-63-practice-5`、`past-63-practice-6`、`past-63-practice-7`、`past-63-practice-8`、`past-63-practice-9`、`past-63-practice-10`。完整未分類 ID 見統計 JSON。
 
 ### 金融市場常識與職業道德（證基會113年版）
 

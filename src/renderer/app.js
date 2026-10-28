@@ -315,6 +315,7 @@
     stats.lastAnsweredAt = new Date().toISOString();
     progress.questionStats[question.id] = stats;
     saveProgress();
+    window.StudyMetrics?.answer(question.id);
   }
   function renderChapterPractice(container, questions) {
     container.replaceChildren();
@@ -332,6 +333,7 @@
         <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}${question.explanation ? '。解析：' + escapeHtml(question.explanation) : ''}` : ''}</p>
         <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
       form.prepend(createQuestionActions(question,()=>renderReader()));
+      window.StudyMetrics?.question(question.id, form);
       form.onchange = () => {
         const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
         chapterPracticeAnswers.set(question.id, {selected:multiple ? values : values[0], submitted:false});
@@ -707,6 +709,7 @@
     document.getElementById('quiz-stem').textContent = sourceLabel && Number(sourceLabel[1]) === q.sourceExam?.number
       ? q.question.slice(sourceLabel[0].length)
       : q.question;
+    window.StudyMetrics?.question(q.id, document.getElementById('quiz-stem'));
 
     const optionsContainer = document.getElementById('quiz-options-container');
     optionsContainer.innerHTML = '';
