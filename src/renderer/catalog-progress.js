@@ -5,7 +5,9 @@
       let saved;
       let unavailable = false;
       try {
-        const raw = localStorage.getItem(`study-pack.${course.id}.progress`);
+        const account=localStorage.getItem('study-pack.sync.account');
+        const key=account && /^[a-f0-9-]{36}$/.test(account) ? `study-pack.account.${account}.${course.id}.progress` : `study-pack.${course.id}.progress`;
+        const raw = localStorage.getItem(key);
         saved = raw ? JSON.parse(raw) : null;
         if (saved && (saved.format !== 'study-pack-progress-v1' || saved.packId !== course.id || !Array.isArray(saved.completedChapters) || !saved.questionStats || typeof saved.questionStats !== 'object' || Array.isArray(saved.questionStats))) throw new Error('Invalid progress');
       } catch { saved = null; unavailable = true; }

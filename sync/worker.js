@@ -48,6 +48,10 @@ export default {async fetch(req,env){
     if(action==='logout'){
       await env.DB.prepare('DELETE FROM sync_sessions WHERE token_hash = ?').bind(digest(token)).run();return reply(200,{}, {'Set-Cookie':cookie('',0)});
     }
+    if(action==='read-all'){
+      const rows=await env.DB.prepare('SELECT course,revision,data FROM sync_progress WHERE account_id = ?').bind(session.account_id).all();
+      return reply(200,{items:rows.results.map(row=>({course:row.course,revision:row.revision,data:JSON.parse(row.data)}))});
+    }
     if(!courses.has(data.course))return reply(400);
     if(action==='read'){
       const row=await env.DB.prepare('SELECT revision,data FROM sync_progress WHERE account_id = ? AND course = ?').bind(session.account_id,data.course).first();
