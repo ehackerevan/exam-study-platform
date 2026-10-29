@@ -28,4 +28,4 @@
 
 ## 限制與驗收
 
-OCR 會把部分字辨識錯誤，因此五字片語比對可能低估或高估實際字面重疊；剩餘命中多為法規與標準名稱、英文縮寫、日期及固定數值。這次工作沒有重新查核全套法規現行性。2026-10-29 `npm run build:ui` 通過（8 個 Study Pack、38 章／167 個預覽主題）；`git diff --check` 通過；另確認七份 Markdown 的圍欄、章節 ID 及表格欄位結構。GitHub Pages 部署結果待推送後的 Actions 驗收。
+OCR 會把部分字辨識錯誤，因此五字片語比對可能低估或高估實際字面重疊；剩餘命中多為法規與標準名稱、英文縮寫、日期及固定數值。這次工作沒有重新查核全套法規現行性。2026-10-29 `npm run build:ui` 通過（8 個 Study Pack、38 章／167 個預覽主題）；GitHub Actions [run #45](https://github.com/ehackerevan/exam-study-platform/actions/runs/40870276467) 完成 CI 與 GitHub Pages 部署。永續教材[正式頁](https://ehackerevan.github.io/exam-study-platform/永續發展基礎能力重點教材.html)回應 HTTP 200，且包含改寫後導言、未出現重複導讀標題。
