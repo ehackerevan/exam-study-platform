@@ -111,11 +111,11 @@ for (const course of courses) {
         if(topic.overview){entry.removed.push({id:section.id,reason:'重複章首摘要，保留於章首與章節總覽'});return [];}
         return [{section,topic,body:topic.overview?'':original(section.content)}];
       }
-      if(/本章學習導航與核心地圖|本章使用說明/.test(section.title)) {entry.removed.push({id:section.id,reason:'重複章首導讀'});return [];}
+      if((course.key==='esg'&&section.title==='概述')||/本章學習導航與核心地圖|本章使用說明/.test(section.title)) {entry.removed.push({id:section.id,reason:'重複章首導讀'});return [];}
       let topic;
       if(/歷屆常見易錯觀念/.test(section.title)) topic={title:'常見誤判與條件辨識',core:lesson.limit,nodes:lesson.steps.map(step=>[step[0],step[1]]),example:lesson.check[0]+' '+lesson.check[1],trap:'先找題目改動的對象、條件與用詞，再回看各項規定。'};
       else if(section.title==='法規原文對照庫') topic={title:'條文與適用要件',core:'將本章觀念放回條文，依序辨認規範對象、行為與例外。',nodes:[['對象',lesson.steps[0][0]],['事項',lesson.steps[1][0]],['條件',lesson.steps[2][0]]],example:lesson.check[0]+' '+lesson.check[1],trap:lesson.limit};
-      else if(/常見法規數字整理|常見英文縮寫|題目判讀重點/.test(section.title)) topic=topicFrom(reviewTopics[section.title.includes('縮寫')?1:section.title.includes('判讀')?2:0],section.title.replace('歷屆題目','').replace('常見法規數字整理','數字、期間與適用情境'));
+      else if(/常見法規數字整理|法規與數字|常見英文縮寫|常見縮寫|題目判讀重點|題目判讀/.test(section.title)) topic=topicFrom(reviewTopics[section.title.includes('縮寫')?1:section.title.includes('判讀')?2:0],section.title.replace('歷屆題目','').replace('常見法規數字整理','數字、期間與適用情境'));
       else topic=topicFrom(sectionTopics[course.key+'/'+chapter.id]?.[topicIndex++],section.title);
       return [{section,topic,body:original(section.content)}];
     });
