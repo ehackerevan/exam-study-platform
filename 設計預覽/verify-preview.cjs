@@ -42,9 +42,7 @@ const url=pathToFileURL(isolated).href;
    await page.waitForFunction(course=>document.querySelector('.lesson.is-active')?.dataset.course===course,course);
    assert.equal(await page.locator('.course-navigation.is-active').count(),1);
    const current=await page.locator('.lesson.is-active').getAttribute('id');
-   await page.locator('.lesson.is-active .check-answer summary').focus();
-   await page.keyboard.press('Enter');
-   assert(await page.locator('.lesson.is-active .check-answer').evaluate(node=>node.open));
+   if(course!=='esg'){await page.locator('.lesson.is-active .check-answer summary').focus();await page.keyboard.press('Enter');assert(await page.locator('.lesson.is-active .check-answer').evaluate(node=>node.open));}
    assert(await page.locator('.lesson.is-active .source-section').first().isVisible());
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),1440,current);
   }
@@ -54,6 +52,7 @@ const url=pathToFileURL(isolated).href;
   for(const id of ids){
    await page.evaluate(id=>location.hash=id,id);
    await page.waitForFunction(id=>document.querySelector('.lesson.is-active')?.id===id,id);
+   if(id.startsWith('esg-')){assert(await page.locator('.lesson.is-active .chapter-overview').isHidden());continue;}
    await page.locator('.lesson.is-active .chapter-overview').evaluate(node=>node.open=true);
    const nodes=page.locator('.lesson.is-active .map-node');
    await nodes.last().focus();await page.keyboard.press('Enter');

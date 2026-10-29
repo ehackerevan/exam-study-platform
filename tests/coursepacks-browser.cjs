@@ -81,9 +81,9 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
       assert.equal(await page.locator('#btn-chapter-practice').count(),0,'Chapter practice has no separate quiz-mode button');
      }
      assert(pack.chapters[i].teachingSections?.length>2,'Integrated teaching sections exist');
-     assert.equal(await page.locator('#sections-container .knowledge-topic').count(),pack.chapters[i].teachingSections.length-2,'Each topic remains available');
+     assert.equal(await page.locator('#sections-container .knowledge-topic').count(),pack.chapters[i].teachingSections.length-(course==='永續發展基礎能力重點教材'?0:2),'Each topic remains available');
      assert(await page.locator('#sections-container .knowledge-topic').evaluateAll(nodes=>nodes.every(node=>node.textContent.trim().length>20)),'Every topic retains readable content');
-     if(width===1440){
+     if(width===1440&&course!=='永續發展基礎能力重點教材'){
       await page.locator('#sections-container .chapter-overview').evaluate(node=>node.open=true);
       const nodes=page.locator('#sections-container .map-node');await nodes.last().click();
       assert.equal(await nodes.last().getAttribute('aria-pressed'),'true');

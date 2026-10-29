@@ -18,7 +18,7 @@ for(const course of courses){
   assert(start>=0,id);
   const article=preview.slice(start,preview.indexOf('</article>',start));
   const readingStart=article.indexOf('<div class="chapter-reading">')+'<div class="chapter-reading">'.length;
-  const readingEnd=article.indexOf('</div></section>\n<section class="chapter-review">',readingStart);
+  const readingEnd=article.indexOf('</div></section>\n<section class="chapter-review"',readingStart);
   assert(readingStart>0&&readingEnd>readingStart,id+' reading boundaries');
   const pieces=[...article.slice(readingStart,readingEnd).matchAll(/<section class="source-section knowledge-topic" data-source-id="([^"]+)">([\s\S]*?)<\/section>/g)];
   assert(pieces.length,id+' topics');
@@ -29,11 +29,11 @@ for(const course of courses){
   const graphStart=article.indexOf('<details class="chapter-overview"');
   const graphEnd=article.indexOf('</section></details>',graphStart)+'</section></details>'.length;
   assert(graphStart>=0&&graphEnd>graphStart,id+' overview');
-  sections.unshift({id:chapter.id+'-overview',title:'章節總覽',content:article.slice(graphStart,graphEnd),keyPoints:[],notes:[]});
-  const reviewStart=article.indexOf('<section class="chapter-review">');
+  if(course.key!=='esg') sections.unshift({id:chapter.id+'-overview',title:'章節總覽',content:article.slice(graphStart,graphEnd),keyPoints:[],notes:[]});
+  const reviewStart=article.indexOf('<section class="chapter-review"');
   const reviewEnd=article.indexOf('<details class="practice-block">',reviewStart);
   assert(reviewStart>=0&&reviewEnd>reviewStart,id+' review');
-  sections.push({id:chapter.id+'-review',title:'回顧與理解檢查',content:article.slice(reviewStart,reviewEnd),keyPoints:[],notes:[]});
+  if(course.key!=='esg') sections.push({id:chapter.id+'-review',title:'回顧與理解檢查',content:article.slice(reviewStart,reviewEnd),keyPoints:[],notes:[]});
   chapter.teachingSections=sections;
   chapter.teachingSummary=text(article.match(/<p class="intro">([\s\S]*?)<\/p>/)[1]);
   if(!chapter.practiceQuestionIds?.length)chapter.practiceQuestionIds=pack.questions.filter(q=>q.chapterId===chapter.id).slice(0,10).map(q=>q.id);
