@@ -22,6 +22,7 @@ if (readdirSync(output).length) throw new Error('Pages output directory must be 
 
 const analytics = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "59713a6319a6493194058911d9a9a96d"}'></script><!-- End Cloudflare Web Analytics -->`;
 const eventClient = readFileSync(path.join(root, 'analytics/client.js'), 'utf8');
+const syncClient = readFileSync(path.join(root, 'sync/client.js'), 'utf8');
 
 function copyFile(relativePath, destinationPath = relativePath, recordEvents = false) {
   const source = path.join(root, relativePath);
@@ -31,7 +32,7 @@ function copyFile(relativePath, destinationPath = relativePath, recordEvents = f
   const html = readFileSync(source, 'utf8');
   if (!/<\/body>/i.test(html)) throw new Error(`Missing closing body: ${relativePath}`);
   if (html.includes('static.cloudflareinsights.com/beacon.min.js')) throw new Error(`Analytics already present: ${relativePath}`);
-  const withMetrics = recordEvents ? html.replace(/<\/head>/i, () => `<script>${eventClient}</script>\n</head>`) : html;
+  const withMetrics = recordEvents ? html.replace(/<\/head>/i, () => `<script>${eventClient}\n${syncClient}</script>\n</head>`) : html;
   writeFileSync(destination, withMetrics.replace(/<\/body>/i, () => analytics + '\n</body>'));
 }
 

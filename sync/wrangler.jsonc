@@ -1,0 +1,10 @@
+{
+  "name": "study-pack-sync",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-28",
+  "d1_databases": [{"binding":"DB","database_name":"study-pack-metrics","database_id":"d87ae2d0-7a8b-49d8-bdfb-0daa875c4224"}],
+  "ratelimits": [
+    {"name":"RATE_LIMITER","namespace_id":"1710297221","simple":{"limit":100,"period":60}},
+    {"name":"AUTH_LIMITER","namespace_id":"1710297222","simple":{"limit":10,"period":60}}
+  ]
+}

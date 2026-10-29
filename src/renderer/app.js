@@ -21,7 +21,7 @@
     return sectionText.get(section);
   };
   const hasTeachingChapter = id => readingSections(pack.chapters.find(chapter => chapter.id === id)||{sections:[]}).some(section => !section.id.endsWith('-source-note') && (section.content || section.keyPoints?.length || section.notes?.length));
-  const STORAGE_KEY = `study-pack.${pack.id}.progress`;
+  let STORAGE_KEY = `study-pack.${pack.id}.progress`;
   const THRESHOLDS = {
     WEAK: 60,     // < 60% 需要加強
     MODERATE: 80  // 60-80% 尚未穩定, > 80% 穩定
@@ -42,6 +42,7 @@
     settings: { theme: 'system' }
   };
 
+  const emptyProgress = JSON.stringify(progress);
   let storageWritable = true;
   function showStorageWarning(message) {
     document.getElementById('storage-warning-banner').style.display = 'flex';
@@ -92,7 +93,9 @@
   function saveProgress() {
     if (!storageWritable) return false;
     try {
+      window.StudySync?.markDirty();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      window.StudySync?.changed();
       return true;
     } catch (err) {
       storageWritable = false;
@@ -944,12 +947,13 @@
     }
   }
 
-  function resetProgress() {
+  async function resetProgress() {
     if (confirm('確定要清除所有學習紀錄與錯題統計嗎？\n此動作不可復原（但不會影響教材與題庫）。')) {
       if (confirm('請再次確認：是否真要清除所有作答進度？')) {
         try {
-          localStorage.removeItem(STORAGE_KEY);
-          alert('學習進度已成功清除。');
+          if (window.StudySync) { progress = JSON.parse(emptyProgress); if (!saveProgress()) return; await window.StudySync.flush(); }
+          else localStorage.removeItem(STORAGE_KEY);
+          alert('學習進度已清除；若雲端同步失敗，本機紀錄會保留待同步。');
           location.reload();
         } catch (_) {showStorageWarning('無法清除瀏覽器紀錄，原資料仍保留。');}
       }
@@ -968,7 +972,15 @@
   }
 
   // ===== 初始化事件綁定 =====
-  function init() {
+  async function init() {
+    if (window.StudySync) {
+      const buttons = [...document.querySelectorAll('.tab-btn')];
+      buttons.forEach(button => { button.disabled = true; });
+      const notice = document.createElement('p'); notice.textContent = '正在確認雲端進度…'; notice.setAttribute('role', 'status');
+      document.querySelector('.app-header').after(notice);
+      try { STORAGE_KEY = await window.StudySync.bootstrap(pack.id, STORAGE_KEY, normalizeProgress); }
+      finally { notice.remove(); buttons.forEach(button => { button.disabled = false; }); }
+    }
     loadProgress();
     initQuestionManager();
     if(pack.editions){

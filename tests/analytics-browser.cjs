@@ -12,6 +12,7 @@ const {tmpdir}=require('node:os'), {execFileSync}=require('node:child_process');
   if(url.pathname==='/event') { events.push(JSON.parse(route.request().postData())); await route.fulfill({status:204,headers:{'Access-Control-Allow-Origin':'*'},body:''}); }
   else await route.fulfill({status:200,headers:{'Access-Control-Allow-Origin':'*','Content-Type':'application/json'},body:JSON.stringify({totals:[{course:'fintech-exam-pack',type:'view',total:5},{course:'fintech-exam-pack',type:'answer',total:10},{course:'financial-market-ethics-official-bank-116',type:'view',total:7}],questions:[]})});
  });
+ await p.route('https://study-pack-sync.ehackerevan.workers.dev/**',route=>route.abort());
  await p.route('https://static.cloudflareinsights.com/**',route=>route.fulfill({status:200,body:''}));
  try {
   await p.goto(pathToFileURL(path.resolve(dir,'index.html')).href);
