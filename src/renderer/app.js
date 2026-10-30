@@ -165,7 +165,8 @@
   }
 
   // 狀態管理
-  let currentView = 'dashboard'; // 'dashboard' | 'reader' | 'search' | 'quiz' | 'settings'
+  let currentView = 'reader'; // 'reader' | 'quiz' | 'settings'
+  let programmaticSectionScroll = false;
   let currentChapterId = progress.lastPosition.chapterId || (pack.chapters[0] ? pack.chapters[0].id : '');
 
   // 測驗執行狀態
@@ -181,9 +182,7 @@
 
   // DOM 參考快取
   const views = {
-    dashboard: document.getElementById('view-dashboard'),
     reader: document.getElementById('view-reader'),
-    search: document.getElementById('view-search'),
     quiz: document.getElementById('view-quiz'),
     settings: document.getElementById('view-settings')
   };
@@ -192,6 +191,8 @@
 
   // 切換視圖
   function switchView(viewName) {
+    const openSearch = viewName === 'search';
+    if (viewName === 'dashboard' || openSearch) viewName = 'reader';
     currentView = viewName;
     Object.keys(views).forEach(key => {
       if (views[key]) {
@@ -203,10 +204,15 @@
       btn.classList.toggle('active', btn.dataset.view === viewName);
     });
 
-    if (viewName === 'dashboard') renderDashboard();
     if (viewName === 'quiz') {renderQuizHistory();renderQuestionManager();}
-    if (viewName === 'reader') renderReader();
-    if (viewName === 'search') document.getElementById('search-input')?.focus();
+    if (viewName === 'reader') {
+      if (!openSearch) document.getElementById('reader-search').open = false;
+      renderReader();renderDashboard();
+    }
+    if (openSearch) {
+      document.getElementById('reader-search').open = true;
+      document.getElementById('search-input').focus();
+    }
   }
 
   // ===== 1. Dashboard 渲染 =====
@@ -242,10 +248,6 @@
     const lastCh = pack.chapters.find(c => c.id === progress.lastPosition.chapterId);
     document.getElementById('stat-last-chapter').textContent = lastCh ? lastCh.title : '尚未開始';
 
-    const continueButton = document.getElementById('shortcut-continue-read');
-    continueButton.hidden = !pack.chapters.some(chapter => hasTeachingChapter(chapter.id));
-    continueButton.querySelector('.shortcut-desc').textContent = lastCh ? `繼續：${lastCh.title}` : '從第一章開始';
-    document.getElementById('shortcut-wrong-answers').querySelector('.shortcut-desc').textContent = `目前 ${currentWrongCount} 題待複習`;
     const reviewPoints = new Map();
     pack.questions.filter(question => progress.questionStats[question.id]?.lastResult === false).forEach(question => {
       (question.knowledgePoints?.length ? question.knowledgePoints : ['其他／未分類']).forEach(point => reviewPoints.set(point, (reviewPoints.get(point) || 0) + 1));
@@ -494,7 +496,13 @@
       renderChapterPractice(document.getElementById('chapter-practice-preview'), practiceQuestions);
     }
     const resume = progress.lastPosition.sectionId;
-    if (resume) requestAnimationFrame(() => document.getElementById(`sec-${resume}`)?.scrollIntoView({block:'start'}));
+    if (resume) {
+      programmaticSectionScroll = true;
+      requestAnimationFrame(() => {
+        document.getElementById(`sec-${resume}`)?.scrollIntoView({block:'start'});
+        setTimeout(() => { programmaticSectionScroll = false; }, 250);
+      });
+    }
 
     // 上一章、下一章按鈕狀態
     const currIdx = pack.chapters.findIndex(c => c.id === ch.id);
@@ -1026,7 +1034,7 @@
     });
     let readingFrame = 0;
     window.addEventListener('scroll', () => {
-      if (currentView !== 'reader' || readingFrame) return;
+      if (currentView !== 'reader' || readingFrame || programmaticSectionScroll) return;
       readingFrame = requestAnimationFrame(() => {
         readingFrame = 0;
         if (currentView !== 'reader') return;
@@ -1044,12 +1052,13 @@
     document.title = pack.title;
     document.getElementById('app-brand-title').textContent = pack.title;
     document.getElementById('app-brand-version').textContent = `v${pack.contentVersion || '1.0'}`;
-    document.getElementById('hero-pack-title').textContent = pack.title;
-    document.getElementById('hero-pack-desc').textContent = pack.description || '點選下方快速入口開始學習！';
 
     // 導航 Tab 事件
     navTabBtns.forEach(btn => {
       btn.onclick = () => switchView(btn.dataset.view);
+    });
+    document.getElementById('study-progress').addEventListener('toggle', event => {
+      if (event.target.open) renderDashboard();
     });
 
     // 主題選擇
@@ -1061,17 +1070,6 @@
     } else {
       applyTheme(progress.settings.theme || 'system');
     }
-
-    // 快捷入口按鈕
-    document.getElementById('shortcut-continue-read')?.addEventListener('click', () => switchView('reader'));
-    document.getElementById('shortcut-random-quiz')?.addEventListener('click', () => {
-      switchView('quiz');
-      startQuiz('random', '', 10);
-    });
-    document.getElementById('shortcut-wrong-answers')?.addEventListener('click', () => {
-      switchView('quiz');
-      startQuiz('wrong', '', 'all');
-    });
 
     document.getElementById('btn-quick-ten')?.addEventListener('click', () => startQuiz('random', '', 10));
     document.getElementById('btn-quick-wrong')?.addEventListener('click', () => startQuiz('wrong', '', 'all'));
@@ -1171,9 +1169,6 @@
       startQuiz('random', '', count);
     });
 
-    document.getElementById('btn-start-wrong-quiz')?.addEventListener('click', () => {
-      startQuiz('wrong', '', 'all');
-    });
 
     document.getElementById('btn-exit-quiz')?.addEventListener('click', () => {
       if (confirm('結束本次測驗並查看已答結果？未作答題目不計分。')) {
@@ -1203,7 +1198,7 @@
 
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');
-    switchView(initialView === 'quick-review' ? 'search' : ['reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'dashboard');
+    switchView(initialView === 'quick-review' ? 'search' : ['reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'reader');
   }
 
   // 啟動應用程式

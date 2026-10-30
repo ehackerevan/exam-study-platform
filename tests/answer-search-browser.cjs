@@ -11,7 +11,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
   for(const file of files){
    await p.goto(pathToFileURL(path.resolve(file)).href);
    const pack=await p.evaluate(()=>!!window.__STUDY_PACK__);
-   if(pack){await p.locator('#shortcut-random-quiz').click();}
+   if(pack){await p.locator('[data-view=quiz]').click();await p.locator('#btn-quick-ten').click();}
    const questions=p.locator(pack?'#quiz-stem':'.q-text');
    if(!await questions.count())continue;
    await p.waitForFunction(()=>[...document.querySelectorAll('#quiz-stem,.q-text')].every(q=>q.nextElementSibling?.classList.contains('answer-search')));
@@ -26,7 +26,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
     assert.equal(await p.locator('.answer-search').first().isVisible(),true);const popupPromise=context.waitForEvent('page');await p.locator('.answer-search').first().click();const popup=await popupPromise;await popup.waitForLoadState();
     assert.equal(new URL(popup.url()).searchParams.get('q'),await p.locator('.answer-search').first().evaluate(a=>new URL(a.href).searchParams.get('q')));
     assert.equal(p.url(),originalUrl);assert.equal(await p.evaluate(()=>JSON.stringify(localStorage)),snapshot);await popup.close();
-    await p.locator('.option-item').first().click();await p.locator('#btn-quiz-submit').click();await p.locator('#btn-quiz-next').click();
+    await p.locator('#quiz-options-container .option-item').first().click();await p.locator('#btn-quiz-submit').click();await p.locator('#btn-quiz-next').click();
     await p.waitForFunction(()=>new URL(document.querySelector('#quiz-stem+.answer-search').href).searchParams.get('q')===document.getElementById('quiz-stem').textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim());
     assert.equal(await p.locator('#quiz-stem+.answer-search').count(),1);clicked=true;
    }

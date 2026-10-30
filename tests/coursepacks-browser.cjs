@@ -148,8 +148,8 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     assert((await page.locator('#quiz-history-list').textContent()).includes(`精選題組 ${group.replace(/^c/, '')}｜100%（10/10）`));
    }
    await page.setViewportSize({width:390,height:844});
-   await page.locator('[data-view="dashboard"]').click();
-   assert(await page.locator('#view-dashboard').isVisible());
+   await page.locator('[data-view="reader"]').click();await page.locator('#study-progress summary').click();
+   assert(await page.locator('#study-progress').isVisible());
    await page.screenshot({path:path.join('.qa-artifacts',course+'-mobile.png'),animations:'disabled'});
    results.push({course,questions:pack.questions.length,chapters:pack.chapters.length,status:'PASS'});
   }

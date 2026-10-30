@@ -351,7 +351,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 </style>
 <style>
 .learner-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin:1rem 0; }
-#quiz-advanced summary { cursor:pointer; padding:1rem 0; font-weight:700; }
+#quiz-advanced summary, #reader-search summary, #study-progress summary { cursor:pointer; padding:1rem 0; font-weight:700; }
 @media(max-width:768px) {
  #view-quiz { animation:none; }
  #quiz-running-panel .quiz-action-bar { position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--bg-surface); padding: .75rem max(1rem, env(safe-area-inset-right)) calc(.75rem + env(safe-area-inset-bottom)); margin:0!important; }
@@ -375,9 +375,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
     <!-- 視圖切換標籤 -->
     <nav class="nav-tabs" aria-label="主功能分頁">
-      <button class="tab-btn active" data-view="dashboard" type="button">📊 總覽</button>
-      <button class="tab-btn" data-view="reader" type="button">📘 教材</button>
-      <button class="tab-btn" data-view="search" type="button">🔍 搜尋</button>
+      <button class="tab-btn active" data-view="reader" type="button">📘 教材</button>
       <button class="tab-btn" data-view="quiz" type="button">📝 測驗</button>
       <button class="tab-btn" data-view="settings" type="button">⚙️ 設定</button>
     </nav>
@@ -395,40 +393,52 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button>
     </div>
 
-    <!-- 1. 總覽 Dashboard -->
-    <section id="view-dashboard" class="view-panel active">
-      <div class="dashboard-hero">
-        <h1 class="hero-title" id="hero-pack-title">學習教材</h1>
-        <p class="hero-desc" id="hero-pack-desc">歡迎使用單檔離線學習包</p>
+    <!-- 2. 章節閱讀 Reader -->
+    <section id="view-reader" class="view-panel active">
+      <div class="reader-layout">
+        <!-- 側邊目錄（可收合） -->
+        <aside class="reader-sidebar" id="reader-sidebar">
+          <div class="sidebar-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span class="sidebar-title" style="margin-bottom:0;">章節目錄</span>
+            <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="章節目錄" title="收合或展開目錄">收合 ◀</button>
+          </div>
+          <ul class="toc-list" id="reader-toc-list"></ul>
+        </aside>
 
-      <!-- 快捷入口卡片 (使用 button 元素) -->
-      <h3 style="font-size:1.1rem;margin-bottom:0.75rem;font-weight:700;">快速開始</h3>
-      <div class="shortcuts-grid">
-        <button type="button" class="shortcut-card" id="shortcut-continue-read">
-          <span class="shortcut-icon">📖</span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">繼續學習</span>
-            <span class="shortcut-desc">回到上次閱讀的位置</span>
-          </span>
-        </button>
-        <button type="button" class="shortcut-card" id="shortcut-random-quiz">
-          <span class="shortcut-icon">🎯</span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">練習 10 題</span>
-            <span class="shortcut-desc">不必設定，直接開始</span>
-          </span>
-        </button>
-        <button type="button" class="shortcut-card" id="shortcut-wrong-answers">
-          <span class="shortcut-icon">🔥</span>
-          <span class="shortcut-info">
-            <span class="shortcut-title">錯題強化練習</span>
-            <span class="shortcut-desc">集中攻克目前待複習題目</span>
-          </span>
-        </button>
-
+        <!-- 主閱讀區 -->
+        <article class="reader-content">
+    <!-- 3. 全文搜尋 Search -->
+    <details id="reader-search"><summary>搜尋教材</summary>
+      <div class="search-bar-container">
+        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
       </div>
+      <div class="search-results-list" id="search-results">
+        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
+      </div>
+    </details>
 
-        <!-- 核心統計指標 -->
+
+
+
+
+          <header class="chapter-header">
+            <div>
+              <h2 class="chapter-title" id="chapter-heading">章節標題</h2>
+              <p class="chapter-summary" id="chapter-summary-text"></p>
+            </div>
+
+          </header>
+
+          <nav class="section-navigation" aria-label="小節導覽">
+            <label class="sr-only" for="reader-section-select">目前小節</label>
+            <select id="reader-section-select"></select>
+            <div><button type="button" class="btn btn-secondary" id="btn-prev-section" aria-label="上一節" title="上一節">←<span class="section-nav-label"> 上一節</span></button><button type="button" class="btn btn-secondary" id="btn-next-section" aria-label="下一節" title="下一節"><span class="section-nav-label">下一節 </span>→</button><button type="button" class="btn btn-secondary" id="btn-section-toc" aria-label="章節目錄">目錄</button></div>
+          </nav>
+          <!-- 小節列表容器 -->
+          <div id="sections-container"></div>
+
+          <div class="chapter-reading-end"><button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button></div>
+          <details id="study-progress"><summary>學習進度</summary>
         <div class="stat-grid">
           <div class="stat-card">
             <span class="stat-label">已讀章節</span>
@@ -456,49 +466,14 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
           <span>📍 最近學習：</span>
           <strong id="stat-last-chapter" style="color:var(--text-main);">未開始</strong>
         </div>
-      </div>
-
-      <!-- 弱點分析 -->
       <div class="weakness-card">
         <h3>優先複習的知識點</h3><p id="knowledge-review-list"></p><h3>各章練習進度</h3>
         <div id="weakness-list"></div>
       </div>
-    </section>
-
-    <!-- 2. 章節閱讀 Reader -->
-    <section id="view-reader" class="view-panel">
-      <div class="reader-layout">
-        <!-- 側邊目錄（可收合） -->
-        <aside class="reader-sidebar" id="reader-sidebar">
-          <div class="sidebar-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
-            <span class="sidebar-title" style="margin-bottom:0;">章節目錄</span>
-            <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="章節目錄" title="收合或展開目錄">收合 ◀</button>
-          </div>
-          <ul class="toc-list" id="reader-toc-list"></ul>
-        </aside>
-
-        <!-- 主閱讀區 -->
-        <article class="reader-content">
-          <header class="chapter-header">
-            <div>
-              <h2 class="chapter-title" id="chapter-heading">章節標題</h2>
-              <p class="chapter-summary" id="chapter-summary-text"></p>
-            </div>
-
-          </header>
-
-          <nav class="section-navigation" aria-label="小節導覽">
-            <label class="sr-only" for="reader-section-select">目前小節</label>
-            <select id="reader-section-select"></select>
-            <div><button type="button" class="btn btn-secondary" id="btn-prev-section" aria-label="上一節" title="上一節">←<span class="section-nav-label"> 上一節</span></button><button type="button" class="btn btn-secondary" id="btn-next-section" aria-label="下一節" title="下一節"><span class="section-nav-label">下一節 </span>→</button><button type="button" class="btn btn-secondary" id="btn-section-toc" aria-label="章節目錄">目錄</button></div>
-          </nav>
-          <!-- 小節列表容器 -->
-          <div id="sections-container"></div>
-
-          <div class="chapter-reading-end"><button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button></div>
+</details>
           <section id="chapter-practice-panel" class="chapter-practice-panel" aria-labelledby="chapter-practice-title" style="margin:2rem 0 1.5rem;padding:1.25rem;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);">
             <h3 id="chapter-practice-title" style="font-weight:700;font-size:1rem;color:var(--primary);margin:0;">本章練習</h3>
-            <p id="chapter-practice-scope" style="font-size:0.85rem;color:var(--text-muted);margin:.25rem 0 0;">依本章歷屆題目直接作答並查看答案。</p>
+              <p id="chapter-practice-scope" style="font-size:.85rem;color:var(--text-muted);margin:.25rem 0 0;"></p>
             <div id="chapter-practice-preview" class="chapter-practice-preview"></div>
           </section>
 
@@ -511,25 +486,12 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       </div>
     </section>
 
-    <!-- 3. 全文搜尋 Search -->
-    <section id="view-search" class="view-panel">
-      <div class="search-bar-container">
-        <h2 style="margin-bottom:0.75rem;font-size:1.25rem;font-weight:700;">全文即時搜尋</h2>
-        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
-      </div>
-      <div class="search-results-list" id="search-results">
-        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
-      </div>
-    </section>
-
-
     <!-- 4. 測驗模式 Quiz -->
     <section id="view-quiz" class="view-panel">
       <!-- 測驗啟動設定面板 -->
       <div id="quiz-setup-panel">
         <div class="quiz-config-card">
           <h2 class="quiz-config-title">開始練習</h2>
-          <p>先練 10 題，或複習待複習錯題。</p>
           <div class="learner-actions"><button type="button" class="btn btn-primary" id="btn-quick-ten">練習 10 題</button><button type="button" class="btn btn-secondary" id="btn-quick-wrong">複習錯題</button></div>
           <details id="quiz-advanced"><summary>調整出題：知識點、章節、考期與題數</summary>
 
@@ -546,7 +508,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
           <!-- 模式一：章節測驗 -->
           <div class="form-group">
-            <label class="form-label">指定章節測驗 (Chapter Quiz)</label>
+            <label class="form-label">指定章節</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-chapter" style="flex:1;"></select>
               <button type="button" class="btn btn-primary" id="btn-start-chapter-quiz">開始章節測驗</button>
@@ -577,7 +539,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
           <!-- 模式二：隨機抽題 -->
           <div class="form-group">
-            <label class="form-label">全題庫隨機抽題 (Random Quiz)</label>
+            <label class="form-label">隨機抽題</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-random-count" style="flex:1;">
                 <option value="10" selected>隨機抽取 10 題</option>
@@ -591,12 +553,6 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
           <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
-          <!-- 模式三：錯題重練 -->
-          <div class="form-group">
-            <label class="form-label">錯題強化模式 (Wrong Answers Quiz)</label>
-            <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">針對目前待複習的錯題集中練習，直到掌握為止。</p>
-            <button type="button" class="btn btn-danger" style="width:100%;" id="btn-start-wrong-quiz">練習待複習錯題</button>
-          </div>
           </details>
         </div>
         <section id="quiz-history-panel" hidden aria-labelledby="quiz-history-title" style="max-width:700px;margin:1rem auto;">
@@ -679,7 +635,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
         <!-- 外觀主題 -->
         <div class="form-group">
-          <label class="form-label">介面外觀主題 (Theme)</label>
+          <label class="form-label">外觀</label>
           <select class="select-dropdown" id="theme-select" style="width:100%;">
             <option value="system">跟隨系統設定 (System)</option>
             <option value="light">明亮模式 (Light)</option>
@@ -689,25 +645,28 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
         <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
+        <details id="subject-backup"><summary>本學科進度備份與還原</summary>
         <!-- 備份與還原 -->
         <div class="form-group">
-          <label class="form-label">進度備份 (Export Progress)</label>
+          <label class="form-label">本學科進度備份</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">將已完成章節、作答統計與錯題記錄匯出為 JSON 檔。</p>
           <button type="button" class="btn btn-secondary" id="btn-export-progress">下載進度備份檔 (JSON)</button>
         </div>
 
         <div class="form-group">
-          <label class="form-label">進度還原 (Import Progress)</label>
+          <label class="form-label">匯入本學科進度</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前備份的進度檔案（將進行完整格式與欄位結構檢核）。</p>
           <input type="file" id="import-file-input" accept=".json" style="display:none;" />
           <button type="button" class="btn btn-secondary" id="btn-import-progress-trigger">選擇備份檔匯入...</button>
         </div>
 
+        </details>
+
         <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
         <!-- 清除紀錄 -->
         <div class="form-group">
-          <label class="form-label" style="color:var(--danger);">重設所有學習紀錄 (Reset Progress)</label>
+          <label class="form-label" style="color:var(--danger);">清除本學科進度</label>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">清除此教材在本機的所有答題與閱讀進度。教材內容與題庫本體不受影響。</p>
           <button type="button" class="btn btn-danger" id="btn-reset-progress">清除本教材進度</button>
         </div>

@@ -20,7 +20,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
   try {
     const page=await context.newPage();
     await page.goto(url);
-    await page.locator('[data-view="search"]').click();
+    await page.locator('#reader-search summary').click();
     await page.locator('#search-input').fill('自我檢核');
     assert(await page.locator('.search-result-card').count() > 0, '全文搜尋應可找到教材重點');
     await page.locator('#search-input').fill('&');
@@ -78,7 +78,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
         await page.evaluate(()=>document.getElementById('btn-quiz-submit').click());
         const attempts=await page.evaluate(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0),key);
         assert.equal(attempts,9,'章末練習與獨立測驗皆更新同一題目進度');
-        await page.locator('[data-view="dashboard"]').click();
+        await page.locator('[data-view=reader]').click();await page.locator('#study-progress summary').click();
         assert.equal(await page.locator('#stat-total-attempts').innerText(),'6','repeated attempts do not inflate practiced question count');
         assert((await page.locator('#knowledge-review-list').innerText()).includes('1 題待複習'));
         await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
@@ -100,7 +100,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     await page.reload();
     await page.locator('[data-view="reader"]').click();
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02');
-    await page.evaluate(()=>{window.dispatchEvent(new Event('scroll'));document.querySelector('[data-view="dashboard"]').click();});
+    await page.evaluate(()=>{window.dispatchEvent(new Event('scroll'));document.querySelector('[data-view="quiz"]').click();});
     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(resolve)));
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02','pending scroll after leaving reader must preserve position');
     assert.equal(await page.locator('#stat-wrong-questions').innerText(),'0');
@@ -121,7 +121,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     results.push('PASS: Markdown rendering, no MD links, native keyboard answers, first-answer count, multi-choice, summary, wrong resolution, related section and reload');
     for(const width of [320,390,768,1440]){
       await page.setViewportSize({width,height:900});
-      for(const view of ['dashboard','reader','search','quiz','settings']){
+      for(const view of ['reader','quiz','settings']){
         await page.locator(`[data-view="${view}"]`).click();
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,`${view} overflow at ${width}`);
       }
@@ -137,7 +137,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       await c.addInitScript(({failure,key})=>{if(failure==='corrupt')localStorage.setItem(key,'{bad');if(failure==='quota')Storage.prototype.setItem=()=>{throw new DOMException('quota','QuotaExceededError');};if(failure==='blocked')Object.defineProperty(window,'localStorage',{get(){throw new DOMException('blocked','SecurityError');}});},{failure,key});
       const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(url);
       assert(await p.locator('#storage-warning-banner').isVisible());
-      await p.locator('#shortcut-random-quiz').click();await p.locator('#quiz-options-container .option-item').first().click();await p.locator('#btn-quiz-submit').click();
+      await p.locator('[data-view=quiz]').click();await p.locator('#btn-quick-ten').click();await p.locator('#quiz-options-container .option-item').first().click();await p.locator('#btn-quiz-submit').click();
       if(failure==='corrupt')assert.equal(await p.evaluate(key=>localStorage.getItem(key),key),'{bad');
       await c.close();
     }
@@ -153,6 +153,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     const reloaded=page.waitForEvent('domcontentloaded');
     await page.locator('#import-file-input').setInputFiles({name:'restore.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(restore))});
     await reloaded;
+    await page.locator('#study-progress summary').click();
     assert((await page.locator('#stat-completed-chapters').innerText()).startsWith('1 /'));
     assert(Number(await page.locator('#stat-wrong-questions').innerText())<100);
     assert(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).questionStats.retired.attempts===100,key),'retired data stays in backups but not current dashboard');

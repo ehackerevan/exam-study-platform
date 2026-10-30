@@ -91,14 +91,14 @@ async function runE2e() {
       return res.result.value;
     }
 
-    // 1. 測試首頁 Dashboard 資訊
-    console.log('1. 驗證 Dashboard 渲染與標題...');
+    // 1. 測試教材首頁資訊
+    console.log('1. 驗證教材首頁與標題...');
     const pageTitle = await evalCode('document.title');
     const brandTitle = await evalCode('document.getElementById("app-brand-title").textContent');
-    const heroTitle = await evalCode('document.getElementById("hero-pack-title").textContent');
+    const firstChapterTitle = await evalCode('document.getElementById("chapter-heading").textContent');
     console.log(`   - 標題: ${pageTitle}`);
     console.log(`   - 品牌名稱: ${brandTitle}`);
-    console.log(`   - Hero 標題: ${heroTitle}`);
+    console.log(`   - 目前章節: ${firstChapterTitle}`);
     if (!pageTitle.includes('通識與專業綜合能力測驗')) throw new Error('首頁標題不符');
 
     // 2. 測試章節閱讀與切換
@@ -119,7 +119,7 @@ async function runE2e() {
 
     // 3. 測試全文搜尋
     console.log('3. 測試全文搜尋 Search...');
-    await evalCode('document.querySelector(".tab-btn[data-view=\\"search\\"]").click()');
+    await evalCode('document.getElementById("reader-search").open=true');
     await wait(200);
     await evalCode(`
       const input = document.getElementById("search-input");
