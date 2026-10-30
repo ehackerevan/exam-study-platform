@@ -400,6 +400,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
         <aside class="reader-sidebar" id="reader-sidebar">
           <div class="sidebar-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
             <span class="sidebar-title" style="margin-bottom:0;">章節目錄</span>
+            <button type="button" class="btn-sidebar-toggle" id="btn-open-search" aria-label="搜尋教材" title="搜尋教材">🔍</button>
             <button type="button" class="btn-sidebar-toggle" id="btn-toggle-sidebar" aria-label="章節目錄" title="收合或展開目錄">收合 ◀</button>
           </div>
           <ul class="toc-list" id="reader-toc-list"></ul>
@@ -408,14 +409,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
         <!-- 主閱讀區 -->
         <article class="reader-content">
     <!-- 3. 全文搜尋 Search -->
-    <details id="reader-search"><summary>搜尋教材</summary>
-      <div class="search-bar-container">
-        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
-      </div>
-      <div class="search-results-list" id="search-results">
-        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
-      </div>
-    </details>
+
 
 
 
@@ -438,6 +432,14 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
           <div id="sections-container"></div>
 
           <div class="chapter-reading-end"><button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button></div>
+              <details id="reader-search"><summary>搜尋教材</summary>
+      <div class="search-bar-container">
+        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
+      </div>
+      <div class="search-results-list" id="search-results">
+        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
+      </div>
+    </details>
           <details id="study-progress"><summary>學習進度</summary>
         <div class="stat-grid">
           <div class="stat-card">

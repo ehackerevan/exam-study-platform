@@ -1057,6 +1057,12 @@
     navTabBtns.forEach(btn => {
       btn.onclick = () => switchView(btn.dataset.view);
     });
+    document.getElementById('btn-open-search').onclick = () => {
+      const search = document.getElementById('reader-search');
+      search.open = true;
+      search.scrollIntoView({block:'start'});
+      document.getElementById('search-input').focus({preventScroll:true});
+    };
     document.getElementById('study-progress').addEventListener('toggle', event => {
       if (event.target.open) renderDashboard();
     });

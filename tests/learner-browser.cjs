@@ -20,7 +20,8 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
   try {
     const page=await context.newPage();
     await page.goto(url);
-    await page.locator('#reader-search summary').click();
+    await page.locator('#btn-open-search').click();
+    assert(await page.locator('#reader-search').evaluate(el=>el.open));
     await page.locator('#search-input').fill('自我檢核');
     assert(await page.locator('.search-result-card').count() > 0, '全文搜尋應可找到教材重點');
     await page.locator('#search-input').fill('&');
