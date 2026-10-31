@@ -8,6 +8,11 @@ const files = ['index.html', '信託業務人員重點教材.html', '金融科�
 const pages = Object.fromEntries(files.map(file => {
   let html = fs.readFileSync(path.join('dist', file), 'utf8');
   html = html.replace('new URLSearchParams(location.search)', "new URLSearchParams(window.__BUNDLE_SEARCH__ || '')");
+  if (file === 'index.html') {
+    const notice = /<p id="catalog-usage-notice">[\s\S]*?<\/p>/;
+    if (!notice.test(html)) throw new Error('Missing catalog usage notice');
+    html = html.replace(notice, `<p id="catalog-usage-notice">瀏覽器資料可能定期清除。練習前請匯入備份，練習後請匯出並保存備份檔。<a href="#complete-backup" onclick="document.getElementById('complete-backup').open=true">匯入／匯出備份</a></p>`);
+  }
   return [file, html];
 }));
 const embeddedPages = files.map((file, index) =>

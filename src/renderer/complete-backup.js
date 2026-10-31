@@ -46,8 +46,7 @@
  function addChange(changes,key,value){changes.push({key,before:localStorage.getItem(key),after:value});}
  async function importBackup(file){
   if(!file||file.size>50*1024*1024)throw Error('請選擇小於 50 MB 的整合備份檔。');let backup;try{backup=JSON.parse(await file.text());}catch{throw Error('備份檔不是有效的 JSON。');}
-  if(!backup||backup.format!=='study-pack-complete-backup-v1'||!backup.materials||typeof backup.materials!=='object'||!backup.records)throw Error('這不是整合備份檔；舊版單科備份請到該科設定匯入。');
-  for(const page of pages)if(typeof backup.materials[page]!=='string')throw Error('備份缺少教材或題庫，未匯入任何資料。');
+  if(!backup||backup.format!=='study-pack-complete-backup-v1'||!backup.materials||typeof backup.materials!=='object'||Array.isArray(backup.materials)||!Object.keys(backup.materials).length||!Object.values(backup.materials).every(value=>typeof value==='string')||!backup.records)throw Error('這不是有效的整合備份檔；舊版單科備份請到該科設定匯入。');
   const guests=entries(backup.records.guest),accounts=entries(backup.records.account),connection=await cloud();
   if(accounts.length&&!connection)throw Error('此備份包含雲端帳號紀錄，請先登入代號，再匯入。');
   const rows=new Map((connection?.items||[]).map(x=>[x.course,x]));
