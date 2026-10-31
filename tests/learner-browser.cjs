@@ -64,8 +64,9 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     assert.equal(await page.locator('#quiz-progress-text').innerText(),'第 1 / 6 題','quick ten uses all when bank is smaller');
     await page.locator('#btn-exit-quiz').click();
     await page.locator('#quiz-advanced summary').click();
+    await page.locator('#quiz-mode').selectOption('chapter');
     await page.locator('#quiz-select-chapter').selectOption('c01');
-    await page.locator('#btn-start-chapter-quiz').click();
+    await page.locator('#btn-start-custom-quiz').click();
     let firstQuestion='';
     for(let i=0;i<6;i++){
       const stem=await page.locator('#quiz-stem').innerText();
@@ -106,7 +107,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02','pending scroll after leaving reader must preserve position');
     assert.equal(await page.locator('#stat-wrong-questions').innerText(),'0');
     await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
-    await page.locator('#btn-start-random-quiz').click();
+    await page.locator('#btn-start-custom-quiz').click();
     await page.locator('#quiz-options-container .option-item').first().click();
     await page.locator('#btn-quiz-submit').click();
     await page.setViewportSize({width:390,height:844});

@@ -585,6 +585,14 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 .subject-card h2.subject-name { font-size:1.125rem; line-height:1.5; }
 .feedback-correct { background:var(--success-light); border-color:var(--md-success); color:var(--md-on-surface); }
 .feedback-wrong { background:var(--danger-light); border-color:var(--md-danger); color:var(--md-on-surface); }
+
+/* Keep attention on the course and its content. */
+body::before, body::after, .catalog-header::before { display: none; }
+.catalog-header { padding: 1.25rem; margin-bottom: 1rem; box-shadow: none; border-radius: var(--md-radius-lg); }
+.stat-card:hover, .shortcut-card:hover, .subject-link:hover, .q-card:hover { transform: none; box-shadow: none; }
+
+.study-metrics-course, [data-metrics-question] { color: var(--text-muted); font-weight: 400; }
+#quiz-mode { display:block; width:100%; margin:.5rem 0 1rem; }
 </style>
 <link rel="icon" href="data:,">
 </head>

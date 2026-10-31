@@ -348,6 +348,14 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 .subject-card h2.subject-name { font-size:1.125rem; line-height:1.5; }
 .feedback-correct { background:var(--success-light); border-color:var(--md-success); color:var(--md-on-surface); }
 .feedback-wrong { background:var(--danger-light); border-color:var(--md-danger); color:var(--md-on-surface); }
+
+/* Keep attention on the course and its content. */
+body::before, body::after, .catalog-header::before { display: none; }
+.catalog-header { padding: 1.25rem; margin-bottom: 1rem; box-shadow: none; border-radius: var(--md-radius-lg); }
+.stat-card:hover, .shortcut-card:hover, .subject-link:hover, .q-card:hover { transform: none; box-shadow: none; }
+
+.study-metrics-course, [data-metrics-question] { color: var(--text-muted); font-weight: 400; }
+#quiz-mode { display:block; width:100%; margin:.5rem 0 1rem; }
 </style>
 <style>
 .learner-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin:1rem 0; }
@@ -495,49 +503,49 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
         <div class="quiz-config-card">
           <h2 class="quiz-config-title">開始練習</h2>
           <div class="learner-actions"><button type="button" class="btn btn-primary" id="btn-quick-ten">練習 10 題</button><button type="button" class="btn btn-secondary" id="btn-quick-wrong">複習錯題</button></div>
-          <details id="quiz-advanced"><summary>調整出題：知識點、章節、考期與題數</summary>
+          <details id="quiz-advanced"><summary>調整出題</summary><label for="quiz-mode">出題方式</label><select id="quiz-mode"><option value="random">隨機抽題</option><option value="chapter">章節</option><option value="knowledge-point">知識點（最多 20 題）</option><option value="exam">歷屆考期</option><option value="featured">歷屆精選題組</option></select>
 
           <div class="form-group" id="knowledge-point-quiz-group" hidden>
             <label class="form-label" for="quiz-select-knowledge-point">依知識點出題</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-knowledge-point" style="flex:1;"></select>
-              <button type="button" class="btn btn-primary" id="btn-start-knowledge-point-quiz">隨機抽 20 題</button>
+
             </div>
             <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">題目可跨章節；依題庫已有的知識點或官方科目分類。題數不足 20 題時會全部出題。</p>
           </div>
 
-          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
 
           <!-- 模式一：章節測驗 -->
           <div class="form-group">
             <label class="form-label">指定章節</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-chapter" style="flex:1;"></select>
-              <button type="button" class="btn btn-primary" id="btn-start-chapter-quiz">開始章節測驗</button>
+
             </div>
           </div>
 
-          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
 
           <div class="form-group" id="featured-quiz-group" hidden>
             <label class="form-label" for="quiz-select-featured">歷屆精選題組</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-featured" style="flex:1;"></select>
-              <button type="button" class="btn btn-primary" id="btn-start-featured-quiz">開始精選題練習</button>
+
             </div>
           </div>
 
-          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
 
           <div class="form-group">
             <label class="form-label" for="quiz-select-exam">依歷屆考期與科目練習</label>
             <div style="display:flex;gap:0.5rem;">
               <select class="select-dropdown" id="quiz-select-exam" style="flex:1;"></select>
-              <button type="button" class="btn btn-primary" id="btn-start-exam-quiz">開始該場練習</button>
+
             </div>
           </div>
 
-          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
+
 
           <!-- 模式二：隨機抽題 -->
           <div class="form-group">
@@ -549,12 +557,13 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
                 <option value="50">隨機抽取 50 題</option>
                 <option value="all">全題庫所有題目</option>
               </select>
-              <button type="button" class="btn btn-primary" id="btn-start-random-quiz">開始隨機測驗</button>
+
             </div>
           </div>
 
-          <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
+
+<button type="button" class="btn btn-primary" id="btn-start-custom-quiz">開始練習</button>
           </details>
         </div>
         <section id="quiz-history-panel" hidden aria-labelledby="quiz-history-title" style="max-width:700px;margin:1rem auto;">
@@ -595,30 +604,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
       <div id="quiz-summary-panel" style="display:none;max-width:700px;margin:0 auto;">
         <div class="quiz-card" style="text-align:center;">
           <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;" id="quiz-summary-title">🎉 測驗完成！</h2>
-          <p style="font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;" id="quiz-summary-desc">本次測驗結算如下：</p>
-
-          <div class="stat-grid" style="margin-bottom:1.5rem;text-align:left;">
-            <div class="stat-card">
-              <span class="stat-label">已答 / 總題數</span>
-              <span class="stat-value" id="quiz-summary-count">0 / 0</span>
-              <span class="stat-subtext">本次測驗題目</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">本次正確率</span>
-              <span class="stat-value" id="quiz-summary-accuracy">0%</span>
-              <span class="stat-subtext">本輪已答題目統計</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">答對題數</span>
-              <span class="stat-value" style="color:var(--success);" id="quiz-summary-correct">0</span>
-              <span class="stat-subtext">本輪答對題數</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">答錯題數</span>
-              <span class="stat-value" style="color:var(--danger);" id="quiz-summary-wrong">0</span>
-              <span class="stat-subtext">需再加強複習</span>
-            </div>
-          </div>
+          <p>已答 <strong id="quiz-summary-count">0 / 0</strong> 題，答對 <strong id="quiz-summary-correct">0</strong> 題，答錯 <strong id="quiz-summary-wrong">0</strong> 題，正確率 <strong id="quiz-summary-accuracy">0%</strong>。</p>
 
           <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
             <button type="button" class="btn btn-danger" id="btn-quiz-retry-wrong" style="display:none;">🔥 本輪錯題重練</button>
@@ -632,22 +618,22 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
     <!-- 5. 系統設定 Settings -->
     <section id="view-settings" class="view-panel">
       <div style="max-width:600px;margin:0 auto;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.75rem;">
-        <h2 style="font-size:1.35rem;font-weight:800;margin-bottom:1.25rem;">系統設定與進度管理</h2>
-        <p><a href="index.html#complete-backup">到學科目錄匯出／匯入所有教材與進度</a></p>
+        <h2 style="font-size:1.35rem;font-weight:800;margin-bottom:1.25rem;">設定</h2>
+        <p><a href="index.html#complete-backup">備份與還原所有學科進度</a></p>
 
         <!-- 外觀主題 -->
         <div class="form-group">
           <label class="form-label">外觀</label>
           <select class="select-dropdown" id="theme-select" style="width:100%;">
-            <option value="system">跟隨系統設定 (System)</option>
-            <option value="light">明亮模式 (Light)</option>
-            <option value="dark">深色暗黑模式 (Dark)</option>
+            <option value="system">跟隨系統</option>
+            <option value="light">淺色</option>
+            <option value="dark">深色</option>
           </select>
         </div>
 
         <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border-subtle);" />
 
-        <details id="subject-backup"><summary>本學科進度備份與還原</summary>
+        <details id="subject-backup"><summary>舊版單科備份與還原</summary>
         <!-- 備份與還原 -->
         <div class="form-group">
           <label class="form-label">本學科進度備份</label>
@@ -657,7 +643,7 @@ body:has(#study-catalog-nav) .reader-sidebar { top: calc(var(--header-height) + 
 
         <div class="form-group">
           <label class="form-label">匯入本學科進度</label>
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前備份的進度檔案（將進行完整格式與欄位結構檢核）。</p>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">匯入先前的單科備份。</p>
           <input type="file" id="import-file-input" accept=".json" style="display:none;" />
           <button type="button" class="btn btn-secondary" id="btn-import-progress-trigger">選擇備份檔匯入...</button>
         </div>

@@ -55,8 +55,8 @@ function renderTopic(topic,section,body,simple = false) {
  if(simple) {
   totals.topics++;
   const plain=value=>String(value).replace(/<[^>]*>|\s|[，。；：、]/g,'');
-  const points=(section.keyPoints||[]).filter(point=>!plain(body).includes(plain(teach(point))));
-  const notes=(section.notes||[]).filter(note=>!plain(body).includes(plain(teach(note))));
+  const points=[...new Set(section.keyPoints||[])].filter(point=>!plain(body).includes(plain(teach(point))));
+  const notes=[...new Set(section.notes||[])].filter(note=>![body,...points.map(teach)].some(text=>plain(text).includes(plain(teach(note)))));
   const extra=(points.length?'<ul>'+points.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':'')+(notes.length?'<p>'+notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':'');
   return `<section class="source-section knowledge-topic" data-source-id="${escape(section.id)}"><h4>${teach(topic.title)}</h4><div class="topic-single"><div class="topic-rules"><div class="rule-content">${body}${extra}</div></div></div></section>`;
  }
@@ -67,12 +67,12 @@ function renderTopic(topic,section,body,simple = false) {
  const core=plain(body).includes(plain(teach(topic.core)))?'':`<p class="topic-core">${teach(topic.core)}</p>`;
  const tag=topic.flow?'ol':'ul';
  const structure=`<${tag} class="${topic.flow?'topic-diagram topic-flow':'topic-list'}" aria-label="${escape(conciseText(topic.title))}概念整理">${topic.nodes.map(node=>`<li><strong>${teach(node[0])}</strong><span>${teach(node[1])}</span></li>`).join('')}</${tag}>`;
- const diagram=supplemental&&!topic.overview&&!body.includes('<table')?(body&&!topic.flow?`<details class="topic-structure"><summary>概念整理</summary>${structure}</details>`:structure):'';
- const points=(section.keyPoints||[]).filter(point=>!plain(body).includes(plain(teach(point))));
- const notes=(section.notes||[]).filter(note=>!plain(body).includes(plain(teach(note))));
+ const diagram=supplemental&&!topic.overview&&topic.flow&&!body.includes('<table')?structure:'';
+ const points=[...new Set(section.keyPoints||[])].filter(point=>!plain(body).includes(plain(teach(point))));
+ const notes=[...new Set(section.notes||[])].filter(note=>![body,...points.map(teach)].some(text=>plain(text).includes(plain(teach(note)))));
  const hasExample=/實例說明|案例[：:]|例[：:]/.test(body.replace(/<[^>]*>/g,''));
- const example=supplemental&&!topic.overview&&!hasExample&&topic.example?`<div class="topic-example"><p><strong>例：</strong>${teach(topic.example)}</p></div>`:'';
- const trap=supplemental&&!topic.overview&&topic.trap?`<p class="topic-trap"><strong>易混淆：</strong>${teach(topic.trap)}</p>`:'';
+ const example=supplemental&&!topic.overview&&!hasExample&&topic.example&&!plain(body).includes(plain(teach(topic.example)))?`<div class="topic-example"><p><strong>例：</strong>${teach(topic.example)}</p></div>`:'';
+ const trap=supplemental&&!topic.overview&&topic.trap&&![body,topic.core,topic.example].some(text=>plain(text||'').includes(plain(teach(topic.trap))))?`<p class="topic-trap"><strong>易混淆：</strong>${teach(topic.trap)}</p>`:'';
  const explanation=supplemental?`<div class="topic-explain">${core}</div>`:'';
  const application=diagram||example||trap?`<div class="topic-application">${diagram}${example}${trap}</div>`:'';
  const rules=body||points.length||notes.length?`<div class="topic-rules"><div class="rule-content">${body}</div>${points.length?'<ul>'+points.map(point=>'<li>'+emphasizeHtml(teach(point))+'</li>').join('')+'</ul>':''}${notes.length?'<p>'+notes.map(note=>emphasizeHtml(teach(note))).join('<br>')+'</p>':''}</div>`:'';

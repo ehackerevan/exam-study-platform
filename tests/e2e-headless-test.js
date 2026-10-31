@@ -135,7 +135,7 @@ async function runE2e() {
     await evalCode('document.querySelector(".tab-btn[data-view=\\"quiz\\"]").click()');
     await wait(200);
     // 點擊開始隨機測驗
-    await evalCode('document.getElementById("btn-start-random-quiz").click()');
+    await evalCode('document.getElementById("btn-start-custom-quiz").click()');
     await wait(300);
     const stem = await evalCode('document.getElementById("quiz-stem").textContent');
     console.log(`   - 測驗題目: ${stem.slice(0, 30)}...`);

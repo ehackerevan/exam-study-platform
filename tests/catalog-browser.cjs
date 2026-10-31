@@ -9,9 +9,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const p=await c.newPage(),catalog=pathToFileURL(path.resolve('dist/index.html')).href;
  try{
   await p.goto(catalog);
-  const statistics=JSON.parse(fs.readFileSync('tasks/exam_frequency_20261020.json','utf8')).courses;
-  const total=Object.entries(statistics).filter(([name])=>!name.includes('證基會')).reduce((sum,[,course])=>sum+course.question_record_count,0);
-  assert((await p.locator('.catalog-header').innerText()).includes(`5 科教材 · ${total.toLocaleString('zh-TW')} 題練習 · 3 個獨立題庫`));
+  assert.equal((await p.locator('.catalog-header').innerText()).trim(),'學科目錄');
   assert.equal(await p.locator('.subject-card').count(),8);
   assert((await p.locator('[data-action=quiz]').first().boundingBox()).height<80,'catalogue actions are compact');
   assert.equal(await p.locator('[data-action=reader]').count(),6);

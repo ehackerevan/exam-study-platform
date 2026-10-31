@@ -108,8 +108,9 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    }
    await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
    assert.equal(await page.locator('#quiz-select-knowledge-point option').count(),pointLabels.length,'Knowledge point options: '+course);
+   await page.locator('#quiz-mode').selectOption('knowledge-point');
    await page.locator('#quiz-select-knowledge-point').selectOption(pointLabels[0]);
-   await page.locator('#btn-start-knowledge-point-quiz').click();
+   await page.locator('#btn-start-custom-quiz').click();
    assert.equal(await page.locator('#quiz-progress-text').textContent(),`第 1 / ${Math.min(20,pointQuestions.length)} 題`,'Knowledge point quiz count: '+course);
    const knowledgePointStem=await page.locator('#quiz-stem').textContent();
    assert(pointQuestions.some(q=>visibleQuestion(q)===knowledgePointStem),'Knowledge point only includes tagged questions: '+course);
@@ -123,8 +124,9 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    const examKey=JSON.stringify([exam.sourceExam.term,exam.sourceExam.subject]);
    const examQuestions=pack.questions.filter(q=>q.sourceExam.term===exam.sourceExam.term&&q.sourceExam.subject===exam.sourceExam.subject);
    await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+   await page.locator('#quiz-mode').selectOption('exam');
    await page.locator('#quiz-select-exam').selectOption(examKey);
-   await page.locator('#btn-start-exam-quiz').click();
+   await page.locator('#btn-start-custom-quiz').click();
    assert.equal(await page.locator('#quiz-progress-text').textContent(),'第 1 / '+examQuestions.length+' 題');
    assert.equal(await page.locator('#quiz-exam-tag').textContent(),exam.sourceExam.term+' · '+exam.sourceExam.subject);
    const displayedQuestion=await page.locator('#quiz-stem').textContent();
@@ -134,8 +136,9 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     await page.reload();await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     const group=pack.questions.find(q=>q.featuredGroup).featuredGroup;
     const featuredQuestions=pack.questions.filter(q=>q.featuredGroup===group).sort((a,b)=>a.featuredRank-b.featuredRank);
+    await page.locator('#quiz-mode').selectOption('featured');
     await page.locator('#quiz-select-featured').selectOption(group);
-    await page.locator('#btn-start-featured-quiz').click();
+    await page.locator('#btn-start-custom-quiz').click();
     assert.equal(await page.locator('#quiz-progress-text').textContent(),`第 1 / ${featuredQuestions.length} 題`);
     assert.equal(await page.locator('#quiz-stem').textContent(),visibleQuestion(featuredQuestions[0]),'Featured ranking is preserved');
     for(const question of featuredQuestions){

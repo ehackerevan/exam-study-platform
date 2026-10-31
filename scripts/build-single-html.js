@@ -11,6 +11,7 @@ const pages = Object.fromEntries(files.map(file => {
   if (file === 'index.html') {
     const notice = /<p id="catalog-usage-notice">[\s\S]*?<\/p>/;
     if (!notice.test(html)) throw new Error('Missing catalog usage notice');
+    html = html.replace(/<details id="catalog-login" hidden>[\s\S]*?<\/details>/, '');
     html = html.replace(notice, `<p id="catalog-usage-notice">瀏覽器資料可能定期清除。練習前請匯入備份，練習後請匯出並保存備份檔。<a href="#complete-backup" onclick="document.getElementById('complete-backup').open=true">匯入／匯出備份</a></p>`);
   }
   return [file, html];

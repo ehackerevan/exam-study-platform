@@ -8,9 +8,15 @@
   if(!response.ok){const e=new Error('request');e.status=response.status;throw e;}
   return response.json();
  }
+ function hasPendingProgress(){
+  return Object.keys(localStorage).some(name=>{
+   if(!name.startsWith('study-pack.account.')||!name.endsWith('.progress.sync'))return false;
+   try{return JSON.parse(localStorage.getItem(name)).dirty;}catch{return true;}
+  });
+ }
  function storeMeta(){localStorage.setItem(metaKey,JSON.stringify(meta));}
  function panel(){
-  const target=document.querySelector('#view-settings > div'); if(!target)return;
+  const target=document.querySelector('#view-settings > div') || document.getElementById('catalog-login'); if(!target)return;
   const box=document.createElement('section');box.className='form-group';box.setAttribute('aria-labelledby','sync-title');
   box.innerHTML='<h3 id="sync-title">雲端學習進度</h3><p>使用代號登入，即可在其他裝置取回進度。代號須為 12–64 個英文字母、數字或符號，至少包含字母與數字。代號就是進度的唯一鑰匙，請妥善保存，遺失無法找回。</p><label for="sync-code">登入代號</label><input class="select-dropdown" id="sync-code" type="password" autocomplete="off" maxlength="64" style="width:100%;margin:.5rem 0"><div style="display:flex;flex-wrap:wrap;gap:.5rem"><button type="button" class="btn btn-primary" id="sync-login">登入</button><button type="button" class="btn btn-secondary" id="sync-register">首次建立代號</button><button type="button" class="btn btn-secondary" id="sync-logout">登出</button><button type="button" class="btn btn-secondary" id="sync-use-cloud" style="display:none">改用雲端進度</button></div><p id="sync-status" role="status" aria-live="polite"></p><hr>';
   target.querySelector('h2').after(box);statusNode=box.querySelector('#sync-status');
@@ -37,10 +43,10 @@
    try{const current=await request({action:'read',course});if(!current.data)throw Error('missing');validator(current.data);const previous=localStorage.getItem(key);if(previous!==null)localStorage.setItem(key+'.backup.'+Date.now(),previous);localStorage.setItem(key,JSON.stringify(current.data));meta={revision:current.revision,dirty:false};storeMeta();location.reload();}catch{status('無法載入雲端進度，本機紀錄仍保留。');}
   };
   box.querySelector('#sync-logout').onclick=async()=>{
-   if(meta?.dirty&&!confirm('本機尚有未同步的進度，登出後會保留在此瀏覽器；確定登出？'))return;
+   if((meta?.dirty||(!course&&hasPendingProgress()))&&!confirm('本機尚有未同步的進度，登出後會保留在此瀏覽器；確定登出？'))return;
    try{await request({action:'logout'});localStorage.removeItem('study-pack.sync.account');location.reload();}catch{status('登出失敗，請檢查網路後重試。');}
   };
-  status(account?(enabled?'已登入，進度同步中。':'已登入；同步暫停，本機進度保留。'):'未登入，進度保存在此瀏覽器。');
+  status(account?(course?(enabled?'已登入，進度同步中。':'已登入；同步暫停，本機進度保留。'):'已登入。'):'未登入，進度保存在此瀏覽器。');
  }
  async function bootstrap(id, guestKey, normalize){
   course=id;validator=normalize;let remote;
@@ -87,4 +93,12 @@
  }
  window.addEventListener('online',()=>{void flush();});
  window.StudySync={bootstrap,markDirty,changed,flush};
+ document.addEventListener('DOMContentLoaded',()=>{if(document.getElementById('catalog-login')) {
+  const login=document.getElementById('catalog-login');login.hidden=false;
+  document.querySelector('a[href="#catalog-login"]')?.addEventListener('click',()=>{login.open=true;});
+  request({action:'session'}).then(result=>{
+   if(!/^[a-f0-9-]{36}$/.test(result.account))throw Error('session');
+   account=result.account;localStorage.setItem('study-pack.sync.account',account);panel();
+  }).catch(error=>{if(error.status===401)localStorage.removeItem('study-pack.sync.account');panel();});
+ }});
 })();

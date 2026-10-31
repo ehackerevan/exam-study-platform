@@ -111,14 +111,14 @@
     saveProgress();
     for(const button of document.querySelectorAll('.question-favorite')){
       const selected=progress.favoriteQuestionIds.includes(button.dataset.questionId);
-      button.textContent=selected?'★ 已精選':'☆ 加入精選';button.setAttribute('aria-pressed',String(selected));
+      button.textContent=selected?'★ 已收藏':'☆ 加入收藏';button.setAttribute('aria-pressed',String(selected));
     }
     renderQuestionManager();
   }
   function createQuestionActions(question,onHide){
     const bar=document.createElement('div');bar.className='question-actions';
     const favorite=document.createElement('button');favorite.type='button';favorite.className='btn btn-secondary question-favorite';favorite.dataset.questionId=question.id;
-    const selected=progress.favoriteQuestionIds.includes(question.id);favorite.textContent=selected?'★ 已精選':'☆ 加入精選';favorite.setAttribute('aria-pressed',String(selected));
+    const selected=progress.favoriteQuestionIds.includes(question.id);favorite.textContent=selected?'★ 已收藏':'☆ 加入收藏';favorite.setAttribute('aria-pressed',String(selected));
     favorite.onclick=()=>setQuestionMark('favoriteQuestionIds',question.id,!progress.favoriteQuestionIds.includes(question.id));
     const hide=document.createElement('button');hide.type='button';hide.className='btn btn-secondary question-hide';hide.textContent='隱藏題目';
     hide.onclick=()=>{
@@ -136,7 +136,7 @@
   function renderQuestionManager(){
     const panel=document.getElementById('personal-question-panel');if(!panel)return;
     const available=progress.favoriteQuestionIds.filter(id=>!progress.hiddenQuestionIds.includes(id)).length;
-    panel.querySelector('#btn-personal-favorites').textContent=`練習我的精選（${available}）`;
+    panel.querySelector('#btn-personal-favorites').textContent=`練習我的收藏（${available}）`;
     panel.querySelector('#btn-personal-favorites').disabled=available===0;
     panel.querySelector('#hidden-question-heading').textContent=`已隱藏題目（${progress.hiddenQuestionIds.length}）`;
     const query=panel.querySelector('#hidden-question-search').value.trim().toLowerCase();
@@ -151,7 +151,7 @@
   }
   function initQuestionManager(){
     const panel=document.createElement('section');panel.id='personal-question-panel';
-    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的精選（可搭配章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的精選</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
+    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的收藏（可搭配章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的收藏</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
     document.querySelector('#quiz-setup-panel .quiz-config-card').append(panel);
     panel.querySelector('#btn-personal-favorites').onclick=()=>startQuiz('random','','all',pack.questions.filter(q=>progress.favoriteQuestionIds.includes(q.id)));
     panel.querySelector('#hidden-question-search').addEventListener('input',renderQuestionManager);renderQuestionManager();
@@ -675,7 +675,7 @@
     quizState.pool = pool;
 
     if (pool.length === 0) {
-      alert('此範圍沒有可出題目，請調整精選篩選或恢復隱藏題目。');
+      alert('此範圍沒有可出題目，請調整收藏篩選或恢復隱藏題目。');
       quizState.active = false;
       document.getElementById('quiz-running-panel').style.display='none';
       document.getElementById('quiz-summary-panel').style.display='none';
@@ -1089,7 +1089,6 @@
         quizChSelect.appendChild(opt);
       });
       quizChSelect.disabled = quizChSelect.options.length === 0;
-      document.getElementById('btn-start-chapter-quiz').disabled = quizChSelect.disabled;
     }
 
     const knowledgeSelect = document.getElementById('quiz-select-knowledge-point');
@@ -1108,12 +1107,7 @@
       const disabled = knowledgeQuestions.size === 0;
       knowledgeSelect.disabled = disabled;
       document.getElementById('knowledge-point-quiz-group').hidden = disabled;
-      document.getElementById('btn-start-knowledge-point-quiz').disabled = disabled;
-      document.getElementById('btn-start-knowledge-point-quiz').addEventListener('click', () => {
-        const label = knowledgeSelect.value;
-        const questions = knowledgeQuestions.get(label);
-        if (questions?.length) startQuiz('knowledge-point', '', 20, questions, label);
-      });
+
     }
 
     const examSelect = document.getElementById('quiz-select-exam');
@@ -1132,7 +1126,6 @@
           examSelect.appendChild(option);
         });
       examSelect.disabled = examSelect.options.length === 0;
-      document.getElementById('btn-start-exam-quiz').disabled = examSelect.disabled;
     }
 
     const featuredSelect = document.getElementById('quiz-select-featured');
@@ -1149,32 +1142,32 @@
         featuredSelect.appendChild(option);
       });
       document.getElementById('featured-quiz-group').hidden = groups.size === 0;
-      document.getElementById('btn-start-featured-quiz').disabled = groups.size === 0;
     }
 
-    document.getElementById('btn-start-chapter-quiz')?.addEventListener('click', () => {
-      const cid = quizChSelect.value;
-      startQuiz('chapter', cid, 'all');
-    });
-
-    document.getElementById('btn-start-exam-quiz')?.addEventListener('click', () => {
-      const [term, subject] = JSON.parse(examSelect.value);
-      const questions = pack.questions.filter(q => q.sourceExam?.term === term && q.sourceExam.subject === subject);
-      startQuiz('exam', '', 'all', questions);
-    });
-
-    document.getElementById('btn-start-featured-quiz')?.addEventListener('click', () => {
-      const group = featuredSelect.value;
-      const questions = pack.questions.filter(q => q.featuredGroup === group).sort((a, b) => a.featuredRank - b.featuredRank);
-      startQuiz('featured', '', 'all', questions);
-    });
-
-    document.getElementById('btn-start-random-quiz')?.addEventListener('click', () => {
-      const countVal = document.getElementById('quiz-random-count').value;
-      const count = countVal === 'all' ? 'all' : parseInt(countVal, 10);
-      startQuiz('random', '', count);
-    });
-
+    const modeSelect = document.getElementById('quiz-mode');
+    const modes = {random: document.getElementById('quiz-random-count'), chapter: quizChSelect, 'knowledge-point': knowledgeSelect, exam: examSelect, featured: featuredSelect};
+    for (const option of modeSelect.options) option.disabled = !modes[option.value]?.options.length;
+    function updateQuizMode() {
+      for (const [mode, select] of Object.entries(modes)) select.closest('.form-group').hidden = mode !== modeSelect.value;
+    }
+    modeSelect.onchange = updateQuizMode;
+    updateQuizMode();
+    document.getElementById('btn-start-custom-quiz').onclick = () => {
+      const mode = modeSelect.value;
+      if (!modes[mode]?.options.length) return;
+      if (mode === 'chapter') return startQuiz(mode, quizChSelect.value, 'all');
+      if (mode === 'knowledge-point') {
+        const label = knowledgeSelect.value;
+        return startQuiz(mode, '', 20, pack.questions.filter(q => q.knowledgePoints?.includes(label)), label);
+      }
+      if (mode === 'exam') {
+        const [term, subject] = JSON.parse(examSelect.value);
+        return startQuiz(mode, '', 'all', pack.questions.filter(q => q.sourceExam?.term === term && q.sourceExam.subject === subject));
+      }
+      if (mode === 'featured') return startQuiz(mode, '', 'all', pack.questions.filter(q => q.featuredGroup === featuredSelect.value).sort((a,b) => a.featuredRank-b.featuredRank));
+      const count = document.getElementById('quiz-random-count').value;
+      startQuiz('random', '', count === 'all' ? 'all' : Number(count));
+    };
 
     document.getElementById('btn-exit-quiz')?.addEventListener('click', () => {
       if (confirm('結束本次測驗並查看已答結果？未作答題目不計分。')) {
