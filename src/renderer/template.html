@@ -442,10 +442,9 @@ body::before, body::after, .catalog-header::before { display: none; }
           <div class="chapter-reading-end"><button type="button" class="btn btn-primary" id="btn-toggle-complete">標記已讀</button></div>
               <details id="reader-search"><summary>搜尋教材</summary>
       <div class="search-bar-container">
-        <input type="text" class="search-input" id="search-input" placeholder="搜尋章節、小節標題、教材內文或教材重點..." />
+        <input type="text" class="search-input" id="search-input" placeholder="輸入關鍵字" aria-label="搜尋教材" />
       </div>
       <div class="search-results-list" id="search-results">
-        <div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋教材內容...</div>
       </div>
     </details>
           <details id="study-progress"><summary>學習進度</summary>
@@ -453,7 +452,6 @@ body::before, body::after, .catalog-header::before { display: none; }
           <div class="stat-card">
             <span class="stat-label">已讀章節</span>
             <span class="stat-value" id="stat-completed-chapters">0 / 0</span>
-            <span class="stat-subtext">持續累計學習進度</span>
           </div>
           <div class="stat-card">
             <span class="stat-label">已練題目</span>
@@ -468,7 +466,6 @@ body::before, body::after, .catalog-header::before { display: none; }
           <div class="stat-card">
             <span class="stat-label">待複習錯題</span>
             <span class="stat-value" style="color:var(--danger);" id="stat-wrong-questions">0</span>
-            <span class="stat-subtext">尚待加強複習</span>
           </div>
         </div>
 
@@ -511,7 +508,7 @@ body::before, body::after, .catalog-header::before { display: none; }
               <select class="select-dropdown" id="quiz-select-knowledge-point" style="flex:1;"></select>
 
             </div>
-            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">題目可跨章節；依題庫已有的知識點或官方科目分類。題數不足 20 題時會全部出題。</p>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">可跨章節出題。</p>
           </div>
 
 

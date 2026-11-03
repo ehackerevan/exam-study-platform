@@ -154,7 +154,7 @@
   }
   function initQuestionManager(){
     const panel=document.createElement('section');panel.id='personal-question-panel';
-    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的收藏（可搭配章節、知識點或考期）</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的收藏</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
+    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的收藏</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的收藏</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
     document.querySelector('#quiz-setup-panel .quiz-config-card').append(panel);
     panel.querySelector('#btn-personal-favorites').onclick=()=>startQuiz('random','','all',pack.questions.filter(q=>progress.favoriteQuestionIds.includes(q.id)));
     panel.querySelector('#hidden-question-search').addEventListener('input',renderQuestionManager);renderQuestionManager();
@@ -314,7 +314,7 @@
   }
 
   function learningUnitHtml(unit) {
-    return `<div id="knowledge-${escapeHtml(unit.id)}" class="learning-unit knowledge-topic">${unit.blocks.map(block=>`<div class="learning-unit-block" data-depth="${escapeHtml(block.depth)}"><h4>${escapeHtml(block.title)}</h4>${window.StudyContent.render(block.content)}</div>`).join('')}<details><summary>原教材與考試範圍</summary><p>${escapeHtml(unit.officialScope?.item||'請對照本科官方大綱')}；原教材單元：${escapeHtml(unit.title)}。</p></details></div>`;
+    return `<div id="knowledge-${escapeHtml(unit.id)}" class="learning-unit knowledge-topic">${unit.blocks.map(block=>`<div class="learning-unit-block" data-depth="${escapeHtml(block.depth)}"><h4>${escapeHtml(block.title)}</h4>${window.StudyContent.render(block.content)}</div>`).join('')}<details><summary>考試範圍</summary><p>${escapeHtml(unit.officialScope?.item||'請對照本科官方大綱')}。</p></details></div>`;
   }
   function answerIsCorrect(question, selected) {
     if (question.type !== 'multiple-choice') return selected === question.answer;
@@ -440,7 +440,7 @@
     document.querySelector('.sidebar-title').textContent='章節目錄';
     document.getElementById('chapter-summary-text').textContent = ch.teachingSummary || ch.summary || '';
     let depthControl=document.getElementById('learning-depth-control');
-    if(!depthControl){depthControl=document.createElement('div');depthControl.id='learning-depth-control';depthControl.innerHTML='<label for="learning-depth">閱讀深度</label><select id="learning-depth"><option value="full">完整學習</option><option value="review">重點複習</option><option value="sprint">考前衝刺</option></select><span>深度切換適用於已重編單元；規則與必要條件保持可見。</span>';document.getElementById('chapter-summary-text').after(depthControl);depthControl.querySelector('select').onchange=event=>{learningDepth=event.target.value;applyLearningDepth();};}
+    if(!depthControl){depthControl=document.createElement('div');depthControl.id='learning-depth-control';depthControl.innerHTML='<label for="learning-depth">閱讀深度</label><select id="learning-depth"><option value="full">完整學習</option><option value="review">重點複習</option><option value="sprint">考前衝刺</option></select>';document.getElementById('chapter-summary-text').after(depthControl);depthControl.querySelector('select').onchange=event=>{learningDepth=event.target.value;applyLearningDepth();};}
     depthControl.hidden=!ch.learningUnits?.length;
     depthControl.querySelector('select').value=learningDepth;
 
@@ -565,7 +565,7 @@
     input.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
       if (!q) {
-        resultList.innerHTML = '<div style="color:var(--text-muted);padding:1rem 0;">輸入關鍵字搜尋章節、內文與重點...</div>';
+        resultList.replaceChildren();
         return;
       }
 

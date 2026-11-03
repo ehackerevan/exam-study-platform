@@ -7,9 +7,10 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
  try{
   await page.goto(file);await page.evaluate(([key,value])=>localStorage.setItem(key,JSON.stringify(value)),[key,fixture]);await page.reload();await page.goto(file+'#sec-'+encodeURIComponent(legacy));
   assert(await page.locator('#sec-'+legacy).count());assert((await page.locator('#chapter-heading').innerText()).includes('01'));
-  await page.goto(file+'?knowledge='+id);assert(await page.locator('#learning-depth-control').isVisible());assert.equal(await page.locator('.learning-unit-block').count(),9);
+  await page.goto(file+'?knowledge='+id);assert(await page.locator('#learning-depth-control').isVisible());assert.equal(await page.locator('.learning-unit-block').count(),7);
   const rules=page.locator('.learning-unit-block').filter({has:page.locator('h4').filter({hasText:'第二步'})});assert(await rules.isVisible());const count=await page.locator('.learning-unit-block').count();
-  for(const mode of ['review','sprint','full']){await page.locator('#learning-depth').selectOption(mode);assert.equal(await page.locator('.learning-unit-block').count(),count);assert(await rules.isVisible());assert.equal(await page.locator('.learning-unit-block').filter({hasText:'延伸對照：ISO六類'}).isVisible(),mode==='full');}
+  for(const mode of ['review','sprint','full']){await page.locator('#learning-depth').selectOption(mode);assert.equal(await page.locator('.learning-unit-block').count(),count);assert(await rules.isVisible());assert.equal(await page.locator('.learning-unit-block').filter({hasText:'延伸對照：ISO六類'}).isVisible(),mode==='full');assert.equal(await page.locator('.learning-unit-block').filter({has:page.locator('h4').filter({hasText:'換個盤查主體'})}).isVisible(),mode!=='sprint');}
+  for(const term of ['已重編單元','原教材單元：','歷屆題怎麼應用','接下來學什麼'])assert(!(await page.locator('#view-reader').innerText()).includes(term),term);
   const old=JSON.parse(fs.readFileSync('tests/fixtures/learning-legacy-sections.json','utf8'));
   const pack=await page.evaluate(()=>window.__STUDY_PACK__);
   for(const row of old.filter(r=>r.packId===pack.id)){const ch=pack.chapters.find(ch=>ch.id===row.chapterId);for(const sid of row.displayedSectionIds)assert((ch.teachingSections||ch.sections).some(s=>s.id===(ch.sectionAliases?.[sid]||sid)),sid);}
