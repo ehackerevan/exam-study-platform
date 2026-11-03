@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {courses} from '../設計預覽/lessons.mjs';
 import {compileStudyPackToHtml} from '../src/core/compiler/index.js';
+import {learningSections, writeIntegratedText} from './esg-learning.js';
 
 // build:ui 先產生來源 pack 及預覽，再把同一份教學內容編入正式閱讀模式。
 const preview=fs.readFileSync('設計預覽/各科教材_ELI5_獨立預覽.html','utf8');
@@ -34,6 +35,11 @@ for(const course of courses){
   const reviewEnd=article.indexOf('<details class="practice-block">',reviewStart);
   assert(reviewStart>=0&&reviewEnd>reviewStart,id+' review');
   if(course.key!=='esg') sections.push({id:chapter.id+'-review',title:'回顧與理解檢查',content:article.slice(reviewStart,reviewEnd),keyPoints:[],notes:[]});
+  if(course.key==='esg') {
+   const learning=learningSections(chapter.id);
+   if(learning.length) sections.unshift(learning[0]);
+   sections.push(...learning.slice(1));
+  }
   chapter.teachingSections=sections;
   chapter.teachingSummary=text(article.match(/<p class="intro">([\s\S]*?)<\/p>/)[1]);
   if(!chapter.practiceQuestionIds?.length)chapter.practiceQuestionIds=pack.questions.filter(q=>q.chapterId===chapter.id).slice(0,10).map(q=>q.id);
@@ -45,3 +51,4 @@ for(const course of courses){
 }
 assert.equal(chapters,38);assert.equal(topics,167);
 console.log(`Integrated teaching: ${chapters} chapters, ${topics} topics; source questions unchanged`);
+writeIntegratedText();

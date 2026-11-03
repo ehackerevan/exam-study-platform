@@ -1,3 +1,4 @@
+import {learningSections as esgSupportSections} from '../scripts/esg-learning.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
@@ -135,6 +136,8 @@ for (const course of courses) {
     const type = lesson.kind==='compare' ? '比較圖 · 箭頭表示對照' : lesson.kind==='roles' ? '角色圖 · 看責任與關係' : '理解流程 · 點選節點看說明';
     const prev = course.chapters[Math.max(0,index-1)];
     const next = course.chapters[index+1] || course.chapters[0];
+    const support = course.key==='esg' ? esgSupportSections(chapter.id) : [];
+    const supportHtml = row => row.content.replace('<div class="knowledge-topic">', '<div class="knowledge-topic"><h4>'+escape(row.title)+'</h4>');
     lessons.push(`<article class="lesson" id="${id}" data-course="${course.key}" data-short-title="${escape(shortTitle(chapter))}" aria-labelledby="${id}-title">
 <div class="breadcrumb"><span>${escape(course.name)}</span></div>
 <p class="lesson-kicker">${course.key==='ethics'?'題庫導讀':'CHAPTER '+String(index).padStart(2,'0')}</p>
@@ -146,7 +149,7 @@ for (const course of courses) {
 <div class="step-details" aria-live="polite">${lesson.steps.map((step,i)=>`<div class="step-detail" id="${id}-step-${i}"><span>${String(i+1).padStart(2,'0')}</span><p><strong>${escape(step[0])}：</strong>${teach(step[2])}</p></div>`).join('')}</div>
 <div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section></details>
 
-<section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body,course.key==='esg')).join('')}</div></section>
+<section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${support.slice(0,1).map(supportHtml).join('')}${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body,course.key==='esg')).join('')}${support.slice(1).map(supportHtml).join('')}</div></section>
 <section class="chapter-review"${course.key==='esg'?' hidden':''}><h3>判斷界線</h3><p>${teach(lesson.limit)}</p></section>
 <section class="understanding"${course.key==='esg'?' hidden':''}><h3>換個情況，怎麼判斷？</h3><p class="question-line">${teach(lesson.check[0])}</p><details class="check-answer"><summary>看看怎麼想</summary><p>${teach(lesson.check[1])}</p></details></section>
 <details class="chapter-sources"><summary>參考資料與版本</summary><p>${escape(course.name)}教材${course.key==='ethics'?'；題目依證基會 113 年版及官方勘誤整理。':'。'}</p>${references.length?'<ul>'+references.map(link=>'<li>'+link+'</li>').join('')+'</ul>':''}</details>
