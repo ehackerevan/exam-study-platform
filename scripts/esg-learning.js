@@ -28,6 +28,6 @@ export function writeIntegratedText() {
     output += body.slice(firstBreak).trim()+`\n\n`;
     if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n### 考前快速複習\n\n${data.recap}\n\n`;
   }
-  output += '## 來源與版本\n\n原章節：教材/永續發展基礎能力重點教材/00–06章。數字、期限與制度內容按原教材版本保留；本次未重新查核法規時效，也未逐頁覆核原PDF。來源核對與品質限制見專案文件/永續發展教材整合紀錄.md及分析報告中的研究進度與資料品質。\n';
+  output += '## 版本提醒\n\n數字、期限與制度要求須連同適用主體及版本閱讀。歷屆題目按原考期判斷；本次整理未重新查核法規時效。\n';
   fs.writeFileSync(new URL('../教材/永續發展_整合學習教材.md',import.meta.url),output);
 }
