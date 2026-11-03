@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {courses} from '../設計預覽/lessons.mjs';
 import {compileStudyPackToHtml} from '../src/core/compiler/index.js';
 import {learningSections, writeIntegratedText} from './esg-learning.js';
+import {attachLearningUnits} from './learning-units.js';
 
 // build:ui 先產生來源 pack 及預覽，再把同一份教學內容編入正式閱讀模式。
 const preview=fs.readFileSync('設計預覽/各科教材_ELI5_獨立預覽.html','utf8');
@@ -47,6 +48,7 @@ for(const course of courses){
   chapters++;topics+=pieces.length;
  }
  assert.equal(JSON.stringify(pack.questions),questionSnapshot,course.key+' source questions unchanged');
+ attachLearningUnits(pack);
  fs.writeFileSync(file,compileStudyPackToHtml(pack,{includeExplanations:course.key==='esg'}).html);
 }
 assert.equal(chapters,38);assert.equal(topics,167);

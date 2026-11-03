@@ -1,0 +1,134 @@
+[
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg00",
+    "sourceSectionIds": [
+      "esg00-學習範圍",
+      "esg00-教材地圖",
+      "esg00-使用提醒"
+    ],
+    "displayedSectionIds": [
+      "esg-esg00-topic-0",
+      "esg-esg00-topic-1",
+      "esg-esg00-topic-2"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg01",
+    "sourceSectionIds": [
+      "esg01-sec-01",
+      "esg01-一永續概念與國際氣候治理",
+      "esg01--二我國-2050-淨零轉型核心戰略架構",
+      "esg01-三氣候治理與碳費制度",
+      "esg01-四ifrs-永續揭露2026-年-9-月調整重點",
+      "esg01-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg01-一國際氣候公約演進里程碑",
+      "esg01--二我國-2050-淨零轉型核心戰略架構",
+      "esg01-三氣候治理與碳費制度",
+      "esg01-四ifrs-永續揭露2026-年-9-月調整重點",
+      "esg01-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg02",
+    "sourceSectionIds": [
+      "esg02-sec-01",
+      "esg02-一溫室氣體盤查三大範疇與-iso-14064-12018-六大類別",
+      "esg02-二七種主要列管溫室氣體ghgs",
+      "esg02-三台灣環境部溫室氣體排放量盤查登錄及查驗管理辦法法定規範",
+      "esg02-四碳定價工具與臺灣碳權交易所-tcx",
+      "esg02--五歐盟碳邊境調整機制cbam",
+      "esg02-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg02-一溫室氣體盤查三大範疇與-iso-14064-12018-六大類別",
+      "esg02-二七種主要列管溫室氣體ghgs",
+      "esg02-三台灣環境部溫室氣體排放量盤查登錄及查驗管理辦法法定規範",
+      "esg02-四碳定價工具與臺灣碳權交易所-tcx",
+      "esg02--五歐盟碳邊境調整機制cbam",
+      "esg02-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg03",
+    "sourceSectionIds": [
+      "esg03-sec-01",
+      "esg03-一國際責任金融四大倡議對照",
+      "esg03-二赤道原則equator-principles-ep4",
+      "esg03-三櫃買中心tpex永續發展債券作業要點四大券種",
+      "esg03-四金管會綠色金融行動方案-30與永續金融評鑑",
+      "esg03-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg03-一國際責任金融四大倡議對照",
+      "esg03-二赤道原則equator-principles-ep4",
+      "esg03-三櫃買中心tpex永續發展債券作業要點四大券種",
+      "esg03-四金管會綠色金融行動方案-30與永續金融評鑑",
+      "esg03-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg04",
+    "sourceSectionIds": [
+      "esg04-sec-01",
+      "esg04-一tcfd-氣候財務揭露四大核心支柱",
+      "esg04-二ifrs-永續準則與金管會接軌藍圖",
+      "esg04-三gri-vs-sasb-兩大準則核心差異",
+      "esg04-四反漂綠anti-greenwashing法律防線與基金審查",
+      "esg04-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg04-一tcfd-氣候財務揭露四大核心支柱",
+      "esg04-二ifrs-永續準則與金管會接軌藍圖",
+      "esg04-三gri-vs-sasb-兩大準則核心差異",
+      "esg04-四反漂綠anti-greenwashing法律防線與基金審查",
+      "esg04-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg05",
+    "sourceSectionIds": [
+      "esg05-法規與數字",
+      "esg05-常見縮寫",
+      "esg05-題目判讀"
+    ],
+    "displayedSectionIds": [
+      "esg05-法規與數字",
+      "esg05-常見縮寫",
+      "esg05-題目判讀"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg06",
+    "sourceSectionIds": [
+      "esg06-sec-01",
+      "esg06-一社會與治理風險",
+      "esg06-二第三方驗證與資訊品質",
+      "esg06-三永續評等與指數",
+      "esg06-四永續授信與保險",
+      "esg06-五四類題目的判斷順序"
+    ],
+    "displayedSectionIds": [
+      "esg06-一社會與治理風險",
+      "esg06-二第三方驗證與資訊品質",
+      "esg06-三永續評等與指數",
+      "esg06-四永續授信與保險",
+      "esg06-五四類題目的判斷順序"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  }
+]

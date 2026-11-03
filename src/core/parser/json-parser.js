@@ -48,6 +48,7 @@ export function parseStudyPackJson(input) {
       id: String(ch.id || 'chapter-01'),
       title: String(ch.title || '未命名章節'),
       summary: String(ch.summary || ''),
+      ...(Array.isArray(ch.learningUnits)?{learningUnits:ch.learningUnits.map(sanitizeLearningUnit)}:{}),
       sections: Array.isArray(ch.sections)
         ? ch.sections.map(s => ({
             id: String(s.id || 'sec-01'),
@@ -66,6 +67,14 @@ export function parseStudyPackJson(input) {
   }
 
   return base;
+}
+
+function sanitizeLearningUnit(unit) {
+  if(!unit||typeof unit!=='object')return unit;
+  return {...unit,blocks:Array.isArray(unit.blocks)?unit.blocks.map(block=>{
+    if(!block||typeof block!=='object')return block;
+    return {...block,content:sanitizeHtml(String(block.content||''))};
+  }):unit.blocks};
 }
 
 function sanitizeQuestions(questions) {

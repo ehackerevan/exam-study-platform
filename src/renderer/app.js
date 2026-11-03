@@ -15,9 +15,12 @@
   // 常數與門檻設定
   const questionIds = new Set(pack.questions.map(question => question.id));
   const readingSections = chapter => chapter.teachingSections || chapter.sections;
+  const resolveSection = (chapter,id) => chapter.sectionAliases?.[id] || id;
+  const learningUnitFor = (chapter,sectionId) => chapter.learningUnits?.find(unit=>unit.sectionId===sectionId);
+  let learningDepth = 'full';
   const sectionText = new WeakMap();
-  const searchableContent = section => {
-    if(!sectionText.has(section)){const template=document.createElement('template');template.innerHTML=window.StudyContent.render(section.content || '');sectionText.set(section,template.content.textContent || '');}
+  const searchableContent = (chapter,section) => {
+    if(!sectionText.has(section)){const template=document.createElement('template');const unit=learningUnitFor(chapter,section.id);template.innerHTML=unit?unit.blocks.map(block=>window.StudyContent.render(block.title+'\n\n'+block.content)).join(' '):window.StudyContent.render(section.content || '');sectionText.set(section,template.content.textContent || '');}
     return sectionText.get(section);
   };
   const hasTeachingChapter = id => readingSections(pack.chapters.find(chapter => chapter.id === id)||{sections:[]}).some(section => !section.id.endsWith('-source-note') && (section.content || section.keyPoints?.length || section.notes?.length));
@@ -306,6 +309,13 @@
   }
 
   const chapterPracticeAnswers = new Map();
+  function applyLearningDepth() {
+    document.querySelectorAll('.learning-unit-block').forEach(block=>{block.hidden=block.dataset.depth==='foundation'&&learningDepth!=='full'||block.dataset.depth==='application'&&learningDepth==='sprint';});
+  }
+
+  function learningUnitHtml(unit) {
+    return `<div id="knowledge-${escapeHtml(unit.id)}" class="learning-unit knowledge-topic">${unit.blocks.map(block=>`<div class="learning-unit-block" data-depth="${escapeHtml(block.depth)}"><h4>${escapeHtml(block.title)}</h4>${window.StudyContent.render(block.content)}</div>`).join('')}<details><summary>原教材與考試範圍</summary><p>${escapeHtml(unit.officialScope?.item||'請對照本科官方大綱')}；原教材單元：${escapeHtml(unit.title)}。</p></details></div>`;
+  }
   function answerIsCorrect(question, selected) {
     if (question.type !== 'multiple-choice') return selected === question.answer;
     const expected = Array.isArray(question.answer) ? question.answer : [question.answer];
@@ -403,6 +413,7 @@
 
     currentChapterId = ch.id;
     if (progress.lastPosition.chapterId !== ch.id) progress.lastPosition.sectionId = '';
+    else progress.lastPosition.sectionId=resolveSection(ch,progress.lastPosition.sectionId);
     progress.lastPosition.chapterId = ch.id;
     saveProgress();
 
@@ -428,6 +439,10 @@
     document.getElementById('chapter-heading').textContent = ch.title;
     document.querySelector('.sidebar-title').textContent='章節目錄';
     document.getElementById('chapter-summary-text').textContent = ch.teachingSummary || ch.summary || '';
+    let depthControl=document.getElementById('learning-depth-control');
+    if(!depthControl){depthControl=document.createElement('div');depthControl.id='learning-depth-control';depthControl.innerHTML='<label for="learning-depth">閱讀深度</label><select id="learning-depth"><option value="full">完整學習</option><option value="review">重點複習</option><option value="sprint">考前衝刺</option></select><span>深度切換適用於已重編單元；規則與必要條件保持可見。</span>';document.getElementById('chapter-summary-text').after(depthControl);depthControl.querySelector('select').onchange=event=>{learningDepth=event.target.value;applyLearningDepth();};}
+    depthControl.hidden=!ch.learningUnits?.length;
+    depthControl.querySelector('select').value=learningDepth;
 
     // 完成狀態按鈕
     const isCompleted = progress.completedChapters.includes(ch.id);
@@ -443,6 +458,7 @@
       const secDiv = document.createElement('div');
       secDiv.className = 'section-block'+(sec.id.endsWith('-overview')?' overview-section':'');
       secDiv.id = `sec-${sec.id}`;
+      for(const [alias,target] of Object.entries(ch.sectionAliases||{}))if(target===sec.id){const anchor=document.createElement('span');anchor.id='sec-'+alias;secDiv.append(anchor);}
 
       let keyPointsHtml = '';
       if (sec.keyPoints && sec.keyPoints.length > 0) {
@@ -466,14 +482,15 @@
         `;
       }
 
-      secDiv.innerHTML = `
+      secDiv.insertAdjacentHTML('beforeend', `
         <h3 class="section-title" tabindex="-1">${escapeHtml(sec.title)}</h3>
-        ${sec.content ? `<div class="section-body">${window.StudyContent.render(sec.content)}</div>` : ''}
+        ${learningUnitFor(ch,sec.id) ? `<div class="section-body">${learningUnitHtml(learningUnitFor(ch,sec.id))}</div>` : sec.content ? `<div class="section-body">${window.StudyContent.render(sec.content)}</div>` : ''}
         ${keyPointsHtml}
         ${notesHtml}
-      `;
+      `);
       container.appendChild(secDiv);
     });
+    applyLearningDepth();
     const goals = document.createElement('aside');
     goals.className = 'learning-goals';
     goals.innerHTML = '<strong>讀完本章，試著自己說明：</strong><ul>' + ch.sections.slice(0,3).map(s => `<li>${escapeHtml(s.title)}</li>`).join('') + '</ul>';
@@ -572,7 +589,7 @@
               type: '小節'
             });
           }
-          const contentText = searchableContent(sec);
+          const contentText = searchableContent(ch,sec);
           if (contentText.toLowerCase().includes(q)) {
             const idx = contentText.toLowerCase().indexOf(q);
             const start = Math.max(0, idx - 40);
@@ -615,6 +632,7 @@
         `;
         card.onclick = () => {
           currentChapterId = m.chapter.id;
+          learningDepth = 'full';
           switchView('reader');
           if (m.section) {
             setTimeout(() => {
@@ -849,10 +867,21 @@
   }
 
   function openRelatedChapter(question) {
+    if(question.knowledgeIds?.some(id=>openKnowledge(id)))return;
     currentChapterId = question.chapterId;
     const chapter = pack.chapters.find(ch => ch.id === question.chapterId);
     progress.lastPosition = {chapterId:question.chapterId, sectionId:chapter && readingSections(chapter).some(s => s.id === question.sectionId) ? question.sectionId : ''};
     switchView('reader');
+  }
+  function openKnowledge(id) {
+    const chapter=pack.chapters.find(ch=>ch.learningUnits?.some(unit=>unit.id===id));
+    if(!chapter)return false;
+    const unit=chapter.learningUnits.find(unit=>unit.id===id);
+    currentChapterId=chapter.id;
+    progress.lastPosition={chapterId:chapter.id,sectionId:unit.sectionId};
+    switchView('reader');
+    requestAnimationFrame(()=>document.getElementById('knowledge-'+id)?.scrollIntoView({block:'start'}));
+    return true;
   }
   function showQuizSummary() {
     quizState.active = false;
@@ -1198,6 +1227,18 @@
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');
     switchView(initialView === 'quick-review' ? 'search' : ['reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'reader');
+    const openLocation=()=>{
+      let knowledge=new URLSearchParams(location.search).get('knowledge')||'';
+      if(!knowledge&&location.hash.startsWith('#knowledge-'))try{knowledge=decodeURIComponent(location.hash.slice(11));}catch{return;}
+      if(knowledge&&openKnowledge(knowledge))return;
+      if(location.hash.startsWith('#sec-')){
+        let id;try{id=decodeURIComponent(location.hash.slice(5));}catch{return;}
+        const chapter=pack.chapters.find(ch=>readingSections(ch).some(sec=>sec.id===resolveSection(ch,id)));
+        if(chapter){currentChapterId=chapter.id;progress.lastPosition={chapterId:chapter.id,sectionId:resolveSection(chapter,id)};switchView('reader');}
+      }
+    };
+    window.addEventListener('hashchange',openLocation);
+    openLocation();
   }
 
   // 啟動應用程式

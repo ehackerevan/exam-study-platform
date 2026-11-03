@@ -301,6 +301,32 @@ export function validateStudyPack(pack) {
     }
   }
 
+  const knowledgeIds = new Set();
+  for(const chapter of Array.isArray(pack.chapters)?pack.chapters:[]){
+    if(!chapter||typeof chapter!=='object')continue;
+    if(chapter.sectionAliases!==undefined){
+      const aliases=chapter.sectionAliases;
+      const sections=Array.isArray(chapter.teachingSections)?chapter.teachingSections:Array.isArray(chapter.sections)?chapter.sections:[];
+      if(!aliases||typeof aliases!=='object'||Array.isArray(aliases)||Object.entries(aliases).some(([alias,target])=>!alias.trim()||typeof target!=='string'||alias===target||!sections.some(s=>s?.id===target)))report.addError('INVALID_SECTION_ALIAS','舊小節對照必須直接指向存在的閱讀小節',chapter.id);
+    }
+    if(chapter.learningUnits===undefined)continue;
+    if(!Array.isArray(chapter.learningUnits)){report.addError('INVALID_LEARNING_UNIT','教學單元必須為陣列',chapter.id);continue;}
+    for(const unit of chapter.learningUnits){
+      if(!unit||typeof unit!=='object'||typeof unit.id!=='string'||!/^[-a-zA-Z0-9_]+$/.test(unit.id)||knowledgeIds.has(unit.id)||typeof unit.title!=='string'||!unit.title.trim()||!Array.isArray(chapter.sections)||!chapter.sections.some(s=>s?.id===unit.sectionId)||!Array.isArray(unit.blocks)||!unit.blocks.length){report.addError('INVALID_LEARNING_UNIT','教學單元的ID、標題、來源小節或內容不正確',chapter.id);continue;}
+      knowledgeIds.add(unit.id);
+      if(chapter.teachingSections&&(!Array.isArray(chapter.teachingSections)||!chapter.teachingSections.some(s=>s?.id===unit.sectionId)))report.addError('INVALID_LEARNING_UNIT','教學單元沒有對應閱讀小節',unit.id);
+      const blockIds=new Set();
+      for(const block of unit.blocks){
+        if(!block||typeof block.id!=='string'||!/^[-a-zA-Z0-9_]+$/.test(block.id)||blockIds.has(block.id)||typeof block.title!=='string'||!block.title.trim()||!['common','foundation','application','assessment'].includes(block.depth)||typeof block.content!=='string'||!block.content.trim()){report.addError('INVALID_LEARNING_BLOCK','教學內容的ID、深度、標題或內文不正確',unit.id);continue;}
+        blockIds.add(block.id);checkText(block.content,unit.id+'/'+block.id);
+      }
+    }
+  }
+  for(const question of Array.isArray(pack.questions)?pack.questions:[]){
+    if(!question||typeof question!=='object')continue;
+    if(question.knowledgeIds!==undefined&&(!Array.isArray(question.knowledgeIds)||!question.knowledgeIds.length||new Set(question.knowledgeIds).size!==question.knowledgeIds.length||question.knowledgeIds.some(id=>!knowledgeIds.has(id))))report.addError('INVALID_KNOWLEDGE_LINK','題目知識點必須引用存在且不重複的單元ID',question.id);
+  }
+
   // 檢查是否有章節完全沒有題目
   for (const [cid, qCount] of chapterQuestionCounter.entries()) {
     if (qCount === 0) {

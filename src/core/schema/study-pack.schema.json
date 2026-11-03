@@ -119,6 +119,17 @@
         },
         "teachingSummary": {
           "type": "string"
+        },
+        "sectionAliases": {
+          "type": "object",
+          "additionalProperties": {"type":"string"},
+          "description":"舊小節ID直接對應目前小節ID，保持網址與閱讀位置相容"
+        },
+        "learningUnits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LearningUnit"
+          }
         }
       }
     },
@@ -268,6 +279,72 @@
           "type": "integer",
           "minimum": 1,
           "description": "精選題組中的排序"
+        },
+        "knowledgeIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "description": "已審核的穩定知識點ID，不取代原題目與章節ID"
+        }
+      }
+    },
+    "LearningUnit": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "sectionId",
+        "blocks"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[-a-zA-Z0-9_]+$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "sectionId": {
+          "type": "string"
+        },
+        "officialScope": {
+          "type": "object"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "depth",
+              "content"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[-a-zA-Z0-9_]+$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "depth": {
+                "enum": [
+                  "common",
+                  "foundation",
+                  "application",
+                  "assessment"
+                ]
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
         }
       }
     }
