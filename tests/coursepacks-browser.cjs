@@ -1,3 +1,4 @@
+const {openView}=require('./study-ui-helper.cjs');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {pathToFileURL}=require('node:url');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
@@ -69,7 +70,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    assert.equal(new Set(pack.chapters.map(ch=>ch.id)).size,pack.chapters.length);
    let inlineDiagramCount=0;
    for(const width of [320,768,1440]){
-    await page.setViewportSize({width,height:900});await page.locator('[data-view="reader"]').click();
+    await page.setViewportSize({width,height:900});await openView(page,'reader');
    for(let i=0;i<pack.chapters.length;i++){
      if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
      await page.locator('#reader-toc-list li').nth(i).click();
@@ -106,7 +107,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     assert(frequencySection.content.includes(stats.concept_ranking[0].concept),'Top point comes from updated stats: '+course);
     if(stats.law_ranking.length)assert(frequencySection.content.includes(stats.law_ranking[0].law_or_rule),'Top law comes from updated stats: '+course);
    }
-   await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+   await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
    assert.equal(await page.locator('#quiz-select-knowledge-point option').count(),pointLabels.length,'Knowledge point options: '+course);
    await page.locator('#quiz-mode').selectOption('knowledge-point');
    await page.locator('#quiz-select-knowledge-point').selectOption(pointLabels[0]);
@@ -123,7 +124,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    const exam=pack.questions.find(q=>q.sourceExam);
    const examKey=JSON.stringify([exam.sourceExam.term,exam.sourceExam.subject]);
    const examQuestions=pack.questions.filter(q=>q.sourceExam.term===exam.sourceExam.term&&q.sourceExam.subject===exam.sourceExam.subject);
-   await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+   await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
    await page.locator('#quiz-mode').selectOption('exam');
    await page.locator('#quiz-select-exam').selectOption(examKey);
    await page.locator('#btn-start-custom-quiz').click();
@@ -133,7 +134,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    assert(examQuestions.some(q=>visibleQuestion(q)===displayedQuestion),'Exam filter selection: '+course);
    assert.equal(displayedQuestion,visibleQuestion([...examQuestions].sort((a,b)=>a.sourceExam.number-b.sourceExam.number)[0]),'Exam mode preserves original question order');
    if(course==='信託業務人員重點教材'){
-    await page.reload();await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+    await page.reload();await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     const group=pack.questions.find(q=>q.featuredGroup).featuredGroup;
     const featuredQuestions=pack.questions.filter(q=>q.featuredGroup===group).sort((a,b)=>a.featuredRank-b.featuredRank);
     await page.locator('#quiz-mode').selectOption('featured');
@@ -147,11 +148,11 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
      await page.locator('#btn-quiz-next').click();
     }
     assert.equal(await page.locator('#quiz-summary-accuracy').textContent(),'100%');
-    await page.reload();await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+    await page.reload();await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     assert((await page.locator('#quiz-history-list').textContent()).includes(`精選題組 ${group.replace(/^c/, '')}｜100%（10/10）`));
    }
    await page.setViewportSize({width:390,height:844});
-   await page.locator('[data-view="reader"]').click();await page.locator('#study-progress summary').click();
+   await openView(page,'reader');await page.locator('#study-progress summary').click();
    assert(await page.locator('#study-progress').isVisible());
    await page.screenshot({path:path.join('.qa-artifacts',course+'-mobile.png'),animations:'disabled'});
    results.push({course,questions:pack.questions.length,chapters:pack.chapters.length,status:'PASS'});

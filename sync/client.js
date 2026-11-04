@@ -25,7 +25,7 @@
   code.style.display=account?'none':'';
   for(const action of ['login','register']) box.querySelector('#sync-'+action).style.display=account?'none':'';
   box.querySelector('#sync-logout').style.display=account?'':'none';
-  const tab=document.querySelector('[data-view=settings]');if(tab)tab.textContent='⚙️ 設定／登入';
+  const tab=document.querySelector('[data-view=settings]');if(tab)tab.textContent='設定與備份';
   const reset=document.getElementById('btn-reset-progress');if(account&&reset)reset.previousElementSibling.textContent='清除此教材在本機及雲端的學習進度。教材內容與題庫不受影響。';
   for(const action of ['login','register']) box.querySelector('#sync-'+action).onclick=async()=>{
    const value=code.value;

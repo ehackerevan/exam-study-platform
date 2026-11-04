@@ -153,8 +153,8 @@
     panel.querySelector('#hidden-question-count').textContent=matches.length?`符合 ${matches.length} 題${matches.length>50?'，顯示前 50 題；可搜尋縮小範圍。':''}`:'沒有符合的隱藏題目。';
   }
   function initQuestionManager(){
-    const panel=document.createElement('section');panel.id='personal-question-panel';
-    panel.innerHTML='<h3>我的題目</h3><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的收藏</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的收藏</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
+    const panel=document.createElement('details');panel.id='personal-question-panel';
+    panel.innerHTML='<summary>我的收藏與隱藏題目</summary><label class="personal-only"><input type="checkbox" id="only-personal-favorites"> 只練我的收藏</label><button type="button" class="btn btn-primary" id="btn-personal-favorites">練習我的收藏</button><details><summary id="hidden-question-heading">已隱藏題目</summary><label for="hidden-question-search">搜尋隱藏題目</label><input type="search" id="hidden-question-search" placeholder="輸入題目關鍵字"><p id="hidden-question-count"></p><ul id="hidden-question-list"></ul></details>';
     document.querySelector('#quiz-setup-panel .quiz-config-card').append(panel);
     panel.querySelector('#btn-personal-favorites').onclick=()=>startQuiz('random','','all',pack.questions.filter(q=>progress.favoriteQuestionIds.includes(q.id)));
     panel.querySelector('#hidden-question-search').addEventListener('input',renderQuestionManager);renderQuestionManager();
@@ -168,8 +168,14 @@
   }
 
   // 狀態管理
-  let currentView = 'reader'; // 'reader' | 'quiz' | 'settings'
+  let currentView = 'home'; // 'reader' | 'quiz' | 'settings'
   let programmaticSectionScroll = false;
+  let sectionScrollTimer = 0;
+  function pauseReadingTracking() {
+    programmaticSectionScroll=true;
+    clearTimeout(sectionScrollTimer);
+    sectionScrollTimer=setTimeout(()=>{programmaticSectionScroll=false;},300);
+  }
   let currentChapterId = progress.lastPosition.chapterId || (pack.chapters[0] ? pack.chapters[0].id : '');
 
   // 測驗執行狀態
@@ -185,18 +191,29 @@
 
   // DOM 參考快取
   const views = {
+    home: document.getElementById('view-home'),
+    progress: document.getElementById('view-progress'),
     reader: document.getElementById('view-reader'),
     quiz: document.getElementById('view-quiz'),
     settings: document.getElementById('view-settings')
   };
 
-  const navTabBtns = document.querySelectorAll('.tab-btn');
+  const navTabBtns = document.querySelectorAll('[data-view]');
 
   // 切換視圖
   function switchView(viewName) {
     const openSearch = viewName === 'search';
-    if (viewName === 'dashboard' || openSearch) viewName = 'reader';
+    if (viewName === 'dashboard') viewName = 'progress';
+    if (openSearch) viewName = 'reader';
+    if (!views[viewName]) viewName = 'home';
     currentView = viewName;
+    document.body.dataset.studyView = viewName;
+    const progressDetails=document.getElementById('study-progress');
+    const progressTarget=viewName==='progress'?document.getElementById('progress-content'):document.getElementById('chapter-practice-panel');
+    if(viewName==='progress'){progressTarget.append(progressDetails);progressDetails.open=true;}
+    else if(progressDetails.parentElement.id==='progress-content'){progressTarget.before(progressDetails);progressDetails.open=false;}
+    document.getElementById('btn-resume-quiz').hidden=!quizState.active;
+    if(viewName==='home'||viewName==='progress')renderDashboard();
     Object.keys(views).forEach(key => {
       if (views[key]) {
         views[key].classList.toggle('active', key === viewName);
@@ -205,13 +222,19 @@
 
     navTabBtns.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.view === viewName);
+      if(btn.dataset.view===viewName)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current');
     });
 
-    if (viewName === 'quiz') {renderQuizHistory();renderQuestionManager();renderQuestionCompletion();}
+    if (viewName === 'quiz') {
+      if(!quizState.active){document.getElementById('quiz-running-panel').style.display='none';document.getElementById('quiz-summary-panel').style.display='none';document.getElementById('quiz-setup-panel').style.display='block';}
+      renderQuizHistory();renderQuestionManager();renderQuestionCompletion();
+    }
     if (viewName === 'reader') {
       if (!openSearch) document.getElementById('reader-search').open = false;
       renderReader();renderDashboard();
     }
+    document.getElementById('study-main').focus({preventScroll:true});
+    window.scrollTo(0,0);
     if (openSearch) {
       document.getElementById('reader-search').open = true;
       document.getElementById('search-input').focus();
@@ -227,8 +250,24 @@
     document.getElementById('stat-question-total').textContent=total;
     document.getElementById('stat-bank-completion').textContent=percent+'%';
     const bar=document.getElementById('bank-completion-bar');bar.max=total||1;bar.value=answered;
+    document.getElementById('home-completion').textContent=percent+'%';
+    document.getElementById('home-completion-count').textContent=`已答過 ${answered} / ${total} 題`;
+    const homeBar=document.getElementById('home-completion-bar');homeBar.max=total||1;homeBar.value=answered;
+    renderHome();
     document.getElementById('quiz-bank-completion').textContent=`題庫完成度 ${percent}%（已作答 ${answered} / ${total} 題）`;
   }
+  const suggestedChapter = () => pack.chapters.find(ch=>ch.id===progress.lastPosition.chapterId&&hasTeachingChapter(ch.id))||pack.chapters.find(ch=>hasTeachingChapter(ch.id)&&!ch.id.endsWith('00'))||pack.chapters.find(ch=>hasTeachingChapter(ch.id));
+  const shortCourseTitle = () => pack.title.split(/[：:]/)[0];
+
+  function renderHome() {
+    const chapter=suggestedChapter();
+    document.getElementById('home-course').textContent=shortCourseTitle();
+    document.getElementById('home-chapter').textContent=chapter?chapter.title:'題庫練習';
+    document.getElementById('btn-home-start').textContent=chapter?(progress.lastPosition.chapterId?'繼續閱讀 →':'讀教材 →'):'開始練習 →';
+    document.getElementById('btn-home-practice').hidden=!chapter;
+    document.getElementById('btn-home-practice').disabled=!pack.questions.length;
+  }
+
   function renderDashboard() {
     const totalChapters = pack.chapters.length;
     const completedChapters = progress.completedChapters.length;
@@ -440,7 +479,7 @@
       li.onclick = () => {
         currentChapterId = c.id;
         renderReader();
-        if(matchMedia('(max-width:768px)').matches){setTocOpen(false);document.getElementById('chapter-heading').scrollIntoView({block:'start'});}
+        setTocOpen(false);document.getElementById('chapter-heading').scrollIntoView({block:'start'});
       };
       li.onkeydown = event => {if (event.key === 'Enter' || event.key === ' ') {event.preventDefault();li.click();}};
       tocList.appendChild(li);
@@ -518,17 +557,17 @@
       const questionById = new Map(pack.questions.map(question => [question.id, question]));
       const preferred=(ch.practiceQuestionIds || []).map(id=>questionById.get(id)).filter(Boolean);
       const practiceQuestions=[...new Map([...preferred,...pack.questions.filter(q=>q.chapterId===ch.id)].filter(q=>!isQuestionHidden(q)).map(q=>[q.id,q])).values()].slice(0,10);
-      document.getElementById('chapter-practice-title').textContent = /00$/.test(ch.id) ? `全科暖身練習（${practiceQuestions.length} 題）` : `本章練習（${practiceQuestions.length} 題）`;
+      document.getElementById('chapter-practice-title').textContent = /00$/.test(ch.id) ? `全科暖身練習（${practiceQuestions.length} 題）` : `更多本章練習（${practiceQuestions.length} 題）`;
       document.getElementById('chapter-practice-scope').textContent = ch.practiceConcepts?.length ? `涵蓋：${ch.practiceConcepts.join('、')}。` : '';
       if(practiceQuestions.length<10)document.getElementById('chapter-practice-scope').textContent+=` 已排除隱藏題目，目前可練 ${practiceQuestions.length} 題。`;
       renderChapterPractice(document.getElementById('chapter-practice-preview'), practiceQuestions);
     }
     const resume = progress.lastPosition.sectionId;
     if (resume) {
-      programmaticSectionScroll = true;
+      pauseReadingTracking();
       requestAnimationFrame(() => {
         document.getElementById(`sec-${resume}`)?.scrollIntoView({block:'start'});
-        setTimeout(() => { programmaticSectionScroll = false; }, 250);
+        pauseReadingTracking();
       });
     }
 
@@ -702,6 +741,7 @@
     }
 
     quizState.pool = pool;
+    switchView('quiz');
 
     if (pool.length === 0) {
       alert('此範圍沒有可出題目，請調整收藏篩選或恢復隱藏題目。');
@@ -725,16 +765,18 @@
     if (!q) return;
 
     let actions=document.getElementById('quiz-question-actions');
-    if(!actions){actions=document.createElement('div');actions.id='quiz-question-actions';document.getElementById('quiz-stem').before(actions);}
+    if(!actions){actions=document.createElement('details');actions.id='quiz-question-actions';document.getElementById('quiz-options-container').after(actions);}
     actions.replaceChildren(createQuestionActions(q,()=>{
       if(!quizState.submitted[q.id]){quizState.pool.splice(quizState.currentIndex,1);delete quizState.answers[q.id];}
       else quizState.currentIndex++;
       if(quizState.currentIndex>=quizState.pool.length)showQuizSummary();else renderQuizCard();
     }));
+    const toolsSummary=document.createElement('summary');toolsSummary.textContent='其他題目功能';actions.prepend(toolsSummary);
     const total = quizState.pool.length;
     const currentNum = quizState.currentIndex + 1;
 
     document.getElementById('quiz-progress-text').textContent = `第 ${currentNum} / ${total} 題`;
+    const sessionBar=document.getElementById('quiz-session-progress');sessionBar.max=total;sessionBar.value=quizState.currentIndex+(quizState.submitted[q.id]?1:0);
     document.getElementById('quiz-chapter-tag').textContent = (pack.chapters.find(c => c.id === q.chapterId) || {}).title || q.chapterId;
     const examTag = document.getElementById('quiz-exam-tag');
     if (q.sourceExam) {
@@ -817,6 +859,11 @@
     const feedbackBox = document.getElementById('quiz-feedback-box');
     const submitBtn = document.getElementById('btn-quiz-submit');
     const nextBtn = document.getElementById('btn-quiz-next');
+    const hasSelection=userSelected!==undefined&&(!Array.isArray(userSelected)||userSelected.length>0);
+    submitBtn.disabled=!hasSelection;
+    submitBtn.textContent=hasSelection?'確認答案':'先選答案';
+    document.getElementById('quiz-choice-hint').textContent=isSubmitted?'':q.type==='multiple-choice'?'可選多個答案，選好後按「確認答案」。':'選 1 個答案，再按「確認答案」。';
+    nextBtn.textContent=quizState.currentIndex===quizState.pool.length-1?'看練習結果':'下一題 →';
 
     if (isSubmitted) {
       submitBtn.style.display = 'none';
@@ -836,7 +883,7 @@
 
       feedbackBox.innerHTML = `
         <div style="font-weight:800;font-size:1.05rem;">
-          ${isCorrect ? '✓ 作答正確！' : '✕ 作答錯誤！'} (正確答案：${ansLabel})
+          ${isCorrect ? '✓ 作答正確！' : '這題再看一次。'} (正確答案：${ansLabel})
         </div>
         ${q.explanation ? `<p>解析：${escapeHtml(q.explanation)}</p>` : ''}
         ${hasTeachingChapter(q.chapterId) ? '<button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>' : ''}
@@ -924,17 +971,24 @@
     retry.style.display = wrong.length ? 'inline-flex' : 'none';
     retry.onclick = () => startQuiz('wrong', '', 'all', wrong);
     document.getElementById('btn-quiz-restart').onclick = () => startQuiz(quizState.mode, '', 'all', quizState.pool, quizState.knowledgePoint);
+    document.getElementById('btn-summary-home').onclick=()=>switchView('home');
     document.getElementById('btn-quiz-back-menu').onclick = () => {document.getElementById('quiz-summary-panel').style.display='none';document.getElementById('quiz-setup-panel').style.display='block';};
     let list = document.getElementById('quiz-summary-list');
     if (!list) {list = document.createElement('ul');list.id='quiz-summary-list';document.getElementById('quiz-summary-panel').append(list);}
     list.replaceChildren();
     for (const question of wrong) {
       const item = document.createElement('li');
+      const heading=document.createElement('p');heading.className='summary-question';heading.textContent=question.question;
+      const explanation=document.createElement('p');explanation.className='summary-answer';
+      const answerIndices=Array.isArray(question.answer)?question.answer:[question.answer];
+      explanation.textContent='正確答案：'+answerIndices.map(i=>String.fromCharCode(65+i)+'．'+question.options[i]).join('；');
+      item.append(heading,explanation);
+      if(question.explanation){const reason=document.createElement('p');reason.textContent=question.explanation;item.append(reason);}
       if (hasTeachingChapter(question.chapterId)) {
         const button = document.createElement('button');
-        button.type = 'button'; button.className = 'btn btn-secondary'; button.textContent = question.question;
+        button.type = 'button'; button.className = 'btn btn-secondary'; button.textContent = '回教材看觀念';
         button.onclick = () => openRelatedChapter(question); item.append(button);
-      } else item.textContent = question.question;
+      }
       list.append(item);
     }
     renderDashboard();
@@ -1046,10 +1100,9 @@
     const mobileReader=matchMedia('(max-width:768px)');
     const header=document.querySelector('.app-header'),catalog=document.getElementById('study-catalog-nav');
     const sectionNavigation=document.querySelector('.section-navigation');
-    const headerSize=new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-top',`${header.offsetHeight+(catalog?.offsetHeight||0)}px`);document.documentElement.style.setProperty('--section-nav-height',`${sectionNavigation.offsetHeight}px`);});
+    const headerSize=new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-top','0px');document.documentElement.style.setProperty('--section-nav-height',`${sectionNavigation.offsetHeight}px`);});
     headerSize.observe(header);if(catalog)headerSize.observe(catalog);headerSize.observe(sectionNavigation);
-    setTocOpen(!mobileReader.matches);
-    mobileReader.addEventListener('change',event=>setTocOpen(!event.matches));
+    setTocOpen(false);
     sidebarToggle.onclick=()=>setTocOpen(document.getElementById('reader-toc-list').hidden);
     const sectionSelect=document.getElementById('reader-section-select');
     const goToSection=()=>{
@@ -1058,6 +1111,7 @@
       const overview=target.querySelector('.chapter-overview');if(overview)overview.open=true;
       updateSectionNavigation(sectionSelect.value);
       progress.lastPosition.sectionId=sectionSelect.value;saveProgress();
+      pauseReadingTracking();
       target.querySelector('.section-title').focus({preventScroll:true});target.querySelector('.section-title').scrollIntoView({block:'start',behavior:'instant'});
     };
     sectionSelect.onchange=goToSection;
@@ -1079,7 +1133,7 @@
         readingFrame = 0;
         if (currentView !== 'reader') return;
         const sections = [...document.querySelectorAll('#sections-container .section-block')];
-        const visible = sections.filter(section => section.getBoundingClientRect().top <= header.getBoundingClientRect().bottom+document.querySelector('.section-navigation').offsetHeight+20).at(-1) || sections[0];
+        const visible = sections.filter(section => section.getBoundingClientRect().top <= document.querySelector('.section-navigation').getBoundingClientRect().bottom+20).at(-1) || sections[0];
         if (visible && progress.lastPosition.sectionId !== visible.id.slice(4)) {
           progress.lastPosition.sectionId = visible.id.slice(4);
           updateSectionNavigation(progress.lastPosition.sectionId);
@@ -1090,7 +1144,7 @@
 
     // 標題設定
     document.title = pack.title;
-    document.getElementById('app-brand-title').textContent = pack.title;
+    document.getElementById('app-brand-title').textContent = '一步學習';
     document.getElementById('app-brand-version').textContent = `v${pack.contentVersion || '1.0'}`;
 
     // 導航 Tab 事件
@@ -1106,6 +1160,15 @@
     document.getElementById('study-progress').addEventListener('toggle', event => {
       if (event.target.open) renderDashboard();
     });
+
+    document.getElementById('btn-menu-reader').onclick=()=>switchView('reader');
+    document.getElementById('btn-home-start').onclick=()=>{
+      const chapter=suggestedChapter();
+      if(!chapter)return switchView('quiz');
+      currentChapterId=chapter.id;switchView('reader');
+    };
+    document.getElementById('btn-home-practice').onclick=()=>switchView('quiz');
+    document.getElementById('btn-resume-quiz').onclick=()=>switchView('quiz');
 
     // 主題選擇
     const themeSelect = document.getElementById('theme-select');
@@ -1237,7 +1300,7 @@
 
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');
-    switchView(initialView === 'quick-review' ? 'search' : ['reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'reader');
+    switchView(initialView === 'quick-review' ? 'search' : ['home','progress','reader','quiz','dashboard','search','settings'].includes(initialView) ? initialView : 'reader');
     const openLocation=()=>{
       let knowledge=new URLSearchParams(location.search).get('knowledge')||'';
       if(!knowledge&&location.hash.startsWith('#knowledge-'))try{knowledge=decodeURIComponent(location.hash.slice(11));}catch{return;}

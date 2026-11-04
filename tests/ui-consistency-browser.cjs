@@ -15,13 +15,13 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
     await page.setViewportSize({width,height:900});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,file+' at '+width);
    }
-   const palettes=[];
+   const palettes=[];const simple=await page.locator('body').evaluate(e=>e.classList.contains('simple-study')||e.classList.contains('simple-catalog'));
    for(const theme of ['light','dark']){
     await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);
-    const values=await page.evaluate(()=>{const style=getComputedStyle(document.body),tokens=getComputedStyle(document.documentElement);return{background:style.backgroundColor,color:style.color,font:style.fontFamily,primary:tokens.getPropertyValue('--md-primary').trim(),secondary:tokens.getPropertyValue('--md-secondary').trim()};});
-    assert.equal(values.background,theme==='light'?'rgb(251, 253, 248)':'rgb(17, 20, 17)',file+' '+theme);
-    assert.equal(values.color,theme==='light'?'rgb(28, 27, 31)':'rgb(225, 228, 219)',file+' '+theme);
-    assert.equal(values.primary,theme==='light'?'#2F4858':'#96E6A1',file+' '+theme+' primary palette');
+    const values=await page.evaluate(()=>{const style=getComputedStyle(document.body),tokens=getComputedStyle(document.body);return{background:style.backgroundColor,color:style.color,font:style.fontFamily,primary:tokens.getPropertyValue('--md-primary').trim(),secondary:tokens.getPropertyValue('--md-secondary').trim()};});
+    assert.equal(values.background,simple?(theme==='light'?'rgb(244, 246, 239)':'rgb(17, 24, 17)'):(theme==='light'?'rgb(251, 253, 248)':'rgb(17, 20, 17)'),file+' '+theme);
+    assert.equal(values.color,simple?(theme==='light'?'rgb(32, 61, 60)':'rgb(226, 236, 224)'):(theme==='light'?'rgb(28, 27, 31)':'rgb(225, 228, 219)'),file+' '+theme);
+    assert.equal(values.primary,theme==='light'?(simple?'#245F4A':'#2F4858'):'#96E6A1',file+' '+theme+' primary palette');
     assert.equal(values.secondary,theme==='light'?'#2B878F':'#61C8A3',file+' '+theme+' secondary palette');
     palettes.push(values);
    }

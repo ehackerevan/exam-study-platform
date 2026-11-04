@@ -9,13 +9,16 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
  const p=await c.newPage(),catalog=pathToFileURL(path.resolve('dist/index.html')).href;
  try{
   await p.goto(catalog);
-  assert.equal((await p.locator('.catalog-header').innerText()).trim(),'學科目錄');
+  assert.equal((await p.locator('.catalog-header h1').innerText()).trim(),'選一科，開始學習。');
   assert.equal(await p.locator('.subject-card').count(),8);
+  assert.equal(await p.locator('[data-action=home]').count(),8);
+  assert.equal(await p.locator('.subject-card details').count(),0);
+  for(const card of await p.locator('.subject-card').all()){assert.equal(await card.locator('a').count(),2);assert.deepEqual(await card.locator('a').allTextContents(),['開始學習','開始練題']);assert(await card.locator('a').first().isVisible());assert(await card.locator('a').last().isVisible());}
   assert((await p.locator('[data-action=quiz]').first().boundingBox()).height<80,'catalogue actions are compact');
-  assert.equal(await p.locator('[data-action=reader]').count(),6);
+  assert.equal(await p.locator('[data-action=reader]').count(),0);
   assert.equal(await p.locator('[data-action=quiz]').count(),8);
   assert.equal(await p.getByRole('link',{name:'永續金融補充教材',exact:true}).count(),0);
-  const readerLinks=await p.locator('[data-action=reader]').evaluateAll(nodes=>nodes.map(a=>a.href));
+  const readerLinks=await p.locator('[data-action=home]').evaluateAll(nodes=>nodes.slice(0,6).map(a=>a.href.replace('view=home','view=reader')));
   const quizLinks=await p.locator('[data-action=quiz]').evaluateAll(nodes=>nodes.map(a=>a.href));
   for(const url of readerLinks){
    await p.goto(url);assert(await p.locator('#view-reader').isVisible());

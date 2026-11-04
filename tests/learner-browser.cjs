@@ -1,3 +1,4 @@
+const {openView}=require('./study-ui-helper.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
@@ -27,16 +28,19 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     await page.locator('#search-input').fill('&');
     assert((await page.locator('.search-result-card').first().innerText()).includes('AT&T'));
     assert.equal(await page.locator('.search-result-card .highlight').first().innerText(),'&');
-    await page.locator('[data-view="reader"]').click();
+    await openView(page,'reader');
     assert.equal(await page.locator('.section-body table').count(),1);
     assert(await page.locator('.section-body strong').first().isVisible());
     assert.equal(await page.locator('a[href*=".md"]').count(),0);
     assert.equal(await page.evaluate(()=>window.injected),undefined);
+    if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
     await page.locator('[data-chapter="c02"]').click();
     assert.equal(await page.locator('#chapter-heading').innerText(),'第二章');
+    if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
     await page.locator('#reader-toc-list li').first().click();
     assert.equal(await page.locator('#chapter-practice-preview .chapter-practice-question').count(),6,'章末保留本章練習題');
     assert.equal(await page.locator('#btn-chapter-practice').count(),0,'章末題目直接作答，不顯示額外測驗模式入口');
+    await page.locator('#chapter-practice-title').click();
     await page.locator('#chapter-practice-preview .chapter-practice-question').first().locator('input[value="0"]').check();
     await page.locator('#chapter-practice-preview .chapter-practice-question').first().locator('button[type="submit"]').click();
     assert((await page.locator('#chapter-practice-preview .chapter-inline-feedback').first().innerText()).includes('歷屆官方正確解答'));
@@ -57,7 +61,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     assert(await page.locator('#btn-practice-next').isVisible());
     await page.locator('#btn-practice-next').click();
     assert.equal(await page.locator('#chapter-heading').innerText(),'第二章');
-    await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+    await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     await page.locator('#quiz-advanced').evaluate(el=>el.open=false);
     assert.equal(await page.locator('#quiz-select-chapter').isVisible(),false,'advanced settings start collapsed');
     await page.locator('#btn-quick-ten').click();
@@ -80,10 +84,10 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
         await page.evaluate(()=>document.getElementById('btn-quiz-submit').click());
         const attempts=await page.evaluate(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0),key);
         assert.equal(attempts,9,'章末練習與獨立測驗皆更新同一題目進度');
-        await page.locator('[data-view=reader]').click();await page.locator('#study-progress summary').click();
+        await openView(page,'reader');await page.locator('#study-progress summary').click();
         assert.equal(await page.locator('#stat-total-attempts').innerText(),'6','repeated attempts do not inflate practiced question count');
         assert((await page.locator('#knowledge-review-list').innerText()).includes('1 題待複習'));
-        await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+        await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
       }
       await page.locator('#btn-quiz-next').click();
     }
@@ -100,20 +104,21 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     await page.waitForTimeout(100);
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02');
     await page.reload();
-    await page.locator('[data-view="reader"]').click();
+    await openView(page,'reader');
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02');
     await page.evaluate(()=>{window.dispatchEvent(new Event('scroll'));document.querySelector('[data-view="quiz"]').click();});
     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(resolve)));
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).lastPosition.sectionId,key),'s02','pending scroll after leaving reader must preserve position');
     assert.equal(await page.locator('#stat-wrong-questions').innerText(),'0');
-    await page.locator('[data-view="quiz"]').click();await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
+    await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     await page.locator('#btn-start-custom-quiz').click();
     await page.locator('#quiz-options-container .option-item').first().click();
     await page.locator('#btn-quiz-submit').click();
     await page.setViewportSize({width:390,height:844});
-    assert.equal(await page.locator('.quiz-action-bar').evaluate(el=>getComputedStyle(el).position),'fixed');
+    assert.equal(await page.locator('.quiz-action-bar').evaluate(el=>getComputedStyle(el).position),'static');
     const actionBox=await page.locator('.quiz-action-bar').boundingBox();
-    assert(Math.abs(actionBox.y+actionBox.height-844)<=1,'mobile actions stay at viewport bottom');
+    const optionsBox=await page.locator('#quiz-options-container').boundingBox();
+    assert(actionBox.y>=optionsBox.y+optionsBox.height,'actions follow options without covering them');
     await page.screenshot({path:path.join(evidence,'quiz-mobile.png'),animations:'disabled'});
     await page.locator('#btn-exit-quiz').click();
     assert.equal(await page.locator('#quiz-summary-count').innerText(),'1 / 6');
@@ -124,11 +129,11 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     for(const width of [320,390,768,1440]){
       await page.setViewportSize({width,height:900});
       for(const view of ['reader','quiz','settings']){
-        await page.locator(`[data-view="${view}"]`).click();
+        await openView(page,view);
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width,`${view} overflow at ${width}`);
       }
     }
-    await page.setViewportSize({width:390,height:844});await page.locator('[data-view="reader"]').click();
+    await page.setViewportSize({width:390,height:844});await openView(page,'reader');
     if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();
     await page.locator('#btn-toggle-sidebar').click();assert(await page.locator('#reader-toc-list').isHidden());
     await page.locator('#chapter-practice-panel').scrollIntoViewIfNeeded();
@@ -139,12 +144,12 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       await c.addInitScript(({failure,key})=>{if(failure==='corrupt')localStorage.setItem(key,'{bad');if(failure==='quota')Storage.prototype.setItem=()=>{throw new DOMException('quota','QuotaExceededError');};if(failure==='blocked')Object.defineProperty(window,'localStorage',{get(){throw new DOMException('blocked','SecurityError');}});},{failure,key});
       const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(url);
       assert(await p.locator('#storage-warning-banner').isVisible());
-      await p.locator('[data-view=quiz]').click();await p.locator('#btn-quick-ten').click();await p.locator('#quiz-options-container .option-item').first().click();await p.locator('#btn-quiz-submit').click();
+      await openView(p,'quiz');await p.locator('#btn-quick-ten').click();await p.locator('#quiz-options-container .option-item').first().click();await p.locator('#btn-quiz-submit').click();
       if(failure==='corrupt')assert.equal(await p.evaluate(key=>localStorage.getItem(key),key),'{bad');
       await c.close();
     }
     results.push('PASS: corrupted data preserved, quota and blocked storage visible and practice usable');
-    await page.locator('[data-view="settings"]').click();
+    await openView(page,'settings');
     const saved=await page.evaluate(key=>localStorage.getItem(key),key);
     const invalid={...JSON.parse(saved),questionStats:{q0:{attempts:-1,wrongCount:0,correctCount:0,lastResult:false}}};
     const rejected=page.waitForEvent('dialog');

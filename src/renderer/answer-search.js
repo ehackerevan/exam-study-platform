@@ -2,14 +2,15 @@
   const selector = '#quiz-stem,.q-text';
   function attach(question) {
     const text = question.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
-    let link = question.nextElementSibling;
+    const tools=question.id==='quiz-stem'?document.getElementById('quiz-question-actions'):null;
+    let link = tools?tools.querySelector('.answer-search'):question.nextElementSibling;
     if (!link?.classList.contains('answer-search')) {
       if (!text.trim()) return;
       link = document.createElement('a');
       link.className = 'answer-search';link.textContent = '查答案';
       link.target = '_blank';link.rel = 'noopener noreferrer';
       link.setAttribute('aria-label','查答案：Google 搜尋本題（開啟新分頁）');
-      question.after(link);
+      if(tools)tools.append(link);else question.after(link);
     }
     link.hidden = !text.trim();
     link.href = 'https://www.google.com/search?q=' + encodeURIComponent(text);
