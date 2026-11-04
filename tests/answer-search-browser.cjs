@@ -10,7 +10,6 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
   let clicked=false;
   for(const file of files){
    await p.goto(pathToFileURL(path.resolve(file)).href);
-   if(path.basename(file)==='永續金融.html'){assert.equal(await p.locator('#practice details').count(),40);assert.equal(await p.locator('.answer-search').count(),0);continue;}
    const pack=await p.evaluate(()=>!!window.__STUDY_PACK__);
    if(pack){await p.locator('[data-view=quiz]').click();await p.locator('#btn-quick-ten').click();}
    const questions=p.locator(pack?'#quiz-stem':'.q-text');
@@ -45,7 +44,7 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
    await p.waitForFunction(expected=>{const a=document.querySelector('.q-text+.answer-search');return a&&new URL(a.href).searchParams.get('q')===expected;},expected);
    assert.equal(await p.locator('.q-text').textContent(),input);
   }
-   const questionPages=files.filter(file=>!['index.html','永續金融.html'].includes(path.basename(file))&&file!=='src/renderer/template.html');
+   const questionPages=files.filter(file=>!['index.html'].includes(path.basename(file))&&file!=='src/renderer/template.html');
    assert.equal(results.length,questionPages.length);assert(clicked);assert.deepEqual(errors,[]);
    console.log(`PASS: all ${results.length} question-bearing pages have exact Google question URLs; popup, unchanged storage and next-question update verified`);
  }finally{fs.writeFileSync('.qa-artifacts/answer-search.json',JSON.stringify({results,errors,date:new Date().toISOString()},null,2));await browser.close();}

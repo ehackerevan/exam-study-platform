@@ -207,7 +207,7 @@
       btn.classList.toggle('active', btn.dataset.view === viewName);
     });
 
-    if (viewName === 'quiz') {renderQuizHistory();renderQuestionManager();}
+    if (viewName === 'quiz') {renderQuizHistory();renderQuestionManager();renderQuestionCompletion();}
     if (viewName === 'reader') {
       if (!openSearch) document.getElementById('reader-search').open = false;
       renderReader();renderDashboard();
@@ -219,6 +219,16 @@
   }
 
   // ===== 1. Dashboard 渲染 =====
+  function renderQuestionCompletion() {
+    const total=questionIds.size;
+    const answered=Object.entries(progress.questionStats).filter(([id,stats])=>questionIds.has(id)&&stats.attempts>0).length;
+    const percent=total ? (answered===total ? 100 : Math.floor(answered/total*10000)/100) : 0;
+    document.getElementById('stat-total-attempts').textContent=answered;
+    document.getElementById('stat-question-total').textContent=total;
+    document.getElementById('stat-bank-completion').textContent=percent+'%';
+    const bar=document.getElementById('bank-completion-bar');bar.max=total||1;bar.value=answered;
+    document.getElementById('quiz-bank-completion').textContent=`題庫完成度 ${percent}%（已作答 ${answered} / ${total} 題）`;
+  }
   function renderDashboard() {
     const totalChapters = pack.chapters.length;
     const completedChapters = progress.completedChapters.length;
@@ -243,7 +253,7 @@
 
     // 更新 DOM
     document.getElementById('stat-completed-chapters').textContent = `${completedChapters} / ${totalChapters}`;
-    document.getElementById('stat-total-attempts').textContent = statEntries.filter(([, stats]) => stats.attempts > 0).length;
+    renderQuestionCompletion();
     document.getElementById('stat-accuracy-rate').textContent = `${accuracyRate}%`;
     document.getElementById('stat-wrong-questions').textContent = currentWrongCount;
 
@@ -330,6 +340,7 @@
     stats.lastAnsweredAt = new Date().toISOString();
     progress.questionStats[question.id] = stats;
     saveProgress();
+    renderQuestionCompletion();
     window.StudyMetrics?.answer(question.id);
   }
   function renderChapterPractice(container, questions) {

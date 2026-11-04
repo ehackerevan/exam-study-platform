@@ -12,10 +12,9 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   const frame=p.frameLocator('#study-frame');
   assert.equal(await frame.locator('.subject-card').count(),8);
   const pages=await p.evaluate(()=>JSON.parse(document.getElementById('embedded-page-list').textContent));
-  assert.equal(pages.length,12);
+  assert.equal(pages.length,11);
   for(const page of pages.filter(name=>name!=='index.html')){
    await p.evaluate(name=>window.openStudyPage(name,'?view=quiz'),page);
-   if(page==='永續金融.html'){await frame.locator('#practice').waitFor();assert.equal(await frame.locator('#practice details').count(),40);await frame.locator('#practice details summary').first().click();assert(await frame.locator('#practice details').first().evaluate(el=>el.open));await frame.locator('#practice details a').first().click();assert.equal(await frame.locator('#unit-A').count(),1);await frame.locator('#study-catalog-nav a').click();await frame.locator('.subject-card').first().waitFor();continue;}
    if(page==='歷屆考古題_完整題庫大全.html'){await frame.locator('.q-text').first().waitFor();continue;}
    await frame.locator('#btn-quick-ten').click();
    assert.equal(await frame.locator('#quiz-progress-text').innerText(),'第 1 / 10 題');

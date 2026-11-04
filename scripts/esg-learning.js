@@ -2,7 +2,13 @@ import fs from 'node:fs';
 
 const directory = new URL('../教材/永續發展基礎能力重點教材/', import.meta.url);
 export const esgLearning = JSON.parse(fs.readFileSync(new URL('學習設計.json', directory), 'utf8'));
+const financeQuestions = JSON.parse(fs.readFileSync(new URL('../教材/教學單元/永續金融練習.json', import.meta.url), 'utf8'));
 const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function financePractice(id) {
+  const questions=financeQuestions.filter(q=>q.chapterId===id);
+  if(!questions.length)return '';
+  return `<details class="finance-practice"><summary>應用練習（${questions.length}題自編）</summary>${questions.map(q=>`<div id="${q.id}" class="finance-question"><p>${escape(q.prompt).replaceAll('\n','<br>')}</p><details><summary>查看解析</summary><p>${escape(q.answer).replaceAll('\n','<br>')}</p></details></div>`).join('')}</details>`;
+}
 
 export function learningSections(id) {
   const data = esgLearning[id];
@@ -12,7 +18,7 @@ export function learningSections(id) {
     {id: id+'-learning-start', title:'先懂什麼', content:`<p>${escape(data.map)}</p>`, keyPoints:[], notes:[]},
     {id: id+'-learning-recall', title:'主動回憶', content:`<ol>${data.questions.map(q=>`<li>${escape(q)}</li>`).join('')}</ol><details><summary>查看答案與判斷依據</summary><ol>${data.answers.map(a=>`<li>${escape(a)}</li>`).join('')}</ol></details>`, keyPoints:[], notes:[]},
     {id: id+'-learning-recap', title:'考前快速複習', content:`<p>${escape(data.recap)}</p>`, keyPoints:[], notes:[]}
-  ].map(section => ({...section, content:'<div class="knowledge-topic">'+section.content+'</div>'}));
+  ].map(section => ({...section, content:'<div class="knowledge-topic">'+section.content+(section.id.endsWith('-learning-recall')?financePractice(id):'')+'</div>'}));
 }
 
 export function writeIntegratedText() {
@@ -26,7 +32,7 @@ export function writeIntegratedText() {
     output += body.slice(0,firstBreak)+'\n\n';
     if(data) output += `### 先懂什麼\n\n${data.map}\n\n`;
     output += body.slice(firstBreak).trim()+`\n\n`;
-    if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n### 考前快速複習\n\n${data.recap}\n\n`;
+    if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n${financePractice(id)}\n\n### 考前快速複習\n\n${data.recap}\n\n`;
   }
   output += '## 版本提醒\n\n數字、期限與制度要求須連同適用主體及版本閱讀。歷屆題目按原考期判斷；本次整理未重新查核法規時效。\n';
   fs.writeFileSync(new URL('../教材/永續發展_整合學習教材.md',import.meta.url),output);

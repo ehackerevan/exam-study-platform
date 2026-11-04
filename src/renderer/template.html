@@ -454,9 +454,11 @@ body::before, body::after, .catalog-header::before { display: none; }
             <span class="stat-value" id="stat-completed-chapters">0 / 0</span>
           </div>
           <div class="stat-card">
-            <span class="stat-label">已練題目</span>
-            <span class="stat-value" id="stat-total-attempts">0</span>
-            <span class="stat-subtext">不重複題目；重練不累加</span>
+            <span class="stat-label">題庫完成度</span>
+            <span class="stat-value" id="stat-bank-completion">0%</span>
+            <span class="stat-subtext">已作答 <span id="stat-total-attempts">0</span> / <span id="stat-question-total">0</span> 題</span>
+            <progress id="bank-completion-bar" value="0" max="1" aria-label="題庫完成度" style="width:100%;max-width:100%;"></progress>
+            <span class="stat-subtext">答錯也計入；重練不累加</span>
           </div>
           <div class="stat-card">
             <span class="stat-label">累計作答正確率</span>
@@ -499,6 +501,7 @@ body::before, body::after, .catalog-header::before { display: none; }
       <div id="quiz-setup-panel">
         <div class="quiz-config-card">
           <h2 class="quiz-config-title">開始練習</h2>
+          <p id="quiz-bank-completion" aria-live="polite">題庫完成度 0%</p>
           <div class="learner-actions"><button type="button" class="btn btn-primary" id="btn-quick-ten">練習 10 題</button><button type="button" class="btn btn-secondary" id="btn-quick-wrong">複習錯題</button></div>
           <details id="quiz-advanced"><summary>調整出題</summary><label for="quiz-mode">出題方式</label><select id="quiz-mode"><option value="random">隨機抽題</option><option value="chapter">章節</option><option value="knowledge-point">知識點（最多 20 題）</option><option value="exam">歷屆考期</option><option value="featured">歷屆精選題組</option></select>
 

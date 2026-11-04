@@ -14,7 +14,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   assert((await p.locator('[data-action=quiz]').first().boundingBox()).height<80,'catalogue actions are compact');
   assert.equal(await p.locator('[data-action=reader]').count(),6);
   assert.equal(await p.locator('[data-action=quiz]').count(),8);
-  await p.getByRole('link',{name:'永續金融補充教材',exact:true}).click();assert.equal(await p.locator('h2[id^=unit-]').count(),14);assert.equal(await p.locator('#practice details').count(),40);await p.locator('#study-catalog-nav a').click();assert.equal(p.url(),catalog);
+  assert.equal(await p.getByRole('link',{name:'永續金融補充教材',exact:true}).count(),0);
   const readerLinks=await p.locator('[data-action=reader]').evaluateAll(nodes=>nodes.map(a=>a.href));
   const quizLinks=await p.locator('[data-action=quiz]').evaluateAll(nodes=>nodes.map(a=>a.href));
   for(const url of readerLinks){
