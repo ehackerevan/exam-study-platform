@@ -173,7 +173,7 @@ for (const c of courses) {
 console.log(`\n=== ${courses.length} 個 Study Pack 全部編譯完成！ ===`);
 const escape = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-fs.copyFileSync('教材/補充教材/永續金融.html', 'dist/永續金融.html');
+outputs.push({path:path.resolve('dist/永續金融.html'), html:fs.readFileSync('教材/補充教材/永續金融.html','utf8')});
 
 const cards = courses.map(c => `<article class="subject-card" data-metrics-course="${escape(c.packId)}" style="padding:1.25rem;background:var(--bg-surface-alt);border-radius:16px;"><h2 class="subject-name">${escape(c.ethics?'金融市場常識與職業道德題庫':c.name.replace(/重點教材$/,''))}</h2><p class="subject-meta">${c.questionCount.toLocaleString('zh-TW')} 題${c.ethics ? ' · 113年版｜2026-12-31止適用' : c.quizOnly ? ' · 官方歷屆試題' : ' · '+c.chapterCount+' 章教材'}</p>${c.ethics?'<label for="catalog-edition">題庫版本</label><select class="catalog-edition-select" id="catalog-edition"><option value="金融市場常識與職業道德題庫.html" data-summary="1,120 題 · 113 年版｜適用至 2026-12-31">113 年版（舊版）</option><option value="金融市場常識與職業道德題庫_116年版.html" data-summary="1,174 題 · 116 年版｜2027-01-01 起適用">116 年版（新版）</option></select>':''}<div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">${c.officialBank ? '' : `<a class="subject-link" data-action="reader" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=reader">繼續學習</a>`}<a class="subject-link" data-action="quiz" style="padding:.75rem;" href="${escape(path.basename(c.out))}?view=quiz">開始練題</a>${c.packId==='esg-sustainability-pack'?'<a class="subject-link" style="padding:.75rem;" href="永續金融.html">永續金融補充教材</a>':''}</div></article>`).join('');
 const backupClient = fs.readFileSync('src/renderer/complete-backup.js','utf8');
