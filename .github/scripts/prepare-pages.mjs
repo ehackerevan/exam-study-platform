@@ -47,9 +47,10 @@ const coursePages = [
   '投資型保險題庫.html',
   '衍生性金融商品題庫.html',
 ];
-const publicPages = ['index.html', ...coursePages, '歷屆考古題_完整題庫大全.html'];
+const publicPages = ['index.html', ...coursePages, '永續金融.html', '歷屆考古題_完整題庫大全.html'];
 copyFile('dist/index.html', 'index.html', true);
 for (const page of coursePages) copyFile(`dist/${page}`, page, true);
+copyFile('dist/永續金融.html', '永續金融.html');
 copyFile('dist/歷屆考古題_完整題庫大全.html', '歷屆考古題_完整題庫大全.html');
 
 const indexPath = path.join(output, 'index.html');

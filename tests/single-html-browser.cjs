@@ -12,9 +12,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   const frame=p.frameLocator('#study-frame');
   assert.equal(await frame.locator('.subject-card').count(),8);
   const pages=await p.evaluate(()=>JSON.parse(document.getElementById('embedded-page-list').textContent));
-  assert.equal(pages.length,11);
+  assert.equal(pages.length,12);
   for(const page of pages.filter(name=>name!=='index.html')){
    await p.evaluate(name=>window.openStudyPage(name,'?view=quiz'),page);
+   if(page==='永續金融.html'){await frame.locator('#practice').waitFor();assert.equal(await frame.locator('#practice details').count(),40);await frame.locator('#practice details summary').first().click();assert(await frame.locator('#practice details').first().evaluate(el=>el.open));await frame.locator('#practice details a').first().click();assert.equal(await frame.locator('#unit-A').count(),1);await frame.locator('#study-catalog-nav a').click();await frame.locator('.subject-card').first().waitFor();continue;}
    if(page==='歷屆考古題_完整題庫大全.html'){await frame.locator('.q-text').first().waitFor();continue;}
    await frame.locator('#btn-quick-ten').click();
    assert.equal(await frame.locator('#quiz-progress-text').innerText(),'第 1 / 10 題');
@@ -39,7 +40,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
   await p.screenshot({path:'.qa-artifacts/standalone-mobile.png',animations:'disabled'});
   await p.reload();await frame.locator('#quiz-setup-panel').waitFor();
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-  fs.writeFileSync('.qa-artifacts/standalone-report.json',JSON.stringify({status:'PASS',pages:11,errors,external,isolatedFile:!process.env.SINGLE_HTML_URL},null,2));
-  console.log('PASS: isolated single HTML, 11 pages, eight subject quizzes, direct search, retained progress, reload and mobile layout; no JS errors or external dependencies');
+  fs.writeFileSync('.qa-artifacts/standalone-report.json',JSON.stringify({status:'PASS',pages:12,errors,external,isolatedFile:!process.env.SINGLE_HTML_URL},null,2));
+  console.log('PASS: isolated single HTML, 12 pages, eight subject quizzes, direct search, retained progress, reload and mobile layout; no JS errors or external dependencies');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
