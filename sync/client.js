@@ -40,18 +40,18 @@
   };
   box.querySelector('#sync-use-cloud').onclick=async()=>{
    if(!confirm('將先保留本機備份，再使用最新雲端進度。確定繼續？'))return;
-   try{const current=await request({action:'read',course});if(!current.data)throw Error('missing');validator(current.data);const previous=localStorage.getItem(key);if(previous!==null)localStorage.setItem(key+'.backup.'+Date.now(),previous);localStorage.setItem(key,JSON.stringify(current.data));meta={revision:current.revision,dirty:false};storeMeta();location.reload();}catch{status('無法載入雲端進度，本機紀錄仍保留。');}
+   try{const current=await request({action:'read',account,course});if(!current.data)throw Error('missing');validator(current.data);const previous=localStorage.getItem(key);if(previous!==null)localStorage.setItem(key+'.backup.'+Date.now(),previous);localStorage.setItem(key,JSON.stringify(current.data));meta={revision:current.revision,dirty:false};storeMeta();location.reload();}catch{status('無法載入雲端進度，本機紀錄仍保留。');}
   };
   box.querySelector('#sync-logout').onclick=async()=>{
    if((meta?.dirty||(!course&&hasPendingProgress()))&&!confirm('本機尚有未同步的進度，登出後會保留在此瀏覽器；確定登出？'))return;
-   try{await request({action:'logout'});localStorage.removeItem('study-pack.sync.account');location.reload();}catch{status('登出失敗，請檢查網路後重試。');}
+   try{await request({action:'logout',account});localStorage.removeItem('study-pack.sync.account');location.reload();}catch{status('登出失敗，請檢查網路後重試。');}
   };
   status(account?(course?(enabled?'已登入，進度同步中。':'已登入；同步暫停，本機進度保留。'):'已登入。'):'未登入，進度保存在此瀏覽器。');
  }
  async function bootstrap(id, guestKey, normalize){
   course=id;validator=normalize;let remote;
   try{account=(await request({action:'session'})).account;if(!/^[a-f0-9-]{36}$/.test(account))throw Error('session');
-   localStorage.setItem('study-pack.sync.account',account);remote=await request({action:'read',course});
+   localStorage.setItem('study-pack.sync.account',account);remote=await request({action:'read',account,course});
   }catch(e){
    if(e.status===401){account='';try{localStorage.removeItem('study-pack.sync.account');}catch{}panel();return guestKey;}
    try{
@@ -60,7 +60,7 @@
     key=`study-pack.account.${account}.${course}.progress`;metaKey=key+'.sync';
     meta=JSON.parse(localStorage.getItem(metaKey)||'null')||{revision:0,dirty:false};
     if(!Number.isSafeInteger(meta.revision)||typeof meta.dirty!=='boolean')throw Error('meta');
-    storeMeta();enabled=true;panel();status('暫時離線，使用此帳號的本機進度；連線後會重試同步。');if(meta.dirty)changed();return key;
+    storeMeta();enabled=e.status!==403;panel();if(e.status===403){status('登入帳號已變更，同步已暫停；請重新載入頁面，本機進度保留。');return key;}status('暫時離線，使用此帳號的本機進度；連線後會重試同步。');if(meta.dirty)changed();return key;
    }catch{account='';panel();status('雲端連線失敗，訪客進度保存在此瀏覽器。');return guestKey;}
   }
   key=`study-pack.account.${account}.${course}.progress`;metaKey=key+'.sync';
@@ -80,15 +80,15 @@
    storeMeta();enabled=true;panel();if(meta.dirty)changed();return key;
   }catch(e){panel();status('進度無法安全讀取，同步已暫停；原有資料未刪除。');return key;}
  }
- function markDirty(){if(!enabled)return;try{meta.dirty=true;storeMeta();}catch{enabled=false;status('無法保存同步狀態，已暫停同步。');}}
+ function markDirty(){if(!meta||!metaKey)return;try{meta.dirty=true;storeMeta();}catch{enabled=false;status('無法保存同步狀態，已暫停同步。');}}
  function changed(){if(!enabled)return;clearTimeout(timer);timer=setTimeout(()=>{void flush();},1000);status('進度待同步…');}
  async function flush(){
   clearTimeout(timer);if(!enabled||!meta?.dirty)return;
   if(busy)return busy;
   busy=(async()=>{while(enabled&&meta.dirty){
    const snapshot=localStorage.getItem(key);if(snapshot===null){enabled=false;status('本機進度無法讀取，已暫停同步。');break;}
-   try{const result=await request({action:'write',course,revision:meta.revision,progress:JSON.parse(snapshot)});meta.revision=result.revision;meta.dirty=localStorage.getItem(key)!==snapshot;storeMeta();status(meta.dirty?'進度待同步…':'進度已同步。');}
-   catch(e){if(e.status===409){conflict();}else {status('同步失敗，進度保存在本機；恢復連線後會重試。');timer=setTimeout(()=>{void flush();},30000);}break;}
+   try{const result=await request({action:'write',account,course,revision:meta.revision,progress:JSON.parse(snapshot)});meta.revision=result.revision;meta.dirty=localStorage.getItem(key)!==snapshot;storeMeta();status(meta.dirty?'進度待同步…':'進度已同步。');}
+   catch(e){if(e.status===409){conflict();}else if(e.status===403){enabled=false;status('登入帳號已變更，同步已暫停；請重新載入頁面，本機進度保留。');}else {status('同步失敗，進度保存在本機；恢復連線後會重試。');timer=setTimeout(()=>{void flush();},30000);}break;}
   }})();try{await busy;}finally{busy=null;}
  }
  window.addEventListener('online',()=>{void flush();});

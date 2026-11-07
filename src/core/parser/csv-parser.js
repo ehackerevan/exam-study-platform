@@ -75,7 +75,7 @@ export function normalizeAnswer(rawAnswer, type = 'single-choice', options = [])
     if (['X', 'F', 'FALSE', 'NO', '否', '錯', '2', '0'].includes(str)) return 1;
   }
   const index = token => /^[A-Z]$/.test(token) ? token.charCodeAt(0) - 65
-    : /^\d+$/.test(token) ? Math.max(0, Number(token) - 1) : undefined;
+    : /^\d+$/.test(token) && Number(token) >= 1 ? Number(token) - 1 : undefined;
   if (type === 'multiple-choice') {
     let tokens = str.split(/[,，、\s;/]+/).filter(Boolean);
     if (tokens.length === 1 && /^[A-Z]{2,}$/.test(tokens[0])) tokens = tokens[0].split('');
@@ -83,7 +83,7 @@ export function normalizeAnswer(rawAnswer, type = 'single-choice', options = [])
     return indexes.some(i => i === undefined) ? undefined : [...new Set(indexes)].sort((a, b) => a - b);
   }
   const value = index(str);
-  if (value !== undefined) return value;
+  if (value !== undefined || /^\d+$/.test(str)) return value;
   const match = options.findIndex(o => typeof o === 'string' && o.trim().toUpperCase() === str);
   return match === -1 ? undefined : match;
 }

@@ -9,11 +9,12 @@ const {chromium}=require('playwright'),{pathToFileURL}=require('node:url'),{tmpd
   await c.route('https://static.cloudflareinsights.com/**',r=>r.fulfill({status:200,body:''}));
   await c.route('https://study-pack-metrics.ehackerevan.workers.dev/**',r=>r.fulfill({status:r.request().method()==='POST'?204:200,headers:{'Access-Control-Allow-Origin':'*'},body:r.request().method()==='POST'?'':JSON.stringify({totals:[],questions:[]})}));
   await c.route('https://study-pack-sync.ehackerevan.workers.dev/**',async r=>{
-   if(offline)return r.abort();const {action,code,revision,progress}=JSON.parse(r.request().postData());let status=200,body={};
+   if(offline)return r.abort();const {action,account,code,revision,progress}=JSON.parse(r.request().postData());let status=200,body={};
    if(action==='register'){if(db.code)status=409;else {db.code=code;signed=true;body={account:db.account}}}
    else if(action==='login'){if(code!==db.code)status=401;else {signed=true;body={account:db.account}}}
    else if(!signed)status=401;
    else if(action==='session')body={account:db.account};
+   else if(account!==db.account)status=403;
    else if(action==='logout')signed=false;
    else if(action==='read')body={revision:db.revision,data:db.data};
    else if(action==='write'){if(revision!==db.revision)status=409;else{db.revision++;db.data=progress;body={revision:db.revision}}}
