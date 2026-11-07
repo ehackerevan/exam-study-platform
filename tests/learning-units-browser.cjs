@@ -1,9 +1,9 @@
 const {openView}=require('./study-ui-helper.cjs');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url'),{chromium}=require('playwright');
-(async()=>{
+async function verifyQuestion(qid){
  fs.mkdirSync(path.resolve('.qa-artifacts/knowledge-migration'),{recursive:true});
  const browser=await chromium.launch(),context=await browser.newContext(),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});await page.route(/^https?:/,r=>r.abort());
- const root=process.cwd(),file=pathToFileURL(path.join(root,'dist/永續發展基礎能力重點教材.html')).href,id='kp-4fdddadb81dc',key='study-pack.esg-sustainability-pack.progress',qid='esg-115-3-47',legacy='esg01-一國際氣候公約演進里程碑';
+ const root=process.cwd(),file=pathToFileURL(path.join(root,'dist/永續發展基礎能力重點教材.html')).href,id='kp-4fdddadb81dc',key='study-pack.esg-sustainability-pack.progress',legacy='esg01-一國際氣候公約演進里程碑';
  const fixture={format:'study-pack-progress-v1',packId:'esg-sustainability-pack',schemaVersion:1,contentVersion:'2026.10.24',completedChapters:['esg01'],hiddenQuestionIds:[],favoriteQuestionIds:[qid],questionStats:{[qid]:{attempts:1,wrongCount:1,correctCount:0,lastResult:false,lastAnsweredAt:'2026-11-02T01:00:00Z'}},quizHistory:[],lastPosition:{chapterId:'esg01',sectionId:legacy},settings:{theme:'system'}};
  try{
   await page.goto(file);await page.evaluate(([key,value])=>localStorage.setItem(key,JSON.stringify(value)),[key,fixture]);await page.reload();await page.goto(file+'#sec-'+encodeURIComponent(legacy));
@@ -14,17 +14,19 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
   for(const term of ['已重編單元','原教材單元：','歷屆題怎麼應用','接下來學什麼'])assert(!(await page.locator('#view-reader').innerText()).includes(term),term);
   const old=JSON.parse(fs.readFileSync('tests/fixtures/learning-legacy-sections.json','utf8'));
   const pack=await page.evaluate(()=>window.__STUDY_PACK__);
+  const target=pack.questions.find(q=>q.id===qid);assert(target,qid);assert(target.knowledgeIds.includes(id),qid);assert(target.explanation,qid);assert.equal(target.answer,3,qid);
   for(const row of old.filter(r=>r.packId===pack.id)){const ch=pack.chapters.find(ch=>ch.id===row.chapterId);for(const sid of row.displayedSectionIds)assert((ch.teachingSections||ch.sections).some(s=>s.id===(ch.sectionAliases?.[sid]||sid)),sid);}
   const source=JSON.parse(fs.readFileSync('教材/永續發展基礎能力重點教材/questions.json','utf8')).questions;assert.equal(pack.questions.length,source.length);for(const q of source){const actual=pack.questions.find(x=>x.id===q.id);for(const k of ['id','chapterId','question','options','answer'])assert.deepEqual(actual[k],q[k],q.id+k);}
   await openView(page,'quiz');await page.locator('#btn-quick-wrong').click();await page.locator('#quiz-options-container .option-item').nth(3).click();await page.locator('#btn-quiz-submit').click();await page.locator('#btn-answer-reader').click();assert(await page.locator('#knowledge-'+id).isVisible());
   const restored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);assert.deepEqual(restored.completedChapters,fixture.completedChapters);assert.deepEqual(restored.favoriteQuestionIds,fixture.favoriteQuestionIds);assert.equal(restored.questionStats[qid].attempts,2);assert.equal(restored.questionStats[qid].lastResult,true);
   await page.locator('#learning-depth').selectOption('sprint');await page.locator('#btn-open-search').click();await page.locator('#search-input').fill('ISO 14067');await page.locator('.search-result-card').first().click();assert.equal(await page.locator('#learning-depth').inputValue(),'full');assert(await page.getByText('功能單位',{exact:false}).first().isVisible());
-  for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));if([390,1440].includes(width)){await page.locator('#knowledge-'+id).scrollIntoViewIfNeeded();await page.screenshot({path:'.qa-artifacts/knowledge-migration/pilot-'+width+'.png'});}}
+  for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));if([390,1440].includes(width)){await page.locator('#knowledge-'+id).scrollIntoViewIfNeeded();await page.screenshot({path:'.qa-artifacts/knowledge-migration/'+qid+'-'+width+'.png'});}}
   await page.reload();assert.equal((await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key)).questionStats[qid].attempts,2);
   await page.goto(file+'#knowledge-'+id);assert(await page.locator('#knowledge-'+id).isVisible());
   const {compileStudyPackToHtml}=await import('../src/core/compiler/index.js');
   const isolated={version:1,id:'shared-section-qa',title:'跨章小節驗收',chapters:[{id:'a',title:'甲章',sections:[{id:'shared',title:'甲來源',content:'甲原文',keyPoints:[],notes:[]}],learningUnits:[{id:'unit-a',title:'甲單元',sectionId:'shared',blocks:[{id:'rule',title:'甲規則',depth:'common',content:'甲章教學專用內容'}]}]},{id:'b',title:'乙章',sections:[{id:'shared',title:'乙來源',content:'乙章專屬原文',keyPoints:[],notes:[]}]}],questions:[]};
   const isolatedPath=path.join(root,'.qa-artifacts/knowledge-migration/shared-sections.html');fs.writeFileSync(isolatedPath,compileStudyPackToHtml(isolated).html);await page.goto(pathToFileURL(isolatedPath).href);await page.locator('#btn-toggle-sidebar').click();await page.locator('#reader-toc-list li').nth(1).click();assert.equal(await page.locator('.learning-unit').count(),0);assert((await page.locator('#sections-container').innerText()).includes('乙章專屬原文'));await page.locator('#btn-open-search').click();await page.locator('#search-input').fill('乙章專屬原文');assert.equal(await page.locator('.search-result-card').count(),1);assert.deepEqual(errors,[]);
-  fs.writeFileSync('.qa-artifacts/knowledge-migration/pilot-report.json',JSON.stringify({status:'PASS',sourceQuestions:source.length,sharedBlocks:count,legacySectionAlias:true,oldProgress:true,wrongToKnowledge:true,searchExpandsFull:true,errors},null,2));console.log('PASS: pilot modes, original 1307 questions, old bookmark/progress, wrong-to-unit, full search, 320–1440 layout and reload');
+  fs.writeFileSync('.qa-artifacts/knowledge-migration/'+qid+'-report.json',JSON.stringify({status:'PASS',qid,sourceQuestions:source.length,sharedBlocks:count,legacySectionAlias:true,oldProgress:true,wrongToKnowledge:true,searchExpandsFull:true,errors},null,2));console.log('PASS '+qid+': pilot modes, original 1307 questions, old bookmark/progress, wrong-to-unit, full search, 320–1440 layout and reload');
  }finally{await browser.close()}
-})().catch(e=>{console.error(e);process.exitCode=1});
+}
+(async()=>{for(const qid of ['esg-115-3-47','esg-113-4-46','esg-114-2-41'])await verifyQuestion(qid)})().catch(e=>{console.error(e);process.exitCode=1});
