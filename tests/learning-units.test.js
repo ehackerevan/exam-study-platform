@@ -26,3 +26,23 @@ test('教學單元拒絕重複ID、錯誤深度及不存在的來源；輸入內
  unit.blocks[0].depth='unknown';assert(validateStudyPack(pack).issues.some(i=>i.code==='INVALID_LEARNING_BLOCK'));
  unit.sectionId='missing';assert(validateStudyPack(pack).issues.some(i=>i.code==='INVALID_LEARNING_UNIT'));
 });
+
+ test('兩場次範疇題保留各自身分並連到已教規則',()=>{
+ const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('教材/永續發展基礎能力重點教材'));
+ const ids=['esg-113-4-46','esg-114-2-41'];
+ const before=pack.questions.filter(q=>ids.includes(q.id)).map(q=>structuredClone(q));
+ pack.chapters.find(c=>c.id==='esg02').practiceQuestionIds=['esg-115-3-47'];
+ attachLearningUnits(pack);
+ const chapter=pack.chapters.find(c=>c.id==='esg02');
+ for(const original of before){
+  const q=pack.questions.find(q=>q.id===original.id);
+  assert.deepEqual({id:q.id,chapterId:q.chapterId,question:q.question,options:q.options,answer:q.answer},{id:original.id,chapterId:original.chapterId,question:original.question,options:original.options,answer:original.answer});
+  assert.equal(q.answer,3);
+  assert.deepEqual(q.knowledgeIds,[chapter.learningUnits[0].id]);
+  assert(q.explanation.includes('範疇二'));
+  assert(q.explanation.includes('控制關係'));
+  assert(chapter.practiceQuestionIds.includes(q.id));
+ }
+ assert.equal(before.length,2);
+ assert(validateStudyPack(pack).isValid);
+});
