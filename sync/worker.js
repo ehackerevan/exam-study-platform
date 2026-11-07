@@ -45,6 +45,7 @@ export default {async fetch(req,env){
     const session=await env.DB.prepare('SELECT account_id FROM sync_sessions WHERE token_hash = ? AND expires > ?').bind(digest(token),Math.floor(Date.now()/1000)).first();
     if(!session)return reply(401);
     if(action==='session')return reply(200,{account:session.account_id});
+    if(['read','read-all','write','logout'].includes(action)&&data.account!==session.account_id)return reply(403);
     if(action==='logout'){
       await env.DB.prepare('DELETE FROM sync_sessions WHERE token_hash = ?').bind(digest(token)).run();return reply(200,{}, {'Set-Cookie':cookie('',0)});
     }

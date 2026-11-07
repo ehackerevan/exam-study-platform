@@ -9,7 +9,7 @@
  async function api(data){const r=await fetch(endpoint,{method:'POST',credentials:'include',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),signal:AbortSignal.timeout(8000)});if(!r.ok){const e=Error('雲端服務無法使用');e.status=r.status;throw e;}return r.json();}
  async function cloud(){
   if(location.protocol==='file:'||location.origin==='null')return null;
-  try{const session=await api({action:'session'});if(!/^[a-f0-9-]{36}$/.test(session.account))throw Error('帳號格式錯誤');return {id:session.account,items:(await api({action:'read-all'})).items};}
+  try{const session=await api({action:'session'});if(!/^[a-f0-9-]{36}$/.test(session.account))throw Error('帳號格式錯誤');return {id:session.account,items:(await api({action:'read-all',account:session.account})).items};}
   catch(e){if(e.status===401&&!localStorage.getItem('study-pack.sync.account'))return null;throw Error('無法讀取完整的雲端紀錄，請先登入並確認網路正常。');}
  }
  function valid(value,id){
@@ -61,7 +61,7 @@
   const changed=[];try{for(const c of changes){localStorage.setItem(c.key,c.after);changed.push(c);}}
   catch(e){for(const c of changed.reverse())try{if(c.before===null)localStorage.removeItem(c.key);else localStorage.setItem(c.key,c.before);}catch{}throw Error('本機空間不足，已嘗試恢復匯入前資料。');}
   const failed=[];
-  for(const [id,value] of accounts){const key=accountKey(connection.id,id),m=JSON.parse(localStorage.getItem(key+'.sync'));try{const result=await api({action:'write',course:id,revision:m.revision,progress:value});const current=localStorage.getItem(key);localStorage.setItem(key+'.sync',JSON.stringify({revision:result.revision,dirty:current!==JSON.stringify(value)}));}catch{failed.push(id);}}
+  for(const [id,value] of accounts){const key=accountKey(connection.id,id),m=JSON.parse(localStorage.getItem(key+'.sync'));try{const result=await api({action:'write',account:connection.id,course:id,revision:m.revision,progress:value});const current=localStorage.getItem(key);localStorage.setItem(key+'.sync',JSON.stringify({revision:result.revision,dirty:current!==JSON.stringify(value)}));}catch{failed.push(id);}}
   status(failed.length?`已還原本機紀錄；${failed.length} 科尚未同步，請開啟該科處理。`:'已還原全部個人紀錄；網站教材與題庫保持最新版。');
   window.dispatchEvent(new Event('storage'));
  }

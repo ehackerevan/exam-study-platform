@@ -12,9 +12,17 @@ import {validateStudyPack} from '../src/core/validator/index.js';
 const packFor = questions => ({id:'integrity',title:'測試',chapters:[{id:'chapter-01',title:'教材',sections:[]}],questions});
 
 test('Missing and malformed source answers never silently become option A', () => {
-  for (const value of [undefined, null, '', '???', '1abc', '1.5']) assert.equal(normalizeAnswer(value), undefined);
+  for (const value of [undefined, null, '', '???', '1abc', '1.5', '0', '00']) assert.equal(normalizeAnswer(value), undefined);
   assert.equal(normalizeAnswer('A,???','multiple-choice'), undefined);
   assert.equal(normalizeAnswer('B','true-false'),1);
+  assert.equal(normalizeAnswer('0','true-false'),1);
+  assert.equal(normalizeAnswer('0','single-choice',['0','其他']),undefined);
+  assert.equal(normalizeAnswer('1,0','multiple-choice'),undefined);
+  assert.equal(parseStudyPackJson([{question:'JSON零起算',options:['甲','乙'],answer:0}]).questions[0].answer,0);
+  for(const value of ['0','00']) {
+    assert.equal(validateStudyPack(packFor(parseQuestionsCsv(`question,option_a,option_b,answer\n零不是選項,甲,乙,${value}`))).isValid,false);
+    assert.equal(validateStudyPack(packFor(parseQuestionsTxt(`1. 零不是選項\n(A) 甲\n(B) 乙\n答案：${value}`))).isValid,false);
+  }
   assert.deepEqual(normalizeAnswer('A，C','multiple-choice'), [0,2]);
   for (const questions of [
     parseStudyPackJson([{question:'未提供答案',options:['甲','乙']}]).questions,
