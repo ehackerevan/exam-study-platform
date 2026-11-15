@@ -103,3 +103,25 @@ test('TXT Parser: 能解析純文字題幹與選項', () => {
   assert.equal(qs[0].answer, 2); // C -> 2
   assert.equal(qs[0].explanation, '因為C是正確的。');
 });
+
+
+test('Markdown Parser: 保留含核心、重點與補充的實質標題及其列表', () => {
+  const { chapters } = parseMarkdownToChapters(`# 章節
+## 小節
+### 洗錢核心要件
+- 應保留的內容
+### 補充業務規範
+- 另一項內文
+### 重點整理：
+- 重點項目
+### Notes:
+- 備註項目
+`);
+  const section = chapters[0].sections[0];
+  assert.match(section.content, /### 洗錢核心要件/);
+  assert.match(section.content, /應保留的內容/);
+  assert.match(section.content, /### 補充業務規範/);
+  assert.match(section.content, /另一項內文/);
+  assert.deepEqual(section.keyPoints, ['重點項目']);
+  assert.deepEqual(section.notes, ['備註項目']);
+});

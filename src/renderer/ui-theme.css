@@ -431,7 +431,7 @@ body::before, body::after, .catalog-header::before { display: none; }
  --border-subtle:var(--md-outline-variant);--border-strong:var(--md-outline);--primary:var(--md-primary);--primary-hover:var(--md-primary);--primary-subtle:var(--md-primary-container);--primary-border:var(--md-outline-variant);--action-primary:var(--md-primary);--action-hover:var(--md-primary);
  --bg:var(--bg-app);--card-bg:var(--bg-surface);--text-sub:var(--text-muted);--border:var(--border-subtle);--primary-light:var(--primary-subtle);--text:var(--text-main);--muted:var(--text-muted);
 }
-.simple-study #quiz-question-actions>.question-actions{flex-wrap:wrap}.simple-study #quiz-question-actions:not([open])>.question-actions{display:none}
+.simple-study #quiz-question-actions>.question-actions{flex-wrap:wrap}
 .simple-study .quiz-config-card .learner-actions{display:flex;gap:12px;flex-wrap:wrap}
 .simple-study #btn-quiz-submit:disabled{opacity:1;background:var(--md-surface-container-low);color:var(--md-on-surface-variant);border-color:var(--md-outline-variant)}
 .simple-study .btn-primary{background:var(--md-primary);color:var(--md-on-primary)}

@@ -42,6 +42,7 @@ for(const course of courses){
    sections.push(...learning.slice(1));
   }
   chapter.teachingSections=sections;
+  if(chapter.id==='esg00'&&sections[0]){chapter.sectionAliases=chapter.sectionAliases||{};for(let k=0;k<3;k++)chapter.sectionAliases['esg-esg00-topic-'+k]=(sections[k]||sections[0]).id;}
   chapter.teachingSummary=text(article.match(/<p class="intro">([\s\S]*?)<\/p>/)[1]);
   if(!chapter.practiceQuestionIds?.length)chapter.practiceQuestionIds=pack.questions.filter(q=>q.chapterId===chapter.id).slice(0,10).map(q=>q.id);
   assert.equal(chapter.practiceQuestionIds.length,10,id+' ten practice questions');
@@ -51,6 +52,6 @@ for(const course of courses){
  attachLearningUnits(pack);
  fs.writeFileSync(file,compileStudyPackToHtml(pack,{includeExplanations:course.key==='esg'}).html);
 }
-assert.equal(chapters,38);assert.equal(topics,167);
+assert.equal(chapters,38);assert.equal(topics,171);
 console.log(`Integrated teaching: ${chapters} chapters, ${topics} topics; source questions unchanged`);
 writeIntegratedText();

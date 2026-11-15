@@ -5,5 +5,5 @@ exports.openView=async(page,view)=>{
  if(view==='reader'){await page.locator('#btn-menu-reader').click();return;}
  throw Error('No visible navigation to '+view);
 };
-exports.openQuestionTools=async(page)=>{const tools=page.locator('#quiz-question-actions');if(!(await tools.evaluate(el=>el.open)))await tools.locator(':scope>summary').click();};
+exports.openQuestionTools=async(page)=>{await page.locator('#quiz-question-actions .question-actions').waitFor({state:'visible'});};
 exports.openPersonalTools=async(page)=>{const tools=page.locator('#personal-question-panel');if(!(await tools.evaluate(el=>el.open)))await tools.locator(':scope>summary').click();};

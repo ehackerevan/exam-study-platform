@@ -17,7 +17,7 @@ export function learningSections(id) {
   return [
     {id: id+'-learning-start', title:'先懂什麼', content:`<p>${escape(data.map)}</p>`, keyPoints:[], notes:[]},
     {id: id+'-learning-recall', title:'主動回憶', content:`<ol>${data.questions.map(q=>`<li>${escape(q)}</li>`).join('')}</ol><details><summary>查看答案與判斷依據</summary><ol>${data.answers.map(a=>`<li>${escape(a)}</li>`).join('')}</ol></details>`, keyPoints:[], notes:[]},
-    {id: id+'-learning-recap', title:'考前快速複習', content:`<p>${escape(data.recap)}</p>`, keyPoints:[], notes:[]}
+    {id: id+'-learning-recap', title:'考前快速複習', content:`<ul>${data.recap.split(/。+/).map(s=>s.trim()).filter(Boolean).map(s=>`<li>${escape(s)}。</li>`).join('')}</ul>`, keyPoints:[], notes:[]}
   ].map(section => ({...section, content:'<div class="knowledge-topic">'+section.content+(section.id.endsWith('-learning-recall')?financePractice(id):'')+'</div>'}));
 }
 
@@ -32,7 +32,7 @@ export function writeIntegratedText() {
     output += body.slice(0,firstBreak)+'\n\n';
     if(data) output += `### 先懂什麼\n\n${data.map}\n\n`;
     output += body.slice(firstBreak).trim()+`\n\n`;
-    if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n${financePractice(id)}\n\n### 考前快速複習\n\n${data.recap}\n\n`;
+    if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n${financePractice(id)}\n\n### 考前快速複習\n\n${data.recap.split(/。+/).map(s=>s.trim()).filter(Boolean).map(s=>`- ${s}。`).join('\n')}\n\n`;
   }
   output += '## 版本提醒\n\n數字、期限與制度要求須連同適用主體及版本閱讀。歷屆題目按原考期判斷；本次整理未重新查核法規時效。\n';
   fs.writeFileSync(new URL('../教材/永續發展_整合學習教材.md',import.meta.url),output);
