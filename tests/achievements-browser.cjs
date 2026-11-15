@@ -7,13 +7,13 @@ const {openView}=require('./study-ui-helper.cjs');
  const file=path.join(dir,'fixture.html');fs.writeFileSync(file,compileStudyPackToHtml(pack).html);const url=pathToFileURL(file).href,key='study-pack.achievements-qa.progress';
  const b=await chromium.launch(),context=await b.newContext(),p=await context.newPage(),errors=[],external=[];
  context.on('page',page=>page.on('pageerror',e=>errors.push(e.message)));p.on('pageerror',e=>errors.push(e.message));p.on('dialog',d=>d.accept());await context.route(/^https?:/,r=>{external.push(r.request().url());return r.abort();});
- const answerOne=async()=>{await p.locator('#quiz-options-container button').first().click();await p.locator('#btn-quiz-submit').click();};
+ const answerOne=async()=>{await p.locator('#quiz-options-container button').first().click();await p.locator('#btn-quiz-submit').click();await p.locator('#btn-quiz-next').waitFor({state:'visible'});await p.waitForFunction(()=>document.querySelector('#achievement-list').textContent.includes('5 / 30 EXP')||getComputedStyle(document.getElementById('storage-warning-banner')).display!=='none');};
  try {
   await p.goto(url+'?view=progress');await p.locator('#study-achievements summary').click();
   assert.equal(await p.locator('#achievement-list .achievement-badge').count(),7);assert((await p.locator('.achievement-level').textContent()).includes('0 / 30 EXP'));
   await p.locator('#btn-achievement-practice').click();await p.locator('#btn-quick-ten').click();await answerOne();
   assert((await p.locator('.achievement-level').textContent()).includes('5 / 30 EXP'));assert(await p.locator('#achievement-unlocks').isHidden());
-  await p.locator('#btn-exit-quiz').click();assert((await p.locator('#achievement-unlocks').textContent()).includes('開始探索'));
+  await p.locator('#btn-exit-quiz').click();await p.locator('#achievement-unlocks').waitFor({state:'visible'});assert((await p.locator('#achievement-unlocks').textContent()).includes('開始探索'));
   const saved=await p.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);assert(!Object.hasOwn(saved,'achievements'));
   await p.reload();assert(await p.locator('#achievement-unlocks').isHidden());assert((await p.locator('.achievement-level').textContent()).includes('5 / 30 EXP'));
   await openView(p,'settings');const legacy={...saved,questionStats:Object.fromEntries(pack.questions.map(q=>[q.id,{attempts:1,wrongCount:0,correctCount:1,lastResult:true}]))};

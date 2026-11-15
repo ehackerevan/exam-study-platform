@@ -126,6 +126,7 @@ async function main() {
     await evalCode('document.querySelector(".btn-reveal").click()');
     if (!(await evalCode('document.querySelector(".bank-feedback").textContent.includes("不計入")'))) throw Error('查看答案誤記進度');
     await evalCode('document.querySelector(".q-card[data-saved-practice] input").click();document.querySelector(".q-card[data-saved-practice] button[type=submit]").click()');
+    for (let i = 0; i < 100 && !(await evalCode('document.querySelector(".bank-feedback").textContent.includes("作答")')); i++) await wait(50);
     if (!(await evalCode('document.querySelector(".bank-feedback").textContent.includes("作答")'))) throw Error('作答未回饋');
 
     // 5. 測試主題切換

@@ -34,7 +34,7 @@ export function attachBankAchievements(html) {
     }
   }
   const serialize = value => JSON.stringify(value).replace(/</g, '\\u003c');
-  const sources = ['achievements.js', 'bank-practice.js'].map(file => fs.readFileSync('src/renderer/' + file, 'utf8')).join('\n');
+  const sources = ['progress-store.js', 'achievements.js', 'bank-practice.js'].map(file => fs.readFileSync('src/renderer/' + file, 'utf8')).join('\n');
   const script = `${sources}\n(function(){
     const links=${serialize(links)}, packs=${serialize(packs)};
     window.__BANK_ACHIEVEMENT_COVERAGE__={mapped:${Object.keys(links).length},excluded:${raw.length - Object.keys(links).length}};

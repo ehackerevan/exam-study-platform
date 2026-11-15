@@ -1089,7 +1089,81 @@ body::before, body::after, .catalog-header::before { display: none; }
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="study-bank-achievements">
+(function () {
+  'use strict';
+  function validate(data, id) {
+    if (!data || data.format !== 'study-pack-progress-v1' || data.packId !== id ||
+      !Array.isArray(data.completedChapters) || !data.completedChapters.every(id => typeof id === 'string') ||
+      !data.questionStats || typeof data.questionStats !== 'object' || Array.isArray(data.questionStats) ||
+      !data.lastPosition || typeof data.lastPosition.chapterId !== 'string' ||
+      (data.lastPosition.sectionId !== undefined && typeof data.lastPosition.sectionId !== 'string') ||
+      (data.quizHistory !== undefined && (!Array.isArray(data.quizHistory) || data.quizHistory.length > 20 || data.quizHistory.some(item =>
+        !item || !['chapter','random','wrong','exam','featured','knowledge-point'].includes(item.mode) ||
+        !Number.isSafeInteger(item.questionCount) || item.questionCount < 1 ||
+        !Number.isSafeInteger(item.correctCount) || item.correctCount < 0 ||
+        !Number.isSafeInteger(item.wrongCount) || item.wrongCount < 0 ||
+        item.correctCount + item.wrongCount !== item.questionCount ||
+        !Number.isSafeInteger(item.accuracy) || item.accuracy < 0 || item.accuracy > 100 ||
+        typeof item.completedAt !== 'string' || !Number.isFinite(Date.parse(item.completedAt)) ||
+        (item.term !== undefined && typeof item.term !== 'string') ||
+        (item.subject !== undefined && typeof item.subject !== 'string') ||
+        (item.knowledgePoint !== undefined && (typeof item.knowledgePoint !== 'string' || !item.knowledgePoint.trim())) ||
+        (item.featuredGroup !== undefined && typeof item.featuredGroup !== 'string'))))) throw Error('進度結構不正確');
+    for(const field of ['hiddenQuestionIds','favoriteQuestionIds'])if(data[field]!==undefined&&(!Array.isArray(data[field])||!data[field].every(id=>typeof id==='string')))throw Error('題目標記格式不正確');
+    for (const record of Object.values(data.questionStats)) {
+      if (!record || !['attempts','wrongCount','correctCount'].every(key => Number.isSafeInteger(record[key]) && record[key] >= 0) ||
+        record.attempts !== record.wrongCount + record.correctCount || typeof record.lastResult !== 'boolean') throw Error('作答紀錄不正確');
+    }
+    return data;
+  }
+  let database;
+  function open() {
+    if (!database) database = new Promise((resolve, reject) => {
+      let request;
+      try { request = indexedDB.open('study-pack-write-lock-v1', 1); } catch (_) { reject(Error('無法取得安全保存鎖，請匯出本頁進度。')); return; }
+      request.onupgradeneeded = () => request.result.createObjectStore('mutex');
+      request.onsuccess = () => { const db = request.result; db.onversionchange = () => db.close(); resolve(db); };
+      request.onerror = request.onblocked = () => reject(Error('無法取得安全保存鎖，請匯出本頁進度。'));
+    });
+    return database;
+  }
+  async function exclusive(operation) {
+    const db = await open();
+    return new Promise((resolve, reject) => {
+      let transaction, result, failure;
+      try {
+        transaction = db.transaction('mutex', 'readwrite');
+        // Every writer shares this transaction scope; no progress or lease data is stored in IDB.
+        transaction.objectStore('mutex').get(0).onsuccess = () => {
+          try { result = operation(); } catch (error) { failure = error; transaction.abort(); }
+        };
+      } catch (error) { reject(error); return; }
+      transaction.oncomplete = () => resolve(result);
+      transaction.onerror = transaction.onabort = () => reject(failure || Error('安全保存失敗，請匯出本頁進度。'));
+    });
+  }
+  function conflict() { const error = Error('另一分頁已變更學習進度；本頁尚未保存，請先匯出備份再重新載入。'); error.code = 'progress-conflict'; return error; }
+  function replace(key, expected, next, beforeWrite) {
+    return exclusive(() => {
+      if (localStorage.getItem(key) !== expected) throw conflict();
+      beforeWrite?.();
+      if (next === null) localStorage.removeItem(key); else localStorage.setItem(key, next);
+      return next;
+    });
+  }
+  window.StudyProgress = {validate, exclusive, replace, conflict};
+})();
+
 (function () {
   'use strict';
   function evaluate(pack, progress) {
@@ -1146,7 +1220,8 @@ body::before, body::after, .catalog-header::before { display: none; }
     let result = null;
     try {
       const raw = localStorage.getItem(`study-pack.${pack.id}.progress`);
-      result = window.StudyAchievements.evaluate(pack, raw ? JSON.parse(raw) : {format:'study-pack-progress-v1', packId:pack.id, questionStats:{}});
+      const progress = raw ? window.StudyProgress.validate(JSON.parse(raw), pack.id) : {format:'study-pack-progress-v1', packId:pack.id, questionStats:{}};
+      result = window.StudyAchievements.evaluate(pack, progress);
     } catch (_) {}
     window.StudyAchievements.render(document.getElementById('bank-achievement-list'), result, '本機訪客紀錄；未納入帳號同步 · 題庫 ' + pack.contentVersion);
   }
@@ -1167,26 +1242,24 @@ body::before, body::after, .catalog-header::before { display: none; }
     const correct = submitted.filter(result => result.correct).length;
     document.getElementById('bank-score').textContent = `本次已答 ${submitted.length} 題 · 答對 ${correct} 題 · 答錯 ${submitted.length - correct} 題 · 正確率 ${submitted.length ? Math.round(correct / submitted.length * 100) : 0}%`;
   }
-  function saveAnswer(question, correct) {
+  async function saveAnswer(question, correct) {
     const key = `study-pack.${question.packId}.progress`;
     const stored = localStorage.getItem(key);
     const progress = stored ? JSON.parse(stored) : {
       format:'study-pack-progress-v1', packId:question.packId, schemaVersion:1, contentVersion:question.contentVersion,
       completedChapters:[], questionStats:{}, quizHistory:[], lastPosition:{chapterId:'',sectionId:''}, settings:{theme:'system'}
     };
-    if (progress.format !== 'study-pack-progress-v1' || progress.packId !== question.packId ||
-        !Array.isArray(progress.completedChapters) || !progress.lastPosition || !progress.settings ||
-        !progress.questionStats || typeof progress.questionStats !== 'object' || Array.isArray(progress.questionStats)) throw Error('進度格式異常');
-    const pack = packs.find(item => item.id === question.packId);
-    window.StudyAchievements.evaluate(pack, progress);
+    window.StudyProgress.validate(progress, question.packId);
     const stats = progress.questionStats[question.id] || {attempts:0,wrongCount:0,correctCount:0};
     if (!['attempts','wrongCount','correctCount'].every(field => Number.isSafeInteger(stats[field]) && stats[field] >= 0) || stats.attempts !== stats.wrongCount + stats.correctCount) throw Error('作答紀錄異常');
     stats.attempts++;
     if (correct) stats.correctCount++; else stats.wrongCount++;
     stats.lastResult = correct; stats.lastAnsweredAt = new Date().toISOString();
     progress.questionStats[question.id] = stats;
-    window.StudyAchievements.evaluate(pack, progress);
-    localStorage.setItem(key, JSON.stringify(progress));
+    window.StudyProgress.validate(progress, question.packId);
+    const snapshot = JSON.stringify(progress);
+    try { await window.StudyProgress.replace(key, stored, snapshot); }
+    catch (error) { error.unsavedProgress = snapshot; throw error; }
   }
   function createCard(question, embedded = false) {
     const key = `${question.packId}:${question.id}`;
@@ -1203,20 +1276,27 @@ body::before, body::after, .catalog-header::before { display: none; }
       <form><fieldset><legend>${multiple ? '請選出所有正確選項' : '請選擇一個答案'}</legend>
       <div class="chapter-inline-options">${question.options.map((option,index) => `<label class="option-item ${submitted && expected.includes(index) ? 'correct' : submitted && selected.includes(index) ? 'wrong' : ''}"><input type="${multiple ? 'checkbox' : 'radio'}" name="answer" value="${index}" ${selected.includes(index) ? 'checked' : ''} ${submitted ? 'disabled' : ''}><span>${String.fromCharCode(65 + index)}. ${escape(option)}</span></label>`).join('')}</div></fieldset>
       <p class="bank-feedback" role="status" tabindex="-1">${submitted ? `${result.correct ? '作答正確' : '作答錯誤'}；正確答案：${expected.map(index => String.fromCharCode(65 + index)).join('、')}${result.saved ? '。' : '。進度儲存失敗，原有紀錄未覆寫。'}` : ''}</p>
-      <button type="submit" class="btn btn-primary">${submitted ? '重新作答' : '送出答案'}</button></form>`;
+      <button type="submit" class="btn btn-primary">${submitted ? '重新作答' : '送出答案'}</button>${result?.unsaved ? '<button type="button" class="btn btn-secondary" data-export-unsaved>匯出本頁未保存進度</button>' : ''}</form>`;
     const form = card.querySelector('form');
+    const exportButton = form.querySelector('[data-export-unsaved]');
+    if (exportButton) exportButton.onclick = () => {
+      const url = URL.createObjectURL(new Blob([result.unsaved], {type:'application/json'})), link = document.createElement('a');
+      link.href = url; link.download = `study-progress-${question.packId}-unsaved.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
     form.onchange = () => results.set(key, {selected:[...form.querySelectorAll('input:checked')].map(input => Number(input.value)),submitted:false});
-    form.onsubmit = event => {
+    form.onsubmit = async event => {
       event.preventDefault();
+      if (form.dataset.saving) return;
       if (submitted) {
         results.delete(key); const replacement = createCard(question, embedded); card.replaceWith(replacement); updateScore(); replacement.querySelector('input').focus(); return;
       }
       const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
       if (!values.length) { card.querySelector('.bank-feedback').textContent = '請先選擇答案。'; form.querySelector('input').focus(); return; }
       const correct = values.length === expected.length && expected.every(value => values.includes(value));
-      let saved = false;
-      try { saveAnswer(question, correct); saved = true; } catch (_) {}
-      results.set(key, {selected:values, submitted:true, correct, saved});
+      let saved = false, unsaved = null;
+      form.dataset.saving = 'true'; form.querySelector('button[type=submit]').disabled = true;
+      try { await saveAnswer(question, correct); saved = true; } catch (error) { unsaved = error.unsavedProgress || null; }
+      results.set(key, {selected:values, submitted:true, correct, saved, unsaved});
       document.getElementById('bank-achievement-course').value = question.packId;
       refreshAchievements();
       if (!saved) window.StudyAchievements.render(document.getElementById('bank-achievement-list'), null, '進度儲存失敗；本機訪客紀錄未確認更新。');
