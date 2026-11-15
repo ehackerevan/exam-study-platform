@@ -47,9 +47,37 @@
 
   const emptyProgress = JSON.stringify(progress);
   let storageWritable = true;
+  let achievementAccount = '', achievementIdentityReady = false, quizAchievementBaseline = null;
+  function achievementSnapshot() {
+    if (!storageWritable || !achievementIdentityReady) return null;
+    if (window.StudySync && (localStorage.getItem('study-pack.sync.account') || '') !== achievementAccount) return null;
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return window.StudyAchievements.evaluate(pack, raw ? normalizeProgress(JSON.parse(raw)) : JSON.parse(emptyProgress));
+  }
+  function renderAchievements() {
+    const container = document.getElementById('achievement-list');
+    if (!container) return;
+    let result = null;
+    try { result = achievementSnapshot(); } catch (_) {}
+    const scope = `${STORAGE_KEY.startsWith('study-pack.account.') ? '帳號進度（本機保存；雲端狀態見設定）' : '訪客進度（本機保存）'} · 題庫 ${pack.contentVersion || '1.0.0'}`;
+    window.StudyAchievements.render(container, result, scope);
+    if (!result) {
+      quizAchievementBaseline = null;
+      const notice = document.getElementById('achievement-unlocks'); notice.hidden = true; notice.textContent = '';
+    }
+    return result;
+  }
+  function refreshAchievementIdentity() {
+    renderAchievements();
+    const notice = document.getElementById('achievement-unlocks'); notice.hidden = true; notice.textContent = '';
+  }
+  window.addEventListener('storage', refreshAchievementIdentity);
+  window.addEventListener('focus', refreshAchievementIdentity);
+  window.addEventListener('pageshow', refreshAchievementIdentity);
   function showStorageWarning(message) {
     document.getElementById('storage-warning-banner').style.display = 'flex';
     document.getElementById('storage-warning-message').textContent = message;
+    renderAchievements();
   }
   function normalizeProgress(data) {
     if (!data || data.format !== 'study-pack-progress-v1' || data.packId !== pack.id ||
@@ -99,6 +127,7 @@
       window.StudySync?.markDirty();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
       window.StudySync?.changed();
+      renderAchievements();
       return true;
     } catch (err) {
       storageWritable = false;
@@ -269,6 +298,7 @@
   }
 
   function renderDashboard() {
+    renderAchievements();
     const totalChapters = pack.chapters.length;
     const completedChapters = progress.completedChapters.length;
     
@@ -705,6 +735,8 @@
 
   // ===== 4. 測驗引擎 Quiz Engine =====
   function startQuiz(mode, chapterId = '', count = 20, selectedPool = null, knowledgePoint = '') {
+    quizAchievementBaseline = renderAchievements()?.badges.filter(badge => badge.unlocked).map(badge => badge.id) || null;
+    const unlockNotice = document.getElementById('achievement-unlocks'); unlockNotice.hidden = true; unlockNotice.textContent = '';
     quizState.mode = mode;
     quizState.knowledgePoint = knowledgePoint;
     quizState.answers = Object.create(null);
@@ -963,6 +995,12 @@
     document.getElementById('quiz-setup-panel').style.display = 'none';
     document.getElementById('quiz-summary-panel').style.display = 'block';
     document.getElementById('quiz-summary-title').textContent = answered.length === quizState.pool.length ? '測驗完成' : '測驗已結束';
+    const achieved = renderAchievements();
+    const newBadges = quizAchievementBaseline && achieved ? achieved.badges.filter(badge => badge.unlocked && !quizAchievementBaseline.includes(badge.id)) : [];
+    const unlockNotice = document.getElementById('achievement-unlocks');
+    unlockNotice.textContent = newBadges.length ? '本次解鎖：' + newBadges.map(badge => badge.name).join('、') : '';
+    unlockNotice.hidden = !newBadges.length;
+    quizAchievementBaseline = null;
     document.getElementById('quiz-summary-count').textContent = `${answered.length} / ${quizState.pool.length}`;
     document.getElementById('quiz-summary-correct').textContent = answered.length - wrong.length;
     document.getElementById('quiz-summary-wrong').textContent = wrong.length;
@@ -1083,6 +1121,8 @@
       try { STORAGE_KEY = await window.StudySync.bootstrap(pack.id, STORAGE_KEY, normalizeProgress); }
       finally { notice.remove(); buttons.forEach(button => { button.disabled = false; }); }
     }
+    achievementAccount = STORAGE_KEY.match(/^study-pack\.account\.([a-f0-9-]{36})\./)?.[1] || '';
+    achievementIdentityReady = true;
     loadProgress();
     initQuestionManager();
     if(pack.editions){
@@ -1297,6 +1337,7 @@
       reader.readAsText(file);
     });
     document.getElementById('btn-reset-progress')?.addEventListener('click', resetProgress);
+    document.getElementById('btn-achievement-practice').onclick = () => switchView('quiz');
 
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {attachBankAchievements} from './bank-achievements.js';
 import {applySharedUi} from '../src/core/compiler/ui-theme.js';
 export function htmlFiles(root = process.cwd()) {
   const files = [];
@@ -24,7 +25,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       /(const quizChSelect = document\.getElementById\('quiz-select-chapter'\);\s*if \(quizChSelect\) \{\s*)pack\.chapters\.forEach\(c =>/,
       '$1pack.chapters.filter(c => pack.questions.some(q => q.chapterId === c.id)).forEach(c =>'
     );
-    fs.writeFileSync(file, applySharedUi(html, home));
+    fs.writeFileSync(file, applySharedUi(normalized.endsWith('歷屆考古題_完整題庫大全.html') ? attachBankAchievements(html) : html, home));
   }
   console.log(`Applied shared offline UI to ${htmlFiles().length} HTML pages`);
 }
