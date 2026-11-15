@@ -121,17 +121,13 @@ async function main() {
     const firstCard = await evalCode('document.querySelector(".q-card") !== null');
     if (!firstCard) throw new Error('未找到題目卡片');
 
-    // 點擊第一個選項
-    await evalCode('document.querySelector(".opt-chip").click()');
-    await wait(100);
-    const isChipClicked = await evalCode('document.querySelector(".opt-chip").className.includes("opt-selected")');
-    console.log(`   點擊選項回饋樣式生效: ${isChipClicked ? 'YES' : 'NO'}`);
-
-    // 點擊揭曉答案
+    const mapped = await evalCode('!!document.querySelector(".q-card[data-saved-practice] form")');
+    if (!mapped) throw Error('唯一對照題目未提供保存作答');
     await evalCode('document.querySelector(".btn-reveal").click()');
-    await wait(100);
-    const isAnswerRevealed = await evalCode('document.querySelector(".opt-chip.is-official-correct .opt-check").style.display !== "none"');
-    console.log(`   標準答案標記顯示: ${isAnswerRevealed ? 'YES' : 'NO'}`);
+    if (!(await evalCode('document.querySelector(".bank-feedback").textContent.includes("不計入")'))) throw Error('查看答案誤記進度');
+    await evalCode('document.querySelector(".q-card[data-saved-practice] input").click();document.querySelector(".q-card[data-saved-practice] button[type=submit]").click()');
+    for (let i = 0; i < 100 && !(await evalCode('document.querySelector(".bank-feedback").textContent.includes("作答")')); i++) await wait(50);
+    if (!(await evalCode('document.querySelector(".bank-feedback").textContent.includes("作答")'))) throw Error('作答未回饋');
 
     // 5. 測試主題切換
     console.log('5. 測試深色/淺色主題切換...');

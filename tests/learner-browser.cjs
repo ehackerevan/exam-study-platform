@@ -82,9 +82,10 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
       if(!i){
         assert((await page.locator('#quiz-feedback-box').innerText()).includes('歷屆官方正確解答'));
         await page.evaluate(()=>document.getElementById('btn-quiz-submit').click());
+        await page.waitForFunction(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0)===9,key);
         const attempts=await page.evaluate(key=>Object.values(JSON.parse(localStorage.getItem(key)).questionStats).reduce((n,s)=>n+s.attempts,0),key);
         assert.equal(attempts,9,'章末練習與獨立測驗皆更新同一題目進度');
-        await openView(page,'reader');await page.locator('#study-progress summary').click();
+        await openView(page,'reader');await page.locator('#study-progress > summary').click();
         assert.equal(await page.locator('#stat-total-attempts').innerText(),'6','repeated attempts do not inflate practiced question count');
         assert((await page.locator('#knowledge-review-list').innerText()).includes('1 題待複習'));
         await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
@@ -123,6 +124,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     await page.locator('#btn-exit-quiz').click();
     assert.equal(await page.locator('#quiz-summary-count').innerText(),'1 / 6');
     assert.equal(await page.locator('#quiz-summary-title').innerText(),'測驗已結束');
+    await page.waitForFunction(key=>JSON.parse(localStorage.getItem(key)).quizHistory[0].questionCount===1,key);
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).quizHistory[0].questionCount,key),1);
     results.push('PASS: early finish shows a partial summary and saves only answered questions; escaped-character search preserves text');
     results.push('PASS: Markdown rendering, no MD links, native keyboard answers, first-answer count, multi-choice, summary, wrong resolution, related section and reload');
@@ -160,7 +162,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     const reloaded=page.waitForEvent('domcontentloaded');
     await page.locator('#import-file-input').setInputFiles({name:'restore.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(restore))});
     await reloaded;
-    await page.locator('#study-progress summary').click();
+    await page.locator('#study-progress > summary').click();
     assert((await page.locator('#stat-completed-chapters').innerText()).startsWith('1 /'));
     assert(Number(await page.locator('#stat-wrong-questions').innerText())<100);
     assert(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).questionStats.retired.attempts===100,key),'retired data stays in backups but not current dashboard');

@@ -40,7 +40,10 @@
   };
   box.querySelector('#sync-use-cloud').onclick=async()=>{
    if(!confirm('將先保留本機備份，再使用最新雲端進度。確定繼續？'))return;
-   try{const current=await request({action:'read',account,course});if(!current.data)throw Error('missing');validator(current.data);const previous=localStorage.getItem(key);if(previous!==null)localStorage.setItem(key+'.backup.'+Date.now(),previous);localStorage.setItem(key,JSON.stringify(current.data));meta={revision:current.revision,dirty:false};storeMeta();location.reload();}catch{status('無法載入雲端進度，本機紀錄仍保留。');}
+   const previous=localStorage.getItem(key),previousMeta=localStorage.getItem(metaKey);
+   try{const current=await request({action:'read',account,course});if(!current.data)throw Error('missing');validator(current.data);
+    await window.StudyProgress.exclusive(()=>{if(localStorage.getItem(key)!==previous||localStorage.getItem(metaKey)!==previousMeta)throw window.StudyProgress.conflict();if(previous!==null)localStorage.setItem(key+'.backup.'+Date.now(),previous);localStorage.setItem(key,JSON.stringify(current.data));meta={revision:current.revision,dirty:false};storeMeta();});location.reload();
+   }catch{status('無法載入雲端進度，本機紀錄仍保留；若其他分頁已變更，請先匯出再重新載入。');}
   };
   box.querySelector('#sync-logout').onclick=async()=>{
    if((meta?.dirty||(!course&&hasPendingProgress()))&&!confirm('本機尚有未同步的進度，登出後會保留在此瀏覽器；確定登出？'))return;
@@ -65,12 +68,16 @@
   }
   key=`study-pack.account.${account}.${course}.progress`;metaKey=key+'.sync';
   try{
-   let local=localStorage.getItem(key);const stored=localStorage.getItem(metaKey);meta=stored?JSON.parse(stored):null;
+   const initialLocal=localStorage.getItem(key),initialMeta=localStorage.getItem(metaKey),guest=localStorage.getItem(guestKey);
+   const copyGuest=!initialMeta&&!remote.data&&guest&&confirm('要將此瀏覽器原有的本學科進度複製到這個帳號嗎？原資料會保留。');
+   return await window.StudyProgress.exclusive(()=>{
+    if(localStorage.getItem(key)!==initialLocal||localStorage.getItem(metaKey)!==initialMeta||(copyGuest&&localStorage.getItem(guestKey)!==guest))throw window.StudyProgress.conflict();
+   const local=initialLocal,stored=initialMeta;meta=stored?JSON.parse(stored):null;
    if(remote.data){normalize(remote.data);}
    if(!meta){
     if(local!==null){panel();status('本機同步資訊不完整，為保護進度已暫停同步。請先匯出備份。');return key;}
     if(remote.data){localStorage.setItem(key,JSON.stringify(remote.data));meta={revision:remote.revision,dirty:false};}
-    else {const guest=localStorage.getItem(guestKey);meta={revision:0,dirty:false};if(guest&&confirm('要將此瀏覽器原有的本學科進度複製到這個帳號嗎？原資料會保留。')){normalize(JSON.parse(guest));localStorage.setItem(key,guest);meta.dirty=true;}}
+    else {meta={revision:0,dirty:false};if(copyGuest){normalize(JSON.parse(guest));localStorage.setItem(key,guest);meta.dirty=true;}}
    }else if(!Number.isSafeInteger(meta.revision)||typeof meta.dirty!=='boolean'){throw Error('meta');}
    else if(meta.dirty && meta.revision!==remote.revision){panel();conflict();return key;}
    else if(!meta.dirty && meta.revision!==remote.revision){
@@ -78,6 +85,7 @@
     meta={revision:remote.revision,dirty:false};
    }
    storeMeta();enabled=true;panel();if(meta.dirty)changed();return key;
+   });
   }catch(e){panel();status('進度無法安全讀取，同步已暫停；原有資料未刪除。');return key;}
  }
  function markDirty(){if(!meta||!metaKey)return;try{meta.dirty=true;storeMeta();}catch{enabled=false;status('無法保存同步狀態，已暫停同步。');}}

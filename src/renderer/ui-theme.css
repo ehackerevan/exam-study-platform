@@ -453,3 +453,20 @@ body::before, body::after, .catalog-header::before { display: none; }
 .simple-study .header-actions .tab-btn.active{background:var(--md-primary-container);color:var(--md-on-primary-container)}
 .simple-catalog .subject-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 @media(max-width:768px){.simple-study .header-actions{gap:6px}.simple-study .header-actions .tab-btn{font-size:.85rem;padding:8px 10px}.simple-study .brand-section{max-width:none}.simple-study .brand-title{white-space:nowrap}.simple-study #btn-menu-reader{font-size:.85rem;margin-bottom:12px}}
+
+.study-achievements{margin:1.5rem 0;border-top:1px solid var(--md-outline-variant);border-bottom:1px solid var(--md-outline-variant)}
+.study-achievements>summary{cursor:pointer;padding:1rem 0;min-height:44px;box-sizing:border-box;font-weight:700}
+.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:.75rem;list-style:none;padding:0;margin:1rem 0}
+.achievement-badge{display:flex;flex-direction:column;gap:.5rem;padding:1rem;border:1px solid var(--md-outline-variant);border-radius:12px;background:var(--md-surface-container-low);color:var(--md-on-surface-variant);min-width:0;overflow-wrap:anywhere}
+.achievement-badge.unlocked{background:var(--md-primary-container);color:var(--md-on-primary-container)}
+.achievement-badge span,.achievement-note,.achievement-scope{font-size:.85rem;line-height:1.6}
+.achievement-level{font-weight:700}.achievement-note,.achievement-scope{color:var(--md-on-surface-variant)}
+#achievement-unlocks{padding:1rem;background:var(--md-primary-container);color:var(--md-on-primary-container);border-radius:12px}
+
+.bank-saved-practice fieldset{border:0;min-inline-size:0;padding:0;margin:0}
+.bank-saved-practice .chapter-inline-options{display:grid;gap:.75rem;margin:1rem 0}
+.bank-saved-practice .option-item{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem;min-height:44px;box-sizing:border-box;cursor:pointer;border:1px solid var(--md-outline-variant);line-height:1.6}
+.bank-saved-practice .option-item span{min-width:0;overflow-wrap:anywhere}.bank-saved-practice input{margin-top:.4rem;flex-shrink:0}
+.bank-saved-practice button{min-height:44px}
+
+#study-achievements #btn-achievement-practice{background:var(--md-primary-container);color:var(--md-on-primary-container);border-color:var(--md-outline-variant);margin-bottom:1rem}

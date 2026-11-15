@@ -12,13 +12,7 @@
   try{const session=await api({action:'session'});if(!/^[a-f0-9-]{36}$/.test(session.account))throw Error('帳號格式錯誤');return {id:session.account,items:(await api({action:'read-all',account:session.account})).items};}
   catch(e){if(e.status===401&&!localStorage.getItem('study-pack.sync.account'))return null;throw Error('無法讀取完整的雲端紀錄，請先登入並確認網路正常。');}
  }
- function valid(value,id){
-  if(!value||typeof value!=='object'||Array.isArray(value)||value.format!=='study-pack-progress-v1'||value.packId!==id||!Array.isArray(value.completedChapters)||!value.completedChapters.every(x=>typeof x==='string')||!value.questionStats||typeof value.questionStats!=='object'||Array.isArray(value.questionStats)||!value.lastPosition||typeof value.lastPosition.chapterId!=='string'||(value.lastPosition.sectionId!==undefined&&typeof value.lastPosition.sectionId!=='string'))return false;
-  for(const field of ['hiddenQuestionIds','favoriteQuestionIds'])if(value[field]!==undefined&&(!Array.isArray(value[field])||!value[field].every(x=>typeof x==='string')))return false;
-  for(const q of Object.values(value.questionStats))if(!q||!['attempts','wrongCount','correctCount'].every(k=>Number.isSafeInteger(q[k])&&q[k]>=0)||q.attempts!==q.wrongCount+q.correctCount||typeof q.lastResult!=='boolean')return false;
-  if(value.quizHistory!==undefined&&(!Array.isArray(value.quizHistory)||value.quizHistory.length>20||value.quizHistory.some(x=>!x||!['chapter','random','wrong','exam','featured','knowledge-point'].includes(x.mode)||!Number.isSafeInteger(x.questionCount)||x.questionCount<1||!Number.isSafeInteger(x.correctCount)||x.correctCount<0||!Number.isSafeInteger(x.wrongCount)||x.wrongCount<0||x.correctCount+x.wrongCount!==x.questionCount||!Number.isSafeInteger(x.accuracy)||x.accuracy<0||x.accuracy>100||typeof x.completedAt!=='string'||!Number.isFinite(Date.parse(x.completedAt))||['term','subject','knowledgePoint','featuredGroup'].some(k=>x[k]!==undefined&&typeof x[k]!=='string')||(x.knowledgePoint!==undefined&&!x.knowledgePoint.trim()))))return false;
-  return true;
- }
+ function valid(value,id){try{window.StudyProgress.validate(value,id);return true;}catch{return false;}}
  function entries(obj){if(!obj||typeof obj!=='object'||Array.isArray(obj)||Object.keys(obj).some(id=>!courses.includes(id)))throw Error('備份學科格式不正確。');for(const [id,value] of Object.entries(obj))if(!valid(value,id))throw Error(`「${id}」的進度格式不正確。`);return Object.entries(obj);}
  function parse(raw,id){const v=JSON.parse(raw);if(!valid(v,id))throw Error(`「${id}」的進度格式不正確，請先匯出單科備份。`);return v;}
  async function material(page){
@@ -58,8 +52,11 @@
    if(old!==null)addChange(changes,key+'.backup.'+stamp,old);else if(row)addChange(changes,key+'.backup.'+stamp,JSON.stringify(row.data));
    addChange(changes,key,JSON.stringify(value));addChange(changes,key+'.sync',JSON.stringify({revision,dirty:true}));
   }
-  const changed=[];try{for(const c of changes){localStorage.setItem(c.key,c.after);changed.push(c);}}
-  catch(e){for(const c of changed.reverse())try{if(c.before===null)localStorage.removeItem(c.key);else localStorage.setItem(c.key,c.before);}catch{}throw Error('本機空間不足，已嘗試恢復匯入前資料。');}
+  await window.StudyProgress.exclusive(() => {
+   if(changes.some(c=>localStorage.getItem(c.key)!==c.before))throw window.StudyProgress.conflict();
+   const changed=[];try{for(const c of changes){localStorage.setItem(c.key,c.after);changed.push(c);}}
+   catch(e){for(const c of changed.reverse())try{if(c.before===null)localStorage.removeItem(c.key);else localStorage.setItem(c.key,c.before);}catch{}throw Error('本機空間不足，已嘗試恢復匯入前資料。');}
+  });
   const failed=[];
   for(const [id,value] of accounts){const key=accountKey(connection.id,id),m=JSON.parse(localStorage.getItem(key+'.sync'));try{const result=await api({action:'write',account:connection.id,course:id,revision:m.revision,progress:value});const current=localStorage.getItem(key);localStorage.setItem(key+'.sync',JSON.stringify({revision:result.revision,dirty:current!==JSON.stringify(value)}));}catch{failed.push(id);}}
   status(failed.length?`已還原本機紀錄；${failed.length} 科尚未同步，請開啟該科處理。`:'已還原全部個人紀錄；網站教材與題庫保持最新版。');

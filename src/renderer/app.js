@@ -46,34 +46,41 @@
   };
 
   const emptyProgress = JSON.stringify(progress);
-  let storageWritable = true;
+  let storageWritable = true, savedProgressRaw = null, saveQueue = Promise.resolve(true);
+  let achievementAccount = '', achievementIdentityReady = false, quizAchievementBaseline = null;
+  function achievementSnapshot() {
+    if (!storageWritable || !achievementIdentityReady) return null;
+    if (window.StudySync && (localStorage.getItem('study-pack.sync.account') || '') !== achievementAccount) return null;
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return window.StudyAchievements.evaluate(pack, raw ? normalizeProgress(JSON.parse(raw)) : JSON.parse(emptyProgress));
+  }
+  function renderAchievements() {
+    const container = document.getElementById('achievement-list');
+    if (!container) return;
+    let result = null;
+    try { result = achievementSnapshot(); } catch (_) {}
+    const scope = `${STORAGE_KEY.startsWith('study-pack.account.') ? '帳號進度（本機保存；雲端狀態見設定）' : '訪客進度（本機保存）'} · 題庫 ${pack.contentVersion || '1.0.0'}`;
+    window.StudyAchievements.render(container, result, scope);
+    if (!result) {
+      quizAchievementBaseline = null;
+      const notice = document.getElementById('achievement-unlocks'); notice.hidden = true; notice.textContent = '';
+    }
+    return result;
+  }
+  function refreshAchievementIdentity() {
+    renderAchievements();
+    const notice = document.getElementById('achievement-unlocks'); notice.hidden = true; notice.textContent = '';
+  }
+  window.addEventListener('storage', refreshAchievementIdentity);
+  window.addEventListener('focus', refreshAchievementIdentity);
+  window.addEventListener('pageshow', refreshAchievementIdentity);
   function showStorageWarning(message) {
     document.getElementById('storage-warning-banner').style.display = 'flex';
     document.getElementById('storage-warning-message').textContent = message;
+    renderAchievements();
   }
   function normalizeProgress(data) {
-    if (!data || data.format !== 'study-pack-progress-v1' || data.packId !== pack.id ||
-      !Array.isArray(data.completedChapters) || !data.completedChapters.every(id => typeof id === 'string') ||
-      !data.questionStats || typeof data.questionStats !== 'object' || Array.isArray(data.questionStats) ||
-      !data.lastPosition || typeof data.lastPosition.chapterId !== 'string' ||
-      (data.lastPosition.sectionId !== undefined && typeof data.lastPosition.sectionId !== 'string') ||
-      (data.quizHistory !== undefined && (!Array.isArray(data.quizHistory) || data.quizHistory.length > 20 || data.quizHistory.some(item =>
-        !item || !['chapter','random','wrong','exam','featured','knowledge-point'].includes(item.mode) ||
-        !Number.isSafeInteger(item.questionCount) || item.questionCount < 1 ||
-        !Number.isSafeInteger(item.correctCount) || item.correctCount < 0 ||
-        !Number.isSafeInteger(item.wrongCount) || item.wrongCount < 0 ||
-        item.correctCount + item.wrongCount !== item.questionCount ||
-        !Number.isSafeInteger(item.accuracy) || item.accuracy < 0 || item.accuracy > 100 ||
-        typeof item.completedAt !== 'string' || !Number.isFinite(Date.parse(item.completedAt)) ||
-        (item.term !== undefined && typeof item.term !== 'string') ||
-        (item.subject !== undefined && typeof item.subject !== 'string') ||
-        (item.knowledgePoint !== undefined && (typeof item.knowledgePoint !== 'string' || !item.knowledgePoint.trim())) ||
-        (item.featuredGroup !== undefined && typeof item.featuredGroup !== 'string'))))) throw Error('進度結構不正確');
-    for(const field of ['hiddenQuestionIds','favoriteQuestionIds'])if(data[field]!==undefined&&(!Array.isArray(data[field])||!data[field].every(id=>typeof id==='string')))throw Error('題目標記格式不正確');
-    for (const record of Object.values(data.questionStats)) {
-      if (!record || !['attempts','wrongCount','correctCount'].every(key => Number.isSafeInteger(record[key]) && record[key] >= 0) ||
-        record.attempts !== record.wrongCount + record.correctCount || typeof record.lastResult !== 'boolean') throw Error('作答紀錄不正確');
-    }
+    window.StudyProgress.validate(data, pack.id);
     return {...progress, ...data, hiddenQuestionIds:[...new Set((data.hiddenQuestionIds||[]).filter(id=>questionIds.has(id)))], favoriteQuestionIds:[...new Set((data.favoriteQuestionIds||[]).filter(id=>questionIds.has(id)))], questionStats:Object.assign(Object.create(null),data.questionStats), completedChapters:[...new Set(data.completedChapters.filter(id => pack.chapters.some(ch => ch.id === id)))],
       settings:{theme:['system','light','dark'].includes(data.settings?.theme) ? data.settings.theme : 'system'},
       lastPosition:{chapterId:data.lastPosition.chapterId,sectionId:data.lastPosition.sectionId || ''},
@@ -83,6 +90,7 @@
   function loadProgress() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
+      savedProgressRaw = raw;
       if (raw) {
         const parsed = JSON.parse(raw);
         progress = normalizeProgress(parsed);
@@ -94,17 +102,25 @@
   }
 
   function saveProgress() {
-    if (!storageWritable) return false;
-    try {
-      window.StudySync?.markDirty();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-      window.StudySync?.changed();
-      return true;
-    } catch (err) {
-      storageWritable = false;
-      showStorageWarning('目前無法保存進度，本次作答只暫存於頁面，關閉或重新整理會消失。請匯出備份。');
-      return false;
-    }
+    const snapshot = JSON.stringify(progress);
+    saveQueue = saveQueue.then(async () => {
+      if (!storageWritable) return false;
+      try {
+        await window.StudyProgress.replace(STORAGE_KEY, savedProgressRaw, snapshot, () => {
+          if (window.StudySync && (localStorage.getItem('study-pack.sync.account') || '') !== achievementAccount) throw window.StudyProgress.conflict();
+          window.StudySync?.markDirty();
+        });
+        savedProgressRaw = snapshot;
+        window.StudySync?.changed();
+        renderAchievements();
+        return true;
+      } catch (error) {
+        storageWritable = false;
+        showStorageWarning(error.code === 'progress-conflict' ? error.message : '目前無法安全保存進度，本次作答只暫存於頁面。請先匯出備份再重新載入。');
+        return false;
+      }
+    });
+    return saveQueue;
   }
 
   const isQuestionHidden = question => progress.hiddenQuestionIds.includes(question.id);
@@ -269,6 +285,7 @@
   }
 
   function renderDashboard() {
+    renderAchievements();
     const totalChapters = pack.chapters.length;
     const completedChapters = progress.completedChapters.length;
     
@@ -370,7 +387,7 @@
     const expected = Array.isArray(question.answer) ? question.answer : [question.answer];
     return Array.isArray(selected) && expected.length === selected.length && expected.every(value => selected.includes(value));
   }
-  function recordQuestionAnswer(question, correct) {
+  async function recordQuestionAnswer(question, correct) {
     const stats = progress.questionStats[question.id] || {attempts:0, wrongCount:0, correctCount:0};
     stats.attempts++;
     if (correct) stats.correctCount++;
@@ -378,9 +395,10 @@
     stats.lastResult = correct;
     stats.lastAnsweredAt = new Date().toISOString();
     progress.questionStats[question.id] = stats;
-    saveProgress();
+    const saving = saveProgress();
     renderQuestionCompletion();
     window.StudyMetrics?.answer(question.id);
+    await saving;
   }
   function renderChapterPractice(container, questions) {
     container.replaceChildren();
@@ -403,8 +421,9 @@
         const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
         chapterPracticeAnswers.set(question.id, {selected:multiple ? values : values[0], submitted:false});
       };
-      form.onsubmit = event => {
+      form.onsubmit = async event => {
         event.preventDefault();
+        if (form.dataset.saving) return;
         if (submitted) {
           chapterPracticeAnswers.delete(question.id);
           renderChapterPractice(container, questions);
@@ -419,9 +438,11 @@
         }
         const answer = multiple ? values : values[0], correct = answerIsCorrect(question, answer);
         chapterPracticeAnswers.set(question.id, {selected:answer, submitted:true, correct});
-        recordQuestionAnswer(question, correct);
+        form.dataset.saving = 'true'; form.querySelector('button[type=submit]').disabled = true;
+        const saving = recordQuestionAnswer(question, correct);
         renderChapterPractice(container, questions);
         container.children[index].querySelector('.chapter-inline-feedback').focus({preventScroll:true});
+        await saving;
       };
       container.appendChild(form);
     });
@@ -705,6 +726,9 @@
 
   // ===== 4. 測驗引擎 Quiz Engine =====
   function startQuiz(mode, chapterId = '', count = 20, selectedPool = null, knowledgePoint = '') {
+    quizAchievementBaseline = renderAchievements()?.badges.filter(badge => badge.unlocked).map(badge => badge.id) || null;
+    const unlockNotice = document.getElementById('achievement-unlocks'); unlockNotice.hidden = true; unlockNotice.textContent = '';
+    quizState.summaryPending = false;
     quizState.mode = mode;
     quizState.knowledgePoint = knowledgePoint;
     quizState.answers = Object.create(null);
@@ -896,7 +920,7 @@
       feedbackBox.style.display = 'none';
     }
 
-    submitBtn.onclick = () => {
+    submitBtn.onclick = async () => {
       if (quizState.submitted[q.id]) return;
       if (userSelected === undefined || (Array.isArray(userSelected) && userSelected.length === 0)) {
         alert('請先選擇答案！');
@@ -907,9 +931,10 @@
 
       // 紀錄進度
       const isCorrect = answerIsCorrect(q, userSelected);
-      recordQuestionAnswer(q, isCorrect);
-
+      submitBtn.disabled = true;
+      const saving = recordQuestionAnswer(q, isCorrect);
       renderQuizCard();
+      await saving;
     };
 
     nextBtn.onclick = () => {
@@ -941,7 +966,9 @@
     requestAnimationFrame(()=>document.getElementById('knowledge-'+id)?.scrollIntoView({block:'start'}));
     return true;
   }
-  function showQuizSummary() {
+  async function showQuizSummary() {
+    if (quizState.summaryPending) return;
+    quizState.summaryPending = true;
     quizState.active = false;
     const answered = quizState.pool.filter(q => quizState.submitted[q.id]);
     const wrong = answered.filter(q => !answerIsCorrect(q, quizState.answers[q.id]));
@@ -958,7 +985,8 @@
       ...(oneFeaturedGroup ? {featuredGroup} : {})
     });
     progress.quizHistory.length = Math.min(progress.quizHistory.length, 20);
-    saveProgress();
+    const saving = saveProgress(), summaryPool = quizState.pool, achievementBaseline = quizAchievementBaseline;
+    quizAchievementBaseline = null;
     document.getElementById('quiz-running-panel').style.display = 'none';
     document.getElementById('quiz-setup-panel').style.display = 'none';
     document.getElementById('quiz-summary-panel').style.display = 'block';
@@ -993,6 +1021,13 @@
     }
     renderDashboard();
     renderQuizHistory();
+    await saving;
+    if (quizState.pool !== summaryPool || quizState.active) return;
+    const achieved = renderAchievements();
+    const newBadges = achievementBaseline && achieved ? achieved.badges.filter(badge => badge.unlocked && !achievementBaseline.includes(badge.id)) : [];
+    const unlockNotice = document.getElementById('achievement-unlocks');
+    unlockNotice.textContent = newBadges.length ? '本次解鎖：' + newBadges.map(badge => badge.name).join('、') : '';
+    unlockNotice.hidden = !newBadges.length;
   }
 
   function renderQuizHistory() {
@@ -1019,7 +1054,7 @@
     dlAnchor.click();
   }
 
-  function importProgressJson(jsonStr) {
+  async function importProgressJson(jsonStr) {
     try {
       const data = JSON.parse(jsonStr);
       if (!data || data.format !== 'study-pack-progress-v1') {
@@ -1034,7 +1069,7 @@
       if (!confirm('匯入會取代目前學習進度。請先匯出備份，確定繼續？')) return false;
       progress = restored;
       storageWritable = true;
-      if (saveProgress()) {
+      if (await saveProgress()) {
         alert('學習紀錄已匯入並保存。');
         location.reload();
       } else {
@@ -1053,8 +1088,9 @@
     if (confirm('確定要清除所有學習紀錄與錯題統計嗎？\n此動作不可復原（但不會影響教材與題庫）。')) {
       if (confirm('請再次確認：是否真要清除所有作答進度？')) {
         try {
-          if (window.StudySync) { progress = JSON.parse(emptyProgress); if (!saveProgress()) return; await window.StudySync.flush(); }
-          else localStorage.removeItem(STORAGE_KEY);
+          progress = JSON.parse(emptyProgress);
+          if (!await saveProgress()) return;
+          await window.StudySync?.flush();
           alert('學習進度已清除；若雲端同步失敗，本機紀錄會保留待同步。');
           location.reload();
         } catch (_) {showStorageWarning('無法清除瀏覽器紀錄，原資料仍保留。');}
@@ -1083,6 +1119,8 @@
       try { STORAGE_KEY = await window.StudySync.bootstrap(pack.id, STORAGE_KEY, normalizeProgress); }
       finally { notice.remove(); buttons.forEach(button => { button.disabled = false; }); }
     }
+    achievementAccount = STORAGE_KEY.match(/^study-pack\.account\.([a-f0-9-]{36})\./)?.[1] || '';
+    achievementIdentityReady = true;
     loadProgress();
     initQuestionManager();
     if(pack.editions){
@@ -1297,6 +1335,7 @@
       reader.readAsText(file);
     });
     document.getElementById('btn-reset-progress')?.addEventListener('click', resetProgress);
+    document.getElementById('btn-achievement-practice').onclick = () => switchView('quiz');
 
     setupSearch();
     const initialView = new URLSearchParams(location.search).get('view');
