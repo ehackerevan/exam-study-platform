@@ -136,14 +136,15 @@ export function parseMarkdownToChapters(rawMarkdown, options = {}) {
     const h3Match = line.match(/^###\s+(.+)$/);
     if (h3Match) {
       ensureSection();
-      const heading = h3Match[1].trim().toLowerCase();
-      if (heading.includes('重點') || heading.includes('key point') || heading.includes('核心')) {
+      const rawH3 = h3Match[1].trim();
+      const heading = rawH3.toLowerCase().replace(/[：:]\s*$/, '');
+      if (['重點', '重點整理', '核心重點', 'key point', 'key points'].includes(heading)) {
         activeSublist = 'keyPoints';
-      } else if (heading.includes('備註') || heading.includes('note') || heading.includes('補充')) {
+      } else if (['備註', '補充', '補充說明', 'note', 'notes'].includes(heading)) {
         activeSublist = 'notes';
       } else {
         activeSublist = null;
-        currentSection.content += (currentSection.content ? '\n\n' : '') + `### ${h3Match[1].trim()}`;
+        currentSection.content += (currentSection.content ? '\n\n' : '') + `### ${rawH3}`;
       }
       continue;
     }

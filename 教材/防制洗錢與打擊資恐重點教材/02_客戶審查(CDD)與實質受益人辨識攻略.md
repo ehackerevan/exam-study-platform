@@ -8,7 +8,7 @@ id: aml02
 
 ##  本章學習導航與核心地圖
 
-確認客戶身分（Know Your Customer / Customer Due Diligence, CDD）是防制洗錢最前線的防禦工事。本章在歷屆中考題佔比達 26%，三大必考考點：
+確認客戶身分（Know Your Customer / Customer Due Diligence, CDD）是防制洗錢最前線的防禦工事。本章整理三項客戶審查重點：
 1. CDD 法定發動時機（何時必須強制驗證客戶身分？）
 2. 法人實質受益人（Beneficial Ownership, BO）穿透三階辨識法則（25% 門檻）
 3. 重要政治性職務人士（PEPs）及其家屬之加強審查（EDD）程序

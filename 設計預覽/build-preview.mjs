@@ -34,10 +34,35 @@ renderer.image = ({href, text}) => {
   const svg = Buffer.from(href.split(',')[1],'base64').toString('utf8').replace(/(<text\b[^>]*>)([\s\S]*?)(<\/text>)/g,(_,start,label,end)=>start+emphasizeHtml(conciseText(label)).replace(/<strong class="legal-value">/g,'<tspan fill="#fcd34d" font-weight="800">').replace(/<\/strong>/g,'</tspan>')+end);
   return `<img src="data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}" alt="${escape(readableText(text))}" loading="lazy" decoding="async">`;
 };
+function formatMermaidGraph(graph) {
+  const clean = text => text.replace(/<br\s*\/?>/gi, '；').replace(/^\s*\d+[.、]\s*/, '').replace(/；{2,}/g, '；').trim();
+  const nodes = new Map();
+  const nodePattern = /([A-Za-z0-9_]+)\s*(?:\["([^"]+)"\]|\[([^\]]+)\]|\{"([^"]+)"\}|\{([^}]+)\})/g;
+  for (const m of graph.matchAll(nodePattern)) {
+    const label = clean(m.slice(2).find(Boolean) || '');
+    if (label && label !== 'CDD 強制發動時機') nodes.set(m[1], label);
+  }
+  const edges = [], linked = new Set();
+  const connections = graph.replace(nodePattern, '$1');
+  for (const m of connections.matchAll(/\b([A-Za-z0-9_]+)\s*(?:-->|==>|-\.->)\s*(?:\|([^|]+)\|)?\s*(?=([A-Za-z0-9_]+))/g)) {
+    const from = nodes.get(m[1]);
+    const cond = m[2] ? clean(m[2]) : '';
+    const to = nodes.get(m[3]);
+    if (from && to) {
+      edges.push(`- ${from} → ${cond ? `**【${cond}】** → ` : ''}${to}`);
+      linked.add(m[1]); linked.add(m[3]);
+    }
+  }
+  if (edges.length) return '\n\n' + [...new Set([...edges, ...[...nodes].filter(([id]) => !linked.has(id)).map(([, label]) => '- ' + label)])].join('\n') + '\n\n';
+  const labels = [...nodes.values()];
+  return labels.length ? '\n\n' + [...new Set(labels)].map(label => `- ${label}`).join('\n') + '\n\n' : '\n\n';
+}
+
 function original(raw) {
-  const source = conciseText(raw).replace(/```mermaid\s*\n([\s\S]*?)```/g, (_, graph) => {
-    const labels = [...graph.matchAll(/(?:\["([^"]+)"\]|\[([^\]]+)\]|\{"([^"]+)"\})/g)].map(match => match.slice(1).find(Boolean).replace(/<br\s*\/?>/gi,'；'));
-    return '\n\n' + [...new Set(labels)].filter(label=>label.trim()!=='CDD 強制發動時機').map(label => '- ' + label.replace(/^\s*\d+[.、]\s*/, '').replace(/；{2,}/g,'；')).join('\n') + '\n\n';
+  const source = conciseText(raw).replace(/```mermaid\s*\n([\s\S]*?)```(\s*\n\|)?/g, (_, graph, followedByTable) => {
+    const formatted = formatMermaidGraph(graph);
+    if (followedByTable && !formatted.includes('→ **【')) return '\n\n|';
+    return formatted + (followedByTable ? '\n|' : '');
   });
   return emphasizeHtml(globalThis.marked.parse(source, {renderer,gfm:true,breaks:true})
     .replace(/<(\/?)h([1-6])>/g, (_, close, level) => `<${close}h${Math.min(6,Number(level)+3)}>`)
@@ -102,11 +127,11 @@ for (const course of courses) {
   course.chapters.forEach((lesson,index) => {
     const chapter = pack.chapters.find(chapter => chapter.id === lesson.id);
     const id = course.key+'-'+lesson.id;
-    const sections = chapter.sections.filter(section => String(section.content || '').replace(/[-#*_>\s]/g,'') || section.keyPoints?.length || section.notes?.length);
+    const sections = chapter.sections.filter(section => String(section.content || '').replace(/[-#*_>\s]/g,'').length > 20 || section.keyPoints?.length || section.notes?.length);
     const entry = {chapter:id,removed:[],topics:[]};
     let topicIndex=0;
-    const guide = (index===0 && course.key!=='ethics') || course.key==='ethics';
-    const learningSections = guide ? (course.key==='ethics'&&chapter.id==='professional-ethics'?ethicsTopics:guideTopics[course.key]).map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:course.key==='esg'?'<ul>'+row[1].split('|').map(item=>'<li>'+teach(item)+'</li>').join('')+'</ul>':''})) : sections.flatMap((section,i)=>{
+    const guide = course.key==='ethics';
+    const learningSections = guide ? ethicsTopics.map((row,i)=>({section:{id:id+'-topic-'+i},topic:topicFrom(row,guideTitles[chapter.id==='professional-ethics'?chapter.id:course.key][i]),body:''})) : sections.flatMap((section,i)=>{
       if(id==='aml-aml02') {
         const topic=cddTopics[i];assert(topic,section.title);
         if(topic.overview){entry.removed.push({id:section.id,reason:'重複章首摘要，保留於章首與章節總覽'});return [];}
@@ -117,6 +142,7 @@ for (const course of courses) {
       if(/歷屆常見易錯觀念/.test(section.title)) topic={title:'常見誤判與條件辨識',core:lesson.limit,nodes:lesson.steps.map(step=>[step[0],step[1]]),example:lesson.check[0]+' '+lesson.check[1],trap:'先找題目改動的對象、條件與用詞，再回看各項規定。'};
       else if(section.title==='法規原文對照庫') topic={title:'條文與適用要件',core:'將本章觀念放回條文，依序辨認規範對象、行為與例外。',nodes:[['對象',lesson.steps[0][0]],['事項',lesson.steps[1][0]],['條件',lesson.steps[2][0]]],example:lesson.check[0]+' '+lesson.check[1],trap:lesson.limit};
       else if(/常見法規數字整理|法規與數字|常見英文縮寫|常見縮寫|題目判讀重點|題目判讀/.test(section.title)) topic=topicFrom(reviewTopics[section.title.includes('縮寫')?1:section.title.includes('判讀')?2:0],section.title.replace('歷屆題目','').replace('常見法規數字整理','數字、期間與適用情境'));
+      else if(index===0) topic={title:section.title};
       else topic=topicFrom(sectionTopics[course.key+'/'+chapter.id]?.[topicIndex++],section.title);
       return [{section,topic,body:original(section.content)}];
     });
@@ -149,15 +175,15 @@ for (const course of courses) {
 <div class="step-details" aria-live="polite">${lesson.steps.map((step,i)=>`<div class="step-detail" id="${id}-step-${i}"><span>${String(i+1).padStart(2,'0')}</span><p><strong>${escape(step[0])}：</strong>${teach(step[2])}</p></div>`).join('')}</div>
 <div class="map-footer"><button class="next-step" type="button" data-step="1">下一步 →</button></div></section></details>
 
-<section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${support.slice(0,1).map(supportHtml).join('')}${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body,course.key==='esg')).join('')}${support.slice(1).map(supportHtml).join('')}</div></section>
+<section class="source-block" aria-labelledby="${id}-source-title"><h3 id="${id}-source-title">${icon('book','summary-icon')}本章知識點</h3><div class="chapter-reading">${support.slice(0,1).map(supportHtml).join('')}${learningSections.map(({section,topic,body})=>renderTopic(topic,section,body,course.key==='esg'||(index===0&&course.key!=='ethics'))).join('')}${support.slice(1).map(supportHtml).join('')}</div></section>
 <section class="chapter-review"${course.key==='esg'?' hidden':''}><h3>判斷界線</h3><p>${teach(lesson.limit)}</p></section>
 <section class="understanding"${course.key==='esg'?' hidden':''}><h3>換個情況，怎麼判斷？</h3><p class="question-line">${teach(lesson.check[0])}</p><details class="check-answer"><summary>看看怎麼想</summary><p>${teach(lesson.check[1])}</p></details></section>
 <details class="chapter-sources"><summary>參考資料與版本</summary><p>${escape(course.name)}教材${course.key==='ethics'?'；題目依證基會 113 年版及官方勘誤整理。':'。'}</p>${references.length?'<ul>'+references.map(link=>'<li>'+link+'</li>').join('')+'</ul>':''}</details>
-<details class="practice-block"><summary>${icon('check','summary-icon')}章末練習<span class="practice-total">10 題</span><span class="chevron" aria-hidden="true">›</span></summary><p class="practice-note">核對答案後，回看不熟悉的知識點。</p>${questions.map((question,qindex)=>{
+${questions.length ? `<details class="practice-block"><summary>${icon('check','summary-icon')}章末練習<span class="practice-total">${questions.length} 題</span><span class="chevron" aria-hidden="true">›</span></summary><p class="practice-note">核對答案後，回看不熟悉的知識點。</p>${questions.map((question,qindex)=>{
       const answer=Array.isArray(question.answer)?question.answer:[question.answer];
       const qkey=id+'-q'+qindex;
-      return `<form class="practice-form" data-question-id="${escape(question.id)}" data-answer="${escape(JSON.stringify(answer))}"><div class="question-source"><span>QUESTION ${String(qindex+1).padStart(2,'0')} / 10</span><span>${escape([question.sourceExam?.term,question.sourceExam?.subject,question.sourceExam?.number?'第 '+question.sourceExam.number+' 題':''].filter(Boolean).join(' · '))}</span></div><fieldset><legend><small>${question.type==='multiple-choice'?'複選題，可選多項':'單選題'}</small>${escape(readableText(question.question))}</legend>${question.options.map((option,i)=>`<label class="option"><input type="${question.type==='multiple-choice'?'checkbox':'radio'}" name="${qkey}" value="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span><span>${escape(readableText(option))}</span></label>`).join('')}</fieldset><button class="check-question" type="submit">核對答案</button><p class="quiz-feedback" role="status" hidden></p></form>`;
-    }).join('')}</details>
+      return `<form class="practice-form" data-question-id="${escape(question.id)}" data-answer="${escape(JSON.stringify(answer))}"><div class="question-source"><span>QUESTION ${String(qindex+1).padStart(2,'0')} / ${questions.length}</span><span>${escape([question.sourceExam?.term,question.sourceExam?.subject,question.sourceExam?.number?'第 '+question.sourceExam.number+' 題':''].filter(Boolean).join(' · '))}</span></div><fieldset><legend><small>${question.type==='multiple-choice'?'複選題，可選多項':'單選題'}</small>${escape(readableText(question.question))}</legend>${question.options.map((option,i)=>`<label class="option"><input type="${question.type==='multiple-choice'?'checkbox':'radio'}" name="${qkey}" value="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span><span>${escape(readableText(option))}</span></label>`).join('')}</fieldset><button class="check-question" type="submit">核對答案</button><p class="quiz-feedback" role="status" hidden></p></form>`;
+    }).join('')}</details>` : ''}
 <footer class="lesson-bottom"><nav class="lesson-navigation" aria-label="章節前後導覽"><a href="#${course.key}-${prev.id}"><span>${index===0?'本科起點':'上一章'}</span>← ${escape(index===0?'全景導讀':course.chapters[index-1].headline)}</a><a href="#${course.key}-${next.id}"><span>${index===course.chapters.length-1?'回到本科導讀':'接著看'}</span>${escape(next.headline)} →</a></nav></footer>
 </article>`);
   });

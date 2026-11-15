@@ -368,8 +368,22 @@
           <div style="font-weight:700;font-size:0.95rem;">${escapeHtml(chapter.title)}</div>
           <div style="font-size:0.8rem;color:var(--text-muted);">已練 ${practiced} / ${total} 題 · 累計 ${attempts} 次</div>
         </div>
-        <div>${badgeHtml}</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;">${badgeHtml}<button type="button" class="btn btn-secondary btn-chapter-quiz" style="padding:0.25rem 0.6rem;font-size:0.8rem;" ${total ? '' : 'disabled'}>練題</button></div>
       `;
+      item.style.cursor = 'pointer';
+      item.title = '點擊前往閱讀本章';
+      item.onclick = (e) => {
+        if (e.target.closest('.btn-chapter-quiz')) {
+          e.stopPropagation();
+          startQuiz('chapter', chapter.id, Math.min(20, total));
+          return;
+        }
+        currentChapterId = chapter.id;
+        progress.lastPosition.chapterId = chapter.id;
+        progress.lastPosition.sectionId = '';
+        saveProgress();
+        switchView('reader');
+      };
       weaknessList.appendChild(item);
     });
   }
@@ -380,7 +394,7 @@
   }
 
   function learningUnitHtml(unit) {
-    return `<div id="knowledge-${escapeHtml(unit.id)}" class="learning-unit knowledge-topic">${unit.blocks.map(block=>`<div class="learning-unit-block" data-depth="${escapeHtml(block.depth)}"><h4>${escapeHtml(block.title)}</h4>${window.StudyContent.render(block.content)}</div>`).join('')}<details><summary>考試範圍</summary><p>${escapeHtml(unit.officialScope?.item||'請對照本科官方大綱')}。</p></details></div>`;
+    return `<div id="knowledge-${escapeHtml(unit.id)}" class="learning-unit knowledge-topic">${unit.blocks.map(block=>`<div class="learning-unit-block" data-depth="${escapeHtml(block.depth)}"><h4>${escapeHtml(block.title)}</h4>${window.StudyContent.render(block.content)}</div>`).join('')}</div>`;
   }
   function answerIsCorrect(question, selected) {
     if (question.type !== 'multiple-choice') return selected === question.answer;
@@ -592,13 +606,32 @@
       });
     }
 
+    // 信託科等固定深色 SVG 圖表改為預設收合，避免淺色模式下形成突兀黑塊
+    container.querySelectorAll('img[src^="data:image/svg+xml"]').forEach(img => {
+      if (img.closest('details.svg-chart-toggle')) return;
+      const details = document.createElement('details');
+      details.className = 'svg-chart-toggle';
+      details.style.margin = '0.75rem 0';
+      const summary = document.createElement('summary');
+      summary.textContent = img.alt ? `展開圖解：${img.alt}` : '展開圖解';
+      summary.style.cursor = 'pointer';
+      summary.style.fontWeight = '600';
+      img.parentNode.insertBefore(details, img);
+      details.appendChild(summary);
+      details.appendChild(img);
+    });
+
     // 上一章、下一章按鈕狀態
     const currIdx = pack.chapters.findIndex(c => c.id === ch.id);
     const prevBtn = document.getElementById('btn-prev-chapter');
     const nextBtn = document.getElementById('btn-next-chapter');
+    const topPrevBtn = document.getElementById('btn-top-prev-chapter');
+    const topNextBtn = document.getElementById('btn-top-next-chapter');
 
     prevBtn.disabled = currIdx <= 0;
     nextBtn.disabled = currIdx >= pack.chapters.length - 1;
+    if (topPrevBtn) topPrevBtn.disabled = prevBtn.disabled;
+    if (topNextBtn) topNextBtn.disabled = nextBtn.disabled;
 
     prevBtn.onclick = () => {
       if (currIdx > 0) {
@@ -615,6 +648,8 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
+    if (topPrevBtn) topPrevBtn.onclick = prevBtn.onclick;
+    if (topNextBtn) topNextBtn.onclick = nextBtn.onclick;
 
     completeBtn.onclick = () => {
       const exists = progress.completedChapters.includes(ch.id);
@@ -789,13 +824,12 @@
     if (!q) return;
 
     let actions=document.getElementById('quiz-question-actions');
-    if(!actions){actions=document.createElement('details');actions.id='quiz-question-actions';document.getElementById('quiz-options-container').after(actions);}
+    if(!actions){actions=document.createElement('div');actions.id='quiz-question-actions';actions.style.marginBottom='0.75rem';document.getElementById('quiz-stem').before(actions);}
     actions.replaceChildren(createQuestionActions(q,()=>{
       if(!quizState.submitted[q.id]){quizState.pool.splice(quizState.currentIndex,1);delete quizState.answers[q.id];}
       else quizState.currentIndex++;
       if(quizState.currentIndex>=quizState.pool.length)showQuizSummary();else renderQuizCard();
     }));
-    const toolsSummary=document.createElement('summary');toolsSummary.textContent='其他題目功能';actions.prepend(toolsSummary);
     const total = quizState.pool.length;
     const currentNum = quizState.currentIndex + 1;
 
@@ -869,9 +903,14 @@
             quizState.answers[q.id] = arr.sort((a, b) => a - b);
           } else {
             quizState.answers[q.id] = optIdx;
-            // 單選點選後直接提供提交按鈕點擊，也可點選後立即作答
           }
           renderQuizCard();
+        };
+        optDiv.ondblclick = () => {
+          if (q.type !== 'multiple-choice') {
+            quizState.answers[q.id] = optIdx;
+            document.getElementById('btn-quiz-submit').click();
+          }
         };
       }
 
@@ -905,11 +944,29 @@
         ansLabel = letters[q.answer] || q.answer + 1;
       }
 
+      const relatedSnippet = !q.explanation ? (() => {
+        const ch = pack.chapters.find(c => c.id === q.chapterId);
+        if (!ch || !ch.sections?.length) return '';
+        const keywords = (q.question || '').replace(/[^\u4e00-\u9fa5A-Za-z0-9]/g, ' ').split(/\s+/).filter(w => w.length >= 2).slice(0, 6);
+        let bestSec = ch.sections.find(s => s.id === q.sectionId);
+        if (!bestSec && keywords.length) {
+          let bestScore = 0;
+          for (const sec of ch.sections) {
+            const hay = `${sec.title} ${sec.content || ''}`;
+            const score = keywords.reduce((sum, kw) => sum + (hay.includes(kw) ? 1 : 0), 0);
+            if (score > bestScore) { bestScore = score; bestSec = sec; }
+          }
+        }
+        if (!bestSec) return '';
+        const plain = String(bestSec.content || '').replace(/[#*_`>|[\]]/g, '').replace(/\s+/g, ' ').trim();
+        return plain ? `<p style="font-size:0.875rem;color:var(--text-muted);margin-top:0.5rem;">📖 <strong>${escapeHtml(bestSec.title)}</strong>：${escapeHtml(plain.slice(0, 120))}${plain.length > 120 ? '…' : ''}</p>` : '';
+      })() : '';
+
       feedbackBox.innerHTML = `
         <div style="font-weight:800;font-size:1.05rem;">
           ${isCorrect ? '✓ 作答正確！' : '這題再看一次。'} (正確答案：${ansLabel})
         </div>
-        ${q.explanation ? `<p>解析：${escapeHtml(q.explanation)}</p>` : ''}
+        ${q.explanation ? `<p>解析：${escapeHtml(q.explanation)}</p>` : relatedSnippet}
         ${hasTeachingChapter(q.chapterId) ? '<button type="button" class="btn btn-secondary" id="btn-answer-reader">回到相關教材</button>' : ''}
       `;
       const readerButton = document.getElementById('btn-answer-reader');
@@ -949,11 +1006,29 @@
     };
   }
 
+  function findBestSectionForQuestion(question) {
+    const ch = pack.chapters.find(c => c.id === question.chapterId);
+    if (!ch) return null;
+    const secs = readingSections(ch);
+    if (!secs.length) return null;
+    const direct = secs.find(s => s.id === question.sectionId);
+    if (direct) return direct;
+    const keywords = (question.question || '').replace(/[^\u4e00-\u9fa5A-Za-z0-9]/g, ' ').split(/\s+/).filter(w => w.length >= 2).slice(0, 6);
+    if (!keywords.length) return null;
+    let bestSec = null, bestScore = 0;
+    for (const sec of secs) {
+      const hay = `${sec.title} ${sec.content || ''}`;
+      const score = keywords.reduce((sum, kw) => sum + (hay.includes(kw) ? 1 : 0), 0);
+      if (score > bestScore) { bestScore = score; bestSec = sec; }
+    }
+    return bestSec;
+  }
+
   function openRelatedChapter(question) {
     if(question.knowledgeIds?.some(id=>openKnowledge(id)))return;
     currentChapterId = question.chapterId;
-    const chapter = pack.chapters.find(ch => ch.id === question.chapterId);
-    progress.lastPosition = {chapterId:question.chapterId, sectionId:chapter && readingSections(chapter).some(s => s.id === question.sectionId) ? question.sectionId : ''};
+    const bestSec = findBestSectionForQuestion(question);
+    progress.lastPosition = {chapterId:question.chapterId, sectionId:bestSec ? bestSec.id : ''};
     switchView('reader');
   }
   function openKnowledge(id) {
@@ -1352,6 +1427,21 @@
     };
     window.addEventListener('hashchange',openLocation);
     openLocation();
+    document.addEventListener('keydown', e => {
+      if (currentView !== 'quiz' || !quizState.active) return;
+      if (e.ctrlKey || e.metaKey || e.altKey || e.target?.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(e.target?.tagName)) return;
+      const key = e.key.toLowerCase();
+      const idx = ['1','2','3','4'].indexOf(key) !== -1 ? ['1','2','3','4'].indexOf(key) : ['a','b','c','d'].indexOf(key);
+      if (idx !== -1) {
+        const opt = document.querySelectorAll('#quiz-options-container .option-item')[idx];
+        if (opt) { e.preventDefault(); opt.click(); }
+      } else if (e.key === 'Enter') {
+        const nextBtn = document.getElementById('btn-quiz-next');
+        const submitBtn = document.getElementById('btn-quiz-submit');
+        if (nextBtn && nextBtn.style.display !== 'none') { e.preventDefault(); nextBtn.click(); }
+        else if (submitBtn && !submitBtn.disabled && submitBtn.style.display !== 'none') { e.preventDefault(); submitBtn.click(); }
+      }
+    });
   }
 
   // 啟動應用程式

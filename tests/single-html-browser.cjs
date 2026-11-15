@@ -18,7 +18,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    if(page==='歷屆考古題_完整題庫大全.html'){await frame.locator('.q-text').first().waitFor();continue;}
    await frame.locator('#btn-quick-ten').click();
    assert.equal(await frame.locator('#quiz-progress-text').innerText(),'第 1 / 10 題');
-   await frame.locator('#quiz-question-actions>summary').click();assert(await frame.locator('.answer-search').first().isVisible());
+   assert(await frame.locator('#quiz-question-actions .answer-search').first().isVisible());
    await frame.locator('#quiz-options-container .option-item').first().click();
    await frame.locator('#btn-quiz-submit').click();
    assert(await frame.locator('#quiz-feedback-box').isVisible());
