@@ -124,7 +124,7 @@ pack.chapters[1].sections[0].content += '\n\n<!-- <script>未閉合的教材範�
     await page.locator('#btn-exit-quiz').click();
     assert.equal(await page.locator('#quiz-summary-count').innerText(),'1 / 6');
     assert.equal(await page.locator('#quiz-summary-title').innerText(),'測驗已結束');
-    await page.waitForFunction(key=>JSON.parse(localStorage.getItem(key)).quizHistory[0].questionCount===1,key);
+    await page.waitForFunction(key=>JSON.parse(localStorage.getItem(key)).quizHistory?.[0]?.questionCount===1,key);
     assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).quizHistory[0].questionCount,key),1);
     results.push('PASS: early finish shows a partial summary and saves only answered questions; escaped-character search preserves text');
     results.push('PASS: Markdown rendering, no MD links, native keyboard answers, first-answer count, multi-choice, summary, wrong resolution, related section and reload');

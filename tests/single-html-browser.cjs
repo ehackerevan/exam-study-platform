@@ -25,6 +25,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
    const packId=await frame.locator('body').evaluate(()=>window.__STUDY_PACK__.id);
    await frame.locator('#btn-exit-quiz').click();await frame.locator('#study-catalog-nav a').click();
    await frame.locator('.subject-card').first().waitFor();
+   await p.waitForFunction(id=>Object.values(JSON.parse(localStorage.getItem(`study-pack.${id}.progress`)||'{}').questionStats||{}).some(s=>s.attempts===1),packId);
    assert(await p.evaluate(id=>Object.values(JSON.parse(localStorage.getItem(`study-pack.${id}.progress`)).questionStats).some(s=>s.attempts===1),packId));
   }
   await p.evaluate(()=>window.openStudyPage('防制洗錢與打擊資恐重點教材.html','?view=reader'));
