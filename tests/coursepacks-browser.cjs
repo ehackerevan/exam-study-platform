@@ -148,6 +148,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
      await page.locator('#btn-quiz-next').click();
     }
     assert.equal(await page.locator('#quiz-summary-accuracy').textContent(),'100%');
+    await page.waitForFunction(({key,group})=>{const data=JSON.parse(localStorage.getItem(key)||'{}');return (data.quizHistory||[]).some(record=>record.featuredGroup===group&&record.accuracy===100&&record.correctCount===10&&record.questionCount===10);},{key:`study-pack.${pack.id}.progress`,group});
     await page.reload();await openView(page,'quiz');await page.locator('#quiz-advanced').evaluate(el=>el.open=true);
     assert((await page.locator('#quiz-history-list').textContent()).includes(`精選題組 ${group.replace(/^c/, '')}｜100%（10/10）`));
    }
