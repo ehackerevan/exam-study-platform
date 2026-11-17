@@ -145,14 +145,14 @@
       if(hide.disabled)return;hide.disabled=true;
       const saved=setQuestionMark('hiddenQuestionIds',question.id,true);
       let notice=document.getElementById('question-mark-notice');
-      if(!notice){notice=document.createElement('div');notice.id='question-mark-notice';notice.setAttribute('role','status');document.body.append(notice);}
+      if(!notice){notice=document.createElement('div');notice.id='question-mark-notice';notice.setAttribute('role','status');}
       const status=document.createTextNode('本頁已隱藏，保存中。 ');let operation=0;
       notice.replaceChildren(status);
       saved.then(ok=>{if(operation===0)status.textContent=ok?'已隱藏，之後不再出題。 ':'本頁已隱藏但尚未保存，重新整理可能再次出現。 ';});
       const undo=document.createElement('button');undo.type='button';undo.className='btn btn-secondary';undo.textContent='復原';
       undo.onclick=async()=>{if(undo.disabled)return;undo.disabled=true;operation++;status.textContent='本頁已恢復，恢復中。 ';const ok=await setQuestionMark('hiddenQuestionIds',question.id,false);status.textContent=ok?'已恢復，可再次出題。':'本頁已恢復，但恢復尚未保存，重新整理後仍可能隱藏。';};notice.append(undo);
       const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='btn btn-secondary';dismiss.textContent='關閉';dismiss.onclick=()=>notice.remove();notice.append(dismiss);
-      onHide();undo.focus();
+      onHide(notice);undo.focus({preventScroll:true});
     };
     bar.append(favorite,hide);return bar;
   }
@@ -440,7 +440,12 @@
           <span>${String.fromCharCode(65 + optionIndex)}. ${escapeHtml(option)}</span></label>`).join('')}</div></fieldset>
         <p class="chapter-inline-feedback" role="status" tabindex="-1">${submitted ? `${state.correct ? '作答正確' : '作答錯誤'}；正確答案：${answers.map(value => String.fromCharCode(65 + value)).join('、')}${question.explanation ? '。解析：' + escapeHtml(question.explanation) : ''}` : ''}</p>
         <button class="btn ${submitted ? 'btn-secondary' : 'btn-primary'}" type="submit">${submitted ? '重新作答' : '送出答案'}</button>`;
-      form.prepend(createQuestionActions(question,()=>renderReader()));
+      form.prepend(createQuestionActions(question,notice=>{
+        const top=window.scrollY;renderReader();
+        const preview=document.getElementById('chapter-practice-preview'),next=preview.querySelectorAll('.chapter-practice-question')[index];
+        if(next)next.before(notice);else preview.append(notice);
+        requestAnimationFrame(()=>window.scrollTo({top,behavior:'instant'}));
+      }));
       window.StudyMetrics?.question(question.id, form);
       form.onchange = () => {
         const values = [...form.querySelectorAll('input:checked')].map(input => Number(input.value));
@@ -836,10 +841,11 @@
 
     let actions=document.getElementById('quiz-question-actions');
     if(!actions){actions=document.createElement('div');actions.id='quiz-question-actions';actions.style.marginBottom='0.75rem';document.getElementById('quiz-stem').before(actions);}
-    actions.replaceChildren(createQuestionActions(q,()=>{
+    actions.replaceChildren(createQuestionActions(q,notice=>{
       if(!quizState.submitted[q.id]){quizState.pool.splice(quizState.currentIndex,1);delete quizState.answers[q.id];}
       else quizState.currentIndex++;
-      if(quizState.currentIndex>=quizState.pool.length)showQuizSummary();else renderQuizCard();
+      if(quizState.currentIndex>=quizState.pool.length){showQuizSummary();document.getElementById('quiz-summary-panel').prepend(notice);}
+      else{renderQuizCard();document.getElementById('quiz-question-actions').before(notice);}
     }));
     const total = quizState.pool.length;
     const currentNum = quizState.currentIndex + 1;

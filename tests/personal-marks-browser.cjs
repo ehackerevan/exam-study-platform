@@ -26,8 +26,8 @@ const {pathToFileURL}=require('node:url');const {chromium}=require('playwright')
  await page.locator('#quiz-options-container .option-item').first().click();await page.locator('#btn-quiz-submit').click();await openQuestionTools(page);await page.locator('#quiz-question-actions .question-hide').click();
  await page.waitForFunction(k=>JSON.parse(localStorage.getItem(k)||'{}').quizHistory?.[0]?.questionCount===1,key);
  assert.equal((await state()).quizHistory[0].questionCount,1);assert.equal((await state()).questionStats.q0.attempts,1);
- await page.locator('#btn-quiz-back-menu').click();await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
  await page.locator('#question-mark-notice').getByRole('button',{name:'關閉',exact:true}).click();
+ await page.locator('#btn-quiz-back-menu').click();await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
  await page.screenshot({path:'.qa-artifacts/personal-marks-mobile.png',fullPage:true});assert.deepEqual(errors,[]);console.log('PASS: favorites, hidden precedence, reload, restore, chapter backfill, unanswered skip, submitted history, mobile');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1)});
