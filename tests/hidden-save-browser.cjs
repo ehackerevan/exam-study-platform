@@ -8,9 +8,18 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
  const open=async()=>{await page.goto(url);await page.locator('#chapter-practice-title').click();};
  try{
   page.setDefaultTimeout(10000);
-  await open();await page.evaluate(()=>{const replace=window.StudyProgress.replace;window.StudyProgress.replace=(...args)=>new Promise((resolve,reject)=>{window.finishSave=()=>replace(...args).then(resolve,reject);});});
+  await open();await page.evaluate(()=>{
+   const replace=window.StudyProgress.replace;let held=false;
+   window.StudyProgress.replace=(...args)=>{
+    if(held||!JSON.parse(args[2]).hiddenQuestionIds.includes('q0'))return replace(...args);
+    held=true;return new Promise((resolve,reject)=>{window.finishSave=()=>replace(...args).then(resolve,reject);});
+   };
+  });
+  // Reader-position saves may enter the same queue before the hide snapshot.
+  await page.locator('#reader-section-select').dispatchEvent('change');
   await page.locator('.question-hide').first().click();
   assert((await page.locator('#question-mark-notice').innerText()).includes('保存中'));
+  assert(!(await page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'{}').hiddenQuestionIds?.includes('q0'),key)));
   await page.waitForFunction(()=>typeof window.finishSave==='function');await page.evaluate(()=>window.finishSave());
   await page.waitForFunction(()=>document.querySelector('#question-mark-notice').textContent.includes('已隱藏，之後不再出題'));
   await page.reload();await page.locator('#chapter-practice-title').click();
