@@ -127,12 +127,13 @@
   function setQuestionMark(field,id,enabled){
     if(!questionIds.has(id))return;
     progress[field]=enabled?[...new Set([...progress[field],id])]:progress[field].filter(value=>value!==id);
-    saveProgress();
+    const saved=saveProgress();
     for(const button of document.querySelectorAll('.question-favorite')){
       const selected=progress.favoriteQuestionIds.includes(button.dataset.questionId);
       button.textContent=selected?'★ 已收藏':'☆ 加入收藏';button.setAttribute('aria-pressed',String(selected));
     }
     renderQuestionManager();
+    return saved;
   }
   function createQuestionActions(question,onHide){
     const bar=document.createElement('div');bar.className='question-actions';
@@ -141,12 +142,15 @@
     favorite.onclick=()=>setQuestionMark('favoriteQuestionIds',question.id,!progress.favoriteQuestionIds.includes(question.id));
     const hide=document.createElement('button');hide.type='button';hide.className='btn btn-secondary question-hide';hide.textContent='隱藏題目';
     hide.onclick=()=>{
-      setQuestionMark('hiddenQuestionIds',question.id,true);
+      if(hide.disabled)return;hide.disabled=true;
+      const saved=setQuestionMark('hiddenQuestionIds',question.id,true);
       let notice=document.getElementById('question-mark-notice');
       if(!notice){notice=document.createElement('div');notice.id='question-mark-notice';notice.setAttribute('role','status');document.body.append(notice);}
-      notice.replaceChildren(document.createTextNode('已隱藏，之後不再出題。 '));
+      const status=document.createTextNode('本頁已隱藏，保存中。 ');let operation=0;
+      notice.replaceChildren(status);
+      saved.then(ok=>{if(operation===0)status.textContent=ok?'已隱藏，之後不再出題。 ':'本頁已隱藏但尚未保存，重新整理可能再次出現。 ';});
       const undo=document.createElement('button');undo.type='button';undo.className='btn btn-secondary';undo.textContent='復原';
-      undo.onclick=()=>{setQuestionMark('hiddenQuestionIds',question.id,false);notice.textContent='已恢復，可再次出題。';};notice.append(undo);
+      undo.onclick=async()=>{if(undo.disabled)return;undo.disabled=true;operation++;status.textContent='本頁已恢復，恢復中。 ';const ok=await setQuestionMark('hiddenQuestionIds',question.id,false);status.textContent=ok?'已恢復，可再次出題。':'本頁已恢復，但恢復尚未保存，重新整理後仍可能隱藏。';};notice.append(undo);
       const dismiss=document.createElement('button');dismiss.type='button';dismiss.className='btn btn-secondary';dismiss.textContent='關閉';dismiss.onclick=()=>notice.remove();notice.append(dismiss);
       onHide();undo.focus();
     };
@@ -164,7 +168,14 @@
     for(const question of matches.slice(0,50)){
       const item=document.createElement('li'),label=document.createElement('span');label.textContent=question.question;
       const restore=document.createElement('button');restore.type='button';restore.className='btn btn-secondary';restore.textContent='恢復出題';
-      restore.onclick=()=>{setQuestionMark('hiddenQuestionIds',question.id,false);panel.querySelector('#hidden-question-search').focus();};item.append(label,restore);list.append(item);
+      restore.onclick=async()=>{
+        if(restore.disabled)return;restore.disabled=true;
+        let status=panel.querySelector('#question-restore-status');
+        if(!status){status=document.createElement('p');status.id='question-restore-status';status.setAttribute('role','status');panel.append(status);}
+        const message=document.createTextNode('本頁已恢復，保存中。');status.replaceChildren(message);
+        const saving=setQuestionMark('hiddenQuestionIds',question.id,false);panel.querySelector('#hidden-question-search').focus();
+        message.textContent=await saving?'已恢復，可再次出題。':'本頁已恢復，但恢復尚未保存，重新整理後仍可能隱藏。';
+      };item.append(label,restore);list.append(item);
     }
     panel.querySelector('#hidden-question-count').textContent=matches.length?`符合 ${matches.length} 題${matches.length>50?'，顯示前 50 題；可搜尋縮小範圍。':''}`:'沒有符合的隱藏題目。';
   }

@@ -41,8 +41,22 @@ export function attachBankAchievements(html) {
     const key=q=>JSON.stringify([q.category,String(q.period).replace(/^第\\s*(\\d+)\\s*[屆期]$/,'$1'),q.subject,Number(q.number)]);
     const score=document.createElement('p');score.id='bank-score';score.setAttribute('role','status');document.getElementById('questionsContainer').before(score);
     window.StudyBankPractice.configure(packs);
+    const hiddenNote=document.createElement('p');hiddenNote.id='bank-hidden-note';hiddenNote.setAttribute('role','status');score.before(hiddenNote);
     const original=renderQuestions;
-    renderQuestions=function(list){original(list);const cards=[...document.querySelectorAll('#questionsContainer>.q-card')];list.slice(0,300).forEach((q,i)=>{const match=links[key(q)];if(match&&cards[i]){const card=cards[i];card.dataset.savedPractice='true';card.querySelector('.options-list').replaceWith(window.StudyBankPractice.createCard({...q,...match},true));card.querySelector('.btn-reveal').onclick=()=>{const expected=String(q.answer).split(',').map(x=>Number(x.trim())-1);card.querySelectorAll('label').forEach((label,index)=>{if(expected.includes(index))label.classList.add('correct');});const feedback=card.querySelector('.bank-feedback');feedback.textContent='標準答案：'+expected.map(i=>String.fromCharCode(65+i)).join('、')+'。查看答案不計入學習進度。';};}});window.StudyBankPractice.updateScore();};
+    let hiddenSnapshot='';
+    function readHidden(){
+      const hidden=new Map();let unreadable=false;
+      for(const pack of packs){try{const raw=localStorage.getItem('study-pack.'+pack.id+'.progress');const data=raw?window.StudyProgress.validate(JSON.parse(raw),pack.id):null;hidden.set(pack.id,new Set(data?.hiddenQuestionIds||[]));}catch{unreadable=true;}}
+      return {hidden,unreadable,snapshot:JSON.stringify([[...hidden].map(([id,ids])=>[id,[...ids].sort()]),unreadable])};
+    }
+    renderQuestions=function(list){
+      const {hidden,unreadable,snapshot}=readHidden();hiddenSnapshot=snapshot;
+      const visible=list.filter(q=>{const match=links[key(q)];return !match||!hidden.get(match.packId)?.has(match.id);});
+      hiddenNote.textContent='依本機訪客紀錄排除已隱藏題號；僅適用可對照的題目，其他考期題號不連帶隱藏。'+(list.length>visible.length?' 本次排除 '+(list.length-visible.length)+' 題。':'')+(unreadable?' 部分進度無法讀取，相關題目暫時顯示；原紀錄未覆寫。':'');
+      original(visible);const cards=[...document.querySelectorAll('#questionsContainer>.q-card')];visible.slice(0,300).forEach((q,i)=>{const match=links[key(q)];if(match&&cards[i]){const card=cards[i];card.dataset.savedPractice='true';card.querySelector('.options-list').replaceWith(window.StudyBankPractice.createCard({...q,...match},true));card.querySelector('.btn-reveal').onclick=()=>{const expected=String(q.answer).split(',').map(x=>Number(x.trim())-1);card.querySelectorAll('label').forEach((label,index)=>{if(expected.includes(index))label.classList.add('correct');});const feedback=card.querySelector('.bank-feedback');feedback.textContent='標準答案：'+expected.map(i=>String.fromCharCode(65+i)).join('、')+'。查看答案不計入學習進度。';};}});window.StudyBankPractice.updateScore();
+    };
+    const refreshHidden=()=>{if(readHidden().snapshot!==hiddenSnapshot)applyFilters();};
+    window.addEventListener('storage',event=>{if(event.key===null||packs.some(pack=>event.key==='study-pack.'+pack.id+'.progress'))refreshHidden();});window.addEventListener('focus',refreshHidden);window.addEventListener('pageshow',refreshHidden);
     applyFilters();
   })();`;
   console.log(`Bank achievement mapping: ${Object.keys(links).length} included / ${raw.length - Object.keys(links).length} excluded (ambiguous or not identical)`);
