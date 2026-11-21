@@ -52,6 +52,6 @@ for(const course of courses){
  attachLearningUnits(pack);
  fs.writeFileSync(file,compileStudyPackToHtml(pack,{includeExplanations:course.key==='esg'}).html);
 }
-assert.equal(chapters,38);assert.equal(topics,171);
+assert.equal(chapters,40);assert.equal(topics,200);
 console.log(`Integrated teaching: ${chapters} chapters, ${topics} topics; source questions unchanged`);
 writeIntegratedText();

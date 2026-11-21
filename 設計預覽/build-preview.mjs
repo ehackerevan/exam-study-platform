@@ -153,7 +153,7 @@ for (const course of courses) {
     assert(lesson.steps.length>=3 && lesson.steps.length<=5,id+' step count');
     const practiceIds = chapter.practiceQuestionIds?.length ? chapter.practiceQuestionIds : pack.questions.filter(q=>q.chapterId===chapter.id).slice(0,10).map(q=>q.id);
     const questions = practiceIds.map(id => questionById.get(id));
-    assert.equal(questions.length,10,id+' preserves ten practice questions');
+    if (!lesson.noPracticeQuestions) assert.equal(questions.length,10,id+' preserves ten practice questions');
     questions.forEach(question => assert(question,id+' question exists'));
     totals.chapters++;totals.questions+=questions.length;
     const originalFile = course.key==='trust' ? (index===0?'scripts/build-coursepacks.js（導讀）':`教材/${course.source}/course_data.json · ${chapter.id}`)
@@ -191,7 +191,7 @@ ${questions.length ? `<details class="practice-block"><summary>${icon('check','s
 
 const css = fs.readFileSync(path.join(dir,'preview.css'),'utf8');
 const js = fs.readFileSync(path.join(dir,'preview.js'),'utf8').replace(/<\/script/gi,'<\\/script');
-const html = `<!doctype html><html lang="zh-Hant" class="without-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="六科38章教材白話圖解：先看角色與關係，依知識點讀懂規定與情境，再以十題練習核對理解。獨立設計預覽。"><title>各科教材・白話圖解｜設計預覽</title><link rel="icon" href="data:,"><style>${css}</style></head><body>
+const html = `<!doctype html><html lang="zh-Hant" class="without-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="六科40章教材白話圖解：先看角色與關係，依知識點讀懂規定與情境，再以十題練習核對理解。獨立設計預覽。"><title>各科教材・白話圖解｜設計預覽</title><link rel="icon" href="data:,"><style>${css}</style></head><body>
 <a class="skip-link" href="#main-content">跳到教材內容</a><header class="site-header"><div class="brand">${icon('map','brand-mark')}<div><h1>各科教材・白話圖解</h1><small>LEARNING NOTES / 2026</small></div></div><span class="preview-tag">設計預覽</span></header>
 <noscript><p class="noscript">目前未啟用 JavaScript，所有章節仍可依序閱讀，教材直接顯示，理解答案可展開；選答核對需要啟用 JavaScript。</p></noscript>
 <div class="workspace"><aside class="sidebar" aria-label="選科與章節目錄"><div class="subject-field"><label class="field-label" for="subject-select">選擇科目</label><select id="subject-select">${courses.map(course=>`<option value="${course.key}">${escape(course.name)}</option>`).join('')}</select></div><details class="chapter-picker" open><summary>章節目錄</summary>${navigation.join('')}</details></aside><main id="main-content" tabindex="-1">${lessons.join('\n')}</main></div>
