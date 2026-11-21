@@ -55,7 +55,7 @@ export function loadSourcesFromDirectory(sourceDir) {
           }
         } else if (ext === '.json') {
           jsons.push(readUtf8File(fullPath));
-        } else if (ext === '.md' || ext === '.markdown') {
+        } else if ((ext === '.md' || ext === '.markdown') && base !== 'readme.md') {
           markdowns.push(readUtf8File(fullPath));
         } else if (ext === '.csv') {
           csvQuestions.push(readUtf8File(fullPath));
