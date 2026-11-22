@@ -527,14 +527,16 @@ body::before, body::after, .catalog-header::before { display: none; }
         <span class="storage-warning-icon">⚠️</span>
         <span id="storage-warning-message" class="storage-warning-text">本機儲存空間讀寫異常，目前進度僅暫存於記憶體中，重新整理可能遺失！</span>
       </div>
-      <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button>
+      <button type="button" class="btn btn-secondary btn-sm" id="btn-storage-warning-export">立即匯出備份</button><button type="button" class="btn btn-secondary" id="btn-storage-retry">重試保存</button><button type="button" class="btn btn-secondary" id="btn-storage-overwrite" hidden>以本頁覆蓋</button><button type="button" class="btn btn-secondary" id="btn-storage-discard" hidden>放棄本頁改讀已保存進度</button>
     </div>
 
     <section id="view-home" class="view-panel">
       <div class="home-intro"><h1 id="home-course"></h1></div>
       <div class="home-grid"><article class="home-start simple-card"><h2 id="home-chapter"></h2><button type="button" class="btn btn-primary" id="btn-home-start">讀教材 →</button><button type="button" class="btn btn-secondary" id="btn-home-practice">題庫練習</button></article>
       <article class="home-progress simple-card"><h2>題庫完成度</h2><strong class="completion-value" id="home-completion">0%</strong><p id="home-completion-count"></p><progress id="home-completion-bar" value="0" max="1" aria-label="題庫完成度"></progress></article></div>
+<p id="home-data-error" role="alert" hidden>首頁資料載入失敗，請重新載入。</p><div class="home-grid"><article class="simple-card"><h2>學習統計</h2><p id="home-statistics">資料載入失敗，請重新載入。</p></article><article class="simple-card"><h2>官方連結</h2><div id="home-official-links">資料載入失敗，請重新載入。</div></article><article class="simple-card"><h2>合格標準</h2><p>考試題型、配分、及格標準與報考資格，請以報考當期官方簡章為準。</p></article></div>
     </section>
+    <button type="button" class="btn btn-secondary" id="btn-storage-recovery-export" hidden>匯出衝突前兩側紀錄</button>
     <section id="view-progress" class="view-panel"><div class="home-intro"><h1>我的進度</h1></div><div id="progress-content"></div></section>
     <!-- 2. 章節閱讀 Reader -->
     <section id="view-reader" class="view-panel active">
