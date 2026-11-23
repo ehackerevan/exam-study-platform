@@ -17,9 +17,17 @@ const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRI
    const questions=p.locator(pack?'#quiz-stem':'.q-text');
    if(!await questions.count())continue;
    await p.waitForFunction(()=>[...document.querySelectorAll('#quiz-stem,.q-text')].every(q=>(q.id==='quiz-stem'?document.querySelector('#quiz-question-actions .answer-search'):q.nextElementSibling)?.classList.contains('answer-search')));
+   if(pack){
+    const stem=await p.locator('#quiz-stem').textContent();
+    await p.locator('#quiz-stem').evaluate(node=>{const metric=document.createElement('span');metric.dataset.metricsQuestion='regression-fixture';metric.textContent='作答 0 次';node.append(metric);});
+    await p.waitForFunction(expected=>new URL(document.querySelector('#quiz-question-actions .answer-search').href).searchParams.get('q')===expected,stem);
+    await p.locator('#quiz-stem [data-metrics-question]').evaluate(node=>{node.textContent='作答 3 次';});
+    assert.equal(await p.locator('#quiz-question-actions .answer-search').evaluate(node=>new URL(node.href).searchParams.get('q')),stem,'question metrics must not enter Google search');
+   }
    const invalid=await questions.evaluateAll(nodes=>nodes.filter(question=>{
     const link=question.id==='quiz-stem'?document.querySelector('#quiz-question-actions .answer-search'):question.nextElementSibling;
-    const stem=question.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
+    const copy=question.cloneNode(true);copy.querySelectorAll('[data-metrics-question]').forEach(node=>node.remove());
+    const stem=copy.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
     return link.textContent!=='查答案'||new URL(link.href).searchParams.get('q')!==stem||link.target!=='_blank';
    }).length);
    assert.equal(invalid,0,file);
