@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {courses} from '../設計預覽/lessons.mjs';
+import {courses} from '../03_白話圖解預覽/lessons.mjs';
 import {compileStudyPackToHtml} from '../src/core/compiler/index.js';
 import {learningSections, writeIntegratedText} from './esg-learning.js';
 import {attachLearningUnits} from './learning-units.js';
 
 // build:ui 先產生來源 pack 及預覽，再把同一份教學內容編入正式閱讀模式。
-const preview=fs.readFileSync('設計預覽/各科教材_ELI5_獨立預覽.html','utf8');
+const preview=fs.readFileSync('03_白話圖解預覽/各科教材_ELI5_獨立預覽.html','utf8');
 const text=html=>html.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'");
 let chapters=0,topics=0;
 for(const course of courses){

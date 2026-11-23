@@ -13,12 +13,12 @@ const retired = ['add_frontmatter_fintech.py', 'audit_and_clean_exam_bank.py',
 
 test('Retired maintenance tools refuse execution from another directory before reading or writing data', () => {
   const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'study-retired-'));
-  const banks = ['防制洗錢與打擊資恐重點教材', '永續發展基礎能力重點教材'].map(name => path.join(root, '教材', name, 'questions.json'));
+  const banks = ['防制洗錢與打擊資恐重點教材', '永續發展基礎能力重點教材'].map(name => path.join(root, '01_教材來源', name, 'questions.json'));
   const before = banks.map(file => fs.readFileSync(file));
   try {
     for (const file of retired) {
       assert(!fs.existsSync(path.join(root, 'scripts', file)), `${file} is not an active tool`);
-      const result = spawnSync('python', [path.join(root, '歷史資料', '已停用維護腳本', file)], {cwd, encoding:'utf8', env:{...process.env, PYTHONIOENCODING:'utf-8'}});
+      const result = spawnSync('python', [path.join(root, '05_歷史封存', '已停用維護腳本', file)], {cwd, encoding:'utf8', env:{...process.env, PYTHONIOENCODING:'utf-8'}});
       assert.ifError(result.error);
       assert.notEqual(result.status, 0, file);
       assert.match(result.stderr, /歷史腳本已停用/, file);

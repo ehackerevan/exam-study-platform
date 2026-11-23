@@ -1,0 +1,781 @@
+[
+  {
+    "packId": "trust-exam",
+    "chapterId": "c00",
+    "sourceSectionIds": [
+      "c00-sec-01",
+      "c00-章節",
+      "c00-官方資料"
+    ],
+    "displayedSectionIds": [
+      "c00-overview",
+      "trust-c00-topic-0",
+      "trust-c00-topic-1",
+      "trust-c00-topic-2",
+      "c00-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c01",
+    "sourceSectionIds": [
+      "c01-sec-01",
+      "c01-本章學習導航與核心地圖",
+      "c01-一信託的本質與概念說明",
+      "c01-二信託的分類圖表對照",
+      "c01-三信託財產的獨立性財產獨立性",
+      "c01-四信託公示制度對抗要件信託法第-4-條",
+      "c01-五脫產防線詐害信託與撤銷權信託法第-6-條第-7-條",
+      "c01-六受託人的權利義務與利益衝突迴避",
+      "c01-七信託之消滅與賸餘財產歸屬信託法第-6265-條",
+      "c01-法規原文對照庫"
+    ],
+    "displayedSectionIds": [
+      "c01-overview",
+      "c01-一信託的本質與概念說明",
+      "c01-二信託的分類圖表對照",
+      "c01-三信託財產的獨立性財產獨立性",
+      "c01-四信託公示制度對抗要件信託法第-4-條",
+      "c01-五脫產防線詐害信託與撤銷權信託法第-6-條第-7-條",
+      "c01-六受託人的權利義務與利益衝突迴避",
+      "c01-七信託之消滅與賸餘財產歸屬信託法第-6265-條",
+      "c01-法規原文對照庫",
+      "c01-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c02",
+    "sourceSectionIds": [
+      "c02-sec-01",
+      "c02-本章學習導航與核心地圖",
+      "c02-一信託業的誕生設立門檻與三道資金防線",
+      "c02-二信託業法第-25-條與第-27-條利害關係交易限制",
+      "c02-三公司治理信託財產評審委員會",
+      "c02-四監理處分與罰則體系",
+      "c02-法規原文對照庫"
+    ],
+    "displayedSectionIds": [
+      "c02-overview",
+      "c02-一信託業的誕生設立門檻與三道資金防線",
+      "c02-二信託業法第-25-條與第-27-條利害關係交易限制",
+      "c02-三公司治理信託財產評審委員會",
+      "c02-四監理處分與罰則體系",
+      "c02-法規原文對照庫",
+      "c02-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c03",
+    "sourceSectionIds": [
+      "c03-sec-01",
+      "c03-本章學習導航與核心地圖",
+      "c03-一所得稅透明水管管道穿透原則",
+      "c03-二贈與稅與遺產稅視同贈與與折現計算",
+      "c03-三土地稅地價稅與土地增值稅",
+      "c03-四契稅營業稅與印花稅速記",
+      "c03-法規原文對照庫"
+    ],
+    "displayedSectionIds": [
+      "c03-overview",
+      "c03-一所得稅透明水管管道穿透原則",
+      "c03-二贈與稅與遺產稅視同贈與與折現計算",
+      "c03-三土地稅地價稅與土地增值稅",
+      "c03-四契稅營業稅與印花稅速記",
+      "c03-法規原文對照庫",
+      "c03-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c04",
+    "sourceSectionIds": [
+      "c04-sec-01",
+      "c04-本章學習導航與核心地圖",
+      "c04-一金錢信託分類架構與概念說明",
+      "c04-二信託資金集合管理運用帳戶cit制度",
+      "c04-三集管帳戶投資防暴比率重點數字清單",
+      "c04-四外幣金錢信託實務規範"
+    ],
+    "displayedSectionIds": [
+      "c04-overview",
+      "c04-一金錢信託分類架構與概念說明",
+      "c04-二信託資金集合管理運用帳戶cit制度",
+      "c04-三集管帳戶投資防暴比率重點數字清單",
+      "c04-四外幣金錢信託實務規範",
+      "c04-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c05",
+    "sourceSectionIds": [
+      "c05-sec-01",
+      "c05-本章學習導航與核心地圖",
+      "c05-一有價證券信託核心制度",
+      "c05-二企業員工福利信託持股信託-vs-福儲信託",
+      "c05-三員工持股信託的表決權行使",
+      "c05-四退會與解約處理離職退休怎麼分"
+    ],
+    "displayedSectionIds": [
+      "c05-overview",
+      "c05-一有價證券信託核心制度",
+      "c05-二企業員工福利信託持股信託-vs-福儲信託",
+      "c05-三員工持股信託的表決權行使",
+      "c05-四退會與解約處理離職退休怎麼分",
+      "c05-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c06",
+    "sourceSectionIds": [
+      "c06-sec-01",
+      "c06-本章學習導航與核心地圖",
+      "c06-一不動產開發信託與買賣價金信託防爛尾防線",
+      "c06-二不動產證券化reits-與-reats-制度比較",
+      "c06-三金融資產證券化特殊目的信託spt與破產隔離"
+    ],
+    "displayedSectionIds": [
+      "c06-overview",
+      "c06-一不動產開發信託與買賣價金信託防爛尾防線",
+      "c06-二不動產證券化reits-與-reats-制度比較",
+      "c06-三金融資產證券化特殊目的信託spt與破產隔離",
+      "c06-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c07",
+    "sourceSectionIds": [
+      "c07-sec-01",
+      "c07-本章學習導航與核心地圖",
+      "c07-一公益信託回饋社會的法定架構信託法第-6985-條",
+      "c07-二保管機構業務基金投資人的守門員",
+      "c07-三高齡安養與身心障礙者信託信託-20-守護神"
+    ],
+    "displayedSectionIds": [
+      "c07-overview",
+      "c07-一公益信託回饋社會的法定架構信託法第-6985-條",
+      "c07-二保管機構業務基金投資人的守門員",
+      "c07-三高齡安養與身心障礙者信託信託-20-守護神",
+      "c07-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "trust-exam",
+    "chapterId": "c08",
+    "sourceSectionIds": [
+      "c08-sec-01",
+      "c08-本章使用說明",
+      "c08-一常見考點時間與期間重點整理",
+      "c08-二常見考點金額比率與避坑防線重點整理",
+      "c08-三常見考點會議與表決權門檻",
+      "c08-四何者錯誤三大逆向陷阱破題直覺法則"
+    ],
+    "displayedSectionIds": [
+      "c08-overview",
+      "c08-一常見考點時間與期間重點整理",
+      "c08-二常見考點金額比率與避坑防線重點整理",
+      "c08-三常見考點會議與表決權門檻",
+      "c08-四何者錯誤三大逆向陷阱破題直覺法則",
+      "c08-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg00",
+    "sourceSectionIds": [
+      "esg00-學習範圍",
+      "esg00-教材地圖",
+      "esg00-使用提醒"
+    ],
+    "displayedSectionIds": [
+      "esg-esg00-topic-0",
+      "esg-esg00-topic-1",
+      "esg-esg00-topic-2"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg01",
+    "sourceSectionIds": [
+      "esg01-sec-01",
+      "esg01-一永續概念與國際氣候治理",
+      "esg01--二我國-2050-淨零轉型核心戰略架構",
+      "esg01-三氣候治理與碳費制度",
+      "esg01-四ifrs-永續揭露2026-年-9-月調整重點",
+      "esg01-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg01-一國際氣候公約演進里程碑",
+      "esg01--二我國-2050-淨零轉型核心戰略架構",
+      "esg01-三氣候治理與碳費制度",
+      "esg01-四ifrs-永續揭露2026-年-9-月調整重點",
+      "esg01-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg02",
+    "sourceSectionIds": [
+      "esg02-sec-01",
+      "esg02-一溫室氣體盤查三大範疇與-iso-14064-12018-六大類別",
+      "esg02-二七種主要列管溫室氣體ghgs",
+      "esg02-三台灣環境部溫室氣體排放量盤查登錄及查驗管理辦法法定規範",
+      "esg02-四碳定價工具與臺灣碳權交易所-tcx",
+      "esg02--五歐盟碳邊境調整機制cbam",
+      "esg02-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg02-一溫室氣體盤查三大範疇與-iso-14064-12018-六大類別",
+      "esg02-二七種主要列管溫室氣體ghgs",
+      "esg02-三台灣環境部溫室氣體排放量盤查登錄及查驗管理辦法法定規範",
+      "esg02-四碳定價工具與臺灣碳權交易所-tcx",
+      "esg02--五歐盟碳邊境調整機制cbam",
+      "esg02-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg03",
+    "sourceSectionIds": [
+      "esg03-sec-01",
+      "esg03-一國際責任金融四大倡議對照",
+      "esg03-二赤道原則equator-principles-ep4",
+      "esg03-三櫃買中心tpex永續發展債券作業要點四大券種",
+      "esg03-四金管會綠色金融行動方案-30與永續金融評鑑",
+      "esg03-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg03-一國際責任金融四大倡議對照",
+      "esg03-二赤道原則equator-principles-ep4",
+      "esg03-三櫃買中心tpex永續發展債券作業要點四大券種",
+      "esg03-四金管會綠色金融行動方案-30與永續金融評鑑",
+      "esg03-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg04",
+    "sourceSectionIds": [
+      "esg04-sec-01",
+      "esg04-一tcfd-氣候財務揭露四大核心支柱",
+      "esg04-二ifrs-永續準則與金管會接軌藍圖",
+      "esg04-三gri-vs-sasb-兩大準則核心差異",
+      "esg04-四反漂綠anti-greenwashing法律防線與基金審查",
+      "esg04-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "esg04-一tcfd-氣候財務揭露四大核心支柱",
+      "esg04-二ifrs-永續準則與金管會接軌藍圖",
+      "esg04-三gri-vs-sasb-兩大準則核心差異",
+      "esg04-四反漂綠anti-greenwashing法律防線與基金審查",
+      "esg04-歷屆常見易錯觀念"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg05",
+    "sourceSectionIds": [
+      "esg05-法規與數字",
+      "esg05-常見縮寫",
+      "esg05-題目判讀"
+    ],
+    "displayedSectionIds": [
+      "esg05-法規與數字",
+      "esg05-常見縮寫",
+      "esg05-題目判讀"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "esg-sustainability-pack",
+    "chapterId": "esg06",
+    "sourceSectionIds": [
+      "esg06-sec-01",
+      "esg06-一社會與治理風險",
+      "esg06-二第三方驗證與資訊品質",
+      "esg06-三永續評等與指數",
+      "esg06-四永續授信與保險",
+      "esg06-五四類題目的判斷順序"
+    ],
+    "displayedSectionIds": [
+      "esg06-一社會與治理風險",
+      "esg06-二第三方驗證與資訊品質",
+      "esg06-三永續評等與指數",
+      "esg06-四永續授信與保險",
+      "esg06-五四類題目的判斷順序"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf00",
+    "sourceSectionIds": [
+      "cf00-sec-01",
+      "cf00-學科範圍與報考提醒"
+    ],
+    "displayedSectionIds": [
+      "cf00-overview",
+      "consumer-cf00-topic-0",
+      "consumer-cf00-topic-1",
+      "consumer-cf00-topic-2",
+      "cf00-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf01",
+    "sourceSectionIds": [
+      "cf01-sec-01",
+      "cf01-本章學習導航與核心地圖",
+      "cf01-一內部控制五大組成要素coso-架構",
+      "cf01-二銀行風險管理三道防線嚴格分工",
+      "cf01-三總稽核之法定任免與獨立超然地位",
+      "cf01-歷屆常見易錯觀念",
+      "cf01-現行內控架構核對"
+    ],
+    "displayedSectionIds": [
+      "cf01-overview",
+      "cf01-一內部控制五大組成要素coso-架構",
+      "cf01-二銀行風險管理三道防線嚴格分工",
+      "cf01-三總稽核之法定任免與獨立超然地位",
+      "cf01-歷屆常見易錯觀念",
+      "cf01-現行內控架構核對",
+      "cf01-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf02",
+    "sourceSectionIds": [
+      "cf02-sec-01",
+      "cf02-本章學習導航與核心地圖",
+      "cf02-一授信評估-5p-原則消金實務對照",
+      "cf02-二dbr-22-倍監理比率與授信審查",
+      "cf02-三不動產擔保品鑑價與抵押權設定",
+      "cf02-四銀行法利害關係人授信三大鐵律銀行法第-123233-條",
+      "cf02-五聯徵中心jcic個人信用資料法定揭露期限",
+      "cf02-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "cf02-overview",
+      "cf02-一授信評估-5p-原則消金實務對照",
+      "cf02-二dbr-22-倍監理比率與授信審查",
+      "cf02-三不動產擔保品鑑價與抵押權設定",
+      "cf02-四銀行法利害關係人授信三大鐵律銀行法第-123233-條",
+      "cf02-五聯徵中心jcic個人信用資料法定揭露期限",
+      "cf02-歷屆常見易錯觀念",
+      "cf02-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf03",
+    "sourceSectionIds": [
+      "cf03-sec-01",
+      "cf03-本章學習導航與核心地圖",
+      "cf03-一發卡對象與學生辦卡嚴格保護防線",
+      "cf03-二循環信用利率上限與最低應繳金額",
+      "cf03-三信用卡遭盜刷與掛失自負額法律責任",
+      "cf03-四金融消費者保護法評議機制",
+      "cf03-五信用卡催收違約金與校園促銷嚴格禁令管理辦法第-2247-條",
+      "cf03-歷屆常見易錯觀念",
+      "cf03-信用卡額度審查以還款能力及總負債為核心"
+    ],
+    "displayedSectionIds": [
+      "cf03-overview",
+      "cf03-一發卡對象與學生辦卡嚴格保護防線",
+      "cf03-二循環信用利率上限與最低應繳金額",
+      "cf03-三信用卡遭盜刷與掛失自負額法律責任",
+      "cf03-四金融消費者保護法評議機制",
+      "cf03-五信用卡催收違約金與校園促銷嚴格禁令管理辦法第-2247-條",
+      "cf03-歷屆常見易錯觀念",
+      "cf03-信用卡額度審查以還款能力及總負債為核心",
+      "cf03-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf04",
+    "sourceSectionIds": [
+      "cf04-sec-01",
+      "cf04-本章學習導航與核心地圖",
+      "cf04-一銀行資產品質五大分類與提存比率必背百分比",
+      "cf04-二金融機構與委外催收合法規範催收紅線禁區",
+      "cf04-三轉銷呆帳之法定程序銀行法規範",
+      "cf04-四個人資料保護法在消金之落實個資法第-192028-條",
+      "cf04-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "cf04-overview",
+      "cf04-一銀行資產品質五大分類與提存比率必背百分比",
+      "cf04-二金融機構與委外催收合法規範催收紅線禁區",
+      "cf04-三轉銷呆帳之法定程序銀行法規範",
+      "cf04-四個人資料保護法在消金之落實個資法第-192028-條",
+      "cf04-歷屆常見易錯觀念",
+      "cf04-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "consumer-finance-exam-pack",
+    "chapterId": "cf05",
+    "sourceSectionIds": [
+      "cf05-sec-01",
+      "cf05-常見法規數字整理",
+      "cf05-題目判讀重點"
+    ],
+    "displayedSectionIds": [
+      "cf05-overview",
+      "cf05-常見法規數字整理",
+      "cf05-題目判讀重點",
+      "cf05-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "financial-market-ethics-official-bank-113",
+    "chapterId": "financial-market",
+    "sourceSectionIds": [],
+    "displayedSectionIds": [
+      "financial-market-overview",
+      "ethics-financial-market-topic-0",
+      "ethics-financial-market-topic-1",
+      "ethics-financial-market-topic-2",
+      "financial-market-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "financial-market-ethics-official-bank-113",
+    "chapterId": "professional-ethics",
+    "sourceSectionIds": [],
+    "displayedSectionIds": [
+      "professional-ethics-overview",
+      "ethics-professional-ethics-topic-0",
+      "ethics-professional-ethics-topic-1",
+      "ethics-professional-ethics-topic-2",
+      "professional-ethics-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c00",
+    "sourceSectionIds": [
+      "c00-sec-01",
+      "c00-學科範圍與報考提醒"
+    ],
+    "displayedSectionIds": [
+      "c00-overview",
+      "fintech-c00-topic-0",
+      "fintech-c00-topic-1",
+      "fintech-c00-topic-2",
+      "c00-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c01",
+    "sourceSectionIds": [
+      "c01-sec-01",
+      "c01-本章學習導航與核心地圖",
+      "c01-一金融科技演進四部曲白話生活化對照",
+      "c01-二鯰魚效應catfish-effect與競合模式",
+      "c01-三abcd-四大核心技術底座",
+      "c01-四我國主管機關金融科技發展路徑圖-20",
+      "c01-歷屆常見易錯觀念直擊出題文字坑"
+    ],
+    "displayedSectionIds": [
+      "c01-overview",
+      "c01-一金融科技演進四部曲白話生活化對照",
+      "c01-二鯰魚效應catfish-effect與競合模式",
+      "c01-三abcd-四大核心技術底座",
+      "c01-四我國主管機關金融科技發展路徑圖-20",
+      "c01-歷屆常見易錯觀念直擊出題文字坑",
+      "c01-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c02",
+    "sourceSectionIds": [
+      "c02-sec-01",
+      "c02-本章學習導航與核心地圖",
+      "c02-一雲端運算服務三層架構租屋白話比喻法",
+      "c02-二雲端四種部署模型deployment-models",
+      "c02-三大數據-5v-特性與三種資料形態",
+      "c02-四人工智慧與智能理財顧問-robo-advisor",
+      "c02-歷屆常見易錯觀念",
+      "c02-金融業-ai-應用的治理檢查"
+    ],
+    "displayedSectionIds": [
+      "c02-overview",
+      "c02-一雲端運算服務三層架構租屋白話比喻法",
+      "c02-二雲端四種部署模型deployment-models",
+      "c02-三大數據-5v-特性與三種資料形態",
+      "c02-四人工智慧與智能理財顧問-robo-advisor",
+      "c02-歷屆常見易錯觀念",
+      "c02-金融業-ai-應用的治理檢查",
+      "c02-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c03",
+    "sourceSectionIds": [
+      "c03-sec-01",
+      "c03-本章學習導航與核心地圖",
+      "c03-一區塊鏈的解剖學區塊結構與密碼學基礎",
+      "c03-二共識機制consensus-mechanism比較",
+      "c03-三三種鏈型態比較金融業到底用哪種",
+      "c03-四虛擬資產監理法規與證券型代幣-sto",
+      "c03-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "c03-overview",
+      "c03-一區塊鏈的解剖學區塊結構與密碼學基礎",
+      "c03-二共識機制consensus-mechanism比較",
+      "c03-三三種鏈型態比較金融業到底用哪種",
+      "c03-四虛擬資產監理法規與證券型代幣-sto",
+      "c03-歷屆常見易錯觀念",
+      "c03-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c04",
+    "sourceSectionIds": [
+      "c04-sec-01",
+      "c04-本章學習導航與核心地圖",
+      "c04-一純網路銀行internet-only-bank法定設立規範",
+      "c04-二開放銀行open-banking理念與國際推動模式",
+      "c04-三開放銀行三大階段推進與授權機制",
+      "c04-四開放-api-與-tsp-業者的責任架構",
+      "c04-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "c04-overview",
+      "c04-一純網路銀行internet-only-bank法定設立規範",
+      "c04-二開放銀行open-banking理念與國際推動模式",
+      "c04-三開放銀行三大階段推進與授權機制",
+      "c04-四開放-api-與-tsp-業者的責任架構",
+      "c04-歷屆常見易錯觀念",
+      "c04-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c05",
+    "sourceSectionIds": [
+      "c05-sec-01",
+      "c05-本章學習導航與核心地圖",
+      "c05-一第三方支付-vs-電子支付機構業務邊界比較",
+      "c05-二數位身分認證三大要素authentication-factors",
+      "c05-三fido-聯盟與金融-fido-標準",
+      "c05-四零信任架構-zero-trust-與金融資安聯防體系",
+      "c05-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "c05-overview",
+      "c05-一第三方支付-vs-電子支付機構業務邊界比較",
+      "c05-二數位身分認證三大要素authentication-factors",
+      "c05-三fido-聯盟與金融-fido-標準",
+      "c05-四零信任架構-zero-trust-與金融資安聯防體系",
+      "c05-歷屆常見易錯觀念",
+      "c05-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c06",
+    "sourceSectionIds": [
+      "c06-sec-01",
+      "c06-本章學習導航與核心地圖",
+      "c06-一regtech-vs-suptech-雙劍合璧",
+      "c06-二金融監理沙盒條例精粹常見法定數字",
+      "c06-三金融監理沙盒-vs-金融業務試辦",
+      "c06-創新實驗的申請與參與者保護",
+      "c06-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "c06-overview",
+      "c06-一regtech-vs-suptech-雙劍合璧",
+      "c06-二金融監理沙盒條例精粹常見法定數字",
+      "c06-三金融監理沙盒-vs-金融業務試辦",
+      "c06-創新實驗的申請與參與者保護",
+      "c06-歷屆常見易錯觀念",
+      "c06-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "fintech-exam-pack",
+    "chapterId": "c07",
+    "sourceSectionIds": [
+      "c07-sec-01",
+      "c07-常見法規數字整理",
+      "c07-歷屆題目常見英文縮寫",
+      "c07-題目判讀重點"
+    ],
+    "displayedSectionIds": [
+      "c07-overview",
+      "c07-常見法規數字整理",
+      "c07-歷屆題目常見英文縮寫",
+      "c07-題目判讀重點",
+      "c07-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml00",
+    "sourceSectionIds": [
+      "aml00-sec-01",
+      "aml00-學科範圍與報考提醒"
+    ],
+    "displayedSectionIds": [
+      "aml00-overview",
+      "aml-aml00-topic-0",
+      "aml-aml00-topic-1",
+      "aml-aml00-topic-2",
+      "aml00-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml01",
+    "sourceSectionIds": [
+      "aml01-sec-01",
+      "aml01-本章學習導航與核心地圖",
+      "aml01-一洗錢三部曲經典洗錢三階段必考金流情境",
+      "aml01-二洗錢罪之法定構成要件洗錢防制法第-2-條",
+      "aml01-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "aml01-overview",
+      "aml01-一洗錢三部曲經典洗錢三階段必考金流情境",
+      "aml01-二洗錢罪之法定構成要件洗錢防制法第-2-條",
+      "aml01-歷屆常見易錯觀念",
+      "aml01-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml02",
+    "sourceSectionIds": [
+      "aml02-sec-01",
+      "aml02-本章學習導航與核心地圖",
+      "aml02-一cdd-法定發動時機五大強制查核情境",
+      "aml02-二法人實質受益人穿透三階辨識必考-25-門檻",
+      "aml02-三重要政治性職務人士peps與加強審查-edd",
+      "aml02-四金融機構應婉拒建立業務關係或交易之法定情形辦法第-4-條",
+      "aml02-五客戶身分資料與交易紀錄保存年限辦法第-12-條",
+      "aml02-現行法規核對cddpep-與風險基礎措施",
+      "aml02-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "aml02-overview",
+      "aml02-一cdd-法定發動時機五大強制查核情境",
+      "aml02-二法人實質受益人穿透三階辨識必考-25-門檻",
+      "aml02-三重要政治性職務人士peps與加強審查-edd",
+      "aml02-四金融機構應婉拒建立業務關係或交易之法定情形辦法第-4-條",
+      "aml02-五客戶身分資料與交易紀錄保存年限辦法第-12-條",
+      "aml02-現行法規核對cddpep-與風險基礎措施",
+      "aml02-歷屆常見易錯觀念",
+      "aml02-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml03",
+    "sourceSectionIds": [
+      "aml03-sec-01",
+      "aml03-本章學習導航與核心地圖",
+      "aml03-一兩大申報制度雙核心對照表必背數字清單",
+      "aml03-二免向調查局申報-ctr-之法定豁免清單辦法第-13-條",
+      "aml03-三申報保密義務與防洩密條款tipping-off",
+      "aml03-四資料與憑證保存年限法規第-8-條",
+      "aml03-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "aml03-overview",
+      "aml03-一兩大申報制度雙核心對照表必背數字清單",
+      "aml03-二免向調查局申報-ctr-之法定豁免清單辦法第-13-條",
+      "aml03-三申報保密義務與防洩密條款tipping-off",
+      "aml03-四資料與憑證保存年限法規第-8-條",
+      "aml03-歷屆常見易錯觀念",
+      "aml03-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml04",
+    "sourceSectionIds": [
+      "aml04-sec-01",
+      "aml04-本章學習導航與核心地圖",
+      "aml04-一資恐防制法主管機關與審議機制",
+      "aml04-二資恐罪之特殊法律要件必考法理",
+      "aml04-三目標性金融制裁tfs與即刻凍結作業",
+      "aml04-現行指定制裁名單通報流程",
+      "aml04-歷屆常見易錯觀念"
+    ],
+    "displayedSectionIds": [
+      "aml04-overview",
+      "aml04-一資恐防制法主管機關與審議機制",
+      "aml04-二資恐罪之特殊法律要件必考法理",
+      "aml04-三目標性金融制裁tfs與即刻凍結作業",
+      "aml04-現行指定制裁名單通報流程",
+      "aml04-歷屆常見易錯觀念",
+      "aml04-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  },
+  {
+    "packId": "aml-cft-exam-pack",
+    "chapterId": "aml05",
+    "sourceSectionIds": [
+      "aml05-sec-01",
+      "aml05-常見法規數字整理",
+      "aml05-題目判讀重點"
+    ],
+    "displayedSectionIds": [
+      "aml05-overview",
+      "aml05-常見法規數字整理",
+      "aml05-題目判讀重點",
+      "aml05-review"
+    ],
+    "status": "兩側均須保留或有明確alias；本地dist不視同新建置"
+  }
+]

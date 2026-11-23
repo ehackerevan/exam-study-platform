@@ -1,6 +1,6 @@
 const {openView}=require('./study-ui-helper.cjs');
 const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path');const {pathToFileURL}=require('node:url');const {chromium}=require('playwright');
-(async()=>{const {courses}=await import('../設計預覽/lessons.mjs');const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:390,height:844}});const errors=[];page.on('pageerror',e=>errors.push(e.message));try{
+(async()=>{const {courses}=await import('../03_白話圖解預覽/lessons.mjs');const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:390,height:844}});const errors=[];page.on('pageerror',e=>errors.push(e.message));try{
 for(const course of courses){await page.goto(pathToFileURL(path.resolve('dist',course.source+'.html')).href+'?view=reader');assert(await page.locator('#reader-toc-list').isHidden());assert.equal(await page.locator('#btn-toggle-sidebar').getAttribute('aria-expanded'),'false');
  if(course.key!=='esg')assert(!(await page.locator('#sections-container .chapter-overview').evaluate(node=>node.open)));else assert.equal(await page.locator('#sections-container .chapter-overview').count(),0);
  const count=await page.locator('#reader-section-select option').count();assert(count>=3);assert(await page.locator('#btn-prev-section').isDisabled());await page.locator('#btn-next-section').click();assert.equal(await page.locator('#reader-section-select').evaluate(s=>s.selectedIndex),1);assert.equal(await page.evaluate(()=>document.activeElement.className),'section-title');

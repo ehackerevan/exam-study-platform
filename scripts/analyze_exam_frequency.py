@@ -18,13 +18,13 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = Path(__file__).resolve().parents[1]
-if not (ROOT / "教材").is_dir():
+if not (ROOT / "01_教材來源").is_dir():
     raise SystemExit(f"專案根目錄缺少教材資料夾：{ROOT}")
 
 COURSES = {
     "金融科技力重點教材": {
         "label": "金融科技力",
-        "folder": "教材/金融科技力重點教材",
+        "folder": "01_教材來源/金融科技力重點教材",
         "core_chapters": {
             "c01": "金融科技發展與數位轉型",
             "c02": "雲端運算、大數據與AI應用",
@@ -61,7 +61,7 @@ COURSES = {
     },
     "消費金融內部控制與稽核重點教材": {
         "label": "消費金融內部控制與稽核",
-        "folder": "教材/消費金融內部控制與稽核重點教材",
+        "folder": "01_教材來源/消費金融內部控制與稽核重點教材",
         "core_chapters": {
             "cf01": "內部控制與內部稽核",
             "cf02": "授信、徵信與擔保品",
@@ -94,7 +94,7 @@ COURSES = {
     },
     "永續發展基礎能力重點教材": {
         "label": "永續發展基礎能力",
-        "folder": "教材/永續發展基礎能力重點教材",
+        "folder": "01_教材來源/永續發展基礎能力重點教材",
         "core_chapters": {
             "esg01": "ESG與永續治理",
             "esg02": "溫室氣體盤查與碳定價（章節未細分）",
@@ -127,7 +127,7 @@ COURSES = {
     },
     "防制洗錢與打擊資恐重點教材": {
         "label": "防制洗錢與打擊資恐",
-        "folder": "教材/防制洗錢與打擊資恐重點教材",
+        "folder": "01_教材來源/防制洗錢與打擊資恐重點教材",
         "core_chapters": {
             "aml01": "洗錢犯罪與法定要件",
             "aml02": "客戶審查、實質受益人與PEP",
@@ -157,7 +157,7 @@ COURSES = {
     },
     "信託業務人員重點教材": {
         "label": "信託業務人員",
-        "folder": "教材/信託業務人員重點教材",
+        "folder": "01_教材來源/信託業務人員重點教材",
         "record_type": "trust",
         "concept_mode": "question_topic",
         "laws": [
@@ -187,7 +187,7 @@ COURSES = {
     },
     "金融市場常識與職業道德題庫（證基會113年版）": {
         "label": "金融市場常識與職業道德（證基會113年版）",
-        "folder": "教材/金融市場常識與職業道德題庫",
+        "folder": "01_教材來源/金融市場常識與職業道德題庫",
         "record_type": "sfi",
         "concept_mode": "official_chapter",
         "official_chapters": {
@@ -470,7 +470,7 @@ def build_report(output: dict) -> str:
         "",
         "## 範圍與方法",
         "",
-        "逐筆使用清理後 canonical 題庫：信託使用 `教材/信託業務人員重點教材/full_exam_bank.json`，其他五科使用各自的 `questions.json`。每個知識點與法規／機關排名都保留完整 `question_ids` 以供追溯；排名題數按題庫紀錄計，重複題幹在不同考期仍分別計數。",
+        "逐筆使用清理後 canonical 題庫：信託使用 `01_教材來源/信託業務人員重點教材/full_exam_bank.json`，其他五科使用各自的 `questions.json`。每個知識點與法規／機關排名都保留完整 `question_ids` 以供追溯；排名題數按題庫紀錄計，重複題幹在不同考期仍分別計數。",
         "",
         "四科（金融科技、消費金融、ESG、AML）延用分析器內人工整理的關鍵詞分類；信託沿用完整題庫既有 `topic` 欄；SFI 113 年版只沿用官方題庫的「金融市場常識」與「職業道德」兩類，不另造更細的出題分類。官方題庫下載頁公告題數為504題及616題；113/9/23修訂表已套用於職業道德第279題。",
         "",

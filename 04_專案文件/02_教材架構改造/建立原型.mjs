@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {compileStudyPackToHtml} from '../../src/core/compiler/index.js';
+import '../../src/renderer/vendor/marked.umd.js';
+const dir='專案文件/教材架構改造';
+const unit=JSON.parse(fs.readFileSync(dir+'/單元原型.json','utf8'));
+const bank=JSON.parse(fs.readFileSync('教材/永續發展基礎能力重點教材/questions.json','utf8')).questions;
+const selected=unit.officialQuestionIds.map(id=>{const q=bank.find(q=>q.id===id);assert(q,id);return {...q,sectionId:unit.id,explanation:'題目問不包含在範疇三；組織擁有的緊急發電機是自身排放源，其直接燃油排放應判斷為範疇一。其餘選項依原考期題意為其他間接排放。'}});
+const officialSnapshot=JSON.stringify(selected.map(q=>[q.id,q.question,q.options,q.answer]));
+const prerequisite='<p><strong>讀前先認識：</strong>'+unit.prerequisites.map(p=>p.text).join(' ')+'</p>';
+const sourceNote='<details><summary>官方範圍與來源</summary><p>官方簡章：二（一）國際永續資訊公開規範；相關三（二）環境風險。原教材esg02第一節。原型只涵蓋邊界與三範疇，不代表原章所有知識均已改造。</p><p><a href="https://www.tabf.org.tw/LicenseDocDownload.aspx?Path=ct/164381_20251215.pdf">官方簡章</a> · <a href="https://ghgprotocol.org/calculation-tools-faq">GHG Protocol</a> · <a href="../../考古題/永續發展11301-11504/115/3/永續發展基礎能力測驗試題1150606.pdf">115-3試題原卷</a> · <a href="../../考古題/永續發展11301-11504/115/3/永續發展基礎能力測驗答案1150606.pdf">官方答案原卷</a></p></details>';
+const pack={version:1,schemaVersion:1,id:'architecture-prototype-esg',contentVersion:'2026.11.03-prototype',title:'盤查邊界與三大範疇｜單元原型',description:'供架構確認的獨立原型；使用既有閱讀、測驗與進度元件，與正式進度分開。',chapters:[{id:'esg02',title:unit.title,summary:'先辨認盤查主體與排放來源，再判斷範疇；學會後到下方練習驗收。',sections:[],practiceQuestionIds:[...selected,...unit.originalQuestions].map(q=>q.id)}],questions:[...selected,...unit.originalQuestions]};
+// 既有內容清理器不保留自訂data屬性；用原有小節容器承載深度，無須放寬正式HTML信任邊界。
+pack.chapters[0].sections=unit.blocks.map((block,index)=>({id:block.id==='scope-rules'?unit.id:unit.id+'-'+block.id,title:block.title,content:(index===0?prerequisite:'')+globalThis.marked.parse(block.content)+(index===unit.blocks.length-1?sourceNote:''),keyPoints:[],notes:[]}));
+assert.equal(JSON.stringify(pack.questions.slice(0,selected.length).map(q=>[q.id,q.question,q.options,q.answer])),officialSnapshot);
+let html=compileStudyPackToHtml(pack,{includeExplanations:true}).html;
+html=html.replaceAll('href="index.html','href="../../dist/index.html');
+const control='<aside id="prototype-panel" style="padding:16px;border-bottom:1px solid var(--border-subtle)"><a href="提案.html">返回架構提案</a><p>此頁為獨立原型；已讀與作答紀錄不會寫入正式科目。</p><label for="learning-depth">閱讀方式 </label><select id="learning-depth"><option value="full">完整學習</option><option value="review">重點複習</option><option value="sprint">考前衝刺</option></select><p id="depth-guidance" role="status"></p><p><a id="prototype-lookup" href="#concept-scope-rules">直接查三範疇規則</a> · <a href="新舊知識地圖.html">檢視全科知識地圖</a></p></aside>';
+html=html.replace('<body>','<body>'+control);
+const blockMetadata=unit.blocks.map(b=>({id:b.id,sectionId:b.id==='scope-rules'?unit.id:unit.id+'-'+b.id,depth:b.depth}));
+const script=`<script>(function(){const blocks=${JSON.stringify(blockMetadata)};const control=document.getElementById('learning-depth');const guidance=document.getElementById('depth-guidance');const apply=()=>{document.querySelector('.learning-goals')?.remove();const mode=control.value;for(const b of blocks){const el=document.getElementById('sec-'+b.sectionId);if(!el)continue;el.dataset.depth=b.depth;el.querySelector('h3').id='concept-'+b.id;el.hidden=b.depth==='foundation'&&mode!=='full'||b.depth==='application'&&mode==='sprint'}guidance.textContent={full:'先讀前置概念、規則與例子，再作答；已讀只代表讀過。',review:'先不看答案回想，再比對條件；需要例子時切回完整學習。',sprint:'保留核心規則、易錯條件及自測；答錯請切回完整學習補原因。'}[mode]};control.addEventListener('change',apply);new MutationObserver(apply).observe(document.getElementById('sections-container'),{childList:true});const seek=()=>{if(location.hash==='#concept-scope-rules'){document.querySelector('[data-view="reader"]').click();apply();document.getElementById('concept-scope-rules')?.scrollIntoView()}};window.addEventListener('hashchange',seek);document.getElementById('prototype-lookup').addEventListener('click',()=>setTimeout(seek,0));apply();seek()})();</script>`;
+html=html.replace('</body>',script+'</body>');
+fs.writeFileSync(dir+'/單元原型.html',html);
+console.log('原型沿用既有編譯器／閱讀／測驗／儲存；1歷屆＋3自編題，三閱讀模式共用8內容區塊。');

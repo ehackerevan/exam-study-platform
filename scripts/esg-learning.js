@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 
-const directory = new URL('../教材/永續發展基礎能力重點教材/', import.meta.url);
+const directory = new URL('../01_教材來源/永續發展基礎能力重點教材/', import.meta.url);
 export const esgLearning = JSON.parse(fs.readFileSync(new URL('學習設計.json', directory), 'utf8'));
-const financeQuestions = JSON.parse(fs.readFileSync(new URL('../教材/教學單元/永續金融練習.json', import.meta.url), 'utf8'));
+const financeQuestions = JSON.parse(fs.readFileSync(new URL('../01_教材來源/教學單元/永續金融練習.json', import.meta.url), 'utf8'));
 const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function financePractice(id) {
   const questions=financeQuestions.filter(q=>q.chapterId===id);
@@ -35,5 +35,5 @@ export function writeIntegratedText() {
     if(data) output += `### 主動回憶\n\n${data.questions.map((q,i)=>`${i+1}. ${q}`).join('\n')}\n\n<details><summary>作答後查看答案</summary>\n\n${data.answers.map((a,i)=>`${i+1}. ${a}`).join('\n')}\n\n</details>\n\n${financePractice(id)}\n\n### 考前快速複習\n\n${data.recap.split(/。+/).map(s=>s.trim()).filter(Boolean).map(s=>`- ${s}。`).join('\n')}\n\n`;
   }
   output += '## 版本提醒\n\n數字、期限與制度要求須連同適用主體及版本閱讀。歷屆題目按原考期判斷；本次整理未重新查核法規時效。\n';
-  fs.writeFileSync(new URL('../教材/永續發展_整合學習教材.md',import.meta.url),output);
+  fs.writeFileSync(new URL('../01_教材來源/永續發展_整合學習教材.md',import.meta.url),output);
 }

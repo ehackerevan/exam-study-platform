@@ -23,14 +23,14 @@ const frequencySection = course => {
 };
 
 const courses = [
-  { name: '信託業務人員重點教材', dir: '教材/信託業務人員重點教材', out: 'dist/信託業務人員重點教材.html', trust: true },
-  { name: '金融科技力重點教材', dir: '教材/金融科技力重點教材', out: 'dist/金融科技力重點教材.html' },
-  { name: '消費金融內部控制與稽核重點教材', dir: '教材/消費金融內部控制與稽核重點教材', out: 'dist/消費金融內部控制與稽核重點教材.html' },
-  { name: '永續發展基礎能力重點教材', dir: '教材/永續發展基礎能力重點教材', out: 'dist/永續發展基礎能力重點教材.html' },
-  { name: '防制洗錢與打擊資恐重點教材', dir: '教材/防制洗錢與打擊資恐重點教材', out: 'dist/防制洗錢與打擊資恐重點教材.html' },
-  { name: '金融市場常識與職業道德題庫（證基會113年版）', dir: '教材/金融市場常識與職業道德題庫', out: 'dist/金融市場常識與職業道德題庫.html', quizOnly: true, ethics: true },
-  { name: '投資型保險', dir: '考古題/新增題庫/投資型保險/study-pack.json', out: 'dist/投資型保險題庫.html', quizOnly: true, officialBank: true },
-  { name: '衍生性金融商品', dir: '考古題/新增題庫/衍生性金融商品/study-pack.json', out: 'dist/衍生性金融商品題庫.html', quizOnly: true, officialBank: true }
+  { name: '信託業務人員重點教材', dir: '01_教材來源/信託業務人員重點教材', out: 'dist/信託業務人員重點教材.html', trust: true },
+  { name: '金融科技力重點教材', dir: '01_教材來源/金融科技力重點教材', out: 'dist/金融科技力重點教材.html' },
+  { name: '消費金融內部控制與稽核重點教材', dir: '01_教材來源/消費金融內部控制與稽核重點教材', out: 'dist/消費金融內部控制與稽核重點教材.html' },
+  { name: '永續發展基礎能力重點教材', dir: '01_教材來源/永續發展基礎能力重點教材', out: 'dist/永續發展基礎能力重點教材.html' },
+  { name: '防制洗錢與打擊資恐重點教材', dir: '01_教材來源/防制洗錢與打擊資恐重點教材', out: 'dist/防制洗錢與打擊資恐重點教材.html' },
+  { name: '金融市場常識與職業道德題庫（證基會113年版）', dir: '01_教材來源/金融市場常識與職業道德題庫', out: 'dist/金融市場常識與職業道德題庫.html', quizOnly: true, ethics: true },
+  { name: '投資型保險', dir: '02_考古題與題庫/新增題庫/投資型保險/study-pack.json', out: 'dist/投資型保險題庫.html', quizOnly: true, officialBank: true },
+  { name: '衍生性金融商品', dir: '02_考古題與題庫/新增題庫/衍生性金融商品/study-pack.json', out: 'dist/衍生性金融商品題庫.html', quizOnly: true, officialBank: true }
 ];
 const chapterPracticeIds = (pack, course) => {
   const concepts = (frequency[course.name]?.concept_ranking || []).map((concept, rank) => ({

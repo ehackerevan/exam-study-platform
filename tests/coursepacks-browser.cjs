@@ -9,7 +9,8 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
  await context.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  try{
-  for(const course of fs.readdirSync('教材',{withFileTypes:true}).filter(d=>d.isDirectory()).map(d=>d.name)){
+  for(const course of fs.readdirSync('01_教材來源',{withFileTypes:true}).filter(d=>d.isDirectory()).map(d=>d.name)){
+   if(course==='金融市場常識與職業道德題庫_116年版')continue;
    const quizOnly=course==='金融市場常識與職業道德題庫';
    const file=path.join('dist',course+'.html');if(!fs.existsSync(file))continue;
    await page.goto(pathToFileURL(path.resolve(file)).href);
@@ -25,8 +26,8 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     assert.equal(await page.locator('#stat-wrong-questions').textContent(),'0');
    }
    const original=course==='信託業務人員重點教材'
-    ? [...new Map(Object.values(JSON.parse(fs.readFileSync(path.join('教材',course,'full_exam_bank.json'),'utf8'))).flat().map(q=>[q.id,{id:q.id,chapterId:q.chapter,type:'single-choice',question:q.stem,options:q.options,answer:q.answer}])).values()]
-    : (()=>{const source=JSON.parse(fs.readFileSync(path.join('教材',course,'questions.json'),'utf8'));return Array.isArray(source)?source:source.questions;})();
+    ? [...new Map(Object.values(JSON.parse(fs.readFileSync(path.join('01_教材來源',course,'full_exam_bank.json'),'utf8'))).flat().map(q=>[q.id,{id:q.id,chapterId:q.chapter,type:'single-choice',question:q.stem,options:q.options,answer:q.answer}])).values()]
+    : (()=>{const source=JSON.parse(fs.readFileSync(path.join('01_教材來源',course,'questions.json'),'utf8'));return Array.isArray(source)?source:source.questions;})();
    const core=questions=>questions.map(q=>({id:q.id,chapterId:q.chapterId,type:q.type,question:q.question,options:q.options,answer:q.answer}));
    assert.deepEqual(core(pack.questions).sort((a,b)=>a.id.localeCompare(b.id)),core(original).sort((a,b)=>a.id.localeCompare(b.id)),'Original question data: '+course);
    const stats=frequency[course==='金融市場常識與職業道德題庫'?'金融市場常識與職業道德題庫（證基會113年版）':course];
@@ -53,7 +54,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
     assert.deepEqual([...question.knowledgePoints].sort(),[...expectedKnowledge.get(question.id)].sort(),`Knowledge points match exact current-bank mapping: ${course} / ${question.id}`);
    }
    if(course==='信託業務人員重點教材'){
-    const bank=JSON.parse(fs.readFileSync(path.join('教材',course,'full_exam_bank.json'),'utf8'));
+    const bank=JSON.parse(fs.readFileSync(path.join('01_教材來源',course,'full_exam_bank.json'),'utf8'));
     const topics=new Map(Object.values(bank).flat().map(q=>[q.id,q.topic]));
     assert.equal(new Set([...topics.values()].filter(Boolean)).size,stats.concept_ranking.length,'Trust uses the complete existing topic taxonomy');
     for(const row of stats.concept_ranking)for(const id of row.question_ids)assert.equal(topics.get(id),row.concept,`Trust topic source mapping: ${id}`);

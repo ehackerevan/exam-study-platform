@@ -6,7 +6,7 @@ import {attachLearningUnits} from '../scripts/learning-units.js';
 import {validateStudyPack} from '../src/core/validator/index.js';
 
 test('盤查教學由原文帶入全部分類與延伸，保持題目身分及舊小節',()=>{
- const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('教材/永續發展基礎能力重點教材'));
+ const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('01_教材來源/永續發展基礎能力重點教材'));
  const before=pack.questions.map(q=>[q.id,q.chapterId,q.question,q.options,q.answer]);
  attachLearningUnits(pack);
  assert.deepEqual(pack.questions.map(q=>[q.id,q.chapterId,q.question,q.options,q.answer]),before);
@@ -19,7 +19,7 @@ test('盤查教學由原文帶入全部分類與延伸，保持題目身分及�
 });
 
 test('教學單元拒絕重複ID、錯誤深度及不存在的來源；輸入內容仍清理',()=>{
- const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('教材/永續發展基礎能力重點教材'));attachLearningUnits(pack);
+ const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('01_教材來源/永續發展基礎能力重點教材'));attachLearningUnits(pack);
  const unit=pack.chapters.find(c=>c.id==='esg02').learningUnits[0];unit.blocks[0].content+='<script>alert(1)</script>';
  assert(!parseStudyPackJson(pack).chapters.find(c=>c.id==='esg02').learningUnits[0].blocks[0].content.includes('<script>'));
  unit.blocks.push({...unit.blocks[0]});assert(validateStudyPack(pack).issues.some(i=>i.code==='INVALID_LEARNING_BLOCK'));unit.blocks.pop();
@@ -28,7 +28,7 @@ test('教學單元拒絕重複ID、錯誤深度及不存在的來源；輸入內
 });
 
  test('兩場次範疇題保留各自身分並連到已教規則',()=>{
- const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('教材/永續發展基礎能力重點教材'));
+ const pack=buildNormalizedStudyPack(loadSourcesFromDirectory('01_教材來源/永續發展基礎能力重點教材'));
  const ids=['esg-113-4-46','esg-114-2-41'];
  const before=pack.questions.filter(q=>ids.includes(q.id)).map(q=>structuredClone(q));
  pack.chapters.find(c=>c.id==='esg02').practiceQuestionIds=['esg-115-3-47'];

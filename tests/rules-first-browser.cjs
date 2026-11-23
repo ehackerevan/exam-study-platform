@@ -1,7 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');const {pathToFileURL}=require('node:url'),{chromium}=require('playwright');
-(async()=>{const {courses}=await import('../設計預覽/lessons.mjs');const browser=await chromium.launch(),context=await browser.newContext(),page=await context.newPage(),errors=[],records=[];page.on('pageerror',e=>errors.push(e.message));await context.route(/^https?:/,r=>r.abort());
+(async()=>{const {courses}=await import('../03_白話圖解預覽/lessons.mjs');const browser=await chromium.launch(),context=await browser.newContext(),page=await context.newPage(),errors=[],records=[];page.on('pageerror',e=>errors.push(e.message));await context.route(/^https?:/,r=>r.abort());
  const url=file=>pathToFileURL(path.resolve(file)).href;const preview=await context.newPage();try{
- await preview.goto(url('設計預覽/各科教材_ELI5_獨立預覽.html'));
+ await preview.goto(url('03_白話圖解預覽/各科教材_ELI5_獨立預覽.html'));
  for(const course of courses){await page.setViewportSize({width:1440,height:900});await page.goto(url('dist/'+course.source+'.html')+'?view=reader');const pack=await page.evaluate(()=>window.__STUDY_PACK__);
  for(const chapter of pack.chapters){await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));if(await page.locator('#reader-toc-list').isHidden())await page.locator('#btn-toggle-sidebar').click();await page.locator('#reader-toc-list li').nth(pack.chapters.indexOf(chapter)).click();
  const overview=page.locator('#sections-container .chapter-overview');assert.equal(await overview.count(),course.key==='esg'?0:1);if(course.key!=='esg')assert(!(await overview.evaluate(e=>e.open)));assert.equal(await page.locator('.chapter-header #btn-toggle-complete').count(),0);assert.equal(await page.locator('.chapter-reading-end #btn-toggle-complete').count(),1);

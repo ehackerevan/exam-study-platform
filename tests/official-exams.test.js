@@ -6,10 +6,10 @@ const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const answers = questions => questions.map(q => q.answer + 1).join('');
 
 test('official new exams preserve all question numbers and published answer keys', () => {
-  const fintech = read('教材/金融科技力重點教材/questions.json').questions.filter(q => q.id.startsWith('ft-22-'));
-  const trust = read('教材/信託業務人員重點教材/full_exam_bank.json').c08.filter(q => q.term === 63);
-  const investment = read('考古題/新增題庫/投資型保險/study-pack.json').questions;
-  const derivatives = read('考古題/新增題庫/衍生性金融商品/study-pack.json').questions;
+  const fintech = read('01_教材來源/金融科技力重點教材/questions.json').questions.filter(q => q.id.startsWith('ft-22-'));
+  const trust = read('01_教材來源/信託業務人員重點教材/full_exam_bank.json').c08.filter(q => q.term === 63);
+  const investment = read('02_考古題與題庫/新增題庫/投資型保險/study-pack.json').questions;
+  const derivatives = read('02_考古題與題庫/新增題庫/衍生性金融商品/study-pack.json').questions;
   const groups = [
     [fintech, '321243413431434223134434323243321244332243221431233233333111'],
     [trust.filter(q => q.subject === '信託法規'), '14332213221114422133132234322222323334333323234441'],

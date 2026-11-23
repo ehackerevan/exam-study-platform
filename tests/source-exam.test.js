@@ -7,11 +7,11 @@ import { loadTrustCourse } from '../src/core/utils/trust-course.js';
 import { parseStudyPackJson } from '../src/core/parser/json-parser.js';
 
 test('source exam metadata parses every existing course question without changing its identity', () => {
-  const subjects = fs.readdirSync('教材').filter(name => fs.existsSync(path.join('教材', name, 'questions.json')));
+  const subjects = fs.readdirSync('01_教材來源').filter(name => name !== '金融市場常識與職業道德題庫_116年版' && fs.existsSync(path.join('01_教材來源', name, 'questions.json')));
   const counts = new Map();
 
   for (const subject of subjects) {
-    const questions = JSON.parse(fs.readFileSync(path.join('教材', subject, 'questions.json'), 'utf8')).questions;
+    const questions = JSON.parse(fs.readFileSync(path.join('01_教材來源', subject, 'questions.json'), 'utf8')).questions;
     for (const question of questions) {
       const source = parseSourceExam(question, subject);
       assert.ok(source, `unparsed question source: ${question.id}`);
@@ -42,12 +42,12 @@ test('question source metadata survives JSON sanitization', () => {
 });
 
 test('financial market and ethics source bank preserves all official question numbers and normalized answer indexes', () => {
-  const currentPack = JSON.parse(fs.readFileSync('教材/金融市場常識與職業道德題庫/pack.json', 'utf8'));
-  const archivedPack = JSON.parse(fs.readFileSync('歷史資料/金融市場常識與職業道德題庫_證基會116年版/pack.json', 'utf8'));
+  const currentPack = JSON.parse(fs.readFileSync('01_教材來源/金融市場常識與職業道德題庫/pack.json', 'utf8'));
+  const archivedPack = JSON.parse(fs.readFileSync('01_教材來源/金融市場常識與職業道德題庫_116年版/pack.json', 'utf8'));
   assert.equal(currentPack.id, 'financial-market-ethics-official-bank-113');
   assert.equal(archivedPack.id, 'financial-market-ethics-official-bank-116');
   assert.notEqual(currentPack.id, archivedPack.id, 'Different editions must not share progress');
-  const questions = JSON.parse(fs.readFileSync('教材/金融市場常識與職業道德題庫/questions.json', 'utf8')).questions;
+  const questions = JSON.parse(fs.readFileSync('01_教材來源/金融市場常識與職業道德題庫/questions.json', 'utf8')).questions;
   assert.equal(questions.length, 1120);
 
   for (const [chapterId, count] of [['financial-market', 504], ['professional-ethics', 616]]) {
@@ -59,7 +59,7 @@ test('financial market and ethics source bank preserves all official question nu
   assert.equal(new Set(questions.map(question => question.id)).size, 1120);
   assert(questions.every(question => question.type === 'single-choice' && question.options.length === 4 && question.answer >= 0 && question.answer < 4));
   assert.equal(questions.find(question => question.id === 'professional-ethics-279').answer, 3, 'Apply the official 113/9/23 correction: answer is option 4');
-  assert.equal(JSON.parse(fs.readFileSync('歷史資料/金融市場常識與職業道德題庫_證基會116年版/questions.json', 'utf8')).questions.length, 1174, 'Keep the 116 bank archived');
+  assert.equal(JSON.parse(fs.readFileSync('01_教材來源/金融市場常識與職業道德題庫_116年版/questions.json', 'utf8')).questions.length, 1174, 'Keep the 116 bank archived');
   assert(questions.every(question => [question.question, ...question.options].every(text => !/\p{Script=Han} +\p{Script=Han}/u.test(text))));
   assert(questions.every(question => !/^【(?:金融市場常識|職業道德)】/.test(question.question)));
 });
@@ -75,9 +75,9 @@ test('source exam parser maps Trust question records and rejects missing exam la
 });
 
 test('Trust course imports unique source questions and offline chapter diagrams without explanations', () => {
-  const pack = loadTrustCourse('教材/信託業務人員重點教材');
-  const source = JSON.parse(fs.readFileSync('教材/信託業務人員重點教材/full_exam_bank.json', 'utf8'));
-  const curated = JSON.parse(fs.readFileSync('教材/信託業務人員重點教材/curated_top10_bank.json', 'utf8'));
+  const pack = loadTrustCourse('01_教材來源/信託業務人員重點教材');
+  const source = JSON.parse(fs.readFileSync('01_教材來源/信託業務人員重點教材/full_exam_bank.json', 'utf8'));
+  const curated = JSON.parse(fs.readFileSync('01_教材來源/信託業務人員重點教材/curated_top10_bank.json', 'utf8'));
   const unique = [...new Map(Object.values(source).flat().map((question) => [question.id, question])).values()];
 
   assert.equal(pack.chapters.length, 9);
