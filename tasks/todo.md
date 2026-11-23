@@ -1,6 +1,6 @@
 ## Current：修正題目搜尋與未登入同步檢查
 
-- 狀態：執行中；MAINTAIN。
+- 狀態：已完成；MAINTAIN。
 - 需求來源：使用者要求修正整體網站 Review 發現並提交、部署。
 - 目標：題目搜尋只包含題幹；訪客首次載入不產生預期外的 401 Console 錯誤；正式 Worker 與 GitHub Pages 均更新。
 - 範圍：`src/renderer/answer-search.js`、`sync/client.js`、`sync/worker.js`、對應測試及必要建置產物。
@@ -8,9 +8,13 @@
 - 驗收條件：搜尋字串不含 `data-metrics-question`；訪客 `session` 回傳 200/null 而受保護操作仍回 401；`npm run verify` 通過；Worker 先部署，Pages 後部署並線上確認。
 - 驗證方式：同步及搜尋瀏覽器測試、完整 `npm run verify`、Wrangler dry-run、GitHub Actions、正式網站 Console／流程檢查。
 - 計畫：修正兩個根因並補回歸測試；完成建置與驗收；提交並部署 Worker；將提交合併至 `main` 觸發 Pages；確認正式行為。
-- 交接：2026-11-23，分支 `antigravity/reorg-and-660-exams-20261123`，起始 `c41429c`；待執行。
+- 交接：2026-11-23，PR #16 已合併至 main，合併 commit b5a18d9；Pages run #74 部署成功。
 - 後續發現：無。
 - 停止條件：Worker、Pages 及線上驗收均完成後停止。
+- 結果：已完成（2026-11-23）。
+- 提交與部署：PR #16 已合併，修正 commit 5125958，main merge commit b5a18d97a34bc0a31870f593c5cc78cca752e55c；Worker version 82a43615-3853-4f9d-9bd5-812503e70e67、部署 7e467064-685c-4261-b6e8-a487cbab5218 已設為 100%；GitHub Pages workflow run #74 成功。
+- 實測：npm run verify 全部通過（67 項單元測試、offline validation、browser tests、E2E）；正式網站題庫顯示 2,776 題，Google 搜尋字串不含作答計數，Worker guest session 回應 200、Console 無錯誤；390px 行動版無水平溢位。
+- 未驗證：未以正式帳號資料執行註冊、登入及跨裝置同步；同步流程以本機 mock regression 測試。
 
 ## Current：整體介面與教材精簡
 
