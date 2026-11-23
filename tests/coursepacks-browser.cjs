@@ -101,7 +101,7 @@ const visibleQuestion=q=>q.question.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d
    }
    if(course==='信託業務人員重點教材')assert(inlineDiagramCount>0,'Trust diagrams render offline');
    assert(pack.questions.every(q=>Array.isArray(q.knowledgePoints)&&q.knowledgePoints.length>0),'Every question has a knowledge point: '+course);
-   const pointLabels=[...new Set(pack.questions.flatMap(q=>q.knowledgePoints))],pointQuestions=pack.questions.filter(q=>q.knowledgePoints.includes(pointLabels[0]));
+   const pointLabels=[...new Set(pack.questions.map(q=>q.knowledgePoints[0]))],pointQuestions=pack.questions.filter(q=>q.knowledgePoints[0]===pointLabels[0]);
    if(!quizOnly){
     const frequencySection=pack.chapters[0].sections.find(section=>section.title==='歷屆高頻觀念與法規排行');
     assert(frequencySection,'Course materials include shared frequency data: '+course);
