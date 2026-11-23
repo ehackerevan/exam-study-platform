@@ -8,11 +8,15 @@
   // 取得內嵌資料
   const pack = window.__STUDY_PACK__;
   if (!pack || !pack.id) {
+    const fail=()=>{document.querySelectorAll('.view-panel').forEach(el=>el.classList.toggle('active',el.id==='view-home'));document.getElementById('home-data-error').hidden=false;};
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fail);else fail();
     console.error('Study Pack 資料缺失');
     return;
   }
 
   // 常數與門檻設定
+  const chapterQuestions = new Map(pack.chapters.map(ch=>[ch.id,pack.questions.filter(q=>q.chapterId===ch.id)]));
+  const primaryKnowledge = q => q.knowledgePoints?.[0] || '其他／未分類';
   const questionIds = new Set(pack.questions.map(question => question.id));
   const readingSections = chapter => chapter.teachingSections || chapter.sections;
   const resolveSection = (chapter,id) => chapter.sectionAliases?.[id] || id;
@@ -46,6 +50,7 @@
   };
 
   const emptyProgress = JSON.stringify(progress);
+  let storageFailure = '', recoveryCopies = [];
   let storageWritable = true, savedProgressRaw = null, saveQueue = Promise.resolve(true);
   let achievementAccount = '', achievementIdentityReady = false, quizAchievementBaseline = null;
   function achievementSnapshot() {
@@ -77,6 +82,8 @@
   function showStorageWarning(message) {
     document.getElementById('storage-warning-banner').style.display = 'flex';
     document.getElementById('storage-warning-message').textContent = message;
+    document.getElementById('btn-storage-overwrite').hidden=storageFailure!=='conflict'&&storageFailure!=='load';
+    document.getElementById('btn-storage-discard').hidden=storageFailure!=='conflict'&&storageFailure!=='load';
     renderAchievements();
   }
   function normalizeProgress(data) {
@@ -96,7 +103,7 @@
         progress = normalizeProgress(parsed);
       }
     } catch (err) {
-      storageWritable = false;
+      storageWritable = false;storageFailure='load';
       showStorageWarning('無法讀取原有紀錄，本次僅暫存於頁面，不會覆寫原資料。請匯出備份。');
     }
   }
@@ -115,12 +122,43 @@
         renderAchievements();
         return true;
       } catch (error) {
-        storageWritable = false;
+        storageWritable = false;storageFailure=error.code==='progress-conflict'?'conflict':'write';
         showStorageWarning(error.code === 'progress-conflict' ? error.message : '目前無法安全保存進度，本次作答只暫存於頁面。請先匯出備份再重新載入。');
         return false;
       }
     });
     return saveQueue;
+  }
+
+  function downloadRecovery() {
+    const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([JSON.stringify(recoveryCopies,null,2)],{type:'application/json'}));link.download='study-progress-recovery.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+  }
+  async function recoverProgress(action) {
+    const buttons=[...document.querySelectorAll('#storage-warning-banner button')];buttons.forEach(b=>b.disabled=true);
+    try {
+      await saveQueue;
+      if(window.StudySync&&(localStorage.getItem('study-pack.sync.account')||'')!==achievementAccount)throw Error('帳號已變更，請先匯出本頁再重新載入。');
+      const current=localStorage.getItem(STORAGE_KEY);
+      if(action==='retry'&&storageFailure==='load'&&current)normalizeProgress(JSON.parse(current));
+      if(action==='retry'&&current!==savedProgressRaw){storageFailure='conflict';throw window.StudyProgress.conflict();}
+      if(action!=='retry') {
+        if(!confirm(action==='overwrite'?'以本頁進度覆蓋已保存版本？兩側原始資料會保留供匯出。':'放棄本頁狀態並改讀已保存版本？本頁原始資料會保留供匯出。'))return;
+        const restored=action==='discard'?normalizeProgress(current?JSON.parse(current):JSON.parse(emptyProgress)):null;
+        const copies=[...recoveryCopies,{packId:pack.id,storageKey:STORAGE_KEY,local:JSON.stringify(progress),saved:current}];
+        await window.StudyProgress.exclusive(()=>{
+          if(localStorage.getItem(STORAGE_KEY)!==current)throw window.StudyProgress.conflict();
+          if(window.StudySync&&(localStorage.getItem('study-pack.sync.account')||'')!==achievementAccount)throw Error('帳號已變更，請匯出本頁。');
+          localStorage.setItem(STORAGE_KEY+'.recovery',JSON.stringify(copies));
+        });
+        recoveryCopies=copies;
+        document.getElementById('btn-storage-recovery-export').hidden=false;
+        if(restored){location.reload();return;}
+        savedProgressRaw=current;
+      }
+      storageWritable=true;
+      if(await saveProgress()){storageFailure='';document.getElementById('storage-warning-banner').style.display='none';renderDashboard();}
+    } catch(error){storageWritable=false;showStorageWarning(error.message);}
+    finally{buttons.forEach(b=>b.disabled=false);}
   }
 
   const isQuestionHidden = question => progress.hiddenQuestionIds.includes(question.id);
@@ -288,6 +326,15 @@
 
   function renderHome() {
     const chapter=suggestedChapter();
+    document.getElementById('home-statistics').textContent=`${pack.chapters.length} 章 · ${questionIds.size} 題 · 已讀 ${progress.completedChapters.length} 章`;
+    const official=document.getElementById('home-official-links');
+    try{
+      const source=document.createElement('template');source.innerHTML=window.StudyContent.render(pack.chapters.flatMap(ch=>readingSections(ch).map(sec=>sec.content||'')).join('\n'));
+      const links=[...source.content.querySelectorAll('a[href]')].filter(a=>/^https?:$/.test(new URL(a.href).protocol)&&/\.(gov\.tw|tabf\.org\.tw|sfi\.org\.tw)$/.test(new URL(a.href).hostname));
+      official.replaceChildren(...[...new Map(links.map(a=>[a.href,a])).values()].slice(0,5).map(a=>{a.target='_blank';a.rel='noopener noreferrer';const row=document.createElement('p');row.append(a);return row;}));
+      if(!official.children.length)official.textContent='未提供官方連結，請查閱報考當期官方簡章。';
+      document.getElementById('home-data-error').hidden=true;
+    }catch{official.textContent='官方連結載入失敗，請重新載入。';document.getElementById('home-data-error').hidden=false;}
     document.getElementById('home-course').textContent=shortCourseTitle();
     document.getElementById('home-chapter').textContent=chapter?chapter.title:'題庫練習';
     document.getElementById('btn-home-start').textContent=chapter?(progress.lastPosition.chapterId?'繼續閱讀 →':'讀教材 →'):'開始練習 →';
@@ -330,7 +377,7 @@
 
     const reviewPoints = new Map();
     pack.questions.filter(question => progress.questionStats[question.id]?.lastResult === false).forEach(question => {
-      (question.knowledgePoints?.length ? question.knowledgePoints : ['其他／未分類']).forEach(point => reviewPoints.set(point, (reviewPoints.get(point) || 0) + 1));
+      [primaryKnowledge(question)].forEach(point => reviewPoints.set(point, (reviewPoints.get(point) || 0) + 1));
     });
     document.getElementById('knowledge-review-list').textContent = [...reviewPoints].sort((a,b) => b[1] - a[1]).slice(0,5).map(([point,count]) => `${point}：${count} 題待複習`).join('；') || '目前沒有待複習錯題。';
     // 弱點分析（依章節）
@@ -338,7 +385,7 @@
     weaknessList.innerHTML = '';
 
     const chapterStats = pack.chapters.map(ch => {
-      const chQuestions = pack.questions.filter(q => q.chapterId === ch.id);
+      const chQuestions = chapterQuestions.get(ch.id) || [];
       let chAttempts = 0;
       let chCorrect = 0;
       let chWrong = 0;
@@ -421,7 +468,7 @@
     stats.lastAnsweredAt = new Date().toISOString();
     progress.questionStats[question.id] = stats;
     const saving = saveProgress();
-    renderQuestionCompletion();
+    renderDashboard();
     window.StudyMetrics?.answer(question.id);
     await saving;
   }
@@ -676,6 +723,7 @@
       }
       saveProgress();
       renderReader();
+      renderDashboard();
     };
   }
 
@@ -791,7 +839,7 @@
     if (selectedPool) {
       pool = [...selectedPool];
     } else if (mode === 'chapter') {
-      pool = pack.questions.filter(q => q.chapterId === chapterId);
+      pool = chapterQuestions.get(chapterId) || [];
     } else if (mode === 'wrong') {
       // 曾經答錯或目前答錯的題目
       pool = pack.questions.filter(q => {
@@ -1225,6 +1273,12 @@
     }
     currentChapterId = pack.chapters.some(ch => ch.id === progress.lastPosition.chapterId) ? progress.lastPosition.chapterId : pack.chapters[0]?.id;
     document.getElementById('btn-storage-warning-export').onclick = exportProgressJson;
+    document.getElementById('btn-storage-retry').onclick=()=>recoverProgress('retry');
+    document.getElementById('btn-storage-overwrite').onclick=()=>recoverProgress('overwrite');
+    document.getElementById('btn-storage-discard').onclick=()=>recoverProgress('discard');
+    try{recoveryCopies=JSON.parse(localStorage.getItem(STORAGE_KEY+'.recovery')||'[]');if(!Array.isArray(recoveryCopies))recoveryCopies=[];}catch{recoveryCopies=[];}
+    document.getElementById('btn-storage-recovery-export').hidden=!recoveryCopies.length;
+    document.getElementById('btn-storage-recovery-export').onclick=downloadRecovery;
     const sidebarToggle = document.getElementById('btn-toggle-sidebar');
     sidebarToggle.setAttribute('aria-controls','reader-toc-list');
     const mobileReader=matchMedia('(max-width:768px)');
@@ -1318,7 +1372,7 @@
       pack.chapters.filter(c => pack.questions.some(q => q.chapterId === c.id)).forEach(c => {
         const opt = document.createElement('option');
         opt.value = c.id;
-        opt.textContent = c.title;
+        opt.textContent = `${c.title}（${chapterQuestions.get(c.id).length} 題）`;
         quizChSelect.appendChild(opt);
       });
       quizChSelect.disabled = quizChSelect.options.length === 0;
@@ -1327,7 +1381,7 @@
     const knowledgeSelect = document.getElementById('quiz-select-knowledge-point');
     if (knowledgeSelect) {
       const knowledgeQuestions = new Map();
-      for (const question of pack.questions) for (const label of question.knowledgePoints || []) {
+      for (const question of pack.questions) for (const label of [primaryKnowledge(question)]) {
         if (!knowledgeQuestions.has(label)) knowledgeQuestions.set(label, []);
         knowledgeQuestions.get(label).push(question);
       }
@@ -1391,7 +1445,7 @@
       if (mode === 'chapter') return startQuiz(mode, quizChSelect.value, 'all');
       if (mode === 'knowledge-point') {
         const label = knowledgeSelect.value;
-        return startQuiz(mode, '', 20, pack.questions.filter(q => q.knowledgePoints?.includes(label)), label);
+        return startQuiz(mode, '', 20, pack.questions.filter(q => primaryKnowledge(q) === label), label);
       }
       if (mode === 'exam') {
         const [term, subject] = JSON.parse(examSelect.value);

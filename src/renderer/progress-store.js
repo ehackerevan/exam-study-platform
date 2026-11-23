@@ -34,6 +34,7 @@
       request.onsuccess = () => { const db = request.result; db.onversionchange = () => db.close(); resolve(db); };
       request.onerror = request.onblocked = () => reject(Error('無法取得安全保存鎖，請匯出本頁進度。'));
     });
+    database.catch(() => { database = undefined; });
     return database;
   }
   async function exclusive(operation) {
