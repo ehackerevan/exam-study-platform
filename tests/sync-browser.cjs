@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const {chromium}=require('playwright'),{pathToFileURL}=require('node:url'),{tmpdir}=require('node:os'),{execFileSync}=require('node:child_process');
 (async()=>{
  const dir=fs.mkdtempSync(path.join(tmpdir(),'study-sync-test-'));execFileSync(process.execPath,['.github/scripts/prepare-pages.mjs'],{env:{...process.env,PAGES_OUTPUT_DIR:dir}});
- const browser=await chromium.launch(), errors=[], db={account:'11111111-1111-4111-8111-111111111111',revision:0,data:null,code:''};
+ const browser=await chromium.launch(), errors=[],sessionChecks=[], db={account:'11111111-1111-4111-8111-111111111111',revision:0,data:null,code:''};
  async function context(){
   const c=await browser.newContext({viewport:{width:390,height:844}});let signed=false,offline=false;
   await c.route('https://static.cloudflareinsights.com/**',r=>r.fulfill({status:200,body:''}));
@@ -12,8 +12,8 @@ const {chromium}=require('playwright'),{pathToFileURL}=require('node:url'),{tmpd
    if(offline)return r.abort();const {action,account,code,revision,progress}=JSON.parse(r.request().postData());let status=200,body={};
    if(action==='register'){if(db.code)status=409;else {db.code=code;signed=true;body={account:db.account}}}
    else if(action==='login'){if(code!==db.code)status=401;else {signed=true;body={account:db.account}}}
+   else if(action==='session'){sessionChecks.push({signed,status});body={account:signed?db.account:null};}
    else if(!signed)status=401;
-   else if(action==='session')body={account:db.account};
    else if(account!==db.account)status=403;
    else if(action==='logout')signed=false;
    else if(action==='read')body={revision:db.revision,data:db.data};
@@ -45,7 +45,7 @@ const {chromium}=require('playwright'),{pathToFileURL}=require('node:url'),{tmpd
   await catalog.p.locator('#sync-logout').click();assert(warned,'catalog warns before leaving dirty records');assert(await catalog.p.locator('#sync-logout').isVisible());
   catalog.p.once('dialog',d=>d.accept());await Promise.all([catalog.p.waitForEvent('framenavigated'),catalog.p.locator('#sync-logout').click()]);
   assert(await catalog.p.evaluate(key=>JSON.parse(localStorage.getItem(key)).dirty,dirtyKey),'logout preserves pending records');
-  assert.equal(await b.p.evaluate(()=>document.documentElement.scrollWidth),390);assert.deepEqual(errors,[]);
+  assert.equal(await b.p.evaluate(()=>document.documentElement.scrollWidth),390);assert(sessionChecks.some(x=>!x.signed&&x.status===200),'guest session probes are normal responses');assert.deepEqual(errors,[]);
   console.log('PASS: registration, progress upload and cross-device restore, conflict safety and mobile');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

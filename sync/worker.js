@@ -41,8 +41,10 @@ export default {async fetch(req,env){
       return reply(200,{account:account.id},{'Set-Cookie':cookie(token,60*60*24*30)});
     }
     const token=(req.headers.get('Cookie')||'').split(';').map(v=>v.trim()).find(v=>v.startsWith('__Host-study_session='))?.slice('__Host-study_session='.length);
+    if(action==='session'&&(!token||! /^[a-f0-9]{64}$/.test(token)))return reply(200,{account:null});
     if(!token||! /^[a-f0-9]{64}$/.test(token))return reply(401);
     const session=await env.DB.prepare('SELECT account_id FROM sync_sessions WHERE token_hash = ? AND expires > ?').bind(digest(token),Math.floor(Date.now()/1000)).first();
+    if(action==='session'&&!session)return reply(200,{account:null});
     if(!session)return reply(401);
     if(action==='session')return reply(200,{account:session.account_id});
     if(['read','read-all','write','logout'].includes(action)&&data.account!==session.account_id)return reply(403);

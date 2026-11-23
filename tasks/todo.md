@@ -1,3 +1,17 @@
+## Current：修正題目搜尋與未登入同步檢查
+
+- 狀態：執行中；MAINTAIN。
+- 需求來源：使用者要求修正整體網站 Review 發現並提交、部署。
+- 目標：題目搜尋只包含題幹；訪客首次載入不產生預期外的 401 Console 錯誤；正式 Worker 與 GitHub Pages 均更新。
+- 範圍：`src/renderer/answer-search.js`、`sync/client.js`、`sync/worker.js`、對應測試及必要建置產物。
+- 不在範圍內：不更動 D1 資料、`SYNC_PEPPER`、既有訪客進度或題庫答案。
+- 驗收條件：搜尋字串不含 `data-metrics-question`；訪客 `session` 回傳 200/null 而受保護操作仍回 401；`npm run verify` 通過；Worker 先部署，Pages 後部署並線上確認。
+- 驗證方式：同步及搜尋瀏覽器測試、完整 `npm run verify`、Wrangler dry-run、GitHub Actions、正式網站 Console／流程檢查。
+- 計畫：修正兩個根因並補回歸測試；完成建置與驗收；提交並部署 Worker；將提交合併至 `main` 觸發 Pages；確認正式行為。
+- 交接：2026-11-23，分支 `antigravity/reorg-and-660-exams-20261123`，起始 `c41429c`；待執行。
+- 後續發現：無。
+- 停止條件：Worker、Pages 及線上驗收均完成後停止。
+
 ## Current：整體介面與教材精簡
 
 - 狀態：完成；BUILD，2026-10-31。

@@ -1,7 +1,9 @@
 (function () {
   const selector = '#quiz-stem,.q-text';
   function attach(question) {
-    const text = question.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
+    const stem = question.cloneNode(true);
+    stem.querySelectorAll('[data-metrics-question]').forEach(node => node.remove());
+    const text = stem.textContent.replace(/^\s*【(?:場次\s*[^】]*|第\s*\d+\s*屆[^】]*)第\s*\d+\s*題】\s*/, '').trim();
     const tools=question.id==='quiz-stem'?document.getElementById('quiz-question-actions'):null;
     let link = tools?tools.querySelector('.answer-search'):question.nextElementSibling;
     if (!link?.classList.contains('answer-search')) {

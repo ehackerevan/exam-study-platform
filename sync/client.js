@@ -1,6 +1,7 @@
 (function(){
  const endpoint='https://study-pack-sync.ehackerevan.workers.dev';
  let account='',course='',key='',metaKey='',meta=null,enabled=false,timer=null,busy=null,statusNode=null,validator=null;
+ const validAccount=value=>typeof value==='string'&&/^[a-f0-9-]{36}$/.test(value);
  function status(text){if(statusNode)statusNode.textContent=text;}
  function conflict(){enabled=false;status('其他裝置的進度已變更；為避免覆蓋，同步已暫停。請先匯出本機備份，或選擇改用雲端進度。');const button=document.getElementById('sync-use-cloud');if(button)button.style.display='';}
  async function request(data){
@@ -34,7 +35,7 @@
    status('處理中…');
    try{
     await request({action,code:value});code.value='';
-    try{await request({action:'session'});}catch{status('登入後無法保存工作階段；請允許此網站使用跨網站 Cookie。');return;}
+    try{const session=await request({action:'session'});if(!validAccount(session.account)){status('登入後無法保存工作階段；請允許此網站使用跨網站 Cookie。');return;}}catch{status('登入後無法保存工作階段；請允許此網站使用跨網站 Cookie。');return;}
     location.reload();
    }catch(e){code.value='';status(e.status===409?'此代號已被使用，請改用其他代號。':e.status===401?'代號不正確。':e.status===429?'操作過於頻繁，請稍後再試。':'連線失敗，或瀏覽器阻擋跨網站 Cookie；進度仍保存在本機。');}
   };
@@ -53,7 +54,7 @@
  }
  async function bootstrap(id, guestKey, normalize){
   course=id;validator=normalize;let remote;
-  try{account=(await request({action:'session'})).account;if(!/^[a-f0-9-]{36}$/.test(account))throw Error('session');
+  try{account=(await request({action:'session'})).account;if(!validAccount(account)){account='';try{localStorage.removeItem('study-pack.sync.account');}catch{}panel();return guestKey;}
    localStorage.setItem('study-pack.sync.account',account);remote=await request({action:'read',account,course});
   }catch(e){
    if(e.status===401){account='';try{localStorage.removeItem('study-pack.sync.account');}catch{}panel();return guestKey;}
@@ -105,7 +106,7 @@
   const login=document.getElementById('catalog-login');login.hidden=false;
   document.querySelector('a[href="#catalog-login"]')?.addEventListener('click',()=>{login.open=true;});
   request({action:'session'}).then(result=>{
-   if(!/^[a-f0-9-]{36}$/.test(result.account))throw Error('session');
+   if(!validAccount(result.account)){localStorage.removeItem('study-pack.sync.account');panel();return;}
    account=result.account;localStorage.setItem('study-pack.sync.account',account);panel();
   }).catch(error=>{if(error.status===401)localStorage.removeItem('study-pack.sync.account');panel();});
  }});

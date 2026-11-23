@@ -15,6 +15,8 @@ function makeEnv(){const db=new DatabaseSync(':memory:');db.exec(readFileSync('s
 const call=(env,data,cookie='',source=origin)=>worker.fetch(new Request('https://example.test/',{method:'POST',headers:{Origin:source,'CF-Connecting-IP':'192.0.2.1',Cookie:cookie},body:JSON.stringify(data)}),env);
 test('codes authenticate, accounts stay isolated, and conflicting writes do not overwrite',async()=>{
  const env=makeEnv(),code='Strong-code-1234';
+ const guestSession=await call(env,{action:'session'});assert.equal(guestSession.status,200);assert.deepEqual(await guestSession.json(),{account:null});
+ const expiredSession=await call(env,{action:'session'},'__Host-study_session='+'a'.repeat(64));assert.equal(expiredSession.status,200);assert.deepEqual(await expiredSession.json(),{account:null});
  assert.equal((await call(env,{action:'register',code:'weak'})).status,400);
  const a=await call(env,{action:'register',code});assert.equal(a.status,200);const aa=(await a.json()).account;const ac=a.headers.get('set-cookie').split(';')[0];
  assert.equal((await call(env,{action:'register',code})).status,409);
@@ -31,7 +33,7 @@ test('codes authenticate, accounts stay isolated, and conflicting writes do not 
  assert.equal((await (await call(env,{action:'read',account:ba,course:'trust-exam'},bc)).json()).data,null);
  const row=env.db.prepare('SELECT * FROM sync_accounts LIMIT 1').get();assert(!JSON.stringify(row).includes(code));
  assert.equal((await call(env,{action:'logout',account:aa},ac)).status,200);
- assert.equal((await call(env,{action:'session'},ac)).status,401);
+ const endedSession=await call(env,{action:'session'},ac);assert.equal(endedSession.status,200);assert.deepEqual(await endedSession.json(),{account:null});
 });
 
 for(const revision of [0,1]) test(`共享Cookie切換帳號時不串寫，原版本${revision}`,async()=>{
