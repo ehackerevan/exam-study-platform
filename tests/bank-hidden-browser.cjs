@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
  const questions=Array.from({length:301},(_,i)=>({category:'金融科技力',period:'1',subject:'測試',number:i+1,text:i<2?'相同題幹':'題目'+i,options:['甲','乙'],answer:'1',type:'single-choice'}));
  questions.push({...questions[0],category:'未對照',text:'未對照題目'});
  const pack={id:'bank-hidden-qa',title:'測試',contentVersion:'qa',chapters:[],questions:questions.slice(0,301).map((q,i)=>({id:'q'+i,question:q.text,options:q.options,answer:0,sourceExam:{term:'1',subject:'測試',number:i+1}}))};
- let html=fs.readFileSync('考古題/歷屆考古題_完整題庫大全.html','utf8').replace(/const RAW_QUESTIONS = (\[.*\]);/,'const RAW_QUESTIONS = '+JSON.stringify(questions)+';');
+ let html=fs.readFileSync('02_考古題與題庫/歷屆考古題_完整題庫大全.html','utf8').replace(/const RAW_QUESTIONS = (\[.*\]);/,'const RAW_QUESTIONS = '+JSON.stringify(questions)+';');
  const read=fs.readFileSync;fs.readFileSync=function(file,...args){if(String(file).startsWith('dist/'))return 'window.__STUDY_PACK__ = '+JSON.stringify(String(file).includes('金融科技力')?pack:{...pack,id:String(file),questions:[]})+';';return read.call(this,file,...args);};
  try{html=attachBankAchievements(html);}finally{fs.readFileSync=read;}
  fs.mkdirSync('.qa-artifacts',{recursive:true});const file=path.resolve('.qa-artifacts/bank-hidden.html');fs.writeFileSync(file,html);

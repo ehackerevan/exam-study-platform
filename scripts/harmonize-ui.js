@@ -11,15 +11,15 @@ export function htmlFiles(root = process.cwd()) {
   }}
   walk('dist');
   files.push('src/renderer/template.html');
-  if (fs.existsSync(path.join(root, '考古題/歷屆考古題_完整題庫大全.html'))) files.push('考古題/歷屆考古題_完整題庫大全.html');
+  if (fs.existsSync(path.join(root, '02_考古題與題庫/歷屆考古題_完整題庫大全.html'))) files.push('02_考古題與題庫/歷屆考古題_完整題庫大全.html');
   return files.sort();
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const archive = '考古題/歷屆考古題_完整題庫大全.html';
+  const archive = '02_考古題與題庫/歷屆考古題_完整題庫大全.html';
   if (fs.existsSync(archive)) { fs.mkdirSync('dist', {recursive:true}); fs.copyFileSync(archive, 'dist/歷屆考古題_完整題庫大全.html'); }
   for (const file of htmlFiles()) {
     const normalized = file.replaceAll('\\','/');
-    const home = normalized === 'dist/index.html' ? null : normalized.startsWith('src/') ? '../../dist/index.html' : normalized.startsWith('考古題/') ? '../dist/index.html' : 'index.html';
+    const home = normalized === 'dist/index.html' ? null : normalized.startsWith('src/') ? '../../dist/index.html' : normalized.startsWith('02_考古題與題庫/') ? '../dist/index.html' : 'index.html';
     // Older standalone packs retain their own app script; update only the quiz selector setup.
     const html = fs.readFileSync(file,'utf8').replace(
       /(const quizChSelect = document\.getElementById\('quiz-select-chapter'\);\s*if \(quizChSelect\) \{\s*)pack\.chapters\.forEach\(c =>/,

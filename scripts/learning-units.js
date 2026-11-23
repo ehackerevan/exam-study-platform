@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 
-const source = JSON.parse(fs.readFileSync(new URL('../教材/教學單元/永續盤查.json',import.meta.url),'utf8'));
+const source = JSON.parse(fs.readFileSync(new URL('../01_教材來源/教學單元/永續盤查.json',import.meta.url),'utf8'));
 
 export function attachLearningUnits(pack) {
   if(pack.id!==source.packId)return;

@@ -11,7 +11,7 @@ function parseCount(text) {
 }
 
 const CHROME_PATH = process.env.CHROME_PATH || chromium.executablePath();
-const HTML_FILE = path.resolve(process.cwd(), '考古題/歷屆考古題_完整題庫大全.html');
+const HTML_FILE = path.resolve(process.cwd(), '02_考古題與題庫/歷屆考古題_完整題庫大全.html');
 const FILE_URL = pathToFileURL(HTML_FILE).href;
 
 async function wait(ms) {

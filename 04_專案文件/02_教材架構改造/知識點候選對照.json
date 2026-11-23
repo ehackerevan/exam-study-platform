@@ -1,0 +1,3561 @@
+{
+  "status": "設計候選，尚未接入正式建置；不得當作已語意驗證的完整官方知識點",
+  "identity": "初次由pack／chapter／legacySection身分雜湊指派；核准後固定，不隨標題、排序或正文重算",
+  "points": [
+    {
+      "id": "kp-451608091e35",
+      "packId": "trust-exam",
+      "chapterId": "c00",
+      "legacySectionId": "c00-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c00/c00-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "本教材整理信託法制、業務監理、稅制與常見信託型態。法規數字會隨修法調整，現行規定查核至 2026 年 10 月 17 日；歷屆題目應依題目所屬年度判讀。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-be609cdb23cd",
+      "packId": "trust-exam",
+      "chapterId": "c00",
+      "legacySectionId": "c00-章節",
+      "title": "章節",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c00/c00-章節",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5806340ef6fc",
+      "packId": "trust-exam",
+      "chapterId": "c00",
+      "legacySectionId": "c00-官方資料",
+      "title": "官方資料",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c00/c00-官方資料",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "- [不動產證券化條例](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380169)、[金融資產證券化條例](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380122)、[證券投資信託基金管理辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400082)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-179956458a84",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-2c9088c28ffa",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "本章整理信託財產獨立性（第 12 條）、登記對抗要件（第 4 條）、詐害信託撤銷權（第 6 條）與受託人義務（第 22 至 35 條），並以情境說明法律原則與例外。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-137043447452",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-一信託的本質與概念說明",
+      "title": "一、信託的本質與概念說明",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-一信託的本質與概念說明",
+      "detailSubheadings": [
+        "1. 什麼是信託？（信託法第 1 條）"
+      ],
+      "numericRuleCandidates": [
+        "### 1. 什麼是信託？（信託法第 1 條）",
+        "    王老先生（**委託人**）將 1,000 萬元資金信託移轉予臺灣銀行信託部（**受託人**），簽訂信託契約，約定受託銀行每月撥付 3 萬元作為王老先生的生活安養費（**自益信託部分**），並約定在孫子小明考上大學後，每學期撥付 10 萬元學雜費與留學基金（**他益信託部分**）。",
+        "    *   ① **財產權實質移轉**：1,000 萬元所有權名義已合法移轉至臺銀信託專戶，信託財產原則上與受託人自有財產區隔；強制執行仍須檢視信託法第 12 條但書及其他法律規定；",
+        "    *   ③ **贈與稅申報**：孫子小明享有學費給付之權利；若該安排依《遺產及贈與稅法》第 5 條之 1 發生應課贈與稅情形，委託人依第 24 條之 1 及第 24 條辦理，申報期限為 30 日。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9c7f02024f69",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-二信託的分類圖表對照",
+      "title": "二、信託的分類：圖表對照",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-二信託的分類圖表對照",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        ">     *    **錯誤**！台灣《信託法》第 71 條規定，只有**法人**為增進公共利益，經主管機關許可，得以宣言信託成立公益信託。**自然人不可用宣言信託**！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5b4ae5ef6ed4",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-三信託財產的獨立性財產獨立性",
+      "title": "三、信託財產的獨立性（財產獨立性）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-三信託財產的獨立性財產獨立性",
+      "detailSubheadings": [
+        "1. 信託財產獨立性的主要規定（信託法第 9 至 14 條）",
+        "2. 信託財產不得強制執行的三類法定例外"
+      ],
+      "numericRuleCandidates": [
+        "### 1. 信託財產獨立性的主要規定（信託法第 9 至 14 條）",
+        "1. **物上代位（第 9 條）**：信託財產因管理、處分、滅失或毀損取得的財產權，仍屬信託財產。財產形態改變不影響其信託財產性質；能否強制執行仍須依第 12 條判斷。",
+        "2. **不屬受託人遺產（第 10 條）**：受託人死亡時，信託財產不列入其遺產。",
+        "3. **不屬受託人破產財團（第 11 條）**：受託人破產時，信託財產不列入其破產財團。",
+        "4. **強制執行限制（第 12 條）**：原則不得對信託財產強制執行；信託前已存在於該財產的權利、處理信託事務所生權利或其他法律另有規定者除外。",
+        "5. **禁止抵銷（第 13 條）**：屬於信託財產的債權，不得與受託人個人債務抵銷。",
+        "信託法第 12 條第 1 項但書列出信託財產得強制執行的例外，應連同條文本文一起理解。",
+        "> *   委託人的普通債權人拿本票裁定，要去查封信託財產？  **原則不得執行；仍須檢視第 12 條但書及其他法律規定。**",
+        "> *   受託人請水電師傅修繕信託的公寓水管，修繕完畢積欠工程款 10 萬元，水電師傅可否向法院聲請對信託公寓強制執行？  **可以！此為「因處理信託事務所生之權利」！**"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-62764fc8e22d",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-四信託公示制度對抗要件信託法第-4-條",
+      "title": "四、信託公示制度：對抗要件（信託法第 4 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-四信託公示制度對抗要件信託法第-4-條",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> 陳董將名下一筆市價 5,000 萬元的精華土地信託移轉給好友張三管理，契約完全合法，但在地政事務所僅辦妥「所有權移轉登記」，卻漏未辦理「信託登記（未載明為信託財產及信託專簿）」："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-973beecf9de9",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-五脫產防線詐害信託與撤銷權信託法第-6-條第-7-條",
+      "title": "五、脫產防線：詐害信託與撤銷權（信託法第 6 條、第 7 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-五脫產防線詐害信託與撤銷權信託法第-6-條第-7-條",
+      "detailSubheadings": [
+        "1. 撤銷的法定條件"
+      ],
+      "numericRuleCandidates": [
+        "包商黃董積欠下游材料商林老闆 3,000 萬元工程款，為免豪宅被查封，將名下價值 4,000 萬元的豪宅信託登記給不知情的胞弟作為子女教育基金：",
+        "② **法院撤銷及受益人保護**：債權人得依第 6 條聲請法院撤銷有害債權的信託行為；受益人已取得的利益是否受影響，另依第 6 條第 2 項判斷，不概括以受益人是否知情作唯一結論。",
+        "③ **嚴格除斥期間**：林老闆必須在「自知有撤銷原因起 1 年內」，或「自信託行為成立日起 10 年內」，向民事法院提起撤銷訴訟；逾期則撤銷權消滅！",
+        "### 1. 撤銷的法定條件",
+        "2. **受託人知情不是第 6 條所列的撤銷要件**：債權人仍須證明信託行為有害其債權，並向法院聲請撤銷。",
+        "3.  **法定推定有害（第 6 條第 2 項）**：信託成立後 **6 個月內**，委託人被宣告破產者，**法律直接推定該信託行為有害於債權**！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-30d1127c0f29",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-六受託人的權利義務與利益衝突迴避",
+      "title": "六、受託人的權利、義務與利益衝突迴避",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-六受託人的權利義務與利益衝突迴避",
+      "detailSubheadings": [
+        "1. 受託人的主要義務",
+        "2. 受託人享有利益與轉為自有之限制（信託法第 34、35 條）"
+      ],
+      "numericRuleCandidates": [
+        "1.  **善良管理人之注意義務（信託法第 22 條）**：",
+        "2.  **親自處理義務（第 25 條）**：",
+        "    *   **例外**：信託行為另有訂定，或有不得已事由時，得使第三人代為處理；受託人並依信託法第 26、27 條負相關責任。",
+        "3. **分別管理義務（第 24 條）**：受託人應將信託財產與自有財產分別管理；不同信託的信託財產原則上分別管理，但信託行為另有約定時，依其約定。",
+        "### 2. 受託人享有利益與轉為自有之限制（信託法第 34、35 條）",
+        ">     *    信託法第 34 條規定，受託人不得享有信託利益，但與他人共同為受益人時例外；不得將該例外擴張成受託人可單獨享有全部利益。",
+        ">     *    **原則不得為之。** 第 35 條列有三種例外：① 經受益人書面同意並依市價取得；② 由集中市場競價取得；③ 有不得已事由經法院許可。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-774ab6eb8bb1",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-七信託之消滅與賸餘財產歸屬信託法第-6265-條",
+      "title": "七、信託之消滅與賸餘財產歸屬（信託法第 62~65 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-七信託之消滅與賸餘財產歸屬信託法第-6265-條",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> **信託法第 65 條**：信託行為另有約定時依約定；沒有約定時，先歸屬於享有全部信託利益的受益人，再由委託人或其繼承人承受。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0e18931ad6c1",
+      "packId": "trust-exam",
+      "chapterId": "c01",
+      "legacySectionId": "c01-法規原文對照庫",
+      "title": "法規原文對照庫",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c01/c01-法規原文對照庫",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    <p><strong>第 1 條（信託定義）</strong>：稱信託者，謂委託人將財產權移轉或為其他處分，使受託人依信託本旨，為受益人之利益或為特定之目的，管理或處分信託財產之關係。</p>",
+        "    <p><strong>第 4 條（公示與對抗要件）</strong>：以應登記或註冊之財產權為信託者，非經信託登記，不得對抗第三人。以有價證券為信託者，非依目的事業主管機關規定於證券上或其他表彰權利之文件上載明為信託財產，不得對抗第三人。</p>",
+        "    <p><strong>第 6 條（詐害信託撤銷權）</strong>：信託行為有害於委託人之債權人權利者，債權人得聲請法院撤銷之。信託成立後 6 個月內委託人破產者，推定其有害於債權。</p>",
+        "    <p><strong>第 7 條（撤銷權除斥期間）</strong>：前條撤銷權，自債權人知有撤銷原因時起，1 年間不行使而消滅。自信託行為成立時起，逾 10 年者，亦同。</p>",
+        "    <p><strong>第 12 條（強制執行禁止與例外）</strong>：對信託財產不得強制執行。但基於信託前已存在於該財產之權利、因處理信託事務所生之權利或其他法律有特別規定者，不在此限。</p>",
+        "    <p><strong>第 34 條（受託人利益限制）</strong>：受託人不得以任何名義，享有信託利益。但與他人為共同受益人時，不在此限。</p>",
+        "    <p><strong>第 35 條（轉為自有之限制）</strong>：受託人除有下列各款情形之一外，不得將信託財產轉為自有財產，或於該信託財產上設定或取得權利：一、經受益人書面同意，並依市價為之者。二、由集中市場競價取得者。三、有不得已事由經法院許可者。</p>"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6359a7162eca",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-89d2cdf92798",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-db67bc614eb5",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-一信託業的誕生設立門檻與三道資金防線",
+      "title": "一、信託業的誕生：設立門檻與三道資金防線",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-一信託業的誕生設立門檻與三道資金防線",
+      "detailSubheadings": [
+        "1. 信託業資本額與賠償準備金"
+      ],
+      "numericRuleCandidates": [
+        "① **分別核定原則**：信託業法第 16 條之信託業務與第 17 條之附屬業務，主管機關（金管會）必須「分別核定」，嚴禁概括核定；涉及外匯業務者另須經中央銀行許可。",
+        "② **禁止承諾本金或最低收益率（第 31 條）**：信託業不得承諾擔保本金或最低收益率；商品發行機構的條件與受託銀行的責任，應依契約及相關法令判斷。",
+        "| **最低實收資本額** | 一般信託公司 **20 億元**；僅辦理不動產投資信託 **10 億元**、僅辦理不動產資產信託 **3 億元**、兩類均辦理 **10 億元** | 信託公司設立門檻；依業務範圍適用不同標準 | 依《信託業設立標準》第 3 條判讀 |",
+        "| **營業保證金** | 《信託業法》未設一般信託業者繳存資本額 5% 營業保證金之規定 | 原表列此項混淆其他金融業務之保證金 | 不應與信託業賠償準備金混為一談 |",
+        "| **賠償準備金**<br/>（信託業法第 34 條） | **最低 5,000 萬元**<br/>（並依受託總額千分之一或萬分之一累計） | 取得執照後 **1 個月內**<br/>以**現金或政府公債**繳存**中央銀行** | **專門擔保受託人違法疏失**。<br/> **委託人或受益人依法就賠償準備金有優先受償權！** |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-3fa33a7d4be3",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-二信託業法第-25-條與第-27-條利害關係交易限制",
+      "title": "二、信託業法第 25 條與第 27 條利害關係交易限制",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-二信託業法第-25-條與第-27-條利害關係交易限制",
+      "detailSubheadings": [
+        "1. 信託業的「利害關係人」是誰？（信託業法第 7 條）",
+        "2. 第 25 條與第 27 條交易規範對照"
+      ],
+      "numericRuleCandidates": [
+        "第 25 條列出信託業以信託財產進行利害關係交易的禁止事項及法定例外；第 27 條規範特定銀行業務及其他交易的事前約定或告知同意程序。",
+        "### 1. 信託業的「利害關係人」是誰？（信託業法第 7 條）",
+        "記憶關鍵數字：**「持股 5%」與「持股 10%」**！",
+        "- 持有信託公司股份總額 **5% 以上**之股東。",
+        "- 信託業負責人獨資、合夥，或持股超過 **10%** 之企業。",
+        "- 信託公司持股超過 **5%** 之轉投資企業。",
+        "### 2. 第 25 條與第 27 條交易規範對照",
+        "| 比較維度 | 第 25 條（禁止事項與法定例外） | 第 27 條（事前約定或告知同意） |",
+        "| **規範內容** | 限制信託業以信託財產購買本身或利害關係人發行、承銷的證券、購買其財產或讓售財產予其本身或利害關係人。 | 限制信託業辦理特定銀行業務、外匯交易及第 25 條以外的利害關係交易。 |",
+        "| **範圍** | 購買本身或利害關係人發行／承銷的有價證券或票券；購買其財產；讓售信託財產予其本身或利害關係人；主管機關另定事項。 | 購買銀行部門經紀的證券或票券；於本身銀行部門或利害關係人處存款或辦理外匯交易；其他第 25 條以外交易。 |",
+        "| **例外或程序** | 信託財產不具運用決定權者不受第 1 項限制，但須充分告知；政府發行債券亦有法定例外。受益人書面同意本身不是例外。 | 依信託契約約定，或事先告知受益人並取得書面同意；不以董事會重度決議為第 27 條明文要件。 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-1b003b840395",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-三公司治理信託財產評審委員會",
+      "title": "三、公司治理：信託財產評審委員會",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-三公司治理信託財產評審委員會",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c67b0a4c284f",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-四監理處分與罰則體系",
+      "title": "四、監理處分與罰則體系",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-四監理處分與罰則體系",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-618a1993493f",
+      "packId": "trust-exam",
+      "chapterId": "c02",
+      "legacySectionId": "c02-法規原文對照庫",
+      "title": "法規原文對照庫",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c02/c02-法規原文對照庫",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    <p><strong>第 10 條（設立資本額）</strong>：信託業之最低實收資本額，由主管機關審酌經濟情勢定之（一般信託公司為新臺幣 20 億元；不動產專營公司依業務類型適用不同門檻）。發起人應於發起時一次全額認足。</p>",
+        "    <p><strong>第 25 條（特定利害關係交易限制）</strong>：信託業不得以信託財產進行條文列舉的交易；信託財產不具運用決定權或標的為政府發行債券時，依條文有例外，且須履行告知義務。</p>",
+        "    <p><strong>第 27 條（特定銀行業務及其他交易）</strong>：對條文列舉的證券、存款、外匯及其他交易，除依信託契約約定，或事先告知受益人並取得書面同意外，不得辦理；信託財產不具運用決定權時另有法定例外。</p>",
+        "    <p><strong>第 34 條（賠償準備金）</strong>：信託業應於取得營業執照後 1 個月內，以現金或政府公債繳存中央銀行作為賠償準備金。委託人或受益人就該賠償準備金有優先受償之權。</p>",
+        "    <p><strong>第 44 條（主管機關處分權限）</strong>：信託業違反法令或章程時，主管機關得為糾正、命限期改善、停止部分業務、解除董監經理人職務，或廢止營業許可。</p>"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a1713cc89358",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0d373e02de8f",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-04b9cac595fc",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-一所得稅透明水管管道穿透原則",
+      "title": "一、所得稅：透明水管「管道穿透原則」",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-一所得稅透明水管管道穿透原則",
+      "detailSubheadings": [
+        "1. 所得稅課稅時點",
+        "2. 申報與憑單期限"
+      ],
+      "numericRuleCandidates": [
+        "《所得稅法》第 3 條之 4 原則上以所得發生年度計算各類所得，按信託約定或可得推知的比例歸屬受益人。若受益人不特定或尚未存在，由受託人依規定申報納稅。",
+        "### 2. 申報與憑單期限",
+        "依《所得稅法》第 92 條之 1，受託人原則上應於每年 1 月底前申報上一年度信託資料，並於 2 月 10 日前填發相關憑單；每年 1 月遇連續 3 日以上國定假日者，申報期限延至 2 月 5 日、憑單填發期限延至 2 月 15 日。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-430c2d8818d7",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-二贈與稅與遺產稅視同贈與與折現計算",
+      "title": "二、贈與稅與遺產稅：視同贈與與折現計算",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-二贈與稅與遺產稅視同贈與與折現計算",
+      "detailSubheadings": [
+        "1. 贈與時點與申報期限",
+        "2. 贈與價值計算公式（計算題常見考點！）"
+      ],
+      "numericRuleCandidates": [
+        "### 1. 贈與時點與申報期限",
+        "- **申報期限**：他益信託依遺贈稅法第 5 條之 1 發生應課贈與稅情形時，委託人依第 24 條之 1 及第 24 條於贈與行為發生後 **30 日內**申報；公益信託依法律規定處理。",
+        "當父母把 1,000 萬元信託，約定「期間 10 年，每年孳息給兒子，10 年期滿本金還給父母（**孳息他益、本金自益**）」，贈與金額該怎麼算？",
+        "> ** 實務精算案例【10年期本金他益信託之贈與稅折現】**：",
+        "> 郭董交付 1,000 萬元現金信託，期間 10 年，約定「每年租金利息全由郭董自領（自益），10 年期滿 1,000 萬本金歸兒子小郭（本金他益）」：",
+        "> ① 贈與標的係「10 年後才拿到的 1,000 萬元本金」，依法按成立時**中華郵政股份有限公司一年期定期儲金固定利率**（僅為試算假設，非現行固定利率）年複利折現：",
+        ">    *   **本案數值試算**：`10,000,000 元 ÷ (1 + 0.02)¹⁰ ≈ 8,203,483 元`",
+        "> ② 郭董僅須以折現後的現值約 820.3 萬元申報贈與稅，示範折現計算方式；實際金額依成立時法定利率與個案條件計算！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-778478df5df5",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-三土地稅地價稅與土地增值稅",
+      "title": "三、土地稅：地價稅與土地增值稅",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-三土地稅地價稅與土地增值稅",
+      "detailSubheadings": [
+        "1. 土地增值稅：信託關係人間五種不課徵情形",
+        "2. 受託人賣土地時，誰繳稅？原地價怎麼算？（考超多次！）",
+        "3. 地價稅之課徵主體與累進稅率"
+      ],
+      "numericRuleCandidates": [
+        "《土地稅法》第 28 條之 3 列有五種信託關係人間移轉不課徵土地增值稅：①信託成立時委託人移轉給受託人；②存續中更換受託人；③契約明定委託人為受益人，信託消滅時受託人移轉給受益人；④遺囑信託消滅時受託人移轉給受益人；⑤信託不成立、無效、解除或撤銷時委託人與受託人間的移轉。其他移轉須按實際關係與法令判斷，不能一概視為免稅。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-07d2f613f5f1",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-四契稅營業稅與印花稅速記",
+      "title": "四、契稅、營業稅與印花稅速記",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-四契稅營業稅與印花稅速記",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-acf3a091b410",
+      "packId": "trust-exam",
+      "chapterId": "c03",
+      "legacySectionId": "c03-法規原文對照庫",
+      "title": "法規原文對照庫",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c03/c03-法規原文對照庫",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    <p><strong>所得稅法第 3 條之 4（導管穿透原則）</strong>：信託財產發生之收入，受託人應於所得發生年度，依所得稅法規定計算所得，並由受益人併入當年度所得額課徵所得稅。</p>",
+        "    <p><strong>所得稅法第 92 條之 1（信託資料申報與憑單填發）</strong>：受託人應於每年 1 月底前，將上一年度信託專戶之財產目錄、收支計算表及扣繳憑單或免扣繳憑單向該管稽徵機關申報，並於 2 月 10 日前填發予納稅義務人。</p>",
+        "    <p><strong>遺產及贈與稅法第 5 條之 1、24 條之 1</strong>：他益信託在法律規定的應課贈與稅情形，視為委託人贈與信託利益；申報期限依第 24 條為贈與行為發生後 30 日。不得將期限套用於所有信託。</p>",
+        "    <p><strong>土地稅法第 28 條之 3（不課徵土地增值稅）</strong>：列有五種情形：信託成立時委託人與受託人間移轉；存續中更換受託人；契約明定委託人為受益人而信託消滅時受託人與受益人間移轉；遺囑信託消滅時受託人與受益人間移轉；信託不成立、無效、解除或撤銷時委託人與受託人間移轉。</p>",
+        "    <p><strong>官方依據（查核至 2026 年 10 月 17 日）</strong>：<a href=\"https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0340096\">土地稅法第 28 條之 3</a>。</p>"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-198ae6829473",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b987198462dc",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4fcb4a07cf55",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-一金錢信託分類架構與概念說明",
+      "title": "一、金錢信託分類架構與概念說明",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-一金錢信託分類架構與概念說明",
+      "detailSubheadings": [
+        "1. 什麼是特定金錢信託 vs 非指定金錢信託？"
+      ],
+      "numericRuleCandidates": [
+        "        張先生填單指定「以 100 萬元申購聯博全球高收益債券基金 A 股」。標的、金額、時點完全由客戶具體下達指示，銀行純粹擔任交易通道與受託保管者，絕無擅自變更之權。",
+        "        李董將 2,000 萬元交付信託，指示「資金限於投資臺灣前 50 大市值權值股與 AA 級金融債券」。至於挑選哪一檔股票、何時進場，全由銀行投資團隊在約定範圍內專業裁量。",
+        "        王奶奶交付 500 萬元安養，未指定營運範圍或方法。受託人依信託業法第 32 條及相關運用準則，在法定範圍內管理；範圍包括現金及銀行存款、公債、公司債、金融債券、短期票券及經主管機關核准的業務。",
+        "| **非特定金錢信託** | **未指明任何標的** | **受託人行使**（完全自主裁量） | 依信託業法第 32 條規定之法定安全標的運用 |",
+        "> **法規提醒（信託業法第 31 條）**：信託業不得承諾擔保本金或最低收益率；違反時依相關法規處理。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d5781536b828",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-二信託資金集合管理運用帳戶cit制度",
+      "title": "二、信託資金集合管理運用帳戶（CIT）制度",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-二信託資金集合管理運用帳戶cit制度",
+      "detailSubheadings": [
+        "1. 集管帳戶的設立與終止程序"
+      ],
+      "numericRuleCandidates": [
+        "「一個人拿 10 萬元買不起多檔優質標的，但一萬個人各拿 10 萬元就有 10 億元，能做分散風險的完美資產配置！」這就是**集合管理運用帳戶（簡稱集管帳戶）**的精髓。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f2d4388bea12",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-三集管帳戶投資防暴比率重點數字清單",
+      "title": "三、集管帳戶投資防暴比率（重點數字清單！）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-三集管帳戶投資防暴比率重點數字清單",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| **單一企業集中度** | 帳戶總資產的 **10%** | 不把所有雞蛋放在同一個籃子裡 |",
+        "| **單一公司股權控制度** | 該公司總發行股份的 **10%** | 防止信託機構假投資之名行介入經營權之實 |",
+        "| **存放於單一金融機構** | 帳戶淨資產之 **10%** 或新臺幣 5,000 萬元 | 避免銀行倒閉風險 |",
+        "> *   題目：集管帳戶得投資於單一公司股票達該集管帳戶淨資產價值 20%？",
+        ">     *    **錯！** 法定上限為 **10%**！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-2f5b6cf2e1aa",
+      "packId": "trust-exam",
+      "chapterId": "c04",
+      "legacySectionId": "c04-四外幣金錢信託實務規範",
+      "title": "四、外幣金錢信託實務規範",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c04/c04-四外幣金錢信託實務規範",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-7a48b1367b0b",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ca3264e3bfa9",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6cb153b23da3",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-一有價證券信託核心制度",
+      "title": "一、有價證券信託核心制度",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-一有價證券信託核心制度",
+      "detailSubheadings": [
+        "1. 對抗要件手續（曾於歷屆題目出現！）",
+        "2. 有價證券借貸（借券業務）實務"
+      ],
+      "numericRuleCandidates": [
+        "    2.  **擔保維持率**：借券人必須繳交法定比率之擔保品（通常在 140% 以上），低於維持率時受託人應通知補繳，否則立刻處分擔保品買回股票（斷頭平倉）。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-57d8b2599477",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-二企業員工福利信託持股信託-vs-福儲信託",
+      "title": "二、企業員工福利信託：持股信託 vs 福儲信託",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-二企業員工福利信託持股信託-vs-福儲信託",
+      "detailSubheadings": [
+        "1. 員工持股信託 vs 員工福儲信託 差異對照表"
+      ],
+      "numericRuleCandidates": [
+        "① **組織與提撥**：員工依章程推選代表成立「員工持股會」，由代表與受託銀行簽約開立信託專戶。假設員工每月自提 1 萬元，雇主另依適用辦法提撥相對金額；實際比例並無通用固定值；"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-661120209316",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-三員工持股信託的表決權行使",
+      "title": "三、員工持股信託的表決權行使",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-三員工持股信託的表決權行使",
+      "detailSubheadings": [
+        "1. 表決權行使依據"
+      ],
+      "numericRuleCandidates": [
+        "1. 依《信託業法》第 20 條之 1，信託業行使信託股票表決權應依信託契約約定。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-30e9a43cd070",
+      "packId": "trust-exam",
+      "chapterId": "c05",
+      "legacySectionId": "c05-四退會與解約處理離職退休怎麼分",
+      "title": "四、退會與解約處理（離職、退休怎麼分？）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c05/c05-四退會與解約處理離職退休怎麼分",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0e65eaa793d0",
+      "packId": "trust-exam",
+      "chapterId": "c06",
+      "legacySectionId": "c06-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c06/c06-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-28f5e85d5228",
+      "packId": "trust-exam",
+      "chapterId": "c06",
+      "legacySectionId": "c06-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c06/c06-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a5e75618989e",
+      "packId": "trust-exam",
+      "chapterId": "c06",
+      "legacySectionId": "c06-一不動產開發信託與買賣價金信託防爛尾防線",
+      "title": "一、不動產開發信託與買賣價金信託（防爛尾防線）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c06/c06-一不動產開發信託與買賣價金信託防爛尾防線",
+      "detailSubheadings": [
+        "1. 不動產開發信託 vs 買賣價金信託 對照比較"
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b7b00e1101ba",
+      "packId": "trust-exam",
+      "chapterId": "c06",
+      "legacySectionId": "c06-二不動產證券化reits-與-reats-制度比較",
+      "title": "二、不動產證券化：REITs 與 REATs 制度比較",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c06/c06-二不動產證券化reits-與-reats-制度比較",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> ① **REIT（不動產投資信託）**：募集或私募資金後，依信託契約投資不動產、不動產相關權利及法定範圍內的標的。契約須載明收益分配方式；適用的處理辦法要求每年配息比率達可分配收益 90% 以上，並於會計年度結束後 6 個月內完成分配。",
+        "| **收益分配** | 契約應載明分配方式；特定處理辦法要求每年分配可分配收益 90% 以上 | 依信託契約及受益證券條件分配 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4fe1e94679a7",
+      "packId": "trust-exam",
+      "chapterId": "c06",
+      "legacySectionId": "c06-三金融資產證券化特殊目的信託spt與破產隔離",
+      "title": "三、金融資產證券化：特殊目的信託（SPT）與破產隔離",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c06/c06-三金融資產證券化特殊目的信託spt與破產隔離",
+      "detailSubheadings": [
+        "1. 什麼是「真實出售（True Sale）」與「破產隔離（Bankruptcy Remoteness）」？",
+        "2. 內部信用增強機制：切蛋糕分等級（優先與次順位）"
+      ],
+      "numericRuleCandidates": [
+        "銀行手上有上百億元的 30 年期房屋貸款，雖然每年有利息收入，但資金被死死卡住 30 年不能動。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-51058f46796f",
+      "packId": "trust-exam",
+      "chapterId": "c07",
+      "legacySectionId": "c07-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c07/c07-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5b90bacc615e",
+      "packId": "trust-exam",
+      "chapterId": "c07",
+      "legacySectionId": "c07-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c07/c07-本章學習導航與核心地圖",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-150e647e01bb",
+      "packId": "trust-exam",
+      "chapterId": "c07",
+      "legacySectionId": "c07-一公益信託回饋社會的法定架構信託法第-6985-條",
+      "title": "一、公益信託：回饋社會的法定架構（信託法第 69~85 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c07/c07-一公益信託回饋社會的法定架構信託法第-6985-條",
+      "detailSubheadings": [
+        "1. 公益信託 vs 私益信託 常見考點差異表"
+      ],
+      "numericRuleCandidates": [
+        "| **信託消滅財產歸屬** | 依信託法第 65 條及信託行為約定 | 信託行為未訂歸屬權利人時，目的事業主管機關得使信託關係為類似目的存續，或移轉財產至有類似目的的公益法人或公益信託（第 79 條） |",
+        ">     *    **錯！** 信託行為未訂財產歸屬權利人時，依第 79 條由目的事業主管機關決定是否使信託為類似目的存續，或移轉至有類似目的的公益法人或公益信託。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c87ad2165cbc",
+      "packId": "trust-exam",
+      "chapterId": "c07",
+      "legacySectionId": "c07-二保管機構業務基金投資人的守門員",
+      "title": "二、保管機構業務：基金投資人的守門員",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c07/c07-二保管機構業務基金投資人的守門員",
+      "detailSubheadings": [
+        "1. 防弊防火牆：投信公司與保管機構持股限制",
+        "2. 全權委託保管銀行業務與越權交易監督防線"
+      ],
+      "numericRuleCandidates": [
+        "在台灣買「元大台灣50（0050）」或任何境內共同基金，你的錢並不是匯給投信公司，而是直接匯入獨立的**「基金保管機構」（通常為信託銀行）**！",
+        "- 任一方持有他方股份總額超過 **10%** 者，**不得擔任該投信基金之保管機構**！",
+        "張董與大華投信簽訂 1 億元全權委託投資契約，契約明定「單一股票投資上限不得超過委託資產之 20%（即2,000萬元）」，並指定第一銀行為全權委託保管機構：",
+        "① **違法越權指示**：大華投信經理人看好某中小型飆股，竟向券商下單 3,500 萬元，並向第一銀行發出撥款交割指示；",
+        "② **保管銀行實質把關（拒絕盲從）**：第一銀行保管部在審核交割指示時，發現該筆交易超過契約 2,000 萬元上限達 1,500 萬元，構成法定之「越權交易」！",
+        "④ **履行責任自負**：超出的 1,500 萬元交割款項，依規定必須由「大華投信以自有資金負履行交割之責」，該超額股票亦撥入投信自有帳戶處理，張董的委託資產專戶絲毫不受損害！這正是保管銀行設立的重點防火牆意義。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d422db11e2a2",
+      "packId": "trust-exam",
+      "chapterId": "c07",
+      "legacySectionId": "c07-三高齡安養與身心障礙者信託信託-20-守護神",
+      "title": "三、高齡安養與身心障礙者信託（信託 2.0 守護神）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c07/c07-三高齡安養與身心障礙者信託信託-20-守護神",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 留給身心障礙子女的照顧費用，在父母百年後被親戚霸佔挪用。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-33d656f18bf8",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-sec-01",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-60ddbb8e2528",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-本章使用說明",
+      "title": "本章使用說明",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-本章使用說明",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4881357201de",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-一常見考點時間與期間重點整理",
+      "title": "一、常見考點「時間與期間」重點整理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-一常見考點時間與期間重點整理",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| **20 日前** | 金融資產證券化條例第 24 條 | 受託機構或信託監察人召集受益人會議，應於開會 **20 日前**書面通知各受益人。 | 常被改成「10 日前」或「30 日前」 |",
+        "| **30 日** | 遺產及贈與稅法第 24 條、第 24 條之 1 | 他益信託發生依法應課贈與稅情形時，依贈與行為發生日計算申報期限；公益信託另依法律規定。 | 先判斷是否屬應課贈與稅情形，再核對申報期間。 |",
+        "| **1 個月** | 信託業法第 34 條 | 信託公司取得營業執照後，應於 **1 個月內**以現金或政府債券繳存賠償準備金於中央銀行。 | 常被改成「3 個月」或「營業前」 |",
+        "| **3 個月** | 信託業法施行細則第 12 條<br/>信託法第 72 條 | 1. 信託業之**信託財產評審委員會每 3 個月至少開會評審一次**，並報告董事會。<br/>2. 公益信託受託人於每會計年度終了後 **3 個月內**編具報告向主管機關申報並公告。 | 常被改成「每月」或「每半年」 |",
+        "| **6 個月** | 信託法第 6 條第 2 項<br/>不動產證券化條例第 28 條 | 1. 信託行為成立後 **6 個月內**委託人受破產宣告者，**推定該信託有害及債權**。<br/>2. REITs 依約定應分配之收益，應於會計年度結束後 **6 個月內**分配完畢。 | 常被改成「1 年內」或「3 個月內」 |",
+        "| **1 年 / 10 年** | 信託法第 7 條 | 詐害信託之撤銷權除斥期間：<br/>• 自債權人**知有撤銷原因起，1 年間**不行使而消滅。<br/>• 自信託行為**成立時起，逾 10 年**者亦同。 | 歷屆常見！背法：**知一成十**！ |",
+        "| **1 月底前** | 所得稅法第 92 條之 1 | 信託受託人應於每年 **1 月底前**向稽徵機關申報上一年度信託所得申報書及扣繳憑單。 | 遇農曆春節等連假順延至 2 月 5 日 |",
+        "| **2 月 10 日前** | 所得稅法第 92 條之 1 | 信託受託人應於每年 **2 月 10 日前**將扣繳憑單或免扣繳憑單填發給受益人。 | 遇連續假期延長至 2 月 15 日 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d527ae88ed0c",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-二常見考點金額比率與避坑防線重點整理",
+      "title": "二、常見考點「金額、比率與避坑防線」重點整理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-二常見考點金額比率與避坑防線重點整理",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| **信託公司最低實收資本額** | **新臺幣 20 億元**<br/>• 僅辦理 REIT：10 億元<br/>• 僅辦理 REAT：3 億元 | 信託業設立標準第 3 條 | 門檻極高！發起人出資以現金為限，且**於發起時按實收資本額全額一次認足**！ |",
+        "| **賠償準備金最低門檻** | **新臺幣 5,000 萬元** | 信託業法第 34 條<br/>金管會公告標準 | 繳存**中央銀行**，專款專用於委託人或受益人損害賠償之優先受償。每年 5 月 20 日前按受託財產計提，逾資本額 50% 應即增資。 |",
+        "| **營業保證金與賠償準備金** | 信託業法第 34 條規範賠償準備金，未設一般信託業者按實收資本額 5% 提存的營業保證金制度。 | 信託業法第 34 條 | 實際規定應以信託業法第 34 條及金管會公告為準；特定兼營機構的部分營業保證金符合條件時，得充作賠償準備金。 |",
+        "| **信託業利害關係人持股標準** | **5%**（主要股東）<br/>**10%**（負責人持股企業） | 信託業法第 7 條 | 掌握「**5%**（持有信託業股份）」與「**10%**（負責人等持有企業股份）」兩大關鍵數字！ |",
+        "| **集管帳戶投資單一標的上限** | **10%**（雙十原則） | 信託資金集合管理運用管理辦法第 9 條 | • 個別帳戶投資任一公司總額不得超過該帳戶淨資產 **10%**<br/>• 全體帳戶投資任一公司總額不得超過該公司實收資本額 **10%** |",
+        "| **REITs 收益分配法定比率** | **90% 以上** | 受託機構募集或私募不動產投資信託受益證券處理辦法第 3 條 | 強制將收益分配給受益人，不得隨意保留作資本公積，且須於年度結束後 **6 個月內**分配。 |",
+        "| **全權委託投資業務資本額辨析** | 投信：**3 億元**<br/>投顧：**3 億元**（免受 20 倍限制） | 投信事業設置標準第 7 條<br/>全權委託投資業務管理辦法第 13 條 | 投信公司門檻為 3 億元；投顧代操若達 3 億元則接受委託金額不受淨值 20 倍限制。 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c652827f8c41",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-三常見考點會議與表決權門檻",
+      "title": "三、常見考點「會議與表決權門檻」",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-三常見考點會議與表決權門檻",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| **銀行董事會** | 銀行法第 33 條：達法定金額的利害關係人擔保授信 | **董事三分之二以上出席**（2/3） | **出席董事四分之三以上同意**（3/4） |",
+        "| **土地信託受益人會議** | 信託業法第 26 條：以開發為目的之土地信託借入款項 | **受益權總數三分之二以上出席**（2/3） | **出席表決權數過半數同意**（二分之一以上） |",
+        "| **證券化受益人會議** | 金融資產證券化條例第 25 條：普通決議事項 | **表決權總數二分之一以上出席**（過半數） | **出席受益人表決權過半數同意** |",
+        "| **證券化受益人會議** | 金融資產證券化條例第 26 條：決議有損害特定種類受益人之權利 | **該特定種類表決權總數二分之一以上出席** | **出席受益人表決權三分之二以上同意** |",
+        "| **受益人請求召集門檻** | 金融資產證券化條例第 24 條：受益人請求召集會議 | **持有本金持分總數 3% 以上**<br/>（請求後 15 日不召集得報主管機關許可自行召集） | 開會 **20 日前**書面通知；重大事項（解任、變更契約）**不得以臨時動議提出**！ |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-248bf105ac19",
+      "packId": "trust-exam",
+      "chapterId": "c08",
+      "legacySectionId": "c08-四何者錯誤三大逆向陷阱破題直覺法則",
+      "title": "四、「何者錯誤」三大逆向陷阱破題直覺法則",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材\\信託業務人員重點教材/course_data.json#c08/c08-四何者錯誤三大逆向陷阱破題直覺法則",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1.  **先判斷信託業法第 25 條的禁止事項與例外**：",
+        "    信託財產不具運用決定權，或標的為政府發行債券時，依條文有法定例外；不得把受益人書面同意單獨視為第 25 條的例外。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-29b96da00416",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg00",
+      "legacySectionId": "esg00-學習範圍",
+      "title": "學習範圍",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/00_永續發展全景導讀與淨零碳排架構.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-da5d8a622ab1",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg00",
+      "legacySectionId": "esg00-教材地圖",
+      "title": "教材地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/00_永續發展全景導讀與淨零碳排架構.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-1812efe3edf3",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg00",
+      "legacySectionId": "esg00-使用提醒",
+      "title": "使用提醒",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/00_永續發展全景導讀與淨零碳排架構.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d588a53e9f0f",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-066a374635d9",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01-一永續概念與國際氣候治理",
+      "title": "一、永續概念與國際氣候治理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "**全球目標的演進。**1987年《我們共同的未來》提出經典永續發展定義；2000年MDGs著重貧窮、教育、健康等議題，目標年為2015。2015年9月25日通過2030永續發展議程：SDGs有17項目標、169項細項，面向所有國家，強調全球性、整合性與轉型性。企業使用SDG Compass的順序是：了解 → 排定優先順序 → 設定目標 → 整合營運 → 報告與溝通。",
+        "**國際治理先辨角色。**UNEP與WMO共同於1988年成立IPCC，提供氣候科學評估；UNFCCC為全球氣候公約，COP為締約方大會，負責協商與行動安排。IPCC不直接替各國立法或分配相同配額。",
+        "**協定比較。**京都議定書於1997年通過、2005年生效，側重特定已開發國家的量化義務；巴黎協定於2015年通過、2016年生效，各國提出NDC（國家自主貢獻）。NDC原則上每五年提出新一輪，全球盤點GST也採五年週期；計畫提出不等於一定達成該減量數字。巴黎協定是條約，不能把「個別減量結果的約束方式不同」簡化成整部協定沒有法律拘束力。",
+        "**重要節點與名詞。**COP26關注1.5°C與未減排煤電逐步減少；phase down是逐步減少，phase out是逐步淘汰。COP27涉及損失與損害基金安排，COP28完成首次全球盤點並提出2030年再生能源裝置容量增為三倍的方向。全球甲烷承諾的2030年較2020年減少至少30%是參與國倡議，不能推論所有締約方都加入。",
+        "| 格拉斯哥氣候協定<br/>(COP26) | 2021 | COP26 首次把減少未設置減碳設備之燃煤發電寫入氣候決議 | 完成巴黎協定第 6 條下國際碳市場的執行細節 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-eae54282fb1e",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01--二我國-2050-淨零轉型核心戰略架構",
+      "title": "🇹🇼 二、我國 2050 淨零轉型核心戰略架構",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "國發會於 2022 年 3 月發布「臺灣 2050 淨零排放路徑及策略總說明」，內容以四種轉型方向和兩項治理基礎組成：",
+        "**政策目標與成果分開讀。**教材中的2025年再生能源占比20%、太陽光電20GW、離岸風電5.6GW，以及2030年綠色投融資逾5兆元，都屬來源版本的政策目標，不能直接表述為實際達成。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b50b9caf1e48",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01-三氣候治理與碳費制度",
+      "title": "三、氣候治理與碳費制度",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. **淨零入法（第 4 條）**：《氣候變遷因應法》將 2050 年溫室氣體淨零列為法定長期目標。",
+        "3. **分期目標（第 10 條）**：中央主管機關會同相關部會，每五年訂定國家及部門的階段管制目標。",
+        "4. **碳費適用範圍**：對象須同時符合公告列管排放源、年排放量達 2.5 萬公噸 CO2e，以及屬電力、燃氣供應業或製造業等條件；計算包含直接排放與外購電力的間接排放。個別企業是否須繳費，仍應核對現行規定。",
+        "5. **自主減量計畫（第 29 條）**：事業提出減量計畫並經環境部核定後，得按適用條件申請優惠費率。",
+        "資料來源：[氣候變遷因應法](https://oaout.moenv.gov.tw/law/LawContent.aspx?id=GL005511)、[碳費收費辦法第 2、3 條](https://oaout.moenv.gov.tw/law/LawContent.aspx?id=GL007914)。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-abb8c3d88df5",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01-四ifrs-永續揭露2026-年-9-月調整重點",
+      "title": "四、IFRS 永續揭露：2026 年 9 月調整重點",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "IFRS 永續揭露的公司分級、適用年度及過渡例外，集中於第 04 章。這裡先掌握國際準則如何轉為國內企業的揭露義務；作答時須分清政策方案與已生效規定。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-e168c7402295",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg01",
+      "legacySectionId": "esg01-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/01_ESG核心概念與國內外永續規範發展.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "資料來源：[UNFCCC《巴黎協定》第 2 條](https://unfccc.int/sites/default/files/resource/parisagreement_publication.pdf)。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f5f17b5b672f",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "3. 台灣盤查、登錄與查驗的對象及申報期限"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4fdddadb81dc",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-一溫室氣體盤查三大範疇與-iso-14064-12018-六大類別",
+      "title": "一、溫室氣體盤查三大範疇與 ISO 14064-1:2018 六大類別",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [
+        "(一) GHG Protocol 三大範疇（生活實務情境對照）",
+        "(二) ISO 14064-1:2018 六大排放類別對照",
+        "(三) ISO 14067 產品碳足跡 (Carbon Footprint of Products, CFP)"
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d268fcf780c8",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-二七種主要列管溫室氣體ghgs",
+      "title": "二、七種主要列管溫室氣體（GHGs）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 氣體名稱 | 化學符號 | 主要來源 | 全球暖化潛勢 (GWP, 以 100 年為基準) |",
+        "| 甲烷 | $CH_4$ | 天然氣洩漏、掩埋場、反芻動物及稻田 | 約 28 倍（IPCC AR5） |",
+        "| 氧化亞氮 | $N_2O$ | 施用氮肥、石化製程與污水處理 | 約 265 倍 |",
+        "| 六氟化硫 | $SF_6$ | 高壓電力設備的絕緣介質 | 約 23,500 倍，常見工業氣體中偏高 |",
+        "| 三氟化氮 | $NF_3$ | 面板及薄膜太陽能製程的清潔作業 | 約 16,100 倍；2012 年增列為第七種 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6fcd28a7b918",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-三台灣環境部溫室氣體排放量盤查登錄及查驗管理辦法法定規範",
+      "title": "三、台灣環境部《溫室氣體排放量盤查登錄及查驗管理辦法》法定規範",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. **列管方式**：第一批包括發電、鋼鐵、石油煉製、水泥、半導體及薄膜電晶體液晶顯示器等產業；其他不屬第一批的事業，如全年直接排放加外購電力間接排放達 2.5 萬公噸 $CO_2e$，列入第二批管理。",
+        "2. **申報節點**：每年 4 月 30 日前登錄上一年度排放清冊；列管對象另須在 10 月 31 日前提交許可查驗機構出具的總結報告與查證聲明。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ff10e928a493",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-四碳定價工具與臺灣碳權交易所-tcx",
+      "title": "四、碳定價工具與臺灣碳權交易所 (TCX)",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [
+        "(一) 四大碳定價工具比較"
+      ],
+      "numericRuleCandidates": [
+        "| 內部碳定價 (ICP) | 企業自行設定內部碳價，作為投資或資本支出評估參考 | 由企業依管理需求決定，例如每噸 50–100 美元 | 可採影子價格 (Shadow Price) 或內部碳費 (Internal Carbon Fee) |",
+        "| 費率 | 一般300元／公噸CO₂e；符合指定減量條件者優惠A為50元、B為100元，不可任選 |",
+        "| 抵減與申報 | 教材列國內額度原則上不逾收費排放量10%、次年5月底前申報；須連同適用條件辨認 |",
+        "教學假設：排放40,000公噸，可扣25,000公噸、係數1、費率300元。收費量＝(40,000－25,000)×1＝15,000公噸；碳費＝15,000×300＝4,500,000元。若題目不允許扣免徵額，不能照抄此例。",
+        "1. **設立**：2023 年由證交所與國發基金共同出資，總部設於高雄，資訊中心位於台北。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8ef0de0e6435",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02--五歐盟碳邊境調整機制cbam",
+      "title": "🇪🇺 五、歐盟碳邊境調整機制（CBAM）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. **政策目的**：降低「碳洩漏（Carbon Leakage）」；避免企業因 EU ETS 碳成本而把高排放生產移往管制較寬鬆地區，維持競爭條件一致。",
+        "3. **時程**：2023 年 10 月至 2025 年底的過渡期以按季申報排放為主，無須購買憑證。正式制度於 2026 年開始；進口商自 2027 年 2 月起可購買憑證，並須在 2027 年 9 月 30 日前完成涵蓋 2026 年進口的首份年度申報及憑證繳交。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b928d64865c7",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg02",
+      "legacySectionId": "esg02-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/02_溫室氣體盤查(GHG)與碳定價機制.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 轉型期（2023/10/1–2025/12/31）要求申報排放，正式制度於 2026/1/1 啟動；憑證購買安排自 2027 年 2 月開始。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5f64defddd3e",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6cf2ed1b19da",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-一國際責任金融四大倡議對照",
+      "title": "一、國際責任金融四大倡議對照",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f2a26cd97095",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-二赤道原則equator-principles-ep4",
+      "title": "二、赤道原則（Equator Principles, EP4）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. **何時適用**：主要涵蓋大型基礎建設的專案融資，例如風電、鐵路或天然氣接收站。專案成本達 1,000 萬美元通常進入適用範圍；專案相關公司貸款 (PRCL) 則看單一承貸額是否達 5,000 萬美元且期限至少兩年。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-3719e56b316f",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-三櫃買中心tpex永續發展債券作業要點四大券種",
+      "title": "三、櫃買中心（TPEx）《永續發展債券作業要點》四大券種",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [
+        "發行前後的查核與揭露"
+      ],
+      "numericRuleCandidates": [
+        "2. 債券存續期間，發行人須每年於規定期限內說明資金流向及相關環境或社會效益。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-e9c2638c33dc",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-四金管會綠色金融行動方案-30與永續金融評鑑",
+      "title": "四、金管會「綠色金融行動方案 3.0」與永續金融評鑑",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [
+        "(二) 永續金融評鑑"
+      ],
+      "numericRuleCandidates": [
+        "教學例子：全部100、適用60、符合24，三比率依序是60%、24%、40%。40%不是整體業務的符合占比。允許保險資金投入某類ESG或公共建設項目，也不等於免除投資限額與資格要求。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f8deccbeca6c",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg03",
+      "legacySectionId": "esg03-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/03_綠色金融、永續債券與責任投資原則.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0a612d743cbf",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-052399c1cbaf",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-一tcfd-氣候財務揭露四大核心支柱",
+      "title": "一、TCFD 氣候財務揭露四大核心支柱",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-e2c248b9665e",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-二ifrs-永續準則與金管會接軌藍圖",
+      "title": "二、IFRS 永續準則與金管會接軌藍圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [
+        "(二) 接軌安排：2026 年 9 月公告調整",
+        "(三) 過渡措施讀法"
+      ],
+      "numericRuleCandidates": [
+        "ISSB 於 2023 年 6 月發布 IFRS S1 與 S2。兩者都著眼於可能影響企業前景的永續資訊，涵蓋範圍不同：",
+        "### (二) 接軌安排：2026 年 9 月公告調整",
+        "2026 年 9 月公布的調整方案，將適用範圍集中在較大型公司及環境部列管對象；其他上市櫃公司仍須提供基本氣候資訊。下表列出原接軌階段及本次調整後的對象判讀方式：",
+        "| 第一階段 | 實收資本額 100 億元以上；自 2026 會計年度起適用。 |",
+        "| 第二階段 | 實收資本額 50 億元以上、未達 100 億元；自 2027 會計年度起適用。 |",
+        "| 第三階段 | 實收資本額 20 億元以上、未達 50 億元，以及未達 20 億元但屬環境部公告應盤查登錄及查驗對象；原時程為自 2028 會計年度起適用。 |",
+        "| 資本額未達 20 億元且非環境部納管 | 暫不強制完整適用 IFRS 永續準則，但仍須揭露氣候治理、風險管理、範疇一與範疇二等基本資訊。 |",
+        "第三階段採取分年銜接：初期優先準備氣候資訊，範疇三暫採自願揭露；第二、三階段在特定條件下免為母公司個體範疇一、二取得確信。若接軌前兩年無法同步申報永續專章，可依年報申報期限（股東會前 14 日）辦理。金管會規劃於 2030 年檢視安排；金融、保險及證券期貨業另依各自方案處理。考題涉及時程時，先確認公司類別及規則生效情況。",
+        "舊題可能沿用先前路徑及過渡期安排；作答時先辨別題目所屬年度與公司類別，再核對當期公告。2026 年 9 月調整方案的年報準則及相關函令仍待後續檢討修正，新聞稿所述方案與已生效法規應分開辨讀。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-06757a7b682b",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-三gri-vs-sasb-兩大準則核心差異",
+      "title": "三、GRI vs. SASB 兩大準則核心差異",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "來源將Omnibus I的縮小CSRD範圍、部分報告延後兩年、簡化ESRS與Taxonomy、CBAM年度進口50公噸門檻等列為提案或修法討論。若考題指定原制度、草案或生效規則，須分開判斷；門檻與最終適用範圍仍待按考期查證。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-be7b5e973605",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-四反漂綠anti-greenwashing法律防線與基金審查",
+      "title": "四、反漂綠（Anti-Greenwashing）法律防線與基金審查",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [
+        "ESG 基金揭露與反漂綠："
+      ],
+      "numericRuleCandidates": [
+        "   - 公開基金實際採用的 ESG 投資比重門檻及策略執行情形；個別契約中的 70% 標準不可直接視為所有 ESG 基金的共同法定要求。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6c22927aabc8",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg04",
+      "legacySectionId": "esg04-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/04_企業永續資訊揭露(IFRS永續準則)與反漂綠.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a183a714a826",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg05",
+      "legacySectionId": "esg05-法規與數字",
+      "title": "法規與數字",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/05_永續發展歷屆關鍵名詞與易錯數字速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 台灣淨零目標 | 《氣候變遷因應法》第 4 條：2050 年溫室氣體淨零排放。 |",
+        "| 階段管制目標 | 同法第 10 條：每五年訂定一期。 |",
+        "| 盤查列管門檻 | 環境部公告對象中，符合條件的事業年排放量達 2.5 萬公噸 $CO_2e$。 |",
+        "| 盤查申報期限 | 前一年度排放資料於每年 4 月 30 日前登錄；第三方查驗資料於 10 月 31 日前提交。 |",
+        "| 六氟化硫 | $SF_6$ 的 GWP 約為 $CO_2$ 的 23,500 倍。 |",
+        "| ESG 基金 | 投資比重依基金契約及公開說明書；不能把某基金的 70% 套用到所有基金。 |",
+        "| 赤道原則 EP4 | 專案融資門檻常見考點為專案成本 1,000 萬美元；PRCL 另看承貸額及年期。 |",
+        "| CBAM 正式期 | 2026/1/1 起適用；憑證自 2027 年 2 月起購買。首份年度申報與憑證繳交期限為 2027/9/30。 |",
+        "| IFRS 永續準則第一階段 | 實收資本額 100 億元以上；2026 年編製，於 2027 年年報揭露。 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-52d7fd5da30b",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg05",
+      "legacySectionId": "esg05-常見縮寫",
+      "title": "常見縮寫",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/05_永續發展歷屆關鍵名詞與易錯數字速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6c985b43ce21",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg05",
+      "legacySectionId": "esg05-題目判讀",
+      "title": "題目判讀",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/05_永續發展歷屆關鍵名詞與易錯數字速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-7ac5053c871a",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-97f33fe37658",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-一社會與治理風險",
+      "title": "一、社會與治理風險",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "**委員會範例不等於一律強制。**來源組織規程參考範例列至少3人、至少1名董事參與督導，向董事會負責；不能直接推論所有公司都適用相同設置義務。來源另記2025年1月1日起永續資訊管理納入內控及年度必要稽核的安排，應依適用公司與版本判斷。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8f3c99d788ca",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-二第三方驗證與資訊品質",
+      "title": "二、第三方驗證與資訊品質",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9ad2b1356e6b",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-三永續評等與指數",
+      "title": "三、永續評等與指數",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-76147c5d4ef4",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-四永續授信與保險",
+      "title": "四、永續授信與保險",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f76a69108f5d",
+      "packId": "esg-sustainability-pack",
+      "chapterId": "esg06",
+      "legacySectionId": "esg06-五四類題目的判斷順序",
+      "title": "五、四類題目的判斷順序",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/永續發展基礎能力重點教材/06_社會治理風險確信與永續保險.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-cfc22696801b",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf00",
+      "legacySectionId": "cf00-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/00_消金內控全景導讀與應試策略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-dbef222def7b",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf00",
+      "legacySectionId": "cf00-學科範圍與報考提醒",
+      "title": "學科範圍與報考提醒",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/00_消金內控全景導讀與應試策略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-fb97af150616",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9053dea95f07",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-7e28154b048e",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-一內部控制五大組成要素coso-架構",
+      "title": "一、內部控制五大組成要素（COSO 架構）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4167ea79f8e9",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-二銀行風險管理三道防線嚴格分工",
+      "title": "二、銀行風險管理「三道防線」嚴格分工",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    A --- B[\"第 1 道防線：業務執行單位<br/>各分行消金經辦、放款襄理、理專<br/>責任：落實日常作業控制、定期自行查核\"]"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8a203313a657",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-三總稽核之法定任免與獨立超然地位",
+      "title": "三、總稽核之法定任免與獨立超然地位",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 總稽核之任免程序（實施辦法第 11 條）：",
+        "3. 查核頻率法定期限（實施辦法第 15 條，歷屆高頻數字）：",
+        "   - 查核報告交付期限：內部稽核報告應於查核完成後 2 個月內提報董事會及審計委員會核議。",
+        "4. 自行查核之法定週期（實施辦法第 20 條）：",
+        "5. 法令遵循主管之獨立性與職掌（實施辦法第 32 條）："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a312a90ab137",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-e6968b36e9c6",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf01",
+      "legacySectionId": "cf01-現行內控架構核對",
+      "title": "現行內控架構核對",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/01_銀行內部控制與內部稽核法規精粹.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "金融控股公司及銀行業內控辦法第 9 條要求建立自行查核、法令遵循、風險管理、資訊安全及內部稽核等控制模型，並明定各單位職責與溝通協調。另該辦法於 2026 年 5 月修正部分條文，部分新增或調整事項設有過渡期，須於 2027 年 12 月 31 日前調整符合；讀題時應區分已施行條文與過渡中規定，不能只看修正發布日。",
+        "資料來源：[金融控股公司及銀行業內部控制及稽核制度實施辦法（第 9 條及施行規定）](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380218)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-55d215c79e81",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-41f5f7bcafda",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 無擔保授信「DBR 22 倍」天花板鐵律與計算題",
+        "4. 聯徵中心（JCIC）個人信用紀錄揭露期限規範"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-844f3b9242f3",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-一授信評估-5p-原則消金實務對照",
+      "title": "一、授信評估 5P 原則（消金實務對照）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    A --> B[\"1. 借款人 (People)<br/>借款人之品德誠信、還款意願、家庭責任、工作年資穩定度\"]",
+        "    A --> D[\"3. 還款來源 (Payment)<br/>【最關鍵核心】借款人之經常性薪資收入、穩定租金所得，是否足以支應每月本利和\"]"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-46ae08c03993",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-二dbr-22-倍監理比率與授信審查",
+      "title": "二、DBR 22 倍：監理比率與授信審查",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [
+        "經典計算範例："
+      ],
+      "numericRuleCandidates": [
+        "DBR 是金融機構衡量個人無擔保債務負擔的監理比率。金管會銀行局函釋用語是「不宜超過 22 倍」；它不是《銀行法》直接寫出的普遍法定核貸上限，相關函釋另有特定排除項目。計算前須先確認適用規範、計入哪些債務及例外條件，不可把所有擔保貸款或信用卡額度一概套用同一公式。",
+        "若題目明確指定適用 22 倍基準，月收入 50,000 元的參考比率為 1,100,000 元；此數字不等於銀行必須核准的金額。信用卡業務規則另要求發卡機構審查申請人的還款能力，並依主管機關規定管理全體金融機構無擔保債務與平均月收入倍數；聯徵資料也不得作為核准或駁回的唯一依據。",
+        "資料來源：[金管會銀行局 DBR 22 倍函釋](https://law.banking.gov.tw/Chi/printNewsContent.aspx?msgid=1018)、[信用卡業務機構管理辦法第 22 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380055)",
+        "- 小張每月平均月薪為 50,000 元。",
+        "- 小張在全體銀行的無擔保債務最高上限為：$50,000 \\times 22 = 1,100,000$ 元（110 萬元）。",
+        "- 若小張目前在 A 銀行有信貸 50 萬元，在 B 銀行有信用卡循環未結清 20 萬元（合計已動用 70 萬元）。",
+        "- 則 C 銀行最多只能再核准小張信用貸款：$110萬 - 70萬 = 40 萬元$！",
+        "> 2. 政策性專案貸款（如公教人員自購住宅貸款、青年創業貸款由信保基金保證者）；",
+        "> 3. 原無擔保債務經金融機構依消債條例成立協商之債務協商整合方案。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-02324b6f3be4",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-三不動產擔保品鑑價與抵押權設定",
+      "title": "三、不動產擔保品鑑價與抵押權設定",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-de979586dcd2",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-四銀行法利害關係人授信三大鐵律銀行法第-123233-條",
+      "title": "四、銀行法利害關係人授信三大鐵律（銀行法第 12、32、33 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 法定擔保品之範圍（銀行法第 12 條）：",
+        "2. 利害關係人無擔保授信「絕對禁止」（銀行法第 32 條）：",
+        "     ② 主要股東（持股 1% 以上或排名前十名之自然人/法人股東）；",
+        "     ④ 銀行持有資本達 3% 以上之企業。",
+        "3. 利害關係人擔保授信「嚴格限制」（銀行法第 33 條）：",
+        "   - 達主管機關規定金額以上者（無擔保 1 億元/擔保 2 億元，或資本 1%），必須經董事會三分之二以上董事出席，出席董事四分之三以上同意之「重度特別決議」！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-373b4bb93fb6",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-五聯徵中心jcic個人信用資料法定揭露期限",
+      "title": "五、聯徵中心（JCIC）個人信用資料法定揭露期限",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 逾期、催收及呆帳紀錄 | 自清償之日起揭露 3 年；呆帳未清償者，自轉銷之日起最長揭露 5 年 |",
+        "| 退票紀錄 | 自退票日起揭露 3 年；已辦妥清償註記自註記日起揭露 6 個月 |",
+        "| 破產宣告紀錄 | 自破產宣告日起揭露 10 年 |",
+        "| 信用卡強制停卡未清償 | 自停卡發生日起揭露 7 年；清償者自清償日起揭露 6 個月（最長不超過停卡日起 5 年） |",
+        "| 就學貸款逾期紀錄 | 清償後揭露 1 年；未清償自逾期起最長揭露 3 年 |",
+        "| 前置協商 / 調解成立紀錄 | 履約完成自完成日起揭露 1 年 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-39ecb78b3666",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf02",
+      "legacySectionId": "cf02-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/02_消費金融授信徵信、擔保品鑑價與放款審查.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        ">  陷阱 1：DBR 22 倍的計算分母",
+        "> - 錯誤題目：「DBR 22 倍是指無擔保債務總額不得超過個人每年年薪收入之 22 倍。」",
+        ">  陷阱 2：自住購屋貸款計入 DBR 22 倍？",
+        "> - 錯誤題目：「老王剛買了總價 1,000 萬元的房屋並向銀行辦理 800 萬元房貸，因此老王已經嚴重超過 DBR 22 倍，不能再辦信用卡。」",
+        "> -  正解：錯！房屋貸款屬於有足額不動產擔保品之授信，完全不計入無擔保 DBR 22 倍的計算限額中！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-067c21f9db2d",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b1177b4c41fa",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 信用卡發卡年齡與學生辦卡防線（年齡門檻、學生發卡三家額度限制）",
+        "2. 循環信用利率上限（15%）與最低應繳金額結構"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-bcd09fcad82f",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-一發卡對象與學生辦卡嚴格保護防線",
+      "title": "一、發卡對象與「學生辦卡」嚴格保護防線",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 一般正卡申請人 | 須年滿 18 歲，且具有完全行為能力者 | 依其財力與信用狀況核給額度，受 DBR 22 倍規範 |",
+        "| 附卡申請人 | 須年滿 15 歲，且為正卡持卡人之配偶、父母、子女、兄弟姊妹 | 額度與正卡共用 |",
+        "| 大專院校全職學生 | 須符合法定年齡與基本身分要件 | 學生辦卡三大鐵律：<br/>① 發卡機構核發學生卡，全體金融機構合計不得逾 3 家；<br/>② 每家發卡機構對學生之信用額度不得逾新台幣 2 萬元；<br/>③ 發卡機構核准發卡後，必須通知其父母或法定代理人！ |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0f3cce3c540a",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-二循環信用利率上限與最低應繳金額",
+      "title": "二、循環信用利率上限與最低應繳金額",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "   - 依《銀行法》第 47-1 條規定，自 104 年 9 月 1 日起，銀行辦理信用卡及現金卡之循環信用利率，最高年利率不得超過 15%！",
+        "   - 當期一般消費款項之 10%；"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-861ed5ac76c6",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-三信用卡遭盜刷與掛失自負額法律責任",
+      "title": "三、信用卡遭盜刷與掛失自負額法律責任",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 掛失前之自負額限制（保障消費者核心條文）：",
+        "   - 自辦理掛失手續時起前 24 小時以前被冒用之損失，持卡人需承擔自負額，但每卡最高自負額以新台幣 3,000 元為上限！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8925844efc4f",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-四金融消費者保護法評議機制",
+      "title": "四、金融消費者保護法（評議機制）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 處理期限：金融機構應於收受申訴之日起 30 日內為適當之處理，並將處理結果回覆申訴人。",
+        "   - 若金融機構逾 30 日未處理，或消費者不接受處理結果，消費者得於收受處理結果或期限屆滿之日起 60 日內，向金融消費評議中心申請評議。",
+        "4. 一定額度以下之評議拘束力（金保法第 29 條，業者必須強制接受）：",
+        "     ① 投資型商品或服務：爭議金額或評議賠償金額在新臺幣 100 萬元以下；",
+        "     ② 非投資型財產保險、消金授信及信用卡爭議等：爭議金額或評議賠償金額在新臺幣 10 萬元以下！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-3acd207b6bc6",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-五信用卡催收違約金與校園促銷嚴格禁令管理辦法第-2247-條",
+      "title": "五、信用卡催收違約金與校園促銷嚴格禁令（管理辦法第 22、47 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "   - 違約金計收標準通常為：第 1 期 300 元、第 2 期 400 元、第 3 期 500 元，以遏止利滾利。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9a879133ce46",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「台灣信用卡循環信用年利率最高可由銀行自由約定收取至 20%。」",
+        "> -  正解：錯！銀行法明文規定循環信用年利率上限為 15%！超過 15% 違法無效！",
+        "> -  正解：錯！全體金融機構核發全職學生卡以 3 家為限，且每家額度上限 2 萬元，且必須發函通知父母！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9ad25b42c94d",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf03",
+      "legacySectionId": "cf03-信用卡額度審查以還款能力及總負債為核心",
+      "title": "信用卡額度審查：以還款能力及總負債為核心",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/03_信用卡業務規範、循環信用與消費者保護法.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "現行《信用卡業務機構管理辦法》第 22 條要求發卡機構確認申請人身分、穩定收入與還款能力，核給額度應與還款能力相當；並須將全體金融機構無擔保債務（含信用卡）與最近一年平均月收入倍數納入管理。短期內密集查詢及代償註記也屬審核因素，但不得只憑聯徵資料作成核准或拒絕決定。",
+        "資料來源：[信用卡業務機構管理辦法第 22 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380055)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-874ac7d825a2",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-03c099dab8c3",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c11b776af1f9",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-一銀行資產品質五大分類與提存比率必背百分比",
+      "title": "一、銀行資產品質五大分類與提存比率（必背百分比）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 第一類 | 正常授信資產 | 債務人正常繳息、本金未逾期、信用健全 | 最低 1%（一般放款）；不動產購屋貸款最低 1.5% |",
+        "| 第二類 | 應予注意資產 | 評估有足額擔保，但本金或利息逾期 1 個月至 12 個月；或無擔保逾期 1~3 個月 | 最低 2% |",
+        "| 第三類 | 可望收回資產 | 評估有足額擔保，但本利逾期超過 12 個月；或無擔保逾期 3~6 個月 | 最低 10% |",
+        "| 第四類 | 收回困難資產 | 評估收回困難，無擔保逾期 6 個月以上 | 最低 50% |",
+        "| 第五類 | 收回無望資產 | 評估完全無法收回，債務人失聯、破產或逃逸 | 100% 全數提存 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-da70fea49054",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-二金融機構與委外催收合法規範催收紅線禁區",
+      "title": "二、金融機構與委外催收合法規範（催收紅線禁區）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a4c983866209",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-三轉銷呆帳之法定程序銀行法規範",
+      "title": "三、轉銷呆帳之法定程序（銀行法規範）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 轉銷條件："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-37bf5feb1c69",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-四個人資料保護法在消金之落實個資法第-192028-條",
+      "title": "四、個人資料保護法在消金之落實（個資法第 19、20、28 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 法定蒐集與處理要件（第 19 條）：",
+        "3. 外包作業之個資洩密責任（委外辦法第 8 條）：",
+        "4. 個資侵害之法定損害賠償限額（個資法第 28 條）：",
+        "   - 被害人不易證明其實際受損害額時，得請求法院依侵害情節，以每人每一事件新臺幣 500 元以上 2 萬元以下計算；",
+        "   - 對於同一原因事實造成多數人權益受侵害者，合計最高總額以新臺幣 2 億元為限！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-42472ee4e0f9",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf04",
+      "legacySectionId": "cf04-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/04_逾期放款催收準則、呆帳轉銷與個資保護防線.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0e82d2212cce",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf05",
+      "legacySectionId": "cf05-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/05_消金內控歷屆常見缺失與高頻陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8320e48be32c",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf05",
+      "legacySectionId": "cf05-常見法規數字整理",
+      "title": "常見法規數字整理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/05_消金內控歷屆常見缺失與高頻陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 無擔保債務上限比率 (DBR) | 平均月收入之 22 倍（金管會令） | 錯寫為年收入或 20 倍 | 雙二原則，月薪二十二倍 |",
+        "| 信用卡循環信用利率上限 | 年利率 15%（銀行法 §47-1） | 錯寫為 18% 或 20% | 一五上限，卡債防線 |",
+        "| 掛失前自負額最高上限 | 每卡最高新台幣 3,000 元（契約範本） | 錯寫為 5,000 元或無上限 | 三千封頂，其餘銀行扛 |",
+        "| 每家機構對學生額度上限 | 每家最高新台幣 2 萬元（辦法 §22） | 錯寫為 5 萬元 | 單家卡額兩萬限，嚴禁主動調高 |",
+        "| 資產分類五類最低提存比 | 1%、2%、10%、50%、100%（備抵呆帳辦法） | 錯寫為 1%, 5%, 20% | 一二、十、五十、全額 |",
+        "| 一般查核與自行查核週期 | 一般查核每年 1 次；自行查核半年 1 次（實施辦法 §15,20） | 錯寫為兩年一次 | 稽核年年查，自查半年辦 |",
+        "| 個資侵害法定賠償限額 | 每人每案 500~2 萬，總額 2 億元（個資法 §28） | 錯寫為 10 萬或無上限 | 五百到兩萬，兩億元天花板 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-06f9e5e531c6",
+      "packId": "consumer-finance-exam-pack",
+      "chapterId": "cf05",
+      "legacySectionId": "cf05-題目判讀重點",
+      "title": "題目判讀重點",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/消費金融內部控制與稽核重點教材/05_消金內控歷屆常見缺失與高頻陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 「無擔保看 DBR 22 倍，房貸車貸有擔保除外」：",
+        "   - 24 小時內免自負額，24 小時以前最高自負額 3,000 元！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-75e6efb3442a",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c00",
+      "legacySectionId": "c00-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/00_金融科技力全景導讀與準備策略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-350da7f0554f",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c00",
+      "legacySectionId": "c00-學科範圍與報考提醒",
+      "title": "學科範圍與報考提醒",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/00_金融科技力全景導讀與準備策略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-1efc9ff70d28",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b318ded6930f",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-de4fec8bfc5f",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-一金融科技演進四部曲白話生活化對照",
+      "title": "一、金融科技演進四部曲（白話生活化對照）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| FinTech 2.0<br/>(1967~2008) | 金融機構主導數位化 | 自動櫃員機(ATM)、SWIFT 國際清算、電子交易中心、網路銀行 | 銀行開始有 ATM 與網銀，不用每件事都跑實體櫃檯排隊！ | 1967年第一台 ATM 出現；主導權在傳統金融機構 |",
+        "| FinTech 3.0<br/>(2008~至今) | 新創與科技巨頭跨界進擊 | 智慧型手機、行動支付、P2P 借貸、群眾募資、純網銀 | 買咖啡直接刷手機條碼，連皮夾都不用帶，甚至路邊攤也能無現金支付！ | 2008年金融海嘯為分水嶺；由新創科技公司(Startups)主導推進 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5a02bfd05762",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-二鯰魚效應catfish-effect與競合模式",
+      "title": "二、鯰魚效應（Catfish Effect）與競合模式",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [
+        "傳統金融與科技新創的三大互動形態："
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9dd821178857",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-三abcd-四大核心技術底座",
+      "title": "三、ABCD 四大核心技術底座",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f5fb356cde21",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-四我國主管機關金融科技發展路徑圖-20",
+      "title": "四、我國主管機關「金融科技發展路徑圖 2.0」",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-59ae5017bc8b",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c01",
+      "legacySectionId": "c01-歷屆常見易錯觀念直擊出題文字坑",
+      "title": "歷屆常見易錯觀念（直擊出題文字坑）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/01_金融科技發展路徑與數位轉型.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「金融科技主要專注於服務金字塔頂端 20% 的高資產客戶，忽視長尾端。」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-74a33fd872d0",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ac5298bf46e0",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "雲端運算（算力容器）、大數據（燃料資源）與人工智慧（決策大腦）構成了現代金融科技的鐵三角。本章在歷屆 839 題中佔比高達 22%，重點包括："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4910eebc3c05",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-一雲端運算服務三層架構租屋白話比喻法",
+      "title": "一、雲端運算服務三層架構（租屋白話比喻法）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8461ad956a56",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-二雲端四種部署模型deployment-models",
+      "title": "二、雲端四種部署模型（Deployment Models）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b207155192c6",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-三大數據-5v-特性與三種資料形態",
+      "title": "三、大數據 5V 特性與三種資料形態",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [
+        "2. 資料形態三大類"
+      ],
+      "numericRuleCandidates": [
+        "- 非結構化資料 (Unstructured Data)：佔全體資料量 80% 以上！無固定格式，如語音對話錄音、監視器影片、客服手寫備忘錄、PDF公文。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-01ae5150eea6",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-四人工智慧與智能理財顧問-robo-advisor",
+      "title": "四、人工智慧與智能理財顧問 (Robo-Advisor)",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [
+        "1. 傳統理財顧問 vs. 智能理財顧問 (Robo-Advisor)"
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b8e4403edb91",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-1a37d57236af",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c02",
+      "legacySectionId": "c02-金融業-ai-應用的治理檢查",
+      "title": "金融業 AI 應用的治理檢查",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/02_雲端運算、大數據與人工智慧金融應用.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "資料來源：[金管會《金融業運用人工智慧（AI）指引》](https://www.fsc.gov.tw/websitedowndoc?file=chfsc%2F202408231741530.pdf&filedisplay=%E9%99%84%E4%BB%B6_%E9%87%91%E8%9E%8D%E6%A5%AD%E9%81%8B%E7%94%A8AI%E6%8C%87%E5%BC%95.pdf)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-f80b7da8eb46",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5c76ce95ee3b",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0ca9be6bdb4c",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-一區塊鏈的解剖學區塊結構與密碼學基礎",
+      "title": "一、區塊鏈的解剖學：區塊結構與密碼學基礎",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [
+        "1. 關鍵密碼學元件"
+      ],
+      "numericRuleCandidates": [
+        "### 1. 關鍵密碼學元件"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ee7e436f2f17",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-二共識機制consensus-mechanism比較",
+      "title": "二、共識機制（Consensus Mechanism）比較",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| PoW | Proof of Work<br/>工作量證明 | 比拼電腦硬體算力（解數學難題，挖礦） | 安全性最高、經比特幣十餘年驗證 | 極度耗能、TPS（每秒交易筆數）極低（比特幣約每秒 7 筆） |",
+        "| PoS | Proof of Stake<br/>權益證明 | 比拼持幣數量與幣齡（持股越多、越久機率越高） | 大幅節省能源（較 PoW 降低 99% 以上能耗）、速度快 | 可能導致「富者越富」、有 Nothing at Stake 攻擊風險 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-60cb5a9075b5",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-三三種鏈型態比較金融業到底用哪種",
+      "title": "三、三種鏈型態比較（金融業到底用哪種？）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-fc8b38d06cc8",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-四虛擬資產監理法規與證券型代幣-sto",
+      "title": "四、虛擬資產監理法規與證券型代幣 (STO)",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [
+        "(二) 《洗錢防制法》VASP「登記制」新法刑事責任",
+        "(三) 櫃買中心《證券商經營證券型代幣業務管理辦法》(STO 框架)"
+      ],
+      "numericRuleCandidates": [
+        "1. 虛擬資產發行面：發行人應編製公開白皮書並揭露發行條件、技術規格與風險提示。",
+        "- 無照營業刑事罰則：未依規定完成登記而提供虛擬資產服務者，處 2 年以下有期徒刑、拘役或科或併科新臺幣 500 萬元以下罰金！法人犯者，除處罰其行為人外，對法人亦科以該罰金。",
+        "1. 法律定位：具備獲利分享或投資性質之代幣，依《證券交易法》第 6 條核定為有價證券。",
+        "   - 新臺幣 3,000 萬元（含）以下：得依證交法第 22 條第 1 項豁免申報，並於櫃買中心 STO 交易平台辦理募資。",
+        "   - 超過新臺幣 3,000 萬元：必須進入「金融科技創新實驗（監理沙盒）」提出申請，實驗成功後始得辦理。",
+        "   - 專業投資人中之自然人，每案認購上限為新臺幣 30 萬元（法人無上限），以防範零售散戶投資風險。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5a53e9ba070a",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c03",
+      "legacySectionId": "c03-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/03_區塊鏈、分散式帳本與虛擬資產監理.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「我國 STO 櫃買平台開放一般散戶投資人每人最高可投資 1,000 萬元。」",
+        "> -  正解：錯！我國 STO 僅限「專業投資人」參與，且其中的自然人每案認購上限僅 新臺幣 30 萬元！",
+        ">  陷阱 5：PoW 51% 算力攻擊能做什麼？",
+        "> - 錯誤題目：「若惡意礦工掌握了全網 51% 算力，就能隨意修改他人的錢包密碼並轉走全世界所有人的比特幣。」",
+        "> -  正解：錯！51% 攻擊只能進行「雙重支付（Double Spending）」或阻擋確認交易，根本無法憑空竄改密碼或偽造別人的數位簽章！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-aeedbe24984c",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ad40778ada1b",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5125992b6782",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-一純網路銀行internet-only-bank法定設立規範",
+      "title": "一、純網路銀行（Internet-Only Bank）法定設立規範",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [
+        "2. 台灣三家取得許可之純網銀（2019/7/30 核准）："
+      ],
+      "numericRuleCandidates": [
+        "  - 發起人中金融機構（含金控、銀行、保險、證券）持股比率合計應達 40% 以上；",
+        "  - 且其中至少應有一家金控或銀行之持股比率達 25% 以上（確保具備主導金融風控與合規能力）。",
+        "1. 樂天國際商業銀行 (Rakuten Bank)：日本樂天集團與國票金控合資（生態圈為樂天生態圈與電商點數）。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0775fcbf5ff6",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-二開放銀行open-banking理念與國際推動模式",
+      "title": "二、開放銀行（Open Banking）理念與國際推動模式",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [
+        "(一) 全球三大推動模式比較（歷屆必考）"
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-41e178aeeeef",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-三開放銀行三大階段推進與授權機制",
+      "title": "三、開放銀行三大階段推進與授權機制",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 第一階段<br/>(公開資料查詢) | 各銀行官網原本公開可查之利率、匯率、分行ATM位置、信用卡優惠等共通資料 |  不需個別授權<br/>（本來就是公開資訊） | 使用比價 App，一次比較 30 家銀行今天的美元定存利率最高是哪一家！ |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-50d255f98a74",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-四開放-api-與-tsp-業者的責任架構",
+      "title": "四、開放 API 與 TSP 業者的責任架構",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-cf7e150ee769",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c04",
+      "legacySectionId": "c04-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/04_純網銀、開放銀行與API生態系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「因為純網銀沒有實體分行租金負擔，因此法定最低實收資本額大幅放寬為 10 億元。」",
+        "> -  正解：錯！純網銀依然是從事收受存款放款之大眾信用機構，最低實收資本額與一般商業銀行完全一致，必須達新臺幣 100 億元！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0a271ea3dca9",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-03073ed384db",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 電子支付機構條例全新整併亮點（電支電票二合一、紅利點數整合）"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-01da90fa43c7",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-一第三方支付-vs-電子支付機構業務邊界比較",
+      "title": "一、第三方支付 vs. 電子支付機構（業務邊界比較）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "依據 2021 年新修正實施之《電子支付機構管理條例》（電支電票二合一新法），我國將電子支付與電子票證整併為單一專法管理：",
+        "| 法定最低資本額 | 無金融專法限制（依公司法辦理） | 依業務分級：<br/>• 僅代理收付：1 億元<br/>• 兼營收受儲值：3 億元<br/>• 兼營小額匯兌（全功能）：5 億元 |",
+        "| 收受儲值款項 |  絕對嚴禁！不能預先存錢！ |  可以（儲值款項餘額以等值新臺幣 5 萬元為限） |",
+        "| 輔導升格紅線 | 代理收付日平均餘額逾新臺幣 20 億元者，必須於 6 個月內向金管會申請電支許可！ | 已領有金管會營業執照 |",
+        "> 「第三方支付只能單純代收付，不能儲值、不能轉帳！只要題目問到『能儲值』、『能帳戶間互相轉帳』，必然是電子支付機構！日均餘額破 20 億元必須強制升格電支！」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c2022097bcc1",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-二數位身分認證三大要素authentication-factors",
+      "title": "二、數位身分認證三大要素（Authentication Factors）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-5ef33ab2b3e4",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-三fido-聯盟與金融-fido-標準",
+      "title": "三、FIDO 聯盟與金融 FIDO 標準",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [
+        "1. 什麼是 FIDO (Fast IDentity Online)？",
+        "2. 金融 FIDO（數位身分認證生態圈）"
+      ],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-1e52e90ba101",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-四零信任架構-zero-trust-與金融資安聯防體系",
+      "title": "四、零信任架構 (Zero Trust) 與金融資安聯防體系",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [
+        "2. 台灣金融資安鐵三角（常考英文縮寫）"
+      ],
+      "numericRuleCandidates": [
+        "- F-SOC (Financial Security Operations Center)：金融資安監控中心，7x24 小時全天候自動化蒐集與關聯分析金融資安日誌與威脅事件。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-2b442231e96f",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c05",
+      "legacySectionId": "c05-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/05_支付創新、身分認證與金融資安.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「某新創電商設立第三方支付平台，為增加客戶黏著度，允許客戶先儲值 5 萬元現金於平台供日後購物扣抵。」",
+        "> -  正解：錯！依條例第 5 條規定，第三方支付代理收付日平均餘額若超過新臺幣 20 億元，必須在 6 個月內向金管會申請電子支付機構營業許可，否則將構成未經許可擅自經營電支業務之重大違法！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-dd4d48b6b716",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-467f32d15809",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "2. 《金融科技發展與創新實驗條例》（金融監理沙盒條例）關鍵法定數字（審查 60 日、實驗 1 年、展延 6 個月、修法上限 3 年）"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-9ae19c2e8859",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-一regtech-vs-suptech-雙劍合璧",
+      "title": "一、RegTech vs. SupTech 雙劍合璧",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-444313807c46",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-二金融監理沙盒條例精粹常見法定數字",
+      "title": "二、金融監理沙盒條例精粹（常見法定數字）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [
+        "1. 什麼是監理沙盒（Regulatory Sandbox）？"
+      ],
+      "numericRuleCandidates": [
+        "我國於 2018 年 1 月 31 日正式制定公布《金融科技發展與創新實驗條例》（俗稱金融監理沙盒條例），為全球少數以「專法位階」落實沙盒機制之國家！",
+        "    A[\"提出申請<br/>自然人/獨資/合夥/法人皆可\"] -->|主管機關審查<br/>60 日內作成決定| B[\"進入實驗期<br/>原則最長 1 年\"]",
+        "    B -->|得申請延長 1 次<br/>最長 6 個月| C[\"延長實驗期\"]",
+        "    C -->|涉及法律修正程序<br/>全期最長上限 3 年| D[\"法規鬆綁落地\"]",
+        "1. 申請人資格（條例第 4 條）：",
+        "2. 主管機關審查時限（條例第 7 條）：",
+        "   - 主管機關應自受理申請之日起 60 日內完成審查並作成決定（必要時得延長一次，並以延長 60 日為限）。",
+        "3. 審查會議組成（條例第 8 條）：",
+        "4. 實驗期間與延長限制（條例第 9 條，最愛考！）：",
+        "   - 基本實驗期間：原則上以 1 年為限。",
+        "   - 一般延長限制：實驗屆滿前得申請延長，以延長 1 次為限，最長不得逾 6 個月。",
+        "   - 特殊法律修正上限：若創新實驗評估具可行性，且其業務經營需「修正相關金融法規條文」者，得不受前述 1 次 6 個月之限制，但全部創新實驗期間合計最長不得逾 3 年！",
+        "5. 責任豁免與排除例外（條例第 25 條、第 26 條，必考核心陷阱）：",
+        "6. 參與者保障機制（條例第 13、14 條）："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-70a2e2cbd588",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-三金融監理沙盒-vs-金融業務試辦",
+      "title": "三、金融監理沙盒 vs. 金融業務試辦",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a9d1b7195a14",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-創新實驗的申請與參與者保護",
+      "title": "創新實驗的申請與參與者保護",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "資料來源：[金融科技發展與創新實驗條例](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380254)、[金融科技創新實驗管理辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380257)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0c2e4ead8bdc",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c06",
+      "legacySectionId": "c06-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/06_監理科技(RegTech)與金融監理沙盒法規.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        ">  陷阱 2：創新實驗的最長合計年限",
+        "> - 錯誤題目：「創新實驗若涉及法律修訂，只要立法院未三讀通過，就可以無限制連續展延 10 年。」",
+        "> -  正解：錯！即便涉及立法院修法程序，條文明文規定全部創新實驗期間合計最長不得超過 3 年！超過 3 年即必須退場或停止實驗！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6ed3075cbe4d",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c07",
+      "legacySectionId": "c07-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/07_金融科技歷屆高頻考點與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b619dd619e98",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c07",
+      "legacySectionId": "c07-常見法規數字整理",
+      "title": "常見法規數字整理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/07_金融科技歷屆高頻考點與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 純網路銀行最低實收資本額 | 新臺幣 100 億元 | 錯寫為 10 億或 50 億 | 百億資本，與商銀同規 |",
+        "| 純網銀發起人中金融業持股比 | 合計達 40% 以上 | 錯寫為 20% 或 50% | 金融合資至少四成 |",
+        "| 純網銀中單一金控/銀行持股比 | 至少一家達 25% 以上 | 錯寫為 10% 或 30% | 單一主力至少兩成五 |",
+        "| 電子支付機構最低資本額（分級） | 代理收付 1 億；兼營儲值 3 億；兼營小額匯兌 5 億 | 錯寫為一律 10 億元 | 一三五億，電支三級門檻 |",
+        "| 第三方支付日均餘額升格門檻 | 逾新臺幣 20 億元（6個月內申請電支執照） | 錯寫為 10 億或 50 億 | 二十億日均，逼上電支梁山 |",
+        "| 電支帳戶儲值上限金額 | 每一帳戶以等值新臺幣 5 萬元為限 | 錯寫為 1 萬元或 10 萬元 | 儲值封頂，五萬為限 |",
+        "| STO 豁免申報募資金額上限 | 新臺幣 3,000 萬元（含）以下 | 錯寫為 1,000 萬或 5,000 萬 | 三千萬內免申報，超過進沙盒 |",
+        "| STO 自然人專業投資人認購限額 | 每案上限新臺幣 30 萬元 | 錯寫為 100 萬元或無限制 | 自然人限投三十萬 |",
+        "| 未登記經營 VASP 刑事責任 | 2 年以下有期徒刑、併科 500 萬元以下罰金 | 錯寫為僅有行政罰鍰 | 未登經營關兩年，罰金五百萬 |",
+        "| 金融監理沙盒審查時限 | 自受理日起 60 日內（得展延一次60日） | 錯寫為 30 日或 90 日 | 兩個月（60天）定生死 |",
+        "| 金融監理沙盒基本實驗期 | 原則最長 1 年 | 錯寫為 6 個月或 2 年 | 一年打底測試 |",
+        "| 金融監理沙盒一般延長限制 | 以 1 次為限，最長 6 個月 | 錯寫為可連續展延三次 | 一次半年，過關再戰 |",
+        "| 金融監理沙盒涉修法最長上限 | 全部合計最長不得逾 3 年 | 錯寫為 5 年或無上限 | 三年封頂，法案落地 |",
+        "| 比特幣減半週期 (Halving) | 每產出 210,000 個區塊（約 4 年） | 錯寫為每年或每兩年 | 四年減半，礦工獎勵縮小 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0e278b6f2eb6",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c07",
+      "legacySectionId": "c07-歷屆題目常見英文縮寫",
+      "title": "歷屆題目常見英文縮寫",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/07_金融科技歷屆高頻考點與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "- F-SOC：金融資安監控中心（7x24 即時日誌關聯分析）。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6d95433d9c4e",
+      "packId": "fintech-exam-pack",
+      "chapterId": "c07",
+      "legacySectionId": "c07-題目判讀重點",
+      "title": "題目判讀重點",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/金融科技力重點教材/07_金融科技歷屆高頻考點與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 「第三方只能代收付，儲值轉帳是電支；日均二十億破頂，半載之內拿執照」：",
+        "   - 看到「小額匯兌」、「帳戶儲值」，選項若有第三方支付一律刪除，答案鎖定電子支付機構！日均餘額 20 億元為升格門檻！",
+        "   - 僅代收付 1 億、收受儲值 3 億、兼營匯兌 5 億；每一電支帳戶儲值上限 5 萬元！",
+        "   - 沙盒條例申請人不限金融業，自然人、獨資、合夥與法人皆具申請資格！洗錢資恐絕對不豁免！實驗修法最長上限 3 年！",
+        "   - 證券型代幣一般民眾不能隨意買，限專業投資人，自然人上限 30 萬元！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4cc88f4430ed",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml00",
+      "legacySectionId": "aml00-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/00_防制洗錢全景導讀與法令體系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-6098ed42137c",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml00",
+      "legacySectionId": "aml00-學科範圍與報考提醒",
+      "title": "學科範圍與報考提醒",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/00_防制洗錢全景導讀與法令體系.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-4190b29dc7da",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml01",
+      "legacySectionId": "aml01-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/01_洗錢防制法核心要件與洗錢三階段生活圖解.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-47f3daa92432",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml01",
+      "legacySectionId": "aml01-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/01_洗錢防制法核心要件與洗錢三階段生活圖解.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a6cb41ada015",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml01",
+      "legacySectionId": "aml01-一洗錢三部曲經典洗錢三階段必考金流情境",
+      "title": "一、洗錢三部曲：經典洗錢三階段（必考金流情境）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/01_洗錢防制法核心要件與洗錢三階段生活圖解.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a75333ad7077",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml01",
+      "legacySectionId": "aml01-二洗錢罪之法定構成要件洗錢防制法第-2-條",
+      "title": "二、洗錢罪之法定構成要件（洗錢防制法第 2 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/01_洗錢防制法核心要件與洗錢三階段生活圖解.md",
+      "detailSubheadings": [
+        "1. 前置特定犯罪之門檻（第 3 條）",
+        "2. 「自洗錢」入罪化",
+        "3. 最新重大修法：打擊人頭帳戶與收集帳戶專條（第 15-1 條、第 15-2 條）",
+        "4. 洗錢罪法定刑責與重大財產加重（第 19 條）",
+        "5. 受規範主體：金融機構與指定非金融事業或人員 (DNFBP)（第 5 條）"
+      ],
+      "numericRuleCandidates": [
+        "### 1. 前置特定犯罪之門檻（第 3 條）",
+        "- 最輕本刑為 6 個月以上有期徒刑之罪（重罪原則）；",
+        "- 以及雖非 6 個月以上，但法條特別明文列舉之重大經濟犯罪（如刑法詐欺罪、背信罪、證交法內線交易、操縱股價、銀行法不法吸金、智慧財產權侵害等）。",
+        "### 3. 最新重大修法：打擊人頭帳戶與收集帳戶專條（第 15-1 條、第 15-2 條）",
+        "- 無正當理由收集他人金融帳戶罪（第 15-1 條）：",
+        "  - 法定刑度：處 1 年以上 7 年以下有期徒刑，得併科新臺幣 3,000 萬元以下罰金！",
+        "- 人頭帳戶交付提供罪（第 15-2 條）：",
+        "    2. 第二層（刑事責任）：告誡後 5 年以內再犯，或意圖得財產利益、受三人以上囑託交付者，處 3 年以下有期徒刑、拘役或科或併科新臺幣 100 萬元以下罰金！",
+        "### 4. 洗錢罪法定刑責與重大財產加重（第 19 條）",
+        "- 一般洗錢罪：處 3 年以上 10 年以下有期徒刑，併科新臺幣 1 億元以下罰金。",
+        "- 洗錢標的達 1 億元以上加重洗錢罪：其洗錢之財產或財產上利益達新臺幣 1 億元以上者，處 5 年以上有期徒刑，併科新臺幣 4 億元以下罰金！",
+        "- 沒收原則（第 21 條）：特定犯罪所得與洗錢標的物，不問屬於犯罪行為人與否，一律沒收之！",
+        "### 5. 受規範主體：金融機構與指定非金融事業或人員 (DNFBP)（第 5 條）"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-0261d78b4e4d",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml01",
+      "legacySectionId": "aml01-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/01_洗錢防制法核心要件與洗錢三階段生活圖解.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「毒販將販毒取得的現金，分批以每筆 48 萬元存入五家不同銀行帳戶，此行為屬於多層化(Layering)階段。」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-26e0facdcd2f",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-8b24baf13aa6",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "確認客戶身分（Know Your Customer / Customer Due Diligence, CDD）是防制洗錢最前線的防禦工事。本章在歷屆中考題佔比達 26%，三大必考考點：",
+        "2. 法人實質受益人（Beneficial Ownership, BO）穿透三階辨識法則（25% 門檻）"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-ee3aaf12da51",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-一cdd-法定發動時機五大強制查核情境",
+      "title": "一、CDD 法定發動時機（五大強制查核情境）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "    A --> C[\"2. 進行指定門檻之臨時性交易<br/>① 辦理達新台幣 50 萬元（含等值外幣）之現金交易；<br/>② 辦理達新台幣 3 萬元（含等值外幣）之境內外電匯交易！\"]",
+        "    A --> D[\"3. 發現疑似洗錢或資恐交易時<br/>（不論交易金額大小，即便只有 1,000 元，只要覺得可疑即必須重新查核）\"]"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-729335d33d52",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-二法人實質受益人穿透三階辨識必考-25-門檻",
+      "title": "二、法人「實質受益人」穿透三階辨識（必考 25% 門檻）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 第一位階<br/>(股權控制) | 直接或間接持有該法人股份或資本超過 25% 之自然人 | 張三持有甲公司 30% 股權，張三即為實質受益人！ |",
+        "| 第二位階<br/>(其他實質控制) | 若第一位階無人持股超過 25%（股權分散），則尋找透過其他方式行使實質控制權之自然人 | 股東會表決權信託受託人、協議控制人、具實質人事任免權之自然人 |",
+        ">  考古題免穿透之例外法人（得不適用 25% 實質受益人辨識）："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d5691f0ac995",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-三重要政治性職務人士peps與加強審查-edd",
+      "title": "三、重要政治性職務人士（PEPs）與加強審查 (EDD)",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [
+        "1. PEPs 涵蓋範圍",
+        "2. 加強客戶審查（Enhanced Due Diligence, EDD）與退職後評估"
+      ],
+      "numericRuleCandidates": [
+        "4. PEP 退職後之處置原則（第 10 條）：國內外重要政治性職務人士退職後，並非一律終生適用 EDD，金融機構應進行「風險基礎評估」，考量其卸任時間長短、當前實質政治影響力等，評估其是否仍應視為高風險客戶列管。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-430a0d3450df",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-四金融機構應婉拒建立業務關係或交易之法定情形辦法第-4-條",
+      "title": "四、金融機構應婉拒建立業務關係或交易之法定情形（辦法第 4 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-a7204b192b05",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-五客戶身分資料與交易紀錄保存年限辦法第-12-條",
+      "title": "五、客戶身分資料與交易紀錄保存年限（辦法第 12 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "- 身分資料保存年限：所有在確認身分過程中所取得之各項資料、紀錄憑證，自「與客戶業務關係結束」起，至少保存 5 年！",
+        "- 交易紀錄保存年限：對國內外所有交易進行完整記錄，確保足以重現金流軌跡，自「交易完成」時起，至少保存 5 年！",
+        "- 遇有司法調查或可疑申報時：如涉及正由司法調查或監管機關查處之案件，即便逾 5 年，相關紀錄仍應繼續妥善保存至結案為止！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-62b326a0f2e9",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-現行法規核對cddpep-與風險基礎措施",
+      "title": "現行法規核對：CDD、PEP 與風險基礎措施",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "法人客戶的實質受益人判斷，先找直接或間接持有股份／資本「超過 25%」的最終自然人；未能辨識或仍有疑義時，再查其他控制方式，仍未找到者辨識高階管理人員。對低風險可採相稱的簡化措施，但高風險情況須加強審查。現任國外重要政治性職務人士須直接視為高風險；國內或國際組織 PEP 則依規定評估，不能把所有 PEP 一律寫成相同處置。",
+        "資料來源：[金融機構防制洗錢辦法第 3、6、10 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380252)、[洗錢防制法第 8 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?kw=%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E6%B3%95&pcode=G0380131)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-effcae2c855d",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml02",
+      "legacySectionId": "aml02-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/02_客戶審查(CDD)與實質受益人辨識攻略.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「依主管機關規定，法人實質受益人之辨識標準為直接或間接持股達 50% 以上之自然人。」",
+        "> -  正解：錯！國際 FATF 與我國法定門檻為超過 25%（非 50%）！",
+        "> - 錯誤題目：「台積電或聯發科前往銀行開立營運帳戶時，銀行必須要求其提供股東名簿並逐一穿透至持有 25% 的自然人始得開戶。」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-56621dbcdee8",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-69f1c0ef5667",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "4. 交易紀錄與客戶身分資料保存年限（至少 5 年）"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-7ed3213e7fc0",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-一兩大申報制度雙核心對照表必背數字清單",
+      "title": "一、兩大申報制度雙核心對照表（必背數字清單）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 申報門檻 | 單筆現金收付或換鈔達新台幣 50 萬元（含等值外幣）以上 | 無任何金額門檻！只要主觀認定異常可疑，即便只有 1,000 元也必須申報！ |",
+        "| 申報時限 | 應於交易完成後 5 個營業日內 | ① 經專責主管核定後，應立即向法務部調查局申報，且申報期限不得逾 2 個營業日；<br/>② 明顯重大緊急案件應立即先行申報；法規未列「自確認日起最長 10 個營業日」的期限。 |",
+        "> 「大額（CTR）看 50 萬、5 個營業日；可疑（STR）不論金額，經專責主管核定後立即申報、期限不得逾 2 個營業日；重大緊急案件立即通報。兩者通報法務部調查局。」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-79bd587ba243",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-二免向調查局申報-ctr-之法定豁免清單辦法第-13-條",
+      "title": "二、免向調查局申報 CTR 之法定豁免清單（辦法第 13 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b8584b89640f",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-三申報保密義務與防洩密條款tipping-off",
+      "title": "三、申報保密義務與防洩密條款（Tipping-off）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "1. 嚴格保密義務（洗錢防制法第 10 條）：",
+        "   - 刑事處罰：違反洩密義務者，處 3 年以下有期徒刑、拘役或科新台幣 50 萬元以下罰金！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c3a7c730275c",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-四資料與憑證保存年限法規第-8-條",
+      "title": "四、資料與憑證保存年限（法規第 8 條）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "- 客戶身分確認資料（CDD 文件）：自業務關係結束（如結清銷戶、保單終止）後，至少保存 5 年！",
+        "- 交易紀錄憑證（傳票、帳冊、電匯水單）：自交易完成時起，至少保存 5 年！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-57a47e2cbf1e",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml03",
+      "legacySectionId": "aml03-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/03_大額通貨申報(CTR)與疑似洗錢可疑交易申報(STR).md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        ">  陷阱 1：轉帳 1,000 萬元是否需申報 CTR？",
+        "> - 錯誤題目：「客戶透過網路銀行將存款 1,000 萬元以跨行轉帳匯入建商帳戶，行員必須於 5 個營業日內申報大額通貨交易(CTR)。」",
+        "> - 錯誤題目：「櫃員發現某人神色慌張且頻繁拆單存入可疑款項，應於交易次月 10 日前向金管會銀行局申報。」",
+        "> -  正解：錯！應於專責主管核定後立即向法務部調查局申報，且不得逾 2 個營業日；不是以發現日起算。"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-b9b2718752bc",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-055f67ebb377",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-本章學習導航與核心地圖",
+      "title": "本章學習導航與核心地圖",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-27dadd59bc4d",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-一資恐防制法主管機關與審議機制",
+      "title": "一、《資恐防制法》主管機關與審議機制",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-c13690e4e32a",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-二資恐罪之特殊法律要件必考法理",
+      "title": "二、資恐罪之特殊法律要件（必考法理）",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "資恐防制法第 8 條、第 9 條規範之資恐罪，其最大特色在於："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-27777f2d2735",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-三目標性金融制裁tfs與即刻凍結作業",
+      "title": "三、目標性金融制裁（TFS）與即刻凍結作業",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [
+        "1. 目標性金融制裁（TFS）之法律效果（資恐防制法第 7 條）",
+        "2. 違法提供資產或違反凍結令之刑事處罰（第 10 條）"
+      ],
+      "numericRuleCandidates": [
+        "    B --> D[\"2. 法定通報義務（第 8 條）<br/>金融機構與非金融從業人員應即向【法務部調查局】辦理申報！\"]",
+        "    B --> E[\"3. 生活與人道例外（第 9 條）<br/>維持生活所必需之基本費用或醫療保險費，<br/>得檢具證明向【法務部】申請專案許可！\"]",
+        "### 1. 目標性金融制裁（TFS）之法律效果（資恐防制法第 7 條）",
+        "- 善意第三人之權利保障（第 7 條第 4 項）：受制裁處分前，善意第三人已取得之既有債權或擔保物權，其依法行使權利（如實行抵押權求償）不受凍結處分之影響！",
+        "### 2. 違法提供資產或違反凍結令之刑事處罰（第 10 條）",
+        "- 違反第 7 條規定，明知為受制裁之對象仍為其提撥、交付財產或為其管理財產者：",
+        "  - 法定刑度：處 1 年以上 7 年以下有期徒刑，得併科新臺幣 1,000 萬元以下罰金！",
+        "> 「只要名單一命中，第一時間立刻凍結資產，不用等法院裁判！生活費找法務部申請，違法解凍或資助判 1 至 7 年重刑！」"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-60bbe22a56fe",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-現行指定制裁名單通報流程",
+      "title": "現行指定制裁名單通報流程",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "《資恐防制法》第 7 條禁止對指定制裁對象的帳戶、通貨及其他支付工具提款、匯款、轉帳、付款或轉讓；對其財物或財產利益也不得移轉、處分或以其他方式改變。金融機構如持有或管理受制裁對象財物，或知悉財物所在地，須向法務部調查局通報。一般案件經專責主管核定後，通報期限不得逾 2 個營業日；明顯重大緊急案件須立即通報。這個通報期限屬指定制裁財物通報辦法，應與 STR 的申報規則分開記憶。",
+        "資料來源：[資恐防制法第 7 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030047)、[金融機構對經指定制裁對象之財物或財產上利益及所在地通報辦法第 3 條](https://law.moj.gov.tw/LawClass/LawAll.aspx?kw=%E9%80%9A%E5%A0%B1&pcode=G0380251)"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-d489148792e0",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml04",
+      "legacySectionId": "aml04-歷屆常見易錯觀念",
+      "title": "歷屆常見易錯觀念",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/04_資恐防制法要件與目標性金融制裁名單篩檢.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "> - 錯誤題目：「某人匯款 10 萬元給國外恐怖組織，但該組織尚未策劃任何恐怖行動即遭瓦解，因此該匯款人不構成資恐罪。」",
+        "> -  正解：錯！依據資恐防制法第 7 條規定，金融機構凍結受制裁資產後，應即向法務部調查局辦理申報！"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-cda063499d15",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml05",
+      "legacySectionId": "aml05-sec-01",
+      "title": "概述",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/05_防制洗錢歷屆必考罰則、天數與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-553b5dd67401",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml05",
+      "legacySectionId": "aml05-常見法規數字整理",
+      "title": "常見法規數字整理",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/05_防制洗錢歷屆必考罰則、天數與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "| 前置特定重大犯罪門檻 | 最輕本刑 6 個月以上有期徒刑之罪（洗錢防制法 §3） | 錯寫為 3 年以上或 1 年以上 | 六個月起跳，列為特定罪 |",
+        "| 法人實質受益人持股標準 | 直接或間接持股超過 25%（辦法 §3） | 錯寫為 50% 或 10% | 超過兩成五，穿透找自然人 |",
+        "| 大額通貨交易申報(CTR)門檻 | 單筆現金達新台幣 50 萬元（§9） | 錯寫為 100 萬或包含轉帳 | 現金五十萬，CTR 門檻 |",
+        "| 大額通貨(CTR)申報期限 | 交易完成後 5 個營業日內（辦法 §13） | 錯寫為 2 個營業日或次月 | 五十萬配五日（五五對應） |",
+        "| 可疑交易(STR)申報期限 | 核定後 2 個營業日內，自確認日起 10 營業日內（辦法 §15） | 錯寫為 1 個月或月底前 | 可疑核定兩日內，最長十日 |",
+        "| 跨境電匯強制核對身分門檻 | 達新台幣 3 萬元（含等值外幣）（辦法 §3） | 錯寫為 50 萬元 | 電匯三萬起，身分需查清 |",
+        "| 交易憑證與身分資料保存年限 | 自業務結束或交易完成起至少保存 5 年（§8） | 錯寫為 3 年或 10 年 | 五年防線，紀錄不可銷 |",
+        "| 違反洩密義務(Tipping-off)刑責 | 處 3 年以下有期徒刑、拘役或 50 萬罰金（§17） | 錯寫為免除刑責 | 洩密三年刑，絕不通風報信 |",
+        "| 違反目標性金融制裁刑責 | 處 1 年以上 7 年以下有期徒刑、併科 1,000 萬（資恐 §10） | 錯寫為僅處行政罰鍰 | 違法資助或解凍，一至七年重刑 |",
+        "| 收集他人帳戶罪 | 處 1 年以上 7 年以下有期徒刑、併科 3,000 萬（§15-1） | 錯寫為罰鍰處分 | 收集帳戶罪，最高判七年 |",
+        "| 人頭帳戶提供罪 | 先告誡，5 年內再犯或有對價處 3 年以下有期徒刑（§15-2） | 錯寫為直接起訴重刑 | 先告誡後刑責，五年內再犯關三年 |",
+        "| 一般洗錢罪與億元加重刑責 | 一般處 3~10 年/併科 1 億；達 1 億元處 5 年以上/併科 4 億（§19） | 錯寫為無加重條款 | 洗錢判三年起，破億判五年以上 |",
+        "| 金融機構違反防洗內控罰鍰 | 處新臺幣 50 萬元以上 1,000 萬元以下罰鍰（§6） | 錯寫為 10 萬至 50 萬 | 內控缺失罰千萬，重罰落實法遵 |"
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    },
+    {
+      "id": "kp-26a9856fe4dd",
+      "packId": "aml-cft-exam-pack",
+      "chapterId": "aml05",
+      "legacySectionId": "aml05-題目判讀重點",
+      "title": "題目判讀重點",
+      "status": "候選段落；尚未逐點語意審核",
+      "sourceLocator": "教材/防制洗錢與打擊資恐重點教材/05_防制洗錢歷屆必考罰則、天數與陷阱速查手冊.md",
+      "detailSubheadings": [],
+      "numericRuleCandidates": [
+        "3. 「上市公司免穿透，一般法人超過 25%」：",
+        "5. 「通報洩密判三年，善意申報全免責」："
+      ],
+      "prerequisiteIds": [],
+      "officialMappings": [],
+      "candidateQuestionIds": []
+    }
+  ]
+}

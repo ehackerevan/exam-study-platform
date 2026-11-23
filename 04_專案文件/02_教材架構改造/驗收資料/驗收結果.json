@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-03",
+  "baselineFiles": 160,
+  "prototype": {
+    "sharedBlocks": 8,
+    "modes": 3,
+    "questions": 4,
+    "officialId": "esg-115-3-47",
+    "answerAndOriginalPreserved": true,
+    "wrongToConcept": true,
+    "productionProgressUntouched": true,
+    "reload": true
+  },
+  "oldFlow": {
+    "searchOperations": 3,
+    "resultsForScope": 9,
+    "directSectionLinkedQuestions": 0,
+    "scope": "已開科目，點搜尋／輸入詞／點結果；不是人類查找時間"
+  },
+  "documents": {
+    "提案.html": "PASS",
+    "新舊知識地圖.html": "PASS"
+  },
+  "runtimeErrors": [],
+  "automaticNetworkRequests": []
+}

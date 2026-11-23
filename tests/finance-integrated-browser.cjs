@@ -2,7 +2,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=r
 (async()=>{const b=await chromium.launch(),p=await b.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));try{
 await p.goto(pathToFileURL(path.resolve('dist/index.html')).href);assert.equal(await p.getByRole('link',{name:'永續金融補充教材',exact:true}).count(),0);
 await p.goto(pathToFileURL(path.resolve('dist/永續發展基礎能力重點教材.html')).href+'?view=reader');
-const questions=JSON.parse(fs.readFileSync('教材/教學單元/永續金融練習.json'));assert.equal(questions.length,40);assert.equal(new Set(questions.map(q=>q.id)).size,40);
+const questions=JSON.parse(fs.readFileSync('01_教材來源/教學單元/永續金融練習.json'));assert.equal(questions.length,40);assert.equal(new Set(questions.map(q=>q.id)).size,40);
 const expected={3:['混合金融','影響力','六成','SPT','CBS','SLL','18個月','綠色存款'],4:['森林圖片'],6:['AAA','就業99','長壽','基差']};
 for(const width of [390,1440]){await p.setViewportSize({width,height:900});let total=0;for(const [index,terms] of Object.entries(expected)){
 if(await p.locator('#reader-toc-list').isHidden())await p.locator(width<768?'#btn-section-toc':'#btn-toggle-sidebar').click();await p.locator('#reader-toc-list li').nth(Number(index)).click();const body=await p.locator('#sections-container').innerText();for(const term of terms)assert(body.includes(term),term);
